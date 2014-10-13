@@ -72,4 +72,12 @@ When choosing an approach I looked at the pros and cons of a couple approaches a
 | - *Allows commonly known SQL syntax*| |    |
 | - *Seamless integration with IndexedDB but falls back on Web SQL and LocalStorage when IndexedDB is not supported*| |    |
 
+###Implementation Details/How To
+This section walks through the cacheService solution.
+
+1. Download the production version of YDN-DB.
+
+Download the production version at: http://dev.yathit.com/ydn-db/downloads.html
+
+
 
