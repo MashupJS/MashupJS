@@ -128,8 +128,14 @@ mashupApp.service('mashupExamplesItemDataService', function ($http, $q, $log, ca
 You'll notice all calls are asynchronous allowing the client to continue working.
 Here you see the $q injected service that provides the deferred, promise, and resolve methods. On the receiving end of this is the "then" function that promises to execute as soon as the deferred promise is resolved.
 
+```
+$scope.example2items_click = function() {
+    mashupExamplesDataService.getExample2items($scope.example2items_cache).then(function(data) {
+        $scope.example2items = data;
+    });
+};
+```
 
-<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/3.png"/>
 
 ####Notes
 
