@@ -55,7 +55,7 @@ The routeConfig uses the *resolve* function of each route to call the *logRouteI
 Error and Debug are custom implementations.  The *CodeBlueMonitor*, shown in the code below, is an implementation of custom logging.
 
 **Error logging**
-There is, currently, no special implementation for *Error logging* but this is easily remedied once you've decided how you want your errors logged.  You can roll your own solution or use a Log4net type implementation.
+There is, currently, no special implementation for *Error logging* but this is easily remedied once you've decided how you want your errors logged.  You can "roll your own" solution or use a Log4net type implementation.
 
 Using $log to log errors is as simple as getting a logObject as shown above and setting the *subject* to "Error".
 
