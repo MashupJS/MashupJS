@@ -108,4 +108,8 @@ When the environment is a mobile device the size the log is allowed to be is red
 When the client machine is using a battery the battery's level of charge determines some functionality.  When the battery is 30% or lower then log management significantly decreases and the tolerance for stale data is increased.  Reducing the amount of work the client must perform will help preserve battery power until the device can be recharged.
 
 
+##How to use
 
+To get the same behavior of $log do nothing different.  $log will operate as before with the addition of the log entry being saved to the indexedDB database *logServiceDB* in the *log* table.
+
+To leverage the **logService**
