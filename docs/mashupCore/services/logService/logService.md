@@ -103,7 +103,7 @@ The sessionService collects environmental information including the machine type
 
 **Battery level**
 
-The battery level is not supported by all browsers but where supported it is collected and displayed.
+The battery level is not supported by all browsers but where supported it is collected, displayed, and used for throttling.
 
 **Throttling**
 
