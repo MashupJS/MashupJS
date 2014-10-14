@@ -24,7 +24,7 @@ Overriding $log gives us
  - Mobile friendly resource economy
 
 ###Console.[*log, info, warn, error*]
-Vinny Linck's article, referenced above probably explains this better.  When overriding the $log service a delegate to the $log service is provided via $delegate.  This is used to restore the *Console* implementation of $log.
+Vinny Linck's article, referenced above, probably explains this better.  When overriding the $log service a delegate to the $log service is provided via $delegate.  This is used to restore the *Console* implementation of $log.
 
 ```
 $delegate.log(argument);
