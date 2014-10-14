@@ -118,7 +118,7 @@ When the client machine is using a battery the battery's level of charge determi
 
 To get the same behavior of $log do nothing different.  $log will operate as before with the addition of the log entry being saved to the indexedDB database *logServiceDB* in the *log* table.
 
-To leverage the **logService** call the *utility.getLogObject* function passing in information you would like to see in a log.  The object you get back will have the information you pass along with environmental and session information.
+To leverage the **logService** call the *utility.getLogObject* function passing in information you would like to see in a log.  The object you get back will have the information you passed along with environmental and session information.
 
 Additionally, any property you add to the returned *logObject* will be included in logging.
 
