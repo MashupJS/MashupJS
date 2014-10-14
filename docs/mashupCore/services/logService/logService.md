@@ -1,6 +1,6 @@
 #logService
 
-####Some Credit
+####Credit
 I first learned about the $log service and reasons to use it in Adam Freeman's, "Pro AngularJS".
 
 I stumbled across an easy to understand example and explanation in Vinny Linck's "AngularJS: How to override $log implementation": http://vinnylinck.tumblr.com/post/58833687265/angularjs-how-to-override-log-implementation
