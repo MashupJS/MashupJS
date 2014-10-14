@@ -59,6 +59,7 @@ There is, currently, no special implementation for *Error logging* but this is e
 
 Using $log to log errors is as simple as getting a logObject as shown above and setting the *subject* to "Error".
 
+Below is the portion of the **logService** where you determine the action taken by *subject*.
 ```
 var subject = logServiceObj.subject;
 
