@@ -141,7 +141,9 @@ Looking at the code above you can see a simple pattern.
 - mod (module name)
 - func (function name)
 - status (this can be any status value that makes sense.  Often set to true/false but not limited.)
-
+```
+var logObject = utility.getLogObject("Instr", "MashupCoreUI", "sessionLoad", "loadComplete", "UI-Routing", sessionService);
+```
 Here is the interface for *getLogObject*
 ```
 mashupApp.service('utility_LogHelper', function () {
@@ -151,3 +153,18 @@ mashupApp.service('utility_LogHelper', function () {
 You might have noticed that this function is implemented in *utility_LogHelper*.  To reduce dependency injection into your module a number of utilities, like this, will be exposed by the *utility* module.
 
 This implementation is straight forward and described here: https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
+
+2 . If you have any properties you'd like to add, do this next.
+```
+logObject.absUrl = $location.absUrl();
+logObject.url = $location.url();
+```
+3 . Call the **$log([message], [log object]);**
+```
+$log.log("UI-Routing to [ " + $location.url() + " ]", logObject);
+```
+
+##Loosley coupled
+The goal of the **logService** is to be loosely coupled.  Errors that occur in the logService should not negatively impact the user.  Also, adding the logService to an application should be as simple as adding the script to the application.  The problem is dependencies so when adding logService be sure to include the dependency modules.
+
+Removing the **logService** should have zero impact on an application so in that regard it is loosely coupled.
