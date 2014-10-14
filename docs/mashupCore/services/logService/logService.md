@@ -31,7 +31,7 @@ $delegate.log(argument);
 ```
 
 ###Instrumentation
-This implementation of logService decorates a logObject with several user session and environmental variables.  Within the logObject itself are subject, app, mod (module), func, and status.  Using these properties and calling $log the task of instrumenting applications is easy.
+This implementation of logService decorates a logObject with several user session and environmental variables.  Within the logObject itself are ***subject, app, mod (module), func, and status***.  Using these properties and calling $log the task of instrumenting applications is easy.
 
 The routeConfig uses the *resolve* function of each route to call the *logRouteInstrumentation*.  Each route the user takes is logged to the indexedDB database and can be retrieved to see what parts of the application is used.
 
