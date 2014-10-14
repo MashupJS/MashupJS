@@ -112,4 +112,42 @@ When the client machine is using a battery the battery's level of charge determi
 
 To get the same behavior of $log do nothing different.  $log will operate as before with the addition of the log entry being saved to the indexedDB database *logServiceDB* in the *log* table.
 
-To leverage the **logService**
+To leverage the **logService** call the *utility.getLogObject* function passing in much of the specific information you would like to see in a log.  The object you get back will have the information you pass along with environmental and session information.
+
+Additionally, any property you add to the returned *logObject* will be included in logging.
+
+Example, the *logRouteInstrumentation* function uses all the standard *logObject* properties and adds two of it's own.
+
+```
+    var logRouteInstrumentation = function () {
+        // -------------------------------------------------------------------
+        // Instrumenting the application so we can track what pages get used.
+        // -------------------------------------------------------------------
+        var logObject = utility.getLogObject("Instr", "MashupCoreUI", "sessionLoad", "loadComplete", "UI-Routing", sessionService);
+        // Additional or custom properties for logging.
+        logObject.absUrl = $location.absUrl();
+        logObject.url = $location.url();
+        $log.log("UI-Routing to [ " + $location.url() + " ]", logObject);
+        // -------------------------------------------------------------------
+        // -------------------------------------------------------------------
+    };
+```
+
+Looking at the code above you can see a simple pattern.
+
+1 . Call the *utility.getLogObject* function passing in the following:
+- subject
+- app (application name, you might have many applications)
+- mod (module name)
+- func (function name)
+- status (this can be any status value that makes sense.  Often set to true/false but not limited.)
+
+Here is the interface for *getLogObject*
+```
+mashupApp.service('utility_LogHelper', function () {
+
+    var getLogObject = function (subject, app, mod, func, status, sessionService) {
+```
+You might have noticed that this function is implemented in *utility_LogHelper*.  To reduce dependency injection into your module a number of utilities, like this, will be exposed by the *utility* module.
+
+This implementation is straight forward and described here: https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
