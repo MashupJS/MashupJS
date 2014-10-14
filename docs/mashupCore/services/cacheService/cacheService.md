@@ -73,9 +73,157 @@ When choosing an approach I looked at the pros and cons of a couple approaches a
 ###Implementation Details/How To
 This section walks through the cacheService solution.
 
-1. Download the production version of YDN-DB.
+1 . Download the production version of YDN-DB.
 
-Download the production version at: http://dev.yathit.com/ydn-db/downloads.html
+>http://dev.yathit.com/ydn-db/downloads.html
+
+2 . Add the **cachedService.js** to your project.
+
+This code can be found in the Mashup.  It has a couple dependencies you can choose to include or re-factor out including the utilityService, detectService, and sessionService.
+
+* **utilityService** - provides various general functions such as UTC conversions and a logging herper function.
+* **detectService** - provides detection services so the cacheService doesn't make unnecessary trips to the WebApi.  If the WebApi is unavailable then it takes 3 or 4 seconds to fail.  If 3 or 4 of these calls are required for a page then a disconnected status could lead to a 10 or 12 second delay.  The detectService prevents this.
+*  **sessionService** - provides common session data shared among all modules and pages.
+
+These dependencies can be removed and code modified to create a drop in cacheService module.
+
+Most of what you need to know is well documented in the comments.
+
+The public function is getData. The caller of this function doesn't know if that application is online or offline. All the client knows is it will receive data.
+
+The isCacheStale determines if a call to retrieve data is required or not. The client passes in "staleMinutes " then used by isCacheStale to make this determination. If you are in a position where you only want the fresh data you can pass in a staleMinutes value of "0" (zero) which will always return as stale and fetch fresh data. You can also take the opposite approach if you know the cache exists from another part of the application and you do not wish for the freshest data. In this case pass "9999" or some other unreasonable number of stale minutes.
+
+This is a very simple api that will likely become more complex and rich as more developers use and improve it.
+
+NOTE: on clearing out old cache on a global scale. When cacheService first runs it not only defines a set of functions but executes code to check how old the cache is in general. If the cache is too old, as defined by "staleMinutes" then everything is removed. The default is 1 week which is 10080 minutes but this can be changed to any amount of time you desire. The first call of each subject after the cache is removed is a stale response and fresh data is fetched.
+
+3 . Now that we have the cacheService installed we can inject it directly into any component we wish.
+```
+mashupApp.service('cacheService', function ($http, $q, $log, utility, detectService, sessionService) {
+```
+
+4 . Client code for calling the getData method
+
+```
+mashupApp.service('mashupExamplesItemDataService', function ($http, $q, $log, cacheService) {
+
+    return {
+        // Directly calling the web api. Not using the mashup cache but can leverage 
+        // the caching of angular-cached-resource
+
+        getItems1: function () {
+            return $http.get("http://localhost:50000/api/MashupExamples/Items/", { withCredentials: true });
+        },
+
+        getExample2items: function (staleMinutes) {
+
+            var cacheName = 'MashupExamples_example2items';
+            var schema = { name: cacheName, keyPath: 'id' };
+            var webApiUrl = 'http://localhost:50000/api/MashupExamples/Items/';
+
+            return cacheService.getData(cacheName, schema, webApiUrl, staleMinutes);
+        },
+```
+
+You'll notice all calls are asynchronous allowing the client to continue working.
+Here you see the $q injected service that provides the deferred, promise, and resolve methods. On the receiving end of this is the "then" function that promises to execute as soon as the deferred promise is resolved.
 
 
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/3.png"/>
 
+####Notes
+
+On MahsupJS benefits:
+
+MashupJS provides the pluming so that all application built using the Mashup can take advantage of. The cacheService is available to all but if another approach is better for your application or for all your applications, that approach can be used instead.
+
+The benefit of MashupJS is not only the shared plumbing the ability for the plumbing to evolve and improve. When a new version of jQuery or YDN-DB is released it is updated in the MashupJS and all applications benefit. Before this approach it would be easy for applications to start diverging and before you know it you're supporting 3 or 4 versions of the same micro-libraries.
+
+This caching model is new and with many other caching models available and coming out this will either be improved or replaced. The goal of the Mashup is to show and host best of bread practices and technology. Maybe not on day one but eventually it will mature.
+
+**On async alerts**
+
+You'll notice commented alert code. For example:
+
+```setTimeout(function () { alert('cache data'); }, 1);```
+
+This is an async approach to raising alerts allowing your page to finish loading while you test the cache function. Otherwise, the alert() method is synchronous and would halt all execution.
+
+**Tip: Working with YDN-DB async**
+When testing or debugging calls to YDN-DB remember to place log statements inside the "then" function because YDN-DB is async.
+
+In this example you'll notice the log message "SELECT statement start" is nowhere near the select statement. The $log function runs immediately, then you'll notice several other $log results and even the "SELECT statement end" long before you see the results of the YDN-DB results.
+
+Example: Here is sample code.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/4.png"/>
+
+Here is the console. Notice that the logs do not come in the order you might expect.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/5.png"/>
+
+**Tip: YDN-DB Database Name**
+Be careful, when creating YDN-DB objects. You will not receive an error if you use a name for your object that was already created but you will be confused to find the data you expected to be there doesn't exist.
+
+**Tip: The IndexedDB database must be loaded**
+
+It's very easy to pop in a bit of code to grab data from the local cache. I added a function to retrieve cache metadata. Because this was not my normal process for retrieving cached data I wrote code to go directly against IndexedDB. As a result I got inconsistent results. When refreshing the screen I noticed that everything worked about half the time.
+
+The caching code is well tested and accounts for waiting for the database to become ready.
+
+So, this tip is to always make sure your local cache database is ready before you access it. We listen for the "onReady" event and set a variable to true. This variable is global and can be used by any module that needs access to cached data.
+
+```
+var dbCache = new ydn.db.Storage('mashCache');
+// This value "dbCacheReady" allows the rest of the application to know when the database is ready
+// to use. Specifically, cacheService needs this.
+var dbCacheReady = false;
+
+dbCache.onReady(function (e) {
+if (e) {
+
+if (e.target.error) {
+  console.log('Error due to: ' + e.target.error.name + ' ' + e.target.error.message);
+}
+throw e;
+
+}
+dbCacheReady = true;
+});
+```
+
+**Tip: Looking at the cached data**
+
+You can look at the cached data through the Chrome browser.
+Press F12 – The Chrome developer tools will load.
+
+Select the "Resources" tab and you'll see a list of all the available storage mechanisms.
+
+YDN-DB will use IndexedDB first, if available, before it uses lesser local database options.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/6.png"/>
+
+Expand IndexedDB and you'll see a list of database you have created for the web site you are currently in.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/7.png"/>
+
+Expand this further and you'll see a list of data sources/tables you have created via the schema or dynamic schema.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/8.png"/>
+
+If you select a table then the data is retrieved and displayed in the right hand panel.
+
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/9.png"/>
+
+###Manipulating Cached Data
+Once data is retrieved and cached you might still want to manipulate and filter down the results further for your specific needs. IE: We have a list of customers in cache but you need customer number 1234's data only.
+
+Any number of micro-libraries or plain ole JavaScript can be used to work with JSON data stored in the cash. On the ydn-db.html page are several examples of filtering and manipulating returned data using both YDN-DB and Lodash.
+
+YDN-DB is a simple API used to wrap the complexity of the IndexedDB API. YDN-DB also provides a number of methods to manipulate and filter JSON data including the familiar SQL interface.
+
+Lodash, a replacement for Underscore, is a powerful API for extending JavaScript and dealing with JSON data.
+
+Examples on the ynd-db.html page include displaying data on page load, retrieving cached data, using the YDN-DB SQL interface, filter on multiple columns, Begins with search, lodash's _.map, _.max, _.min, summaries, totals, and "Like" searches.
+
+All for these examples use the cacheService injected into the module. When the application goes off-line the cacheService continues to provide data as it still on-line supporting the Off-line first model. 
