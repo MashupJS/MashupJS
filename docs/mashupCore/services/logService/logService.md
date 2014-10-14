@@ -98,12 +98,15 @@ Using the same approach as above with the *subject* set to "Debug".
 ###Mobile friendly
 
 **Environment**
+
 The sessionService collect environmental information including the machine type (mobile/desktop), what kind of browser, version of browser, operating system, and where possible battery level.
 
 **Battery level**
+
 The battery level is not supported by all browsers but where supported it is collected and displayed.
 
 **Throttling**
+
 Using the information collected about the environment certain tasks are throttled.  
 
 When the environment is a mobile device the size the log is allowed to be is reduced in size.  
