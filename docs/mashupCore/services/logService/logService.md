@@ -49,14 +49,48 @@ The routeConfig uses the *resolve* function of each route to call the *logRouteI
 
 ```
 
-###Error logging
-
-
-###Debugging clients
-
-
 ###Custom logging actions
+Error and Debug are custom implementations.  The *CodeBlueMonitor*, shown in the code below, is an implementation of custom logging.
 
+**Error logging**
+There is, currently, no special implementation for *Error logging* but this is easily remedied once you've decided how you want your errors logged.  You can roll your own solution or use a Log4net type implementation.
+
+Using $log to log errors is as simple as getting a logObject as shown above and setting the *subject* to "Error".
+
+```
+var subject = logServiceObj.subject;
+
+switch (subject) {
+
+    case "Perf":
+        {
+
+            break;
+        }
+    case "HeartBeatFail":
+    case "CodeBlueMonitor":
+        {
+            logDb.put({ name: 'heartbeat' }, logServiceObj);
+            break;
+        }
+    case "Debug":
+        {
+            // This is a space for doing anything you need to do with debug data.
+            // This can be saved to a separate IndexedDB database or table.
+            // This can be sent to a WebApi or file.
+            // Using the "subject" property you can add any custom behavior you need.
+            break;
+        }
+    case "Error":
+        {
+            // Do something.
+            break;
+        }
+}
+```
+
+**Debugging clients**
+Using the same approach as above with the *subject* set to "Debug".
 
 ###Mobile friendly
 
