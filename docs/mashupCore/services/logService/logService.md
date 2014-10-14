@@ -8,7 +8,9 @@ I stumbled across an easy to understand example and explanation in Vinny Linck's
 The **logService** is significantly different than the work that kick-started it's creation but it's good go give credit whenever possible and these guys did a great job helping me along my way.
 
 ##Introduction
-The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.  https://github.com/MashupJS/MashupJS
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.  https://github.com/MashupJS/MashupJS 
+
+The Mashup is home to a service called **logService**.
 
 The **logService** overrides the **$log** service to extend it's functionality.
 
