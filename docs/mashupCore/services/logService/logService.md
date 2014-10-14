@@ -99,7 +99,7 @@ Using the same approach as above with the *subject* set to "Debug".
 
 **Environment**
 
-The sessionService collect environmental information including the machine type (mobile/desktop), what kind of browser, version of browser, operating system, and where possible battery level.
+The sessionService collects environmental information including the machine type (mobile/desktop), what kind of browser, version of browser, operating system, and where possible battery level.
 
 **Battery level**
 
