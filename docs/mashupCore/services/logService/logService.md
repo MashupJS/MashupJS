@@ -14,7 +14,7 @@ The **logService** overrides the **$log** service to extend it's functionality.
 
 Overriding $log gives us
 
- - Console.[log, info, warn, error]
+ - Console.[*log, info, warn, error*]
  - Instrumentation
  - Error logging
  - Debugging production clients
