@@ -20,14 +20,21 @@ The detect() never attempts to detect a remote service but uses any information 
 When the detect() function is called the remote service is added to a Heartbeat Monitor where it is periodically checked.
 
 ##failed()
-failed() is a function
+failed() is a function the cache calls when a remote service attempt fails.   This tells the detectService to a service has failed and updates it's status in cased another call to the remote service is attempted.  The remote service is added to a *Code Blue List* and a process begins checking the remote service for a heart beat.
 
 ##Internals
 Here are some of the internals and how they work.  You'll shouldn't have to deal with them but it might be useful to understand how they are intended to work.
+
 ###Heartbeat Monitor
+The *Heartbeat Monitor* tracks connectivity once a resource is accessed.  If a connection attempt fails then the connection is added to the *Code Blue Monitor* list and if not already started the *Code Blue Monitor* starts.
+
+Successful heartbeats are logged to the console but not to IndexedDB.
+
+Evert 2 hours the log is checked and any logs over 1 week old are removed. 
 
 ###Code Blue Monitor
+The *Code Blue Monitor* check resources for connectivity much like the *Heartbeat Monitor* does but more frequently.  The results, pass or fail, are recorded to the console window and IndexedDB.
 
 ###Battery level
 
-
+If available the *battery level* is checked.  If the battery level is **less or equal to 30%** all monitors slow down.
