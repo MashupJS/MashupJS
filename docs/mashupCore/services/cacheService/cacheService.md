@@ -136,6 +136,8 @@ $scope.example2items_click = function() {
 };
 ```
 
+####The getData() process
+![The getData() process](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/cacheService%20-%20getData.png)
 
 ####Notes
 
