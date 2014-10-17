@@ -30,11 +30,17 @@ The *Heartbeat Monitor* tracks connectivity once a resource is accessed.  If a c
 
 Successful heartbeats are logged to the console but not to IndexedDB.
 
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/detectService/detectService%20-%20Heartbeat%20Monitor.png)
+
 Evert 2 hours the log is checked and any logs over 1 week old are removed. 
 
 ###Code Blue Monitor
 The *Code Blue Monitor* check resources for connectivity much like the *Heartbeat Monitor* does but more frequently.  The results, pass or fail, are recorded to the console window and IndexedDB.
 
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/detectService/detectService%20-%20CodeBlue%20Monitor.png" />
+
+
 ###Battery level
 
 If available the *battery level* is checked.  If the battery level is **less or equal to 30%** all monitors slow down.
+
