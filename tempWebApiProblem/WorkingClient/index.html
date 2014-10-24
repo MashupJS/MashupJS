@@ -21,6 +21,11 @@
         $.ajax({
             type: method,
             url: serviceUrl
+            //,
+            //withCredentials: true,
+            //xhrFields: {
+            //    withCredentials: true
+            //}
         }).done(function (data) {
             $('#value1').text(data);
         }).error(function (jqXHR, textStatus, errorThrown) {
