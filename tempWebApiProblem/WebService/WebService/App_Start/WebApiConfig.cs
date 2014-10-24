@@ -12,7 +12,7 @@ namespace WebService
         {
             // New code
             //var cors = new EnableCorsAttribute("http://localhost:62684, http://localhost:50001/", "*", "*");
-            var cors = new EnableCorsAttribute("*", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*") { SupportsCredentials = true };
             config.EnableCors(cors);
 
             // Web API configuration and services
