@@ -4,7 +4,7 @@ using System.Web.Http.Cors;
 
 namespace WebService.Controllers
 {
-    [EnableCors(origins: "http://localhost:62684", headers: "*", methods: "*")]
+    //[EnableCors(origins: "http://localhost:62684", headers: "*", methods: "*")]
     public class TestController : ApiController
     {
         public HttpResponseMessage Get()
