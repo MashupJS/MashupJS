@@ -9,6 +9,9 @@ namespace WebService
     {
         public static void Register(HttpConfiguration config)
         {
+            // New code
+            config.EnableCors();
+
             // Web API configuration and services
 
             // Web API routes
