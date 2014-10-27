@@ -5,6 +5,7 @@ The problem comes into play when the client isn't not hosted by a server at all 
 
 Chrome rejects a wild card on Access-Control-Allow-Origin making the solution nearly impossible unless you hijack the "Preflight" process and respond to the client with the client added to the Access-Control-Allow-Origin.
 
+##Solution
 Here is the code to make this work.
 
 ```
@@ -74,4 +75,18 @@ namespace AuthApiADSP
 }
 
 ```
+
+##Background Info
+The challenge is all around CORS and it's requirements for 'Access-Control-Allow-Origin'.  The server must maintain a list of allowed server urls and provide that list in the origin header attribute.  Chrome looks at this header and if it doesn't see itself in the list then it self imposes a restriction.  This all happens in the pre-flight before the actual request for data occurs.
+
+> Here is a better description of what is going on: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+
+Because hybrid applications don't have a server based origin your first attempt to address this problem might be a wildcard setting Access-Control-Allow-Origin = "*".
+
+This works fine in IE because IE ignores Access-Control-Allow-Origin completely but Chrome and Firefox aren't having it.  Also, in Chrome and Firefox GET requests and POST without data all work.  It isn't until a POST has data that a preflight is initiated.
+
+> NOTE: Another good reason to develop in Chrome.  Had I developed solely in IE I would never have discovered this problem until we went to production.  
+
+>Another good resource for learning about CORS:
+http://www.html5rocks.com/en/tutorials/cors/#toc-making-a-cors-request
 
