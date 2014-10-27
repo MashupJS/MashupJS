@@ -7,6 +7,7 @@ namespace WebService.Controllers
     //[EnableCors(origins: "http://localhost:62684", headers: "*", methods: "*")]
     public class TestController : ApiController
     {
+        [HttpGet]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage()
@@ -14,7 +15,7 @@ namespace WebService.Controllers
                 Content = new StringContent("GET: Test message")
             };
         }
-
+        [HttpPost]
         public HttpResponseMessage Post()
         {
             return new HttpResponseMessage()
@@ -22,7 +23,7 @@ namespace WebService.Controllers
                 Content = new StringContent("POST: Test message")
             };
         }
-
+        [HttpPut]
         public HttpResponseMessage Put()
         {
             return new HttpResponseMessage()
