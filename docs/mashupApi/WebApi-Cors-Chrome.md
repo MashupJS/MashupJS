@@ -90,3 +90,6 @@ This works fine in IE because IE ignores Access-Control-Allow-Origin completely 
 >Another good resource for learning about CORS:
 http://www.html5rocks.com/en/tutorials/cors/#toc-making-a-cors-request
 
+Ultimately the only solution that address all my requirements was hijacking the preflight, "old school", and returning the client as origin satisfying Chome and Firefox.
+
+I plan to update this later.  Something about the solution I've come up with just doesn't feel right.  It feels to much like a hack.  I'm always welcome to suggestions and new ideas so feel free to email me.  robertdunaway@usa.net
