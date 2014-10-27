@@ -1,0 +1,77 @@
+#WebApi CORS problem
+Following the basic WebApi CORS setup you will get good results.  When the clients server and WebApi server know about each other, IE the client server is configured in the WebApi server as Access-Control-Allow-Origin everything works.
+
+The problem comes into play when the client isn't not hosted by a server at all as is true with hybrid mobile apps.  In this case there really isn't an origin.
+
+Chrome rejects a wild card on Access-Control-Allow-Origin making the solution nearly impossible unless you hijack the "Preflight" process and respond to the client with the client added to the Access-Control-Allow-Origin.
+
+Here is the code to make this work.
+
+```
+using System;
+using System.Web.Http;
+
+namespace AuthApiADSP
+{
+    public class WebApiApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            if (Context.Request.Path.Contains("api/") && Context.Request.HttpMethod == "OPTIONS")
+            {
+
+                Context.Response.AddHeader("Access-Control-Allow-Origin", Context.Request.Headers["Origin"]);
+                Context.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                Context.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST PUT, DELETE, OPTIONS");
+                Context.Response.AddHeader("Access-Control-Allow-Credentials", "true");
+                Context.Response.End();
+            }
+        } 
+    }
+}
+
+```
+
+For completeness my WebApiConfig.cs looks like this.
+
+```
+using System.Net.Http.Headers;
+using System.Web.Http;
+using System.Web.Http.Cors;
+
+namespace AuthApiADSP
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+            // Enabling CORS Globally
+            var cors = new EnableCorsAttribute("*", "accept,content-type,origin,x-my-header", "*") { SupportsCredentials = true };
+            config.EnableCors(cors);
+            //config.EnableCors();
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            // By default Web Api wants to return XML.  (This is confusing because RestFul is based on JSON)
+            // This line changes the default return type to JSON.
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+        
+        }
+    }
+}
+
+```
+
