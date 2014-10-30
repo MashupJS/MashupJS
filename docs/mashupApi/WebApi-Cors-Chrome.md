@@ -1,7 +1,14 @@
 #WebApi CORS problem
+---
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
+https://github.com/MashupJS/MashupJS
+
+
 Following the basic WebApi CORS setup you will get good results.  When the clients server and WebApi server know about each other, IE the client server is configured in the WebApi server as Access-Control-Allow-Origin everything works.
 
-The problem comes into play when the client isn't not hosted by a server at all as is true with hybrid mobile apps.  In this case there really isn't an origin.
+
+The problem comes into play when the client is not hosted by a server at all as is true with hybrid mobile apps.  In this case there isn't an origin.
+
 
 Chrome rejects a wild card on Access-Control-Allow-Origin making the solution nearly impossible unless you hijack the "Preflight" process and respond to the client with the client added to the Access-Control-Allow-Origin.
 
@@ -90,6 +97,6 @@ This works fine in IE because IE ignores Access-Control-Allow-Origin completely 
 >Another good resource for learning about CORS:
 http://www.html5rocks.com/en/tutorials/cors/#toc-making-a-cors-request
 
-Ultimately the only solution that address all my requirements was hijacking the preflight, "old school", and returning the client as origin satisfying Chome and Firefox.
+Ultimately the only solution that address all my requirements was hijacking the preflight, "old school", and returning the client as "origin" satisfying Chome and Firefox.
 
 I plan to update this later.  Something about the solution I've come up with just doesn't feel right.  It feels to much like a hack.  I'm always welcome to suggestions and new ideas so feel free to email me.  robertdunaway@usa.net
