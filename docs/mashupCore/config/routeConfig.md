@@ -1,6 +1,7 @@
 #routeConfig.js
 ---
-The **Mashup** is a learning tool that also starts as a bootstrap project for line-of-business applications.
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
+https://github.com/MashupJS/MashupJS
 
 The **routeConfig.js** file holds routing information for the Mashup.
 
@@ -20,7 +21,7 @@ Additionally, for large applications, separating route configurations makes it e
 ###root/config/rooteConfig.js
 This is the initial route configuration file that is always loaded.  It contains the default route "/" but more importantly the code for starting up the session.
 
-The loadCompleted() function is run by every route requiring an authenticated users.  It gets user information and puts it into the *sessionService* then logs the route for instrumentation and analysis.
+The loadCompleted() function is run by every route requiring an authenticated user.  It gets user information and puts it into the *sessionService* then logs the route for instrumentation and analysis.
 
 The "getUserInfo()" function may vary from application to application but the pattern is in place and works for anyone who wishes to verify authentication before executing a route.
 
@@ -63,8 +64,9 @@ mashupApp.config(function ($routeProvider) {
 
 Here is the **Network** tab in Chrome during the first load of a module and the next image is during the second call for the same module.
 
-First load
+####First load
+![](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/config/BeforeocLazyLoadCache.PNG)
 
+####Second load
+![](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/config/AfterocLazyLoadCache.PNG)
 
-
-Second load
