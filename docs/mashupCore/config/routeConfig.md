@@ -34,7 +34,7 @@ The "60" in **getUserInfo(*60*)** means the users information is cached and that
 ###Lazy Loading
 Typically a SPA application written with Angular would have many files referenced in the Index.html and loaded when the application starts.  To improve this condition many files can be concatenated into one and then minified.
 
-Lazy Loading takes this one step further.  Files are still minified and an application may choose to concatenates its own files but the files are never loaded until the first time they are needed and then they are cached for subsequent loads.
+Lazy Loading takes this one step further.  Files are still minified and an application may choose to concatenate its own files but the files are never loaded until the first time they are needed and then they are cached for subsequent loads.
 
 This release of Angular (1.3) does not support lazy loading but I expect it will be available with the work Angular 2.0 is doing and much of that will be done in the router and ported back to Angular 1.3.  
 
