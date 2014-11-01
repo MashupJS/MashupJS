@@ -4,6 +4,10 @@ I'm trying to load html partial templates from another server I own.  I've confi
 
 IE works because it skips the pre-flight, or at least that is my guess.  Chrome seems to successfully GET the HTML page but fails to apply it to the internal implementation of the templateUrl.  I think this is because of the pre-flight but if you're looking at this don't be limited by my guess.
 
+###Goal
+My ultimate goal is creating a structure for a massively large angular application actually made up of many applications.  To accommodate this I need to be able to host portions of the application on other servers.  CORS is a constant challenge but I've worked through them all but this one. 
+
+
 ###Code
 You will find all the code to replicate this at:
 https://github.com/MashupJS/MashupJS/tree/master/tempTPLOADError
