@@ -191,6 +191,6 @@ Append to the URL in the browser **/api/Items**
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/4.PNG)
 
-You might have a jumbled mess of JSON on your screen.  To clean that up you'll want to use some kind of browser plug-in.  What I'm using here is 
+You might have a jumbled mess of JSON on your screen.  To clean that up you'll want to use some kind of browser plug-in.  What I'm using here is JSONView.
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/5.PNG)
