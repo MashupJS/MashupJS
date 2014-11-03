@@ -1,4 +1,10 @@
-#Create WebApi for the Mashup
+#Create WebApi for the Mashup & CORS
+The **Mashup** is a learning tool that also starts as a bootstrap project for line-of-business applications.
+
+WebApi or any restFul service provides back-end support for SPA applications.
+
+###Intro
+
 This is a step-by-step tutorial for creating a WebApi for the Mashup.
 
 The WebApi provides the back-end support for your Angular application.  A typical SPA application with Angular will consist of a WebApi and index.html page on the same web site.  This is an easy configuration to spin up and start coding against.
@@ -159,5 +165,32 @@ namespace **Leave your namespace here**
 }
 ```
 
+###JSON Formatter
+Before we call this new Web Api lets tell it to return all data as JSON.
 
+Open your **App_Start/WebApiConfig.cs** file and copy this line at the end.
 
+```
+// By default Web Api wants to return XML.  (This is confusing because RestFul is based on JSON)
+// This line changes the default return type to JSON.
+config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+```
+
+This will require a new using statement.
+```
+using System.Net.Http.Headers;
+```
+
+###Call the WebApi
+
+Set the new WebApi as the startup project and press the Run button in Visual Studio.
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/3.PNG)
+
+Append to the URL in the browser **/api/Items**
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/4.PNG)
+
+You might have a jumbled mess of JSON on your screen.  To clean that up you'll want to use some kind of browser plug-in.  What I'm using here is 
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/5.PNG)
