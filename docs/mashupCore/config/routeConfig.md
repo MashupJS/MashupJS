@@ -70,3 +70,22 @@ Here is the **Network** tab in Chrome during the first load of a module and the 
 ####Second load
 ![](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/config/AfterocLazyLoadCache.PNG)
 
+>NOTE:  There is a bug in ocLazyLoad where you must tell it what modules you've already loaded.  ocLazyLoad 0.3.9 fixes this for everything except Angular Bootstrap which the mashup uses.
+>https://github.com/ocombe/ocLazyLoad/issues/71#issuecomment-61446335
+
+Added to address the ocLazyLoad issue.
+```
+// ----------------------------------------------------------------------------------------------
+// This configures ocLazyLoadProvider and let's it know that some modules have already been
+// loaded.  Without this the Menu dialog would not work because some directive was loaded twice.
+// https://github.com/ocombe/ocLazyLoad/issues/71
+// ----------------------------------------------------------------------------------------------
+angular.module('mashupApp').config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
+
+    $ocLazyLoadProvider.config({
+        loadedModules: ['ngRoute', 'ui.bootstrap', 'ngSanitize', 'oc.lazyLoad']
+    });
+
+}]);
+
+``` 
