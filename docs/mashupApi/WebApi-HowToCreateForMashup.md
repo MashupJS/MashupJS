@@ -118,15 +118,6 @@ namespace **Leave your namespace here**
     [Authorize] // Even though this says "Authorize" it should require the user to be at least Authenticated.
     public class ItemController : ApiController
     {
-        // NOTE: Notice below "IEnumerable".  This is because it's returning a generic list.
-        //       I changed it to a generic list.  I'm not sure of the pro/con of this yet.
-
-        //// GET api/<controller>
-        //public IEnumerable<string> Get()nu
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
         List<Item> _items = new List<Item> {
             new Item { id = 1, action = "Buy Gloves", done = false, completed = Convert.ToDateTime("5/28/2014"), myDecimal = 1.1m, myDouble = 1.00, myLong = 64, contact = "name1@domain.com"},
             new Item { id = 2, action = "Get Hair cut", done = false, completed = Convert.ToDateTime("5/28/2014"), myDecimal = 1.2m, myDouble = 1.00, myLong = 64, contact = "name1@domain.com"},
@@ -144,15 +135,14 @@ namespace **Leave your namespace here**
         };
 
 
-        [Route("api/MashupExamples/Items")]
+        [Route("api/Items")]
         [HttpGet]
         public List<Item> GetAllItems()
         {
-            // string userName = User.Identity.Name;
             return _items;
         }
 
-        [Route("api/MashupExamples/Items/{id:int:min(2)}")]
+        [Route("api/Items/{id:int:min(2)}")]
         [HttpGet]
         public List<Item> GetItem(int id)
         {
@@ -163,11 +153,11 @@ namespace **Leave your namespace here**
             items.Add(item);
             return items;
         }
+
+
     }
 }
 ```
 
-###Create a client
 
-Now we need to create a client to consume the new endpoint.
 
