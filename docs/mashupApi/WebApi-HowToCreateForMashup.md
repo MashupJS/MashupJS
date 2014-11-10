@@ -73,7 +73,7 @@ config.MapHttpAttributeRoutes();
 
 > With the rapid changes in technology it can almost be a detrimental to be an early adopter.  As you see, above, I was expecting to write extra configuration code but since the time I created the first Mashup Web APIs the Visual Studio templates have been improved.
 >
->You might have noticed the old template only created WebApiConfig.cs and the new template creates both the WebApiConfig.cs and RouteConfig.cs templates.
+>You might have noticed the old template only created **WebApiConfig.cs** and the new template creates both the **WebApiConfig.cs** and **RouteConfig.cs** templates.
 
 >This leads me to believe I should make it a practice to periodically recreate my projects with whatever the latest Visual Studio templates are.  This might be a best practice for all 3rd party libraries.
 
