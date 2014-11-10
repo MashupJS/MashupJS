@@ -1,7 +1,7 @@
 #Create WebApi for the Mashup & CORS
 The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
 
-WebApi or any restFul service provides back-end support for SPA applications.
+The WebApi or any restFul service provides back-end support for SPA applications.
 
 ###Intro
 
