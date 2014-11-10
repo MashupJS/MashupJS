@@ -1,3 +1,8 @@
+---
+layout: post
+tag: Angular, Attribute Routing, C#, Continuous Improvement, CORS, JavaScript, JSON, JSON Format, JSON Formatter, Mashup, MashupJS, Technical Debt, Web Api, WebApi
+---
+
 #Create WebApi for the Mashup & CORS
 The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
 
