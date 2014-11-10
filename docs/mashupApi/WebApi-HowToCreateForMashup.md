@@ -25,18 +25,17 @@ Select **ASP.NET Web Application** and give your project a **name** then press *
 
 The template page loads.
 
-Select **Empty** in the "Select a template" section.
+Select **Web API** in the "Select a template" section.
 
-Then select **MVC** and **Web API** in the "Add folder and core references for:" section.
+ **MVC** and **Web API** will be automatically selected.
 
 Select "Change Authentication" and select **No Authentication** and press **OK**.
->NOTE: These options might change for your implementation based on your needs.
 
 Verify **Host in the cloud** is unchecked.
 
 Press **OK**.
 
-![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/2.PNG)
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/6.PNG)
 
 Using the selected template and settings Visual Studio creates the new Web API.
 
@@ -183,15 +182,30 @@ This will require a new using statement.
 using System.Net.Http.Headers;
 ```
 
+###Help page
+You'll notice many more files, created by the template we used, than are necessary to create a WebApi.  This is because the WebApi template also creates a web UI.  You can build off this UI but our intention is only to use the UI as a helper for building WebApi(s).
+
+> I'm choosing to keep the UI pieces because I like the Help feature.  It would not be unreasonable to remove all files except those needed to create the WebApi.  In fact, if this is your intent up front then rather than select WebApi as a template select Empty as your template then MVC and WebApi below, when adding the new project.  This tutorial was originally based on this approach so we know it works.
+
+We are not interested in seeing the start page when we start up this project so we'll make a slight modification to this projects properties.
+
+Right click on the project we just created in the Solution Explorer and select **Properties**.
+
+Select the **Web** tab then change the value of Specific Page to "Help".
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/8.PNG)
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/9.PNG)
+
 ###Call the WebApi
 
 Set the new WebApi as the startup project and press the Run button in Visual Studio.
 
-![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/3.PNG)
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/10.PNG)
 
-Append to the URL in the browser **/api/Items**
+Enter **localhost:49261/api/Items**
 
-![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/4.PNG)
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/11.PNG)
 
 You might have a jumbled mess of JSON on your screen.  To clean that up you'll want to use some kind of browser plug-in.  What I'm using here is JSONView.
 
