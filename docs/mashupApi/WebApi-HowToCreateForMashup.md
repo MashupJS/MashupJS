@@ -43,6 +43,8 @@ Using the selected template and settings Visual Studio creates the new Web API.
 ###Getting CORS to work
 CORS support is already built into the Web Api.  What we need to do is add headers to requests so Chrome and Firefox can access our resources.
 
+> Add this code to your Global.asax in the pulic class Global.
+
 ```
 protected void Application_BeginRequest(object sender, EventArgs e)
 {
