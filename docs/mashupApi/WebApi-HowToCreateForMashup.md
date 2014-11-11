@@ -68,6 +68,14 @@ protected void Application_BeginRequest(object sender, EventArgs e)
 } 
 ```
 
+Enable CORS by adding the following to the Register function of the WebApiConfig.cs
+```
+// Enabling CORS Globally
+var cors = new EnableCorsAttribute("*", "*", "*") { SupportsCredentials = true };
+config.EnableCors(cors);
+```
+
+
 ###Attribute Routing
 
 To enable **Attribute Routing** add the following code to your **App_Start/WebApiConfig.cs" file.
