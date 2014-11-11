@@ -14,7 +14,7 @@ This is a step-by-step tutorial for creating a WebApi for the Mashup.
 
 The WebApi provides the back-end support for your Angular application.  A typical SPA application with Angular will consist of a WebApi and index.html page on the same web site.  This is an easy configuration to spin up and start coding against.
 
-The challenge comes when your application glows and your enterprise expects to share programming resources.  The client may no longer be coming from the same domain and your enter into cross domain sharing of resources.  CORS comes into play.
+The challenge comes when your application grows and your enterprise expects to share programming resources.  The client may no longer be coming from the same domain and your enter into cross domain sharing of resources.  CORS comes into play.
 
 Here is a step-by-step tutorial for creating a WebApi for the Mashup that addresses the CORS issues.
 
@@ -47,7 +47,11 @@ Using the selected template and settings Visual Studio creates the new Web API.
 ###Getting CORS to work
 CORS support is already built into the Web Api.  What we need to do is add headers to requests so Chrome and Firefox can access our resources.
 
-> Add this code to your Global.asax in the pulic class Global.
+> NOTE: I've had inconsistent experiences with WebApi and CORS.  Make sure you've installed the NuGet package giving you **Microsoft.AspNet.WebApi.Cors**.
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/12.PNG)
+
+> Add the code, below, to your Global.asax in the pulic class Global.
 
 ```
 protected void Application_BeginRequest(object sender, EventArgs e)
