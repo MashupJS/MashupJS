@@ -75,6 +75,11 @@ var cors = new EnableCorsAttribute("*", "*", "*") { SupportsCredentials = true }
 config.EnableCors(cors);
 ```
 
+Add the following to the include session of the WebApiConfig.cs.
+```
+using System.Web.Http.Cors;
+```
+
 
 ###Attribute Routing
 
