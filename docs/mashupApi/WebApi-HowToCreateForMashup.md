@@ -16,7 +16,7 @@ The WebApi provides the back-end support for your Angular application.  A typica
 
 The challenge comes when your application grows and your enterprise expects to share programming resources.  The client may no longer be coming from the same domain and you enter into cross domain sharing of resources.  CORS comes into play.
 
-Here is a step-by-step tutorial for creating a WebApi for the Mashup that addresses the CORS issues.
+Here is a step-by-step tutorial for creating a WebApi for the Mashup that addresses the CORS issue.
 
 ###Creating the WebApi
 Using Visual Studio add a new project to your existing Angular solution.
