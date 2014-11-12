@@ -233,3 +233,13 @@ Enter **localhost:49261/api/Items**
 You might have a jumbled mess of JSON on your screen.  To clean that up you'll want to use some kind of browser plug-in.  What I'm using here is JSONView.
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/5.PNG)
+
+##One more thing
+This will likely go away as templates improve and WebApi matures but for now, as of Nov 2014, you need up update your WebApi 2.2 NuGet package.
+
+The problem is Attribute Routing and CORS don't get along well until you install the *Microsoft ASP.NET Web API 2.2* and the **Version 5.2.2** package version.  The Visual Studio template uses the *5.2.0* version of the package and it *don't work so well*.
+
+Once this is installed you should be able to access WebApi from your AngularJS client even when it's not part of the Origin domain.  You can build WebApi(s) for your enterprise and not specifically for one client.  Also, you'll find this useful when building hybrid mobile applications whose *origin* will never be the same as we WebApi.
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/13.PNG)
+
