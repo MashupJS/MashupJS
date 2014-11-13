@@ -44,7 +44,7 @@ The challenge with "this" is "this" can mean something different in different co
 
 So while we no longer have to deal with $parent we now have to deal with what "this" really means at any given point.
 
->Notice the **controllerAs: 'vm',** syntax in the route config.
+>Notice the **controllerAs: 'vm'** syntax in the route config.
 
 #####Route
 ```
