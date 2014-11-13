@@ -16,10 +16,10 @@ When dealing with scope you'll find yourself referencing the $parent in Views wi
 $scope is deprecated or gone in Angular 2.0 so it would't hurt to learn to live without it.
 #####Route
 ```
-     .when('/exApp1/angularExamplesMain/controllers', {
-            templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
-            controller: 'exApp1.controllersController',
-            ...
+.when('/exApp1/angularExamplesMain/controllers', {
+       templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
+       controller: 'exApp1.controllersController',
+       ...
 ```
 
 #####Controller
@@ -46,11 +46,11 @@ So while we no longer have to deal with $parent we now have to deal with what "t
 
 #####Route
 ```
-     .when('/exApp1/angularExamplesMain/controllers', {
-            templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
-            controller: 'exApp1.controllersController',
-            controllerAs: 'vm',
-            ...
+.when('/exApp1/angularExamplesMain/controllers', {
+       templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
+       controller: 'exApp1.controllersController',
+       controllerAs: 'vm',
+       ...
 ```
 #####Controller
 ```
@@ -78,10 +78,10 @@ https://github.com/johnpapa/angularjs-styleguide#controllers
 #####Route
 ```
 .when('/exApp1/angularExamplesMain/controllers', {
-            templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
-            controller: 'exApp1.controllersController',
-            controllerAs: 'vm',
-            ...
+       templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
+       controller: 'exApp1.controllersController',
+       controllerAs: 'vm',
+       ...
 ```
 #####Controller
 ```
@@ -106,11 +106,11 @@ The approach of naming the local variable and controller as the same doesn't see
 
 #####Route
 ```
-     .when('/exApp1/angularExamplesMain/controllers', {
-            templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
-            controller: 'exApp1.controllersController',
-            controllerAs: 'vm',
-            ...
+.when('/exApp1/angularExamplesMain/controllers', {
+       templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
+       controller: 'exApp1.controllersController',
+       controllerAs: 'vm',
+       ...
 ```
 
 #####Controller
