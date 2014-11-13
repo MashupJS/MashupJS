@@ -6,7 +6,7 @@ There is a better way.
 
 ##101 Using Controllers
 
-Where the controller is paired with the html can be in the html itself or in the route configuration.  For the purpose of this demonstration we'll use the route configuration.'
+Where the controller is paired with the html can be in the html itself or in the route configuration.  For the purpose of this demonstration we'll use the route configuration.
 
 ####Here we have a route paring up a controller with it's view.
 This is a common approach and perfectly acceptable but not a best practice.
@@ -43,6 +43,8 @@ Simply referencing variables and functions with "this" is enough.
 The challenge with "this" is "this" can mean something different in different contexts.
 
 So while we no longer have to deal with $parent we now have to deal with what "this" really means at any given point.
+
+>Notice the **controllerAs: 'vm',** syntax in the route config.
 
 #####Route
 ```
