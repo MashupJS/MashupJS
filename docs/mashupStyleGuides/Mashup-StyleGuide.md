@@ -31,8 +31,30 @@ The Mashup has many goals in mind.  One is the ability to drop in application co
 Downloading the Mashup and following the style guides should put you in a pretty good place for migrating to Angular 2.0.  In fact you can expect this Mashup implementation to not only migrate from 1.3 to 2.0 but provide an extensive migration path.  When the new Angular 2.0 Router is back ported to 1.3 we will implement it immedialtly.  This early adoption should take some of the sting out of the massive 2.0 migration.
 
 ##Directory Structure
+Mashup.Api.[app-name]
+
+ - api
+	 - Controllers
+	 - Entities
 
 
+Mashup.UI.Core
+
+ - apps
+	 - ~appConfig
+	 - ~appServices
+	 - ~appTests
+	 - [section1]
+	 - [section2]
+	 - [section3]
+ - common
+	 - directives
+	 - filters
+	 - services
+ - config
+ - css
+ - lib
+	 - *All JavaScript libraries used by the application such as angularJS, lodash, bootstrap, etc.*
 
 
 ##The naming of things
@@ -41,12 +63,29 @@ Sure, it's important to name things well.  Names should describe things in such 
 For instance, if your naming strategy is sound and should you choose to move html templates and their associated controllers around then a simple find and replace on routes and links should be easy enough.  If not then a find and replace could be devastating and you'll find yourself reverting out your code more often than you hoped.
 
 ##Application names
-### What the Angular Style-guide says
-###What the Mashup says
+Applications should have a short or abbreviated name because it will be used to uniquely name Controllers and other objects.
+##Project names
+The Mashup has only one UI project named **Mashup.UI.Core**.  You're likely to change this to an application name that represents your company.
 
-##Controller names
-### What the Angular Style-guide says
-###What the Mashup says
+WebApi project names should be:
+```
+[Mashup-name].["Api"].[app-name]
+```
+
+##Controllers
+####Syntax
+Use the **Controller As** syntax.
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md
+####Naming
+To support drop in applications and avoid name collisions use the following naming convention.
+```
+[app-name].[controller-name] + ["Controller"]
+```
+Example
+myApp.page1Controller
+
+> It's also perfectly acceptable to append your controller with **Ctrl** instead of **Controller**.  In fact the Angular style-guide might recommend it.
+
 
 ##Defining Routes
 ```
