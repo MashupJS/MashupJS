@@ -74,8 +74,8 @@ Assigning a local value a reference to "this" solves the problem of "this" poten
 In this case "vm" will always mean what it meant at the moment it was set equal to "this".
 
 Additional References:
-
 https://github.com/johnpapa/angularjs-styleguide#controllers 
+http://www.johnpapa.net/angularjss-controller-as-and-the-vm-variable/
 
 #####Route
 ```
