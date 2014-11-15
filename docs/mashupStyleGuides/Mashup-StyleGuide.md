@@ -37,24 +37,28 @@ Mashup.Api.[app-name]
 	 - Controllers
 	 - Entities
 
-
 Mashup.UI.Core
 
  - apps
-	 - ~appConfig
-	 - ~appServices
-	 - ~appTests
-	 - [section1]
+	 - ~appConfig         
+		 - *(routeConfig for the applications)*
+	 - ~appServices      
+		 - *(services for the applications)*
+	 - ~appTests           
+		 - *( Tests for the applications)*
+	 - [section1]            
+		 - *( Various areas of the application.  Could be individual pages or sections of pages.)*
 	 - [section2]
 	 - [section3]
- - common
+ - common   *(all common components shared by all MashupJS applications)*
 	 - directives
 	 - filters
 	 - services
  - config
+	 - *(Whatever angular configuration files the mashup needs.  IE: routeConfig.js)*
  - css
  - lib
-	 - *All JavaScript libraries used by the application such as angularJS, lodash, bootstrap, etc.*
+	 - *(All JavaScript libraries used by the application such as angularJS, lodash, bootstrap, etc.)*
 
 
 ##The naming of things
