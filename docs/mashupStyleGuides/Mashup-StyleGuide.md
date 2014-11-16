@@ -1,4 +1,4 @@
-#Mashup.UI.Core Style Guide
+#MashupJS Style Guide
 
 ##Excellent Style Guides
 I would use these style guide for coding and learning.  Anything extra the Mashup offers is solely for this particular implementation.  When all is said and done there may be less style guide and more explanation of the Mashup.
