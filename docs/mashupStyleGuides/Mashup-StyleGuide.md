@@ -113,3 +113,50 @@ function config($routeProvider) {
 This is a tricky one.  We are not simply naming for uniqueness and readability here.  Directives are used all throughout code and markup.  Yes, we want unique names that are easy to manage but they must also be easy to work with in everyday development.
 ### What the Angular Style-guide says
 ###What the Mashup says
+
+
+##cacheService
+Learn all about the cacheService here: 
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md
+
+The cacheService is one of many caching options.  Use the cacheService when you need discrete control over how often WebApi resources are called and how long until a cache is considered stale.
+
+Event if a cache is stale, if access to a WebApi is interrupted the cache is used.  
+
+One feature of this cache option is unnecessary calls for the most current data can be avoided.  Also, the cacheService works with the detectService to determine if the WebApi is available and if it is not then no attempt is made to call it.  This eliminates the delay associated with the timeout to an unavailable service.
+
+```
+getData: function (cacheName
+					, schema
+					, webApiUrl
+					, staleMinutes
+					, useConvention
+					, heartBeatUrl
+					, heartBeatName)
+```
+
+#####**cacheName**
+The name of the cache you give to the type of data you are retrieving.  If the name already exists in the cache and is not yet stale then you receive the cache data and no call to the WebApi will be made.
+#####**webApiUrl**
+The webApiUrl includes the full URL and the URL properties.
+Example:
+```
+http://localhost:50004/api/ExampleData/Items/1
+```
+#####**staleMinutes**
+The number of minutes until the cache is considered stale.  The cache will remain until updated in case the WebApi is unavailable.
+#####**useHeartBeatConvention**
+WebApi(s) can offer a HeartBeat function that allows the Mashup to know if the WebApi is available.  This might also serve to track system performance.
+
+The HeartBeatUrl is the endpoint to the HeartBeat.
+You can specify the URL explicitly or use the built in convention.
+The convention is the base URL of the webApiUrl and "**/api/HeartBeat/**".
+
+#####**heartBeatUrl**
+The heartBeatUrl that will be used if the **useHeartBeatConvention** is **false**.
+
+#####**heartBeatName**
+The name of the heart beat used in logs.
+If nothing is provided then the *webApiUrl* is used.
+
+
