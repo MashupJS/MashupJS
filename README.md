@@ -39,5 +39,7 @@ Here is a running list of features:
  - Lazy loading of HTML templates and JavaScript modules
  - Shared User Alert System
  - Retrieval of Client Information for troubleshooting
+ - Instrumentation (easily track the pages and features users use)
+ - Shared at a glance monitoring of the system.  Can filter by user, group, application, etc..
  - 
 
