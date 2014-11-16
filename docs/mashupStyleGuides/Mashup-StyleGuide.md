@@ -10,6 +10,7 @@ https://github.com/johnpapa/angularjs-styleguide
 ####Google on JavaScript
 http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions
 
+####MashupJS Style Guide
 *Incomplete*
 
 *It's true that a style guide is never complete, for now, this one will be more incomplete than most.  I'm dumping notes into this as I go so I don't forget anything.  :)*
