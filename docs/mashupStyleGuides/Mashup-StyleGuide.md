@@ -30,6 +30,21 @@ The Mashup has many goals in mind.  One is the ability to drop in application co
 
 Downloading the Mashup and following the style guides should put you in a pretty good place for migrating to Angular 2.0.  In fact you can expect this Mashup implementation to not only migrate from 1.3 to 2.0 but provide an extensive migration path.  When the new Angular 2.0 Router is back ported to 1.3 we will implement it immedialtly.  This early adoption should take some of the sting out of the massive 2.0 migration.
 
+####Ongoing Tasks
+With the rapid change in technology it's easy to fall behind.  New versions of libraries are rapidly released and it's to much to keep updated on unless done so deliberately.
+
+The last thing you need is to download a bootstrap applications like the Mashup with outdated components.
+
+The plan is to review all components monthly, looking for changes.  If a new version of a library is available we'll apply it to the Mashup along with any tips or notes of problems or steps taken.
+
+We will also rebuild each Visual Studio .NET project using their latest templates which sometimes pop in a feature that wasn't there before.  A document of tips, notes, and instructions on how to do the same, safely, with your applications will be published.
+
+**Continuous Improvement**: 
+
+The goal is to reduce **technical debt** by keeping all components up to date in a smaller, incremental, way and avoid the build of of technical changes and large deliveries which increase risk.
+
+The Mashup will introduce the smallest risk possible and with the least expensive process possible.  
+
 ##Directory Structure
 Mashup.Api.[app-name]
 
@@ -91,17 +106,7 @@ myApp.page1Controller
 > It's also perfectly acceptable to append your controller with **Ctrl** instead of **Controller**.  In fact the Angular style-guide might recommend it.
 
 
-##Defining Routes
-```
-function config($routeProvider) {
-    $routeProvider
-        .when('/avengers', {
-            templateUrl: 'avengers.html',
-            controller: 'Avengers',
-            controllerAs: 'vm'
-        });
-}
-```
+
 ### What the Angular Style-guide says
 ###What the Mashup says
 
@@ -118,6 +123,9 @@ This is a tricky one.  We are not simply naming for uniqueness and readability h
 ##cacheService
 Learn all about the cacheService here: 
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md
+
+Learn more about the detectService used by the cacheService.
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md
 
 The cacheService is one of many caching options.  Use the cacheService when you need discrete control over how often WebApi resources are called and how long until a cache is considered stale.
 
@@ -195,3 +203,30 @@ namespace Mashup.Api.AuthADSP.api
 }
 ```
 
+##Creating a WebApi for the MashupJS
+How to create a WebApi for the MashupJS that supports CORS
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md
+
+Explaining the problem with CORS
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md
+
+##Defining Routes
+```
+function config($routeProvider) {
+    $routeProvider
+        .when('/avengers', {
+            templateUrl: 'avengers.html',
+            controller: 'Avengers',
+            controllerAs: 'vm'
+        });
+}
+```
+### Route Configuration
+This document explains how to set up Route Configuration in the Mashup and how to implement Lazy Loading.  
+
+Lazy loading will become a feature of the new Angular 2.0 router which will be back ported to Angular 1.3.  It's not here yet but this approach will work nicely until it is.
+
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md
+
+
+##
