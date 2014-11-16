@@ -22,6 +22,7 @@ All applications added to the Mashup in the **apps** folder will receive many fe
 Here is a running list of features:
 
  - Bootstrap for Large Enterprise Applications
+ - One Code Base for all Platforms
  - Authentication
  - Application Level User Management
  - Integration with Active Director (easily customized for integration such as Federated Auth)
