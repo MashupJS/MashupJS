@@ -21,15 +21,16 @@ All applications added to the Mashup in the **apps** folder will receive many fe
 
 Here is a running list of features:
 
+ - Bootstrap for Large Enterprise Applications
  - Authentication
- - Application level user management
+ - Application Level User Management
  - Integration with Active Director (easily customized for integration such as Federated Auth)
- - Logging
- - Exception management
+ - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
+ - Exception Management
  - Caching Services
  - Rest Service Detection and Heartbeat Monitors
- -  Micro-library management (update libraries in one place will update the library for all apps)
- - All applications can be easily converted into hybrid-mobile apps and deployed via app stores
+ -  Micro-library Management (update libraries in one place will update the library for all apps)
+ - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
  - Shared UI look and feel
  - User Session Management
  - Shared Menu System

@@ -145,6 +145,7 @@ http://localhost:50004/api/ExampleData/Items/1
 ```
 #####**staleMinutes**
 The number of minutes until the cache is considered stale.  The cache will remain until updated in case the WebApi is unavailable.
+
 #####**useHeartBeatConvention**
 WebApi(s) can offer a HeartBeat function that allows the Mashup to know if the WebApi is available.  This might also serve to track system performance.
 
@@ -159,4 +160,38 @@ The heartBeatUrl that will be used if the **useHeartBeatConvention** is **false*
 The name of the heart beat used in logs.
 If nothing is provided then the *webApiUrl* is used.
 
+
+##HeartBeatController
+
+The HeartBeatController provides the endpoint for the HeartBeat mechanism of the cacheService and detectService.
+
+The convention requires the HeartBeatController provide an endpoint at **[webapi]/api/HeartBeat/**.
+
+If all is well the HeartBeat will return **true**.
+
+```
+
+using System.Web.Http;
+
+namespace Mashup.Api.AuthADSP.api
+{
+    [Authorize]
+    public class HeartBeatController : ApiController
+    {
+        [Route("api/HeartBeat/")]
+        [HttpGet]
+        public bool HeartBeat()
+        {
+            // Later, add server performance metrics allowing the client
+            // to decide if you want to trouble the server with information.
+
+            // Can also return false if the WebApi server doesn't have enough
+            // resources to satisfy the client.  This will cause the client
+            // dip into it's cache.
+
+            return true;
+        }
+    }
+}
+```
 
