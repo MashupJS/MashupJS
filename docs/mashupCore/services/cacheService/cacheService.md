@@ -139,6 +139,51 @@ $scope.example2items_click = function() {
 ####The getData() process
 ![The getData() process](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/cacheService%20-%20getData.png)
 
+
+###getData api
+
+```
+getData: function (cacheName
+					, schema
+					, webApiUrl
+					, staleMinutes
+					, useConvention
+					, heartBeatUrl
+					, heartBeatName)
+```
+
+#####**cacheName**
+The name of the cache you give to the type of data you are retrieving.  If the name already exists in the cache and is not yet stale then you receive the cache data and no call to the WebApi will be made.
+#####**webApiUrl**
+The webApiUrl includes the full URL and the URL properties.
+Example:
+```
+http://localhost:50004/api/ExampleData/Items/1
+```
+#####**staleMinutes**
+The number of minutes until the cache is considered stale.  The cache will remain until updated in case the WebApi is unavailable.
+
+#####**useHeartBeatConvention**
+WebApi(s) can offer a HeartBeat function that allows the Mashup to know if the WebApi is available.  This might also serve to track system performance.
+
+The HeartBeatUrl is the endpoint to the HeartBeat.
+You can specify the URL explicitly or use the built in convention.
+The convention is the base URL of the webApiUrl and "**/api/HeartBeat/**".
+
+#####**heartBeatUrl**
+The heartBeatUrl that will be used if the **useHeartBeatConvention** is **false**.
+
+#####**heartBeatName**
+The name of the heart beat used in logs.
+If nothing is provided then the *webApiUrl* is used.
+
+####falsy but no heartBeatUrl provided
+<img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/10.PNG"/>
+
+This means you did not provide a value for **useHeartBeatConvention**, which the system interprets as *falsy* or you explicitly passed in *false* but did not follow up and provide the **heartBeatUrl**.  
+
+This is just a warning message but it does indicate the heart beat monitor will not work correctly or at all.
+
 ####Notes
 
 On MahsupJS benefits:
