@@ -17,6 +17,9 @@ http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Me
 
 This style guide will help ease the use of the Mashup and save you time when adding new applications or pages.  Specifically addressed in this style guide is the Mashup.UI.Core or the UI component of the Mashup.
 
+###Props
+The Internet is a rich resource of information.  Several pieces of code are inspired by the work of others.  Every attempt has been made to give credit.  If we have missed anything or seem to be using a library or piece of code without permission please point it out.
+
 ##Introduction
 What I like about a style guide over a *standards document* is a style guide gives you the information you need to work in an environment and is less likely to be used against you like a hammer.  
 ####Why a style guide
@@ -202,6 +205,10 @@ https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilit
 
 ####utility_UtcDateService
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utility_UtcDateService.md
+
+##Index.html
+The index.html is swappable for whatever is needed.  
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md
 
 
 #MashupJS WebApi
