@@ -27,9 +27,9 @@ The loadCompleted() function is run by every route requiring an authenticated us
 
 The "getUserInfo()" function may vary from application to application but the pattern is in place and works for anyone who wishes to verify authentication before executing a route.
 
-The "60" in **getUserInfo(*60*)** means the users information is cached and that cache doesn't become stale for 60 minutes.  If the user information cache is not stale then the cache is used rather than making a call to the authentication server, *AuthApiADSP*.
+The "60" in **getUserInfo(*60*)** means the users information is cached and that cache doesn't become stale for 60 minutes.  If the user information cache is not stale then the cache is used rather than making a call to the authentication server, *Mashup.Api.AuthADSP*.
 
->NOTE: ***AuthApiADSP*** is the authentication server used by the Mashup but any custom implementation will work.
+>NOTE: ***Mashup.Api.AuthADSP*** is the authentication server used by the Mashup but any custom implementation will work.
 >
 >The ADSP means the AuthApi uses Active Directory for authentication and Stored Procedures for data access as opposed to oData or EF.
 
