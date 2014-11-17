@@ -201,7 +201,7 @@ https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logSer
 ##Utilities
 ###utilityService
 The utilityService is a Facade of all the utilities you're Mashup application will require.  Using the utilityService in this way reduces then number of extra module you specify for injection and simplifies your code.
-https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilityService
+https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilityService/utilityService.md
 
 ####utility_UtcDateService
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utility_UtcDateService.md
