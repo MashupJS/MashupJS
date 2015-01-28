@@ -1,0 +1,190 @@
+﻿<style media="screen" type="text/css">
+    @media (max-width: 480px) {
+        #appenv:after {
+            content: "App";
+        }
+
+        #webapienv:after {
+            content: "Api";
+        }
+
+        #dbenv:after {
+            content: "DB";
+        }
+
+        #userInfoHeader:after {
+            content: "User";
+        }
+
+        #connected:after {
+            content: "Conn";
+        }
+
+        #userEmail {
+            font-size: x-small;
+            /*font-size-adjust: .5;*/
+        }
+
+        .aboutGroupsList {
+            width: 190px;
+        }
+    }
+
+    @media (min-width: 480px) {
+        #appenv:after {
+            content: "App Env";
+        }
+
+        #webapienv:after {
+            content: "Web Api Env";
+        }
+
+        #dbenv:after {
+            content: "Database Env";
+        }
+
+        #userInfoHeader:after {
+            content: "User Info";
+        }
+
+        #connected:after {
+            content: "Connected";
+        }
+
+        .aboutGroupsList {
+            width: 100%;
+        }
+    }
+</style>
+
+
+<!-- about.html -->
+<div class=" well-sm text-center">
+    <!--<h3>About</h3>-->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>About</h4>
+        </div>
+        <div class="panel-body">
+
+            <h4 class="" style="text-align:left">User Information</h4>
+                     
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th id="userInfoHeader"></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User</td>
+                        <td>{{vm.user.UserName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{vm.user.FullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td id="userEmail">{{vm.user.Email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Roles</td>
+                        <td>
+                            <ul class="list-unstyled aboutGroupsList" style="max-height: 100px; overflow-x:hidden ; overflow-y: scroll;">
+                                <li ng-repeat="role in vm.user.Roles">{{role.RoleName}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Groups</td>
+                        <td>
+
+                            <ul class="list-unstyled aboutGroupsList" style="max-height: 100px; overflow-x:hidden ; overflow-y: scroll;">
+                                <li ng-repeat="group in vm.user.Groups">{{group.Name}}</li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <h4 class="" style="text-align:left">Application Information</h4>
+
+            <table class="table table-responsive table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th style=""></th>
+                        <th id="connected"></th>
+                        <th id="dbenv"></th>
+                        <th id="appenv"></th>
+                        <th id="webapienv"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Application1</td>
+                        <td>true</td>
+                        <td>local</td>
+                        <td>local</td>
+                        <td>dev</td>
+                    </tr>
+                    <tr>
+                        <td>App2</td>
+                        <td>true</td>
+                        <td>local</td>
+                        <td>local</td>
+                        <td>dev</td>
+                    </tr>
+                    <tr>
+                        <td>App3</td>
+                        <td>true</td>
+                        <td>local</td>
+                        <td>local</td>
+                        <td>dev</td>
+                    </tr>
+                    <tr>
+                        <td>App4</td>
+                        <td>true</td>
+                        <td>local</td>
+                        <td>local</td>
+                        <td>dev</td>
+                    </tr>
+                    <tr>
+                        <td>App5</td>
+                        <td>true</td>
+                        <td>local</td>
+                        <td>local</td>
+                        <td>dev</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="" style="text-align:left">Session Cache</h4>
+
+            <table class="table table-striped table-bordered table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th ng-repeat="(header, value) in vm.sessionCache[0]">
+                            {{header}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in vm.sessionCache">
+                        <td ng-repeat="cell in item">
+                            {{cell}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>

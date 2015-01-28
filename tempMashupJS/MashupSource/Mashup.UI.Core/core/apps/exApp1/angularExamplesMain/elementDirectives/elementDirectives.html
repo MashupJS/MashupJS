@@ -1,0 +1,229 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Element Directives</h3>
+        <h5>ng-show, ng-hide</h5>
+    </div>
+
+    <div class="well-sm">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-show, ng-hide, two-way binding</h4>
+                <p>Hidding DOM elements isn't the same as removing them.</p>
+                <p>
+                    ng-show and ng-hide do not add or remove elements from the DOM
+                    but ng-if does.
+                </p>
+                <p>Notice the Done column.  The true/false values are replaced with (Incomplete)/(Done)</p>
+                <p>While we show Incomplete or Done, both spans are created.</p>
+            </div>
+            <!--<style>
+                td > *:first-child {
+                    font-weight: bold;
+                }
+            </style>-->
+
+            <div class="panel-body">
+                <div class="well">
+                    <div class="col-sm-3">
+                        <div class="checkbox ">
+                            <label>
+                                <input type="checkbox" ng-model="vm.items[2].done" />
+                                Item 3 is done
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-striped table-hover table-responsive ">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Action</th>
+                                        <th>Done</th>
+                                        <th>Email</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in vm.items">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.action}}</td>
+                                        <!--<td>{{item.done}}</td>-->
+                                        <td>
+                                            <span ng-hide="item.done">(Incomplete)</span>
+                                            <span ng-show="item.done">(Done)</span>
+                                        </td>
+                                        <td>{{item.contact}}</td>
+                                        <!--<td ng-repeat="prop in item">{{prop}}</td>-->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <pre ng-non-bindable>
+    &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+        &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+        &lt;td&gt;{{item.action}}&lt;/td&gt;
+        &lt;!--&lt;td&gt;{{item.done}}&lt;/td&gt;--&gt;
+        &lt;td&gt;
+            &lt;span ng-hide=&quot;item.done&quot;&gt;(Incomplete)&lt;/span&gt;
+            &lt;span ng-show=&quot;item.done&quot;&gt;(Done)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{item.contact}}&lt;/td&gt;
+        &lt;!--&lt;td ng-repeat=&quot;prop in item&quot;&gt;{{prop}}&lt;/td&gt;--&gt;
+    &lt;/tr&gt;
+            </pre>
+
+                <blockquote>
+                    <code>
+                        &lt;span ng-hide=&quot;item.done&quot;&gt;(Incomplete)&lt;/span&gt;
+                    </code>
+                </blockquote>
+                <blockquote>
+                    <code>
+                        &lt;span ng-show=&quot;item.done&quot;&gt;(Done)&lt;/span&gt;
+                    </code>
+                </blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-if</h4>
+                <p>This example does the same thing as the previous except one span tag is created and one is removed.</p>
+
+            </div>
+            <!--<style>
+            td > *:first-child {
+                font-weight: bold;
+            }
+        </style>-->
+
+            <div class="panel-body">
+                <div class="well">
+                    <div class="col-sm-3">
+                        <div class="checkbox ">
+                            <label>
+                                <input type="checkbox" ng-model="vm.items[2].done" />
+                                Item 3 is done
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-striped table-hover table-responsive ">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Action</th>
+                                        <th>Done</th>
+                                        <th>Email</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in vm.items">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.action}}</td>
+                                        <td>
+                                            <span ng-if="!item.done">(Incomplete)</span>
+                                            <span ng-if="item.done">(Done)</span>
+                                        </td>
+                                        <td>{{item.contact}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <pre ng-non-bindable>
+    &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+        &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+        &lt;td&gt;{{item.action}}&lt;/td&gt;
+        &lt;td&gt;
+            &lt;span ng-if=&quot;!item.done&quot;&gt;(Incomplete)&lt;/span&gt;
+            &lt;span ng-if=&quot;item.done&quot;&gt;(Done)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{item.contact}}&lt;/td&gt;
+    &lt;/tr&gt;
+            </pre>
+
+                <blockquote>
+                    <code>
+                        &lt;span ng-if=&quot;!item.done&quot;&gt;(Incomplete)&lt;/span&gt;
+                    </code>
+                </blockquote>
+                <blockquote>
+                    <code>
+                        &lt;span ng-if=&quot;item.done&quot;&gt;(Done)&lt;/span&gt;
+                    </code>
+                </blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-show, ng-hide, ng-if</h4>
+                <p>Description of the example</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <table class="table table-bordered table-striped table-hover table-responsive ">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Action</th>
+                                        <th>Done</th>
+                                        <th>Email</th>
+                                        <th>Done</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in vm.items">
+                                        <td>{{$index + 1}}</td>
+                                        <td ng-repeat="prop in item">{{prop}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div class="form-group"&gt;
+        &lt;label>Sample&lt;/label&gt;
+    &lt;/div&gt;
+            </pre>
+
+                <blockquote><code></code></blockquote>
+                <blockquote><footer></footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+    </div>
+</div>
