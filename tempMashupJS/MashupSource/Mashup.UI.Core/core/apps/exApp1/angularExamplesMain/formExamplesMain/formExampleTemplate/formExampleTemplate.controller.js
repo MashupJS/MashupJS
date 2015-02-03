@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.formExampleTemplateController', function () {
+mashupApp.controller('exApp1.FormExampleTemplateController', function () {
     "use strict";
 
 });

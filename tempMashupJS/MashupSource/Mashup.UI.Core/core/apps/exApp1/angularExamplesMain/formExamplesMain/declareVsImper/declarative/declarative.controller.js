@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.declarativeController', function () {
+mashupApp.controller('exApp1.DeclarativeController', function () {
     "use strict";
 
     var vm = this;

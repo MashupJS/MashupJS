@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
-// exApp1.jsexamples1Controller
-mashupApp.controller('exApp1.jsexamples1Controller', ['$log', function ($log) {
+// exApp1.JSExamples1Controller
+mashupApp.controller('exApp1.JSExamples1Controller', ['$log', function ($log) {
 
     var vm = this;
 

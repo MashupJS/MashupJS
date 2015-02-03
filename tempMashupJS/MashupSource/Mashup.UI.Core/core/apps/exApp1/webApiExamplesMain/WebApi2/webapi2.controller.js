@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.webapi2Controller', ['$http', '$log', '$filter', function ($http, $log, $filter) {
+mashupApp.controller('exApp1.Webapi2Controller', ['$http', '$log', '$filter', function ($http, $log, $filter) {
 
     var vm = this;
 

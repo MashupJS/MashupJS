@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.webApiExamplesMainController', function () {
+mashupApp.controller('exApp1.WebApiExamplesMainController', function () {
 
 
 

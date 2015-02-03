@@ -58,7 +58,91 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularExamples1\angularExamples1.controller.min.js">
+      <DependentUpon>angularExamples1.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularExamplesMain.controller.min.js">
+      <DependentUpon>angularExamplesMain.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularObjects\angularObjects.controller.min.js">
+      <DependentUpon>angularObjects.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\bindingExamples\bindingExamples.controller.min.js">
+      <DependentUpon>bindingExamples.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\controllers\controllers.controller.min.js">
+      <DependentUpon>controllers.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\elementDirectives\elementDirectives.controller.min.js">
+      <DependentUpon>elementDirectives.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\alerts\alerts.controller.min.js">
+      <DependentUpon>alerts.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\declareVsImper\declarative\declarative.controller.min.js">
+      <DependentUpon>declarative.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\declareVsImper\imperative\imperative.controller.min.js">
+      <DependentUpon>imperative.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formElements1\formElements1.controller.min.js">
+      <DependentUpon>formElements1.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formExamplesMain.controller.min.js">
+      <DependentUpon>formExamplesMain.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formExampleTemplate\formExampleTemplate.controller.min.js">
+      <DependentUpon>formExampleTemplate.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\modalLogin\modalLogin.controller.min.js">
+      <DependentUpon>modalLogin.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\modal\modal.controller.min.js">
+      <DependentUpon>modal.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\proAngular\adamsList\adamsList.controller.min.js">
+      <DependentUpon>adamsList.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\page1\page1.controller.min.js">
+      <DependentUpon>page1.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\page2\page2.controller.min.js">
+      <DependentUpon>page2.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\partialViews\partialViews.controller.min.js">
+      <DependentUpon>partialViews.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\templateDirectives\templateDirectives.controller.min.js">
+      <DependentUpon>templateDirectives.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\javascriptMain\javascriptMain.controller.min.js">
+      <DependentUpon>javascriptMain.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\javascriptMain\jsexamples1\jsexamples1.controller.min.js">
+      <DependentUpon>jsexamples1.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\utilityMain\lodash\lodash.controller.min.js">
+      <DependentUpon>lodash.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\utilityMain\utilityMain.controller.min.js">
+      <DependentUpon>utilityMain.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\WebApi2\webapi2.controller.min.js">
+      <DependentUpon>webapi2.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\webApiExamplesMain.controller.min.js">
+      <DependentUpon>webApiExamplesMain.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\WebApi\webapi.controller.min.js">
+      <DependentUpon>webapi.controller.js</DependentUpon>
+    </Content>
     <Content Include="core\apps\exApp1\~appConfig\menu.config.js" />
+    <Content Include="core\apps\mashup\about\about.controller.min.js">
+      <DependentUpon>about.controller.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\mashup\welcome\welcome.controller.min.js">
+      <DependentUpon>welcome.controller.js</DependentUpon>
+    </Content>
     <Content Include="core\apps\mashup\~appConfig\menu.config.js" />
     <Content Include="core\config\menu.config.js" />
     <Content Include="core\css\bootstrap\Normalize-3.0.1.css" />
@@ -635,6 +719,90 @@
     <Content Include="core\lib\ynd-db\1.1.1\ydn.db-is-sql-e-cur-qry-text-dev.js.map" />
     <Content Include="core\lib\ocLazyLoad\0.5.2.20150120\ocLazyLoad.min.js.map">
       <DependentUpon>ocLazyLoad.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularExamplesMain.controller.min.js.map">
+      <DependentUpon>angularExamplesMain.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\webApiExamplesMain.controller.min.js.map">
+      <DependentUpon>webApiExamplesMain.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formExamplesMain.controller.min.js.map">
+      <DependentUpon>formExamplesMain.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\javascriptMain\javascriptMain.controller.min.js.map">
+      <DependentUpon>javascriptMain.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\page1\page1.controller.min.js.map">
+      <DependentUpon>page1.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\page2\page2.controller.min.js.map">
+      <DependentUpon>page2.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\controllers\controllers.controller.min.js.map">
+      <DependentUpon>controllers.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\modal\modal.controller.min.js.map">
+      <DependentUpon>modal.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\proAngular\adamsList\adamsList.controller.min.js.map">
+      <DependentUpon>adamsList.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\javascriptMain\jsexamples1\jsexamples1.controller.min.js.map">
+      <DependentUpon>jsexamples1.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\alerts\alerts.controller.min.js.map">
+      <DependentUpon>alerts.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formElements1\formElements1.controller.min.js.map">
+      <DependentUpon>formElements1.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\WebApi2\webapi2.controller.min.js.map">
+      <DependentUpon>webapi2.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\webApiExamplesMain\WebApi\webapi.controller.min.js.map">
+      <DependentUpon>webapi.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\formExampleTemplate\formExampleTemplate.controller.min.js.map">
+      <DependentUpon>formExampleTemplate.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularExamples1\angularExamples1.controller.min.js.map">
+      <DependentUpon>angularExamples1.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\angularObjects\angularObjects.controller.min.js.map">
+      <DependentUpon>angularObjects.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\bindingExamples\bindingExamples.controller.min.js.map">
+      <DependentUpon>bindingExamples.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\templateDirectives\templateDirectives.controller.min.js.map">
+      <DependentUpon>templateDirectives.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\partialViews\partialViews.controller.min.js.map">
+      <DependentUpon>partialViews.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\declareVsImper\imperative\imperative.controller.min.js.map">
+      <DependentUpon>imperative.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\declareVsImper\declarative\declarative.controller.min.js.map">
+      <DependentUpon>declarative.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\elementDirectives\elementDirectives.controller.min.js.map">
+      <DependentUpon>elementDirectives.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\utilityMain\utilityMain.controller.min.js.map">
+      <DependentUpon>utilityMain.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\utilityMain\lodash\lodash.controller.min.js.map">
+      <DependentUpon>lodash.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\mashup\about\about.controller.min.js.map">
+      <DependentUpon>about.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\mashup\welcome\welcome.controller.min.js.map">
+      <DependentUpon>welcome.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\apps\exApp1\angularExamplesMain\formExamplesMain\modalLogin\modalLogin.controller.min.js.map">
+      <DependentUpon>modalLogin.controller.min.js</DependentUpon>
     </Content>
     <None Include="core\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

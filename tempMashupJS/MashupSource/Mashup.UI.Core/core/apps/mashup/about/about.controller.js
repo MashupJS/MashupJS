@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('mashup.aboutController', ['$log', '$http', '$filter', 'sessionService', 'mashupDataService', function ($log, $http, $filter, sessionService, mashupDataService) {
+mashupApp.controller('mashup.AboutController', ['$log', '$http', '$filter', 'sessionService', 'mashupDataService', function ($log, $http, $filter, sessionService, mashupDataService) {
     "use strict";
 
     //$scope.contacts = sessionService.list();

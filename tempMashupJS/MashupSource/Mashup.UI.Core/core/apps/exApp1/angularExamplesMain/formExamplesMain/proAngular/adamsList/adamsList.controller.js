@@ -15,7 +15,7 @@ mashupApp.filter("exApp1.checkedItems", function () {
     };
 });
 
-mashupApp.controller('exApp1.adamsListController', ['$http', function ($http) {
+mashupApp.controller('exApp1.AdamsListController', ['$http', function ($http) {
     "use strict";
 
     var vm = this;

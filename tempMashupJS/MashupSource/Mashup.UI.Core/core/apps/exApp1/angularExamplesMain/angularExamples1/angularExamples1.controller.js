@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 // jsexamples1Controller
-mashupApp.controller('exApp1.angularExamples1Controller', ['$log', '$location', '$http', 'MyService', 'environment', function ($log, $location, $http, MyService, environment) {
+mashupApp.controller('exApp1.AngularExamples1Controller', ['$log', '$location', '$http', 'MyService', 'environment', function ($log, $location, $http, MyService, environment) {
     "use strict";
 
     var vm = this;

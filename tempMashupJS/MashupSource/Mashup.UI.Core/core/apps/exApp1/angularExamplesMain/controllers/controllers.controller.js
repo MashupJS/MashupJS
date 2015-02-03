@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.controllersController', function () {
+mashupApp.controller('exApp1.ControllersController', function () {
     "use strict";
 
     // vm = View Model

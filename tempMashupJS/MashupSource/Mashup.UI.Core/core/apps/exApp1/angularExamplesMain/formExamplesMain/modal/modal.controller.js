@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.modalController', ['$modal', '$log', function ($modal, $log) {
+mashupApp.controller('exApp1.ModalController', ['$modal', '$log', function ($modal, $log) {
     "use strict";
 
     var vm = this;
@@ -24,12 +24,12 @@ mashupApp.controller('exApp1.modalController', ['$modal', '$log', function ($mod
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/modalLogin/modalLogin.html',
             backdrop: 'static', // can be true 
             windowClass: 'modal',
-            controller: 'modalLoginController',
+            controller: 'ModalLoginController',
             keyboard: true,
 
             resolve: {
                 // The resolve property executes first to set up the values being
-                // passed into the modalLoginController.  Values not predicated with $ must
+                // passed into the ModalLoginController.  Values not predicated with $ must
                 // be passed in explicitly.  The $ indicates a DI or Dependency Injection so
                 // no extra effort need go into passing values.  This is a benefit of 
                 // defining services which can be passed via DI.

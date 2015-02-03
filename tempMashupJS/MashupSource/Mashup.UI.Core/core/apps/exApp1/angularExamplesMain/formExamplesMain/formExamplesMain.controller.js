@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.formExamplesMainController', function () {
+mashupApp.controller('exApp1.FormExamplesMainController', function () {
 
     
 });

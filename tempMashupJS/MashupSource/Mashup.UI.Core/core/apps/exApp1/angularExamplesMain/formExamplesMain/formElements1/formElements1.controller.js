@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.formElements1Controller', ['$http', 'alertService', function ($http, alertService) {
+mashupApp.controller('exApp1.FormElements1Controller', ['$http', 'alertService', function ($http, alertService) {
     "use strict";
 
     var vm = this;

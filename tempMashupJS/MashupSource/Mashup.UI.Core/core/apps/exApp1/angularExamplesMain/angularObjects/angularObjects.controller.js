@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
-// exApp1.angularObjectsController
-mashupApp.controller('exApp1.angularObjectsController', ['$log', function ($log) {
+// exApp1.AngularObjectsController
+mashupApp.controller('exApp1.AngularObjectsController', ['$log', function ($log) {
     "use strict";
 
     var vm = this;

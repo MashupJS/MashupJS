@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.lodashController', ['alertService', 'mashupExamplesDataService', function (alertService, mashupExamplesDataService) {
+mashupApp.controller('exApp1.LodashController', ['alertService', 'mashupExamplesDataService', function (alertService, mashupExamplesDataService) {
 
     var vm = this;
 

@@ -1,5 +1,5 @@
 /*global mashupApp:false */
 
-mashupApp.controller('mashup.welcomeController', function () {
+mashupApp.controller('mashup.WelcomeController', function () {
     "use strict";
 });

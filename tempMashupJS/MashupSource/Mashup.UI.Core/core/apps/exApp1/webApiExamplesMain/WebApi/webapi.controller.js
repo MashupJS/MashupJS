@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.webapiController', ['$http', '$log', 'alertService', function ($http, $log, alertService) {
+mashupApp.controller('exApp1.WebapiController', ['$http', '$log', 'alertService', function ($http, $log, alertService) {
 
     var vm = this;
 

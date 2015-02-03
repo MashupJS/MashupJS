@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.alertsController', ['alertService', function (alertService) {
+mashupApp.controller('exApp1.AlertsController', ['alertService', function (alertService) {
     "use strict";
 
     var vm = this;

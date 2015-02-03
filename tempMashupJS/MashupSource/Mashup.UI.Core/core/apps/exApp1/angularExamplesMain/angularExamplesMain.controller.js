@@ -1,5 +1,5 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.angularExamplesMainController', function () {
+mashupApp.controller('exApp1.AngularExamplesMainController', function () {
 
 });

@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.imperativeController', function () {
+mashupApp.controller('exApp1.ImperativeController', function () {
     "use strict";
 
     setLableValues();

@@ -12,7 +12,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/about', {
             templateUrl: 'apps/mashup/about/about.html',
-            controller: 'mashup.aboutController',
+            controller: 'mashup.AboutController',
             controllerAs: 'vm',
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -28,7 +28,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/', {
             templateUrl: 'apps/mashup/welcome/welcome.html',
-            controller: 'mashup.welcomeController',
+            controller: 'mashup.WelcomeController',
             controllerAs: 'vm',
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {

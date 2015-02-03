@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('modalLoginController',
+mashupApp.controller('ModalLoginController',
 ['$scope', '$modalInstance', '$log', 'user', 'myValue', function ($scope, $modalInstance, $log, user, myValue) {
     $scope.myValue = myValue;
     $scope.user = user;

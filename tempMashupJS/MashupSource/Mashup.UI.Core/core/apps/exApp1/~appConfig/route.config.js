@@ -13,7 +13,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
         .when('/exApp1/angularExamplesMain', {
             templateUrl: 'apps/exApp1/angularExamplesMain/angularExamplesMain.html',
-            controller: 'exApp1.angularExamplesMainController',
+            controller: 'exApp1.AngularExamplesMainController',
             controllerAs: 'vm',
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -27,7 +27,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/webApiExamplesMain', {
             templateUrl: 'apps/exApp1/webApiExamplesMain/webApiExamplesMain.html',
-            controller: 'exApp1.webApiExamplesMainController',
+            controller: 'exApp1.WebApiExamplesMainController',
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -40,7 +40,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/formExamplesMain.html',
-            controller: 'exApp1.formExamplesMainController',
+            controller: 'exApp1.FormExamplesMainController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -54,7 +54,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/javascriptMain', {
             templateUrl: 'apps/exApp1/javascriptMain/javascriptMain.html',
-            controller: 'exApp1.javascriptMainController'
+            controller: 'exApp1.JavascriptMainController'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -67,7 +67,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/page1', {
             templateUrl: 'apps/exApp1/angularExamplesMain/page1/page1.html',
-            controller: 'exApp1.page1Controller',
+            controller: 'exApp1.Page1Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -81,7 +81,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/page2', {
             templateUrl: "apps/exApp1/angularExamplesMain/page2/page2.html",
-            controller: 'exApp1.page2Controller',
+            controller: 'exApp1.Page2Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -96,7 +96,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/controllers', {
             templateUrl: "apps/exApp1/angularExamplesMain/controllers/controllers.html",
-            controller: 'exApp1.controllersController',
+            controller: 'exApp1.ControllersController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -111,7 +111,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/modal', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/modal/modal.html',
-            controller: 'exApp1.modalController',
+            controller: 'exApp1.ModalController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -127,7 +127,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/proAngular/adamsList', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/proAngular/adamsList/adamsList.html',
-            controller: 'exApp1.adamsListController',
+            controller: 'exApp1.AdamsListController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -141,7 +141,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/javascriptMain/jsexamples1', {
             templateUrl: 'apps/exApp1/javascriptMain/jsexamples1/jsexamples1.html',
-            controller: 'exApp1.jsexamples1Controller',
+            controller: 'exApp1.JSExamples1Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -155,7 +155,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/alerts', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/alerts/alerts.html',
-            controller: 'exApp1.alertsController',
+            controller: 'exApp1.AlertsController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -169,7 +169,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/webApiExamplesMain/webapi', {
             templateUrl: 'apps/exApp1/webApiExamplesMain/webapi/webapi.html',
-            controller: 'exApp1.webapiController',
+            controller: 'exApp1.WebapiController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -183,7 +183,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/webApiExamplesMain/webapi2', {
             templateUrl: 'apps/exApp1/webApiExamplesMain/webapi2/webapi2.html',
-            controller: 'exApp1.webapi2Controller',
+            controller: 'exApp1.Webapi2Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -197,7 +197,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/formElements1', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/formElements1/formElements1.html',
-            controller: 'exApp1.formElements1Controller',
+            controller: 'exApp1.FormElements1Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -211,7 +211,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/formExampleTemplate', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/formExampleTemplate/formExampleTemplate.html',
-            controller: 'exApp1.formExampleTemplateController',
+            controller: 'exApp1.FormExampleTemplateController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -225,7 +225,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/angularExamples1', {
             templateUrl: 'apps/exApp1/angularExamplesMain/angularExamples1/angularExamples1.html',
-            controller: 'exApp1.angularExamples1Controller',
+            controller: 'exApp1.AngularExamples1Controller',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -240,7 +240,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
         .when('/exApp1/angularExamplesMain/angularObjects', {
             templateUrl: 'apps/exApp1/angularExamplesMain/angularObjects/angularObjects.html',
-            controller: 'exApp1.angularObjectsController',
+            controller: 'exApp1.AngularObjectsController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -256,7 +256,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
         .when('/exApp1/angularExamplesMain/bindingExamples', {
             templateUrl: 'apps/exApp1/angularExamplesMain/bindingExamples/bindingExamples.html',
-            controller: 'exApp1.bindingExamplesController',
+            controller: 'exApp1.BindingExamplesController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -270,7 +270,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/templateDirectives', {
             templateUrl: 'apps/exApp1/angularExamplesMain/templateDirectives/templateDirectives.html',
-            controller: 'exApp1.templateDirectivesController',
+            controller: 'exApp1.TemplateDirectivesController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -284,7 +284,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/partialViews', {
             templateUrl: 'apps/exApp1/angularExamplesMain/partialViews/partialViews.html',
-            controller: 'exApp1.partialViewsController',
+            controller: 'exApp1.PartialViewsController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -298,7 +298,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/declareVsImper/imperative', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/declareVsImper/imperative/imperative.html',
-            controller: 'exApp1.imperativeController',
+            controller: 'exApp1.ImperativeController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -312,7 +312,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/formExamplesMain/declareVsImper/declarative', {
             templateUrl: 'apps/exApp1/angularExamplesMain/formExamplesMain/declareVsImper/declarative/declarative.html',
-            controller: 'exApp1.declarativeController',
+            controller: 'exApp1.DeclarativeController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -331,7 +331,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/angularExamplesMain/elementDirectives', {
             templateUrl: 'apps/exApp1/angularExamplesMain/elementDirectives/elementDirectives.html',
-            controller: 'exApp1.elementDirectivesController',
+            controller: 'exApp1.ElementDirectivesController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -346,7 +346,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
         .when('/exApp1/utilityMain', {
             templateUrl: 'apps/exApp1/utilityMain/utilityMain.html',
-            controller: 'exApp1.utilityMainController'
+            controller: 'exApp1.UtilityMainController'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -359,7 +359,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/exApp1/utilityMain/lodash', {
             templateUrl: 'apps/exApp1/utilityMain/lodash/lodash.html',
-            controller: 'exApp1.lodashController',
+            controller: 'exApp1.LodashController',
             controllerAs: 'vm'
             , resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {

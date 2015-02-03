@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 
-mashupApp.controller('exApp1.partialViewsController', ['$scope', '$log', '$location', '$http', function ($scope, $log, $location, $http) {
+mashupApp.controller('exApp1.PartialViewsController', ['$scope', '$log', '$location', '$http', function ($scope, $log, $location, $http) {
     "use strict";
 
     // $scope.items =[];
