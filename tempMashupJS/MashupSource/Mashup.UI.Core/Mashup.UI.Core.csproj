@@ -830,9 +830,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QuickStart.txt" />
-    <Content Include="shells\basic_index.html\index.controller.js" />
-    <Content Include="shells\basic_index.html\index.html" />
-    <Content Include="shells\basic_index.html\readme.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
