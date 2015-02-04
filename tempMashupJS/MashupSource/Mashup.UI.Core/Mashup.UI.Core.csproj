@@ -146,7 +146,6 @@
     <Content Include="core\apps\mashup\~appConfig\menu.config.js" />
     <Content Include="core\config\menu.config.js" />
     <Content Include="core\css\bootstrap\Normalize-3.0.1.css" />
-    <Content Include="core\dist\TextFile1.txt" />
     <Content Include="core\favicon.ico" />
     <Content Include="core\app.js" />
     <Content Include="core\apps\exApp1\angularExamplesMain\controllers\controllers.html" />
