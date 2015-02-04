@@ -816,6 +816,7 @@
     <Content Include="core\lib\jquery\jquery-2.1.1.min.map" />
     <Content Include="Gruntfile.js" />
     <Content Include="gulpfile.js" />
+    <Content Include="indel.html.shells\basic_index.html\index.controller.js" />
     <Content Include="indel.html.shells\basic_index.html\readme.txt" />
     <Content Include="indel.html.shells\TextFile1.txt" />
     <Content Include="package.json" />
