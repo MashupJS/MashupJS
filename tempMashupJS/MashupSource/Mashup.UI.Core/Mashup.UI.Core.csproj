@@ -830,6 +830,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QuickStart.txt" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
