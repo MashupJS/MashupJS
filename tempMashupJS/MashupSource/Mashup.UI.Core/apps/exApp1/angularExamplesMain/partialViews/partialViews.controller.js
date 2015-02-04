@@ -10,7 +10,7 @@ mashupApp.controller('exApp1.PartialViewsController', ['$scope', '$log', '$locat
 
 
     $scope.viewFile = function () {
-        return $scope.showList ? "apps/exApp1/angularExamplesMain/partialViews/myList.html" : "apps/exApp1/angularExamplesMain/partialViews/myTable.html";
+        return $scope.showList ? "../apps/exApp1/angularExamplesMain/partialViews/myList.html" : "../apps/exApp1/angularExamplesMain/partialViews/myTable.html";
     };
 
 
