@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['core/apps/**/*.js', '!**/*.min.js', '!core/apps/**/route.config.js'],
+                        src: ['apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js'],
                         dest: '',
                         ext: '.min.js',
                         extDot: 'last'
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['core/**/*.css', '!**/*.min.css'],
+                        src: ['core/**/*.css', 'apps/**/*.css', '!**/*.min.css'],
                         dest: '',
                         ext: '.min.css',
                         extDot: 'last'
@@ -74,7 +74,7 @@ module.exports = function (grunt) {
                 separator: ';',
             },
             routeconfig: {
-                src: ['core/config/route.config.js', 'core/apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
+                src: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
                 dest: '<%= distFolder %>/route.config.js',
             },
             coreservices: {
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                 dest: '<%= distFolder %>/core.services.js',
             },
             menuconfig: {
-                src: ['core/config/menu.config.js', 'core/apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*'],
+                src: ['core/config/menu.config.js', 'apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*'],
                 dest: '<%= distFolder %>/menu.config.js',
             },
 
@@ -134,11 +134,11 @@ module.exports = function (grunt) {
                 //reporter: require('jshint-stylish'),
 
             },
-            files: ['core/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
+            files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
         },
         watch: {
             appsjsmin: {
-                files: ['core/apps/exApp1/**/*.js', '!**/*.min.js', '!core/apps/**/route.config.js', '!core/apps/**/menu.config.js'],
+                files: ['apps/**/*.js', '!**/*.min.js', '!core/apps/**/route.config.js', '!core/apps/**/menu.config.js'],
                 tasks: ['newer:uglify:apps'],
                 options: {
                     spawn: false,
