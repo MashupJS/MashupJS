@@ -196,7 +196,6 @@
     <Content Include="core\index.html.shells\basic_index.html\index.controller.js" />
     <Content Include="core\index.html.shells\basic_index.html\index.html" />
     <Content Include="core\index.html.shells\basic_index.html\readme.txt" />
-    <Content Include="core\index.html.shells\TextFile1.txt" />
     <Content Include="core\lib\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="core\lib\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="core\lib\angular-ui\ui-bootstrap.js" />
