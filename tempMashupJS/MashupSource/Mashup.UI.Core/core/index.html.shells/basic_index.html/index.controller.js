@@ -1,13 +1,14 @@
-﻿/*global mashupApp:false */
+/*global mashupApp:false */
 
-mashupApp.controller('indexController', function ($scope, $modal, $log, $http, alertService, sessionService, mashupDataService) {
+mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'alertService', function ($scope, $modal, $log, $http, alertService) {
     "use strict";
+    //x = 3.14;
 
     // Launches the modal dialog for the menu.
     $scope.open = function () {
 
         var myModal = $modal.open({
-            templateUrl: 'apps/mashup/menu/menu.html',
+            templateUrl: '../apps/mashup/menu/menu.html',
             backdrop: 'statis', // can be true 
             windowClass: 'modal',
             controller: 'menuController',
@@ -38,8 +39,8 @@ mashupApp.controller('indexController', function ($scope, $modal, $log, $http, a
     (function () {
         // Get the battery!
         var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
-        var batteryStatusChange = function() {
-            
+        var batteryStatusChange = function () {
+
             var batteryCharging = battery.charging;
             var batteryLevel = battery.level * 100;
 
@@ -62,7 +63,7 @@ mashupApp.controller('indexController', function ($scope, $modal, $log, $http, a
 
         // If battery object available then set values.
         if (battery) {
-            
+
             batteryStatusChange();
 
             battery.addEventListener("chargingchange", function (e) {
@@ -77,4 +78,4 @@ mashupApp.controller('indexController', function ($scope, $modal, $log, $http, a
         }
     })();
 
-});
+}]);
