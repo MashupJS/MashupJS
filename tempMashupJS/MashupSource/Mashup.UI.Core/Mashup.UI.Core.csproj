@@ -193,6 +193,7 @@
       <DependentUpon>index.controller.js</DependentUpon>
     </Content>
     <Content Include="core\index.html" />
+    <Content Include="core\index.html.shells\TextFile1.txt" />
     <Content Include="core\lib\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="core\lib\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="core\lib\angular-ui\ui-bootstrap.js" />
