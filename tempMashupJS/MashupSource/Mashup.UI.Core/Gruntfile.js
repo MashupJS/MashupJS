@@ -11,10 +11,17 @@ module.exports = function (grunt) {
                 singleQuotes: true,
             },
             mashupCore: {
-                files: {
-                    //'': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
-                    '': ['apps/**/*.js', '!**/*.min.js']
-                },
+                //files: [{
+                //    //'': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
+                //    //'': ['apps/**/*.js', '!**/*.min.js']
+                //    src: ['apps/**/*.js', '!**/*.min.js'],
+                //    dest: ''
+                //}],
+                files: [{
+                    expand: true,
+                    src: ['apps/**/*.js', '!**/*.min.js'],
+                }],
+
             }
         },
         uglify: {
@@ -142,38 +149,39 @@ module.exports = function (grunt) {
                 files: ['apps/**/*.js', '!**/*.min.js', '!core/apps/**/route.config.js', '!core/apps/**/menu.config.js'],
                 tasks: ['newer:uglify:apps'],
                 options: {
-                    spawn: false,
+                    nospawn: true,
                 },
             },
             rootjsmin: {
                 files: ['core/*.js', '!**/*.min.js'],
+                //files: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
                 tasks: ['newer:uglify:coreroot'],
                 options: {
-                    spawn: false,
+                    nospawn: true,
                 },
             },
             service_route: {
                 files: ['core/common/services/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
                 tasks: ['clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices', 'uglify:dist'],
                 options: {
-                    spawn: false,
+                    nospawn: true,
                 },
             },
-            cssmin: {
-                files: ['core/**/*.css', '!**/*.min.css'],
-                tasks: ['newer:cssmin:all'],
-                options: {
-                    spawn: false,
-                },
-            },
+            //cssmin: {
+            //    files: ['core/**/*.css', '!**/*.min.css'],
+            //    tasks: ['newer:cssmin:all'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
 
-            imagemin: {
-                files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
-                tasks: ['newer:imagemin:dynamic'],
-                options: {
-                    spawn: false,
-                },
-            }
+            //imagemin: {
+            //    files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
+            //    tasks: ['newer:imagemin:dynamic'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //}
 
 
             // cannot get jshint to work from watch unless it's specific files.  If working on a specific file for a long time
@@ -187,9 +195,9 @@ module.exports = function (grunt) {
             //    },
             //},
 
-            , options: {
-                spawn: false,
-            },
+            //, options: {
+            //    spawn: false,
+            //},
         },
 
     });
@@ -213,7 +221,7 @@ module.exports = function (grunt) {
     // ------------------------------------------------------------------------------------------
     // grunt default
     grunt.registerTask('default', [
-        //'annotate',
+        'annotate',
         'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
         'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint', 'watch'
     ]);
@@ -235,6 +243,7 @@ module.exports = function (grunt) {
     grunt.registerTask('annotate', ['ngAnnotate']);
     grunt.registerTask('clean_dist', ['clean:dist']);
     grunt.registerTask('images', ['imagemin:dynamic']);
+    grunt.registerTask('mywatch', ['watch']);
 
 
     //TODO:
