@@ -12,7 +12,8 @@ module.exports = function (grunt) {
             },
             mashupCore: {
                 files: {
-                    '': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
+                    //'': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
+                    '': ['apps/**/*.js', '!**/*.min.js']
                 },
             }
         },
@@ -212,7 +213,8 @@ module.exports = function (grunt) {
     // ------------------------------------------------------------------------------------------
     // grunt default
     grunt.registerTask('default', [
-        'annotate', 'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
+        //'annotate',
+        'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
         'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint', 'watch'
     ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
