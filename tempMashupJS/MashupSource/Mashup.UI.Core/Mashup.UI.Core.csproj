@@ -755,7 +755,6 @@
   <ItemGroup>
     <Folder Include="core\common\directives\" />
     <Folder Include="core\common\filters\" />
-    <Folder Include="core\lib\img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
