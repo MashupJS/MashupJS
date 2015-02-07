@@ -12,7 +12,7 @@ module.exports = function (grunt) {
             },
             mashupCore: {
                 files: {
-                    '': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*']
+                    '': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
                 },
             }
         },
