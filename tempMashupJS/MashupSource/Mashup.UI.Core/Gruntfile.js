@@ -11,12 +11,6 @@ module.exports = function (grunt) {
                 singleQuotes: true,
             },
             mashupCore: {
-                //files: [{
-                //    //'': ['core/**/*.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.js']
-                //    //'': ['apps/**/*.js', '!**/*.min.js']
-                //    src: ['apps/**/*.js', '!**/*.min.js'],
-                //    dest: ''
-                //}],
                 files: [{
                     expand: true,
                     src: ['apps/**/*.js', '!**/*.min.js'],
@@ -100,12 +94,6 @@ module.exports = function (grunt) {
                 src: ['<%= distFolder %>/**/*.*/', '<%= distFolder %>/**/*.*']
             }
         },
-        //, jshint: {
-        //    all: {
-        //        src: ['Gruntfile.js', 'core/**/*.js', '!core/dist/**/*', '!**/*.min.js', '!core/lib/**/*']
-        //        , dest: 'output.js'
-        //    }
-        //}
 
 
         // https://github.com/gruntjs/grunt-contrib-imagemin
@@ -139,7 +127,6 @@ module.exports = function (grunt) {
                 },
                 maxerr: 19999,
                 force: true,
-                //reporter: require('jshint-stylish'),
 
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
@@ -154,7 +141,6 @@ module.exports = function (grunt) {
             },
             rootjsmin: {
                 files: ['core/*.js', '!**/*.min.js'],
-                //files: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
                 tasks: ['newer:uglify:coreroot'],
                 options: {
                     nospawn: true,
@@ -167,39 +153,21 @@ module.exports = function (grunt) {
                     nospawn: true,
                 },
             },
-            //cssmin: {
-            //    files: ['core/**/*.css', '!**/*.min.css'],
-            //    tasks: ['newer:cssmin:all'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
-
-            //imagemin: {
-            //    files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
-            //    tasks: ['newer:imagemin:dynamic'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //}
-
-
-            // cannot get jshint to work from watch unless it's specific files.  If working on a specific file for a long time
-            // then feel free to add the file here.
-
-            //jshintstuff: {
-            //    file: ['core/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
-            //    tasks: ['newer:jshint:files'],
-            //    options: {
-            //        spawn: false,
-            //    },
-            //},
-
-            //, options: {
-            //    spawn: false,
-            //},
+            cssmin: {
+                files: ['core/css/**/*.css', '!**/*.min.css'],
+                tasks: ['newer:cssmin:all'],
+                options: {
+                    nospawn: true,
+                },
+            },
+            imagemin: {
+                files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
+                tasks: ['newer:imagemin:dynamic'],
+                options: {
+                    nospawn: true,
+                },
+            }
         },
-
     });
 
     // Load modules, register tasks
@@ -243,8 +211,8 @@ module.exports = function (grunt) {
     grunt.registerTask('annotate', ['ngAnnotate']);
     grunt.registerTask('clean_dist', ['clean:dist']);
     grunt.registerTask('images', ['imagemin:dynamic']);
-    grunt.registerTask('mywatch', ['watch']);
-
+    grunt.registerTask('watchall', ['watch']);
+    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_route']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
