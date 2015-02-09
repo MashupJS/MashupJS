@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('exApp1.TemplateDirectivesController', ['$log', '$location', '$http', function ($log, $location, $http) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

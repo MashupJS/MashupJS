@@ -166,6 +166,9 @@
     <Content Include="apps\mashup\~appServices\data.service.js" />
     <Content Include="apps\mashup\~appServices\data.service.min.js" />
     <Content Include="apps\mashup\~appTests\New Text Document.txt" />
+    <Content Include="core\app.min.js">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
     <Content Include="core\config\menu.config.js" />
     <Content Include="core\css\bootstrap\Normalize-3.0.1.css" />
     <Content Include="core\favicon.ico" />
@@ -717,6 +720,9 @@
     <Content Include="apps\mashup\~appServices\data.service.min.js.map" />
     <Content Include="core\index.html.shells\basic_index.html\index.controller.min.js.map">
       <DependentUpon>index.controller.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\app.min.js.map">
+      <DependentUpon>app.min.js</DependentUpon>
     </Content>
     <None Include="core\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 mashupApp.controller('exApp1.BindingExamplesController', ['$log', '$location', '$http', function ($log, $location, $http) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

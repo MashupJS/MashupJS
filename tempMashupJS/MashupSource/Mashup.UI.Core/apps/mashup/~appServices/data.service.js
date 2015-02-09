@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('mashupDataService', ['$http', '$q', '$log', 'cacheService', function ($http, $q, $log, cacheService) {
-    "use strict";
+    'use strict';
 
     return {
   

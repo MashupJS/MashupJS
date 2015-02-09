@@ -2,7 +2,7 @@
 /*global _:false */
 
 mashupApp.service('detectService', ['$http', '$q', '$log', '$interval', '$filter', '$rootScope', 'utility', 'sessionService', function ($http, $q, $log, $interval, $filter, $rootScope, utility, sessionService) {
-    "use strict";
+    'use strict';
 
     // Manage logServiceDB.Heartbeats.
     // delete all records over 1 week old.

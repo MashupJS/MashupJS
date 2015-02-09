@@ -2,7 +2,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('utility_LogHelper', function () {
-    "use strict";
+    'use strict';
     var getLogObject = function (subject, app, mod, func, status, sessionService) {
 
         var logObject = {

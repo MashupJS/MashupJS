@@ -19,7 +19,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'mashupDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService, mashupDataService, utility) {
-    "use strict";
+    'use strict';
 
     var userInfoCacheDuration = 60;
     var userInfoLastChecked = 0;

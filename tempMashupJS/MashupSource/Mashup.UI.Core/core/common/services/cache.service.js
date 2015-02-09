@@ -3,7 +3,7 @@
 /*global ydn:false */
 
 mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectService', 'sessionService', function ($http, $q, $log, utility, detectService, sessionService) {
-    "use strict";
+    'use strict';
 
     // -------------------------------------------------------------------------
     // Kicks off the local caching solution

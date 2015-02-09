@@ -20,7 +20,7 @@ mashupApp.config(['$provide', function ($provide) {
 }]);
 
 mashupApp.factory("logService", ['$filter', 'sessionService', 'utility', function ($filter, sessionService, utility) {
-    "use strict";
+    'use strict';
 
     return function ($delegate) {
 

@@ -2,7 +2,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cacheService', function ($http, $q, $log, cacheService) {
-    "use strict";
+    'use strict';
 
     return {
         // Directly calling the web api. Not using the mashup cache but can leverage 

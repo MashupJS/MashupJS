@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('exApp1.ElementDirectivesController', ['$http', function ($http) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

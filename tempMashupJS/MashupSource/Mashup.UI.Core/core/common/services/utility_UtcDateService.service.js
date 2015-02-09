@@ -2,7 +2,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('utility_UtcDateService', function () {
-	"use strict";
+	'use strict';
 
 	var utcMilToLocalMil = function (milliseconds) {
 		var now = new Date();

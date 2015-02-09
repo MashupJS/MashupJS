@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('exApp1.ModalController', ['$modal', '$log', function ($modal, $log) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

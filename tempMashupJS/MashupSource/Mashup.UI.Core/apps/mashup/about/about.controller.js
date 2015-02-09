@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('mashup.AboutController', ['$log', '$http', '$filter', 'sessionService', 'mashupDataService', function ($log, $http, $filter, sessionService, mashupDataService) {
-    "use strict";
+    'use strict';
 
     //$scope.contacts = sessionService.list();
     // Set to have cache expire in 1 minute.  Useful for some kind

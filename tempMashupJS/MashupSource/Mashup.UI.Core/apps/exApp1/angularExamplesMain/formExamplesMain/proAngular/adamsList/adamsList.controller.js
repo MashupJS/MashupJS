@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 // 13. adding a more advanced filter
 mashupApp.filter("exApp1.checkedItems", function () {
-    "use strict";
+    'use strict';
 
     return function(items, showComplete) {
         var resultArr = [];
@@ -16,7 +16,7 @@ mashupApp.filter("exApp1.checkedItems", function () {
 });
 
 mashupApp.controller('exApp1.AdamsListController', ['$http', function ($http) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

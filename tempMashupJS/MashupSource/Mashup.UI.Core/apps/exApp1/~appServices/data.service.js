@@ -11,7 +11,7 @@
 // required.  If you want to put all your data access code here you can.  
 
 mashupApp.service('mashupExamplesDataService', ['$http', '$q', '$log', 'mashupExamplesItemDataService', function ($http, $q, $log, mashupExamplesItemDataService) {
-    "use strict";
+    'use strict';
 
     return {
         getItems1: function () {

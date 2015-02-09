@@ -2,7 +2,7 @@
 
 // exApp1.AngularObjectsController
 mashupApp.controller('exApp1.AngularObjectsController', ['$log', function ($log) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

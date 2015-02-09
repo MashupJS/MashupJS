@@ -12,7 +12,7 @@ var mashupApp = angular.module('mashupApp', ['ngRoute', 'ui.bootstrap', 'ngSanit
 // https://github.com/ocombe/ocLazyLoad/issues/71
 // ----------------------------------------------------------------------------------------------
 angular.module('mashupApp').config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
-    "use strict";
+    'use strict';
     $ocLazyLoadProvider.config({
         loadedModules: ['ngRoute', 'ui.bootstrap', 'ngSanitize', 'oc.lazyLoad']
     });
@@ -21,7 +21,7 @@ angular.module('mashupApp').config(['$ocLazyLoadProvider', function ($ocLazyLoad
 
 // To disable $sce:
 mashupApp.config(['$sceProvider', function ($sceProvider) {
-    "use strict";
+    'use strict';
     $sceProvider.enabled(false);
 }]);
 

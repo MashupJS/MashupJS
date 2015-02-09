@@ -2,7 +2,7 @@
 
 // jsexamples1Controller
 mashupApp.controller('exApp1.AngularExamples1Controller', ['$log', '$location', '$http', 'MyService', 'environment', function ($log, $location, $http, MyService, environment) {
-    "use strict";
+    'use strict';
 
     var vm = this;
 

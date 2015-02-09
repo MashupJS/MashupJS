@@ -9,7 +9,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('sessionService', function () {
-    "use strict";
+    'use strict';
 
     // The sessionService module cannot be added to the logService because of circular reference.
     // I want the logService to have access to certain information stored in session so I'm adding this

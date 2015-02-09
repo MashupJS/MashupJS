@@ -2,7 +2,7 @@
 /*global mashupApp:false */
 
 mashupApp.service('utility', ['utility_UtcDateService', 'utility_LogHelper', function (utility_UtcDateService, utility_LogHelper) {
-    "use strict";
+    'use strict';
 
     //---------------------------------------------------------------------
     // INSTRUCTIONS for 'utility' usage.

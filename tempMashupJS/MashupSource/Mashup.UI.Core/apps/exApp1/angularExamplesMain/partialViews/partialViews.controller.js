@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('exApp1.PartialViewsController', ['$scope', '$log', '$location', '$http', function ($scope, $log, $location, $http) {
-    "use strict";
+    'use strict';
 
     // $scope.items =[];
     $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true }).success(function (data) {

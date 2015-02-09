@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------------------- 
 
 mashupApp.config(['$routeProvider', function ($routeProvider) {
-    "use strict";
+    'use strict';
 
     $routeProvider
 

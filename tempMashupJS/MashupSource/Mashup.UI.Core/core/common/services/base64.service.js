@@ -3,7 +3,7 @@
 // http://wemadeyoulook.at/en/blog/implementing-basic-http-authentication-http-requests-angular/
 
 mashupApp.factory('Base64', function () {
-    "use strict";
+    'use strict';
 
     var keyStr = 'ABCDEFGHIJKLMNOP' +
         'QRSTUVWXYZabcdef' +

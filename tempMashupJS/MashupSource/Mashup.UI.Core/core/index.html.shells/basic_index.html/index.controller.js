@@ -1,7 +1,7 @@
 /*global mashupApp:false */
 
 mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'alertService', function ($scope, $modal, $log, $http, alertService) {
-    "use strict";
+    'use strict';
     //x = 3.14;
 
     // Launches the modal dialog for the menu.
