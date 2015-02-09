@@ -128,6 +128,68 @@ module.exports = function (grunt) {
                 maxerr: 19999,
                 force: true,
 
+                // options from Joha Papa's Angular Design-Guide
+                "bitwise": true,
+                "camelcase": true,
+                "curly": true,
+                "eqeqeq": true,
+                "es3": false,
+                "forin": true,
+                "freeze": true,
+                "immed": true,
+                "indent": 4,
+                "latedef": "nofunc",
+                "newcap": true,
+                "noarg": true,
+                "noempty": true,
+                "nonbsp": true,
+                "nonew": true,
+                "plusplus": false,
+                "quotmark": "single",
+                "undef": true,
+                "unused": false,
+                "strict": false,
+                "maxparams": 10,
+                "maxdepth": 5,
+                "maxstatements": 40,
+                "maxcomplexity": 8,
+                "maxlen": 120,
+
+                "asi": false,
+                "boss": false,
+                "debug": false,
+                "eqnull": true,
+                "esnext": false,
+                "evil": false,
+                "expr": false,
+                "funcscope": false,
+                "globalstrict": false,
+                "iterator": false,
+                "lastsemic": false,
+                "laxbreak": false,
+                "laxcomma": false,
+                "loopfunc": true,
+                // "maxerr": false,
+                "moz": false,
+                "multistr": false,
+                "notypeof": false,
+                "proto": false,
+                "scripturl": false,
+                "shadow": false,
+                "sub": true,
+                "supernew": false,
+                "validthis": false,
+                "noyield": false,
+
+                "browser": true,
+                //"node": true,
+
+                //"globals": {
+                //    "angular": false,
+                //    "$": false
+                //}
+
+
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
         },
@@ -214,6 +276,7 @@ module.exports = function (grunt) {
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
     grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']);
+    grunt.registerTask('myjshint', ['jshint']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
@@ -223,7 +286,6 @@ module.exports = function (grunt) {
     // combine all JS for each app and make an app.min.js file.
     // create a task for deploying to dev/test/stage/prod (dist directories)
     // create a task to zip dist directories for deployment and restoration.
-
 
 
 };
