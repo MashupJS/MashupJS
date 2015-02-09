@@ -1,4 +1,7 @@
 
+/*jshint strict: false, bitwise: false */
+
+
 // Source for this service.
 // http://wemadeyoulook.at/en/blog/implementing-basic-http-authentication-http-requests-angular/
 
@@ -12,9 +15,9 @@ mashupApp.factory('Base64', function () {
         '=';
     return {
         encode: function (input) {
-            var output = "";
-            var chr1, chr2, chr3 = "";
-            var enc1, enc2, enc3, enc4 = "";
+            var output = '';
+            var chr1, chr2, chr3 = '';
+            var enc1, enc2, enc3, enc4 = '';
             var i = 0;
 
             do {

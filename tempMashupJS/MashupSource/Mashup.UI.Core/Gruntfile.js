@@ -123,7 +123,9 @@ module.exports = function (grunt) {
                     console: true,
                     module: true,
                     document: true,
-                    jshintrc: true
+                    jshintrc: true,
+                    "angular": false,
+                    "$": false
                 },
                 maxerr: 19999,
                 force: true,
@@ -169,7 +171,6 @@ module.exports = function (grunt) {
                 "laxbreak": false,
                 "laxcomma": false,
                 "loopfunc": true,
-                // "maxerr": false,
                 "moz": false,
                 "multistr": false,
                 "notypeof": false,
@@ -182,13 +183,6 @@ module.exports = function (grunt) {
                 "noyield": false,
 
                 "browser": true,
-                //"node": true,
-
-                //"globals": {
-                //    "angular": false,
-                //    "$": false
-                //}
-
 
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
@@ -231,6 +225,19 @@ module.exports = function (grunt) {
                 },
             }
         },
+        //watchjsonly: {
+        //    tasks: ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']
+        //},
+
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+
+            },
+            watchjsonly: {
+                tasks: ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']
+            }
+        }
     });
 
     // Load modules, register tasks
@@ -244,6 +251,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('load-grunt-tasks');
     // grunt.loadNpmTasks('jshint-stylish');
 
 
@@ -275,7 +283,7 @@ module.exports = function (grunt) {
     grunt.registerTask('clean_dist', ['clean:dist']);
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
-    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']);
+    grunt.registerTask('watchjs', ['concurrent:watchjsonly']);
     grunt.registerTask('myjshint', ['jshint']);
 
     //TODO:
