@@ -146,8 +146,9 @@ module.exports = function (grunt) {
                     nospawn: true,
                 },
             },
-            service_route: {
-                files: ['core/common/services/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
+            service_config: {
+                files: ['core/common/services/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js'
+                        , 'core/config/menu.config.js', 'core/apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
                 tasks: ['clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices', 'uglify:dist'],
                 options: {
                     nospawn: true,
@@ -212,7 +213,7 @@ module.exports = function (grunt) {
     grunt.registerTask('clean_dist', ['clean:dist']);
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
-    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_route']);
+    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
