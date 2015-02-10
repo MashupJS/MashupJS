@@ -194,7 +194,7 @@ module.exports = function (grunt) {
                 "devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
 
             },
-            files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
+            files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
         watch: {
             appsjsmin: {
