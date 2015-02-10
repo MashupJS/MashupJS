@@ -1,5 +1,7 @@
 
 /*global mashupApp:false */
+/*jshint -W106 */
+
 
 mashupApp.service('utility', ['utility_UtcDateService', 'utility_LogHelper', function (utility_UtcDateService, utility_LogHelper) {
     'use strict';

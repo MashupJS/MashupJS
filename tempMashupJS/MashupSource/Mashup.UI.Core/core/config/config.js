@@ -1,80 +1,80 @@
 
-console.log("config.js - loaded");
+console.log('config.js - loaded');
 
 var mashupConfiguration = {
-    "config": {
-        "environment": "localEnvironment",
-        "revision": "8220",
-        "configuration": [
-          {
-              "id": "localEnvironment",
-              "applications": {
-                  "application": [
-                    {
-                        "name": "mashup",
-                        "modelBaseURL": "../",
-                        "apiBaseURL": "/api/"
-                    },
-                    {
-                        "name": "app2",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app2",
-                        "apiBaseURL": "vwebstg.versopaper.net/mashup/app2/api"
-                    },
-                    {
-                        "name": "app3",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app3",
-                        "apiBaseURL": "vwebstg.versopaper.net/mashup/app3/api"
-                    }
-                  ]
-              }
-          },
-          {
-              "id": "staging",
-              "applications": {
-                  "application": [
-                    {
-                        "name": "mashup",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/",
-                        "apiBaseURL": "vwebstg.versopaper.net/mashup/api"
-                    },
-                    {
-                        "name": "app2",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app2",
-                        "apiBaseURL": "vwebstg.versopaper.net/mashup/app2/api"
-                    },
-                    {
-                        "name": "app3",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app3",
-                        "apiBaseURL": "vwebstg.versopaper.net/mashup/app3/api"
-                    }
-                  ]
-              }
-          },
-          {
-              "id": "production",
-              "applications": {
-                  "application": [
-                    {
-                        "name": "mashup",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/",
-                        "apiBaseURL": "vweb.versopaper.net/mashup/api"
-                    },
-                    {
-                        "name": "app2",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app2",
-                        "apiBaseURL": "vweb.versopaper.net/mashup/app2/api"
-                    },
-                    {
-                        "name": "app3",
-                        "modelBaseURL": "vwebstg.versopaper.net/mashup/app3",
-                        "apiBaseURL": "vweb.versopaper.net/mashup/app3/api"
-                    }
-                  ]
-              }
-          }
+    'config': {
+        'environment': 'localEnvironment',
+        'revision': '8220',
+        'configuration': [
+            {
+                'id': 'localEnvironment',
+                'applications': {
+                    'application': [
+                        {
+                            'name': 'mashup',
+                            'modelBaseURL': '../',
+                            'apiBaseURL': '/api/'
+                        },
+                        {
+                            'name': 'app2',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app2',
+                            'apiBaseURL': 'vwebstg.versopaper.net/mashup/app2/api'
+                        },
+                        {
+                            'name': 'app3',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app3',
+                            'apiBaseURL': 'vwebstg.versopaper.net/mashup/app3/api'
+                        }
+                    ]
+                }
+            },
+            {
+                'id': 'staging',
+                'applications': {
+                    'application': [
+                        {
+                            'name': 'mashup',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/',
+                            'apiBaseURL': 'vwebstg.versopaper.net/mashup/api'
+                        },
+                        {
+                            'name': 'app2',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app2',
+                            'apiBaseURL': 'vwebstg.versopaper.net/mashup/app2/api'
+                        },
+                        {
+                            'name': 'app3',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app3',
+                            'apiBaseURL': 'vwebstg.versopaper.net/mashup/app3/api'
+                        }
+                    ]
+                }
+            },
+            {
+                'id': 'production',
+                'applications': {
+                    'application': [
+                        {
+                            'name': 'mashup',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/',
+                            'apiBaseURL': 'vweb.versopaper.net/mashup/api'
+                        },
+                        {
+                            'name': 'app2',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app2',
+                            'apiBaseURL': 'vweb.versopaper.net/mashup/app2/api'
+                        },
+                        {
+                            'name': 'app3',
+                            'modelBaseURL': 'vwebstg.versopaper.net/mashup/app3',
+                            'apiBaseURL': 'vweb.versopaper.net/mashup/app3/api'
+                        }
+                    ]
+                }
+            }
         ]
     }
-}
+};
 
 
 var apps = mashupConfiguration.config.configuration[0];

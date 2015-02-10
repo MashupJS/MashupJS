@@ -23,12 +23,12 @@ mashupApp.service('utility_LogHelper', function () {
         try {
             var envSession = sessionService.envSession();
             logObject.osName = envSession.osName;
-            logObject.browser = envSession.browserName + " " + envSession.fullVersion;
+            logObject.browser = envSession.browserName + ' ' + envSession.fullVersion;
 
-            if (envSession.deviceType === "desktop") {
+            if (envSession.deviceType === 'desktop') {
                 logObject.deviceType = envSession.deviceType;
             } else {
-                logObject.deviceType = envSession.deviceType + ": " + envSession.mobileType;
+                logObject.deviceType = envSession.deviceType + ': ' + envSession.mobileType;
             }
         }
         catch (e) { }
