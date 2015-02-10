@@ -192,6 +192,9 @@
     <Content Include="core\css\bootstrap\superhero\bootstrap.superhero.css" />
     <Content Include="core\css\main.css" />
     <Content Include="core\css\Normalize-3.0.1.css" />
+    <Content Include="core\index.controller.min.js">
+      <DependentUpon>index.controller.js</DependentUpon>
+    </Content>
     <Content Include="core\index.html" />
     <Content Include="core\index.html.shells\basic_index.html\index.controller.js" />
     <Content Include="core\index.html.shells\basic_index.html\index.controller.min.js">
@@ -723,6 +726,9 @@
     </Content>
     <Content Include="core\app.min.js.map">
       <DependentUpon>app.min.js</DependentUpon>
+    </Content>
+    <Content Include="core\index.controller.min.js.map">
+      <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
     <None Include="core\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,4 +1,14 @@
 
+// I'm disappointed in Grunts performance on watch.  So many files need watched that it takes Grunt
+// a while to recognize a change.  Depending on machine power it could be 10 to 20 seconds and by then
+// I could have launched and tested the change.
+// 
+// I will keep the file updated in case Grunt improves it's performance and so I can be reminded of why
+// I'm choosing Gulp.
+// I think Grunt is a great tool and my favorit part is how easy it was to learn on my own.  I just need a little more
+// from it that it can't seem to provide or I'm unable to figure out.  Either is an indicator of a problem.
+// As time permits I'll learn how to make my Grunt config faster.  I've learned of paralell plug-ins that might help.
+
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -15,7 +25,6 @@ module.exports = function (grunt) {
                     expand: true,
                     src: ['apps/**/*.js', '!**/*.min.js'],
                 }],
-
             }
         },
         uglify: {
@@ -94,7 +103,6 @@ module.exports = function (grunt) {
                 src: ['<%= distFolder %>/**/*.*/', '<%= distFolder %>/**/*.*']
             }
         },
-
 
         // https://github.com/gruntjs/grunt-contrib-imagemin
         imagemin: {
@@ -225,19 +233,8 @@ module.exports = function (grunt) {
                 },
             }
         },
-        //watchjsonly: {
-        //    tasks: ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']
-        //},
+ 
 
-        concurrent: {
-            options: {
-                logConcurrentOutput: true
-
-            },
-            watchjsonly: {
-                tasks: ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']
-            }
-        }
     });
 
     // Load modules, register tasks
@@ -251,10 +248,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('load-grunt-tasks');
-    // grunt.loadNpmTasks('jshint-stylish');
-
-
 
 
     // ------------------------------------------------------------------------------------------
@@ -266,25 +259,23 @@ module.exports = function (grunt) {
     ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
     // 2. Cleans out the "dist" directory to prepare for new files
-    // 3. Concatinates together all files named route.config.js into a single file route.config.min.js
+    // 3. Concatinates together all files named route.config.js into a single file route.config.min.js.  Same for menu.config.js
     // 4. Uglify/minify application js files and creates maps
     // 5. Minifies CSS files but allows them to remain separate.  Some may be combined later.
     // ------------------------------------------------------------------------------------------
-
-    // ------------------------------------------------------------------------------------------
-    // HOW TO USE
-    // ------------------------------------------------------------------------------------------
-    // If grunt failes it might be because all unversioned files were removed.  Run "npm install".
-    // grunt
-    // At the command line just type "grunt".  All files will be processed and a watch is started for newly changed files.
 
 
     grunt.registerTask('annotate', ['ngAnnotate']);
     grunt.registerTask('clean_dist', ['clean:dist']);
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
-    grunt.registerTask('watchjs', ['concurrent:watchjsonly']);
     grunt.registerTask('myjshint', ['jshint']);
+
+
+    // This is where I hit a wall and I've decided to move to gulp.
+    // The watch command works great by itself but a subset of watch commands cannot be used.
+    // Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
+    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
