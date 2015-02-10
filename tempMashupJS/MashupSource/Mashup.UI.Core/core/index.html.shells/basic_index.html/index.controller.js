@@ -1,6 +1,7 @@
 /*global mashupApp:false */
 
-mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'alertService', function ($scope, $modal, $log, $http, alertService) {
+mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'alertService',
+    function ($scope, $modal, $log, $http, alertService) {
     'use strict';
     //x = 3.14;
 
@@ -39,15 +40,15 @@ mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'a
     (function () {
         // Get the battery!
         var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
-        var batteryStatusChange = function () {
+        var batteryStatusChange = function() {
 
             var batteryCharging = battery.charging;
             var batteryLevel = battery.level * 100;
 
             if (batteryCharging) {
-                $scope.batteryStatus = "Charging: " + batteryLevel + "%";
+                $scope.batteryStatus = 'Charging: ' + batteryLevel + '%';
             } else {
-                $scope.batteryStatus = "Battery: " + batteryLevel + "%";
+                $scope.batteryStatus = 'Battery: ' + batteryLevel + '%';
             }
             // TODO: write up this battery function and how $scope.$apply() was useful.
             // Having problems with this apply because the digest cycle is already running.  This happens
@@ -56,26 +57,24 @@ mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'a
             // https://coderwall.com/p/ngisma
             // TODO: Move this safe apply to something shared like the utility service.
             var phase = $scope.$root.$$phase;
-            if (phase != '$apply' && phase != '$digest') {
+            if (phase !== '$apply' && phase !== '$digest') {
                 $scope.$apply();
             }
-        }
+        };
 
         // If battery object available then set values.
         if (battery) {
 
             batteryStatusChange();
 
-            battery.addEventListener("chargingchange", function (e) {
-                console.warn("Battery charge change: ", battery.charging);
+            battery.addEventListener('chargingchange', function (e) {
+                console.warn('Battery charge change: ', battery.charging);
                 batteryStatusChange();
             }, false);
-            battery.addEventListener("levelchange", function (e) {
-                console.warn("Battery level change: ", battery.level);
+            battery.addEventListener('levelchange', function (e) {
+                console.warn('Battery level change: ', battery.level);
                 batteryStatusChange();
             }, false);
-
         }
     })();
-
 }]);
