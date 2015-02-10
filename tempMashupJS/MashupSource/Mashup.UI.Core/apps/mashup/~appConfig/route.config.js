@@ -6,6 +6,7 @@
 // --------------------------------------------------------------------------------------------- 
 // --------------------------------------------------------------------------------------------- 
 
+
 mashupApp.config(['$routeProvider', function ($routeProvider) {
     'use strict';
 
@@ -21,8 +22,8 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         name: 'mashupApp',
                         files: ['../apps/mashup/about/about.controller.min.js', '../apps/mashup/~appServices/data.service.min.js']
                     });
-                }]
-                , sessionLoad: ['$route', 'sessionLoad', function ($route, sessionLoad) { return sessionLoad.loadCompleted(); }]
+                }],
+                sessionLoad: ['$route', 'sessionLoad', function ($route, sessionLoad) { return sessionLoad.loadCompleted(); }]
             }
 
         })
@@ -36,9 +37,10 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         name: 'mashupApp',
                         files: ['../apps/mashup/welcome/welcome.controller.min.js', '../apps/mashup/~appServices/data.service.min.js']
                     });
-                }]
-            ,
+                }],
+
                 sessionLoad: ['$route', 'sessionLoad', function ($route, sessionLoad) { return sessionLoad.loadCompleted(); }]
             }
+
         });
 }]);
