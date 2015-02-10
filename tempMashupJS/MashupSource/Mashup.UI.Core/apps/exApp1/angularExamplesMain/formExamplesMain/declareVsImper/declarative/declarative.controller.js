@@ -7,12 +7,12 @@ mashupApp.controller('exApp1.DeclarativeController', function () {
 
     vm.completeShipping = function () {
 
-        alert("Your data is saved... add new order...");
+        alert('Your data is saved... add new order...');
 
-        vm.data.shipping.name = "";
-        vm.data.shipping.address = "";
-        vm.data.shipping.phone = "";
-        vm.data.shipping.email = "";
+        vm.data.shipping.name = '';
+        vm.data.shipping.address = '';
+        vm.data.shipping.phone = '';
+        vm.data.shipping.email = '';
     };
 
 });

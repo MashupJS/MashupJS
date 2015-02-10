@@ -5,7 +5,7 @@ mashupApp.controller('exApp1.ElementDirectivesController', ['$http', function ($
 
     var vm = this;
 
-    $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true }).success(function(data) {
+    $http.get('http://localhost:50004/api/ExampleData/Items/', { withCredentials: true }).success(function(data) {
         vm.items = data;
     });
 

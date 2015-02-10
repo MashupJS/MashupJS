@@ -21,11 +21,11 @@ mashupApp.controller('exApp1.FormElements1Controller', ['$http', 'alertService',
         // Angular adds them automatically if they are referenced in the UI for any reason.
         // Best practice is to explicitly name your model elements in the controller to
         // support separation of responsibilities.  But this feature can make development faster.
-        vm.data.shipping.name = "";
-        vm.data.shipping.address = "";
+        vm.data.shipping.name = '';
+        vm.data.shipping.address = '';
     };
 
-    $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true }).success(function(data) {
+    $http.get('http://localhost:50004/api/ExampleData/Items/', { withCredentials: true }).success(function(data) {
         vm.items = data;
     });
 

@@ -11,9 +11,9 @@ mashupApp.controller('exApp1.ControllersController', function () {
 
     vm.myValue = 0;
 
-    vm.add = function (a,b) {
+    vm.add = function (a, b) {
         vm.myValue = a + b;
-    }
+    };
 
 });
 

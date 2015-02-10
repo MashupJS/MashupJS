@@ -1,6 +1,6 @@
 /*global mashupApp:false */
 // 13. adding a more advanced filter
-mashupApp.filter("exApp1.checkedItems", function () {
+mashupApp.filter('exApp1.checkedItems', function () {
     'use strict';
 
     return function(items, showComplete) {
@@ -21,11 +21,11 @@ mashupApp.controller('exApp1.AdamsListController', ['$http', function ($http) {
     var vm = this;
 
     var model = {
-        user: "Adam"
+        user: 'Adam'
     };
 
-    // NOTE: When we use the "withCredentials" option we cannot use a wild card "*" for
-    $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true }).success(function(data) {
+    // NOTE: When we use the 'withCredentials' option we cannot use a wild card '*' for
+    $http.get('http://localhost:50004/api/ExampleData/Items/', { withCredentials: true }).success(function(data) {
         model.items = data;
     });
 
@@ -45,7 +45,7 @@ mashupApp.controller('exApp1.AdamsListController', ['$http', function ($http) {
 
     // 10. adding more behavior that affects other behavior
     vm.warningLevel = function() {
-        return vm.incompleteCount() < 3 ? "lable-success" : "label-warning";
+        return vm.incompleteCount() < 3 ? 'lable-success' : 'label-warning';
     };
 
     // 11. adding new item method

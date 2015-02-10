@@ -4,7 +4,7 @@ mashupApp.controller('exApp1.BindingExamplesController', ['$log', '$location', '
 
     var vm = this;
 
-    $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true }).success(function(data) {
+    $http.get('http://localhost:50004/api/ExampleData/Items/', { withCredentials: true }).success(function(data) {
         vm.items = data;
     });
 

@@ -5,6 +5,6 @@ mashupApp.controller('exApp1.Page2Controller', function () {
 
     var vm = this;
 
-    vm.message = "Look! I'm page 2.";
+    vm.message = 'Look! I\'m page 2.';
 
 });

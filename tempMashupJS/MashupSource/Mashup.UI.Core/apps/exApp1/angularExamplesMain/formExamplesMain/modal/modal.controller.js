@@ -5,7 +5,7 @@ mashupApp.controller('exApp1.ModalController', ['$modal', '$log', function ($mod
 
     var vm = this;
 
-    vm.message = "Modal examples here...";
+    vm.message = 'Modal examples here...';
 
     // ------------------------------------------------------------------------- //
     // Part of the controller supporting the modal popup.
