@@ -37,11 +37,8 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         files: ['../apps/mashup/welcome/welcome.controller.min.js', '../apps/mashup/~appServices/data.service.min.js']
                     });
                 }]
-            , 
+            ,
                 sessionLoad: ['$route', 'sessionLoad', function ($route, sessionLoad) { return sessionLoad.loadCompleted(); }]
             }
-        })
-
-    ;
-
+        });
 }]);
