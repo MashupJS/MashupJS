@@ -1,4 +1,5 @@
 
+/*jshint -W101*/
 
 // The menu will be described through JSON.
 // The core/config/menu.config.js will describe some menu items but most will come from core/apps/[application]/~appConfig

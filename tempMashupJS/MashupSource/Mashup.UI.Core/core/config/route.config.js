@@ -18,7 +18,9 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
 }]);
 
-mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'mashupDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService, mashupDataService, utility) {
+mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
+    'mashupDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
+        mashupDataService, utility) {
     'use strict';
 
     var userInfoCacheDuration = 60;
@@ -28,11 +30,12 @@ mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$inter
         // -------------------------------------------------------------------
         // Instrumenting the application so we can track what pages get used.
         // -------------------------------------------------------------------
-        var logObject = utility.getLogObject("Instr", "Mashup.UI.Core", "sessionLoad", "loadComplete", "UI-Routing", sessionService);
+        var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'sessionLoad', 'loadComplete',
+            'UI-Routing', sessionService);
         // Additional or custom properties for logging.
         logObject.absUrl = $location.absUrl();
         logObject.url = $location.url();
-        $log.log("UI-Routing to [ " + $location.url() + " ]", logObject);
+        $log.log('UI-Routing to [ ' + $location.url() + ' ]', logObject);
         // -------------------------------------------------------------------
         // -------------------------------------------------------------------
     };
@@ -53,7 +56,8 @@ mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$inter
 
                     if (data === null || data === undefined || data === '' || data.length === 0) {
 
-                        // TODO: add this to a log that is transmitted immediately  will need to implement the log transmission module first.
+                        // TODO: add this to a log that is transmitted immediately  will need to 
+                        // implement the log transmission module first.
                         $log.info('The getUserInfo returned an empty array.  Just thought you should know.');
 
                     } else {
@@ -68,6 +72,7 @@ mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$inter
                     // The client side is to easily manipulated.
                     defer.resolve(true);
                 }),
+                /*jshint -W030*/
                     function () {
                         // if userInfoLastChecked is not 0 then the user has been authenticated at some point.
                         // if an error occurs then we should not prevent the user from navigating to the next page.
@@ -75,6 +80,7 @@ mashupApp.factory('sessionLoad', ['$log', '$q', '$timeout', '$location', '$inter
                             defer.resolve(true);
                         }
                     };
+                /*jshint +W030*/
             } else {
                 // short circuit because we are within the duration threshold
                 logRouteInstrumentation();
