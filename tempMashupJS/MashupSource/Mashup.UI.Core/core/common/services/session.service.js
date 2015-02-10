@@ -7,6 +7,7 @@
 // - App, Web Api, and Database environments
 
 /*global mashupApp:false */
+/*jshint maxcomplexity:13 */  // This is to address the complexity of the if statements below.
 
 mashupApp.service('sessionService', function () {
     'use strict';
@@ -16,7 +17,7 @@ mashupApp.service('sessionService', function () {
     // data to the $rootScope.  I don't like poluting the $rootScope but until I figure out a way
     // around the circular reference this is my solution.
     var userSession = {
-        UserName: ""
+        UserName: ''
     };
 
     var envSession = {};
@@ -27,17 +28,17 @@ mashupApp.service('sessionService', function () {
         // http://www.javascripter.net/faq/operatin.htm
 
         // This script sets OSName variable as follows:
-        // "Windows"    for all versions of Windows
-        // "MacOS"      for all versions of Macintosh OS
-        // "Linux"      for all versions of Linux
-        // "UNIX"       for all other UNIX flavors 
-        // "Unknown OS" indicates failure to detect the OS
+        // 'Windows'    for all versions of Windows
+        // 'MacOS'      for all versions of Macintosh OS
+        // 'Linux'      for all versions of Linux
+        // 'UNIX'       for all other UNIX flavors 
+        // 'Unknown OS' indicates failure to detect the OS
 
-        var OSName = "Unknown OS";
-        if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
-        if (navigator.appVersion.indexOf("Mac") != -1) OSName = "MacOS";
-        if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
-        if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
+        var OSName = 'Unknown OS';
+        if (navigator.appVersion.indexOf('Win') !== -1) { OSName = 'Windows'; }
+        if (navigator.appVersion.indexOf('Mac') !== -1) { OSName = 'MacOS'; }
+        if (navigator.appVersion.indexOf('X11') !== -1) { OSName = 'UNIX'; }
+        if (navigator.appVersion.indexOf('Linux') !== -1) { OSName = 'Linux'; }
 
         envSession.osName = OSName;
         envSession.appVersion = navigator.appVersion;
@@ -58,49 +59,49 @@ mashupApp.service('sessionService', function () {
         var majorVersion = parseInt(navigator.appVersion, 10);
         var nameOffset, verOffset, ix;
 
-        // In Opera, the true version is after "Opera" or after "Version"
-        if ((verOffset = nAgt.indexOf("Opera")) != -1) {
-            browserName = "Opera";
+        // In Opera, the true version is after 'Opera' or after 'Version'
+        if ((verOffset = nAgt.indexOf('Opera')) !== -1) {
+            browserName = 'Opera';
             fullVersion = nAgt.substring(verOffset + 6);
-            if ((verOffset = nAgt.indexOf("Version")) != -1)
-                fullVersion = nAgt.substring(verOffset + 8);
+            if ((verOffset = nAgt.indexOf('Version')) !== -1)
+            { fullVersion = nAgt.substring(verOffset + 8); }
         }
-            // In MSIE, the true version is after "MSIE" in userAgent
-        else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
-            browserName = "Microsoft Internet Explorer";
+            // In MSIE, the true version is after 'MSIE' in userAgent
+        else if ((verOffset = nAgt.indexOf('MSIE')) !== -1) {
+            browserName = 'Microsoft Internet Explorer';
             fullVersion = nAgt.substring(verOffset + 5);
         }
-            // In Chrome, the true version is after "Chrome" 
-        else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
-            browserName = "Chrome";
+            // In Chrome, the true version is after 'Chrome' 
+        else if ((verOffset = nAgt.indexOf('Chrome')) !== -1) {
+            browserName = 'Chrome';
             fullVersion = nAgt.substring(verOffset + 7);
         }
-            // In Safari, the true version is after "Safari" or after "Version" 
-        else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
-            browserName = "Safari";
+            // In Safari, the true version is after 'Safari' or after 'Version' 
+        else if ((verOffset = nAgt.indexOf('Safari')) !== -1) {
+            browserName = 'Safari';
             fullVersion = nAgt.substring(verOffset + 7);
-            if ((verOffset = nAgt.indexOf("Version")) != -1)
-                fullVersion = nAgt.substring(verOffset + 8);
+            if ((verOffset = nAgt.indexOf('Version')) !== -1)
+            { fullVersion = nAgt.substring(verOffset + 8); }
         }
-            // In Firefox, the true version is after "Firefox" 
-        else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
-            browserName = "Firefox";
+            // In Firefox, the true version is after 'Firefox' 
+        else if ((verOffset = nAgt.indexOf('Firefox')) !== -1) {
+            browserName = 'Firefox';
             fullVersion = nAgt.substring(verOffset + 8);
         }
-            // In most other browsers, "name/version" is at the end of userAgent 
+            // In most other browsers, 'name/version' is at the end of userAgent 
         else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) <
                   (verOffset = nAgt.lastIndexOf('/'))) {
             browserName = nAgt.substring(nameOffset, verOffset);
             fullVersion = nAgt.substring(verOffset + 1);
-            if (browserName.toLowerCase() == browserName.toUpperCase()) {
+            if (browserName.toLowerCase() === browserName.toUpperCase()) {
                 browserName = navigator.appName;
             }
         }
         // trim the fullVersion string at semicolon/space if present
-        if ((ix = fullVersion.indexOf(";")) != -1)
-            fullVersion = fullVersion.substring(0, ix);
-        if ((ix = fullVersion.indexOf(" ")) != -1)
-            fullVersion = fullVersion.substring(0, ix);
+        if ((ix = fullVersion.indexOf(';')) !== -1)
+            {fullVersion = fullVersion.substring(0, ix);}
+        if ((ix = fullVersion.indexOf(' ')) !== -1)
+            {fullVersion = fullVersion.substring(0, ix);}
 
         majorVersion = parseInt('' + fullVersion, 10);
         if (isNaN(majorVersion)) {
@@ -140,17 +141,17 @@ mashupApp.service('sessionService', function () {
             }
         };
 
-        var mobileType = "";
+        var mobileType = '';
         // check if mobile or desktop
         if (isMobile.any()) {
-            envSession.deviceType = "mobile";
-            if (isMobile.Android()) { mobileType = "Android"; }
-            if (isMobile.BlackBerry()) { mobileType = "BlackBerry"; }
-            if (isMobile.iOS()) { mobileType = "iPhone|iPad|iPod"; }
-            if (isMobile.Opera()) { mobileType = "Opera Mini"; }
-            if (isMobile.Windows()) { mobileType = "IEMobile"; }
+            envSession.deviceType = 'mobile';
+            if (isMobile.Android()) { mobileType = 'Android'; }
+            if (isMobile.BlackBerry()) { mobileType = 'BlackBerry'; }
+            if (isMobile.iOS()) { mobileType = 'iPhone|iPad|iPod'; }
+            if (isMobile.Opera()) { mobileType = 'Opera Mini'; }
+            if (isMobile.Windows()) { mobileType = 'IEMobile'; }
         } else {
-            envSession.deviceType = "desktop";
+            envSession.deviceType = 'desktop';
         }
         envSession.mobileType = mobileType;
 
@@ -162,12 +163,12 @@ mashupApp.service('sessionService', function () {
         var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
 
         if (battery) {
-            var batteryLevelChanged = function() {
+            var batteryLevelChanged = function () {
                 envSession.batteryLevel = battery.level * 100;
             };
 
-            battery.addEventListener("levelchange", function (e) {
-                console.warn("sessionService: Battery level change: ", battery.level);
+            battery.addEventListener('levelchange', function (e) {
+                console.warn('sessionService: Battery level change: ', battery.level);
                 batteryLevelChanged();
             }, false);
 
