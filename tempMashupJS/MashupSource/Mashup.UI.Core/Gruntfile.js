@@ -133,7 +133,8 @@ module.exports = function (grunt) {
                     document: true,
                     jshintrc: true,
                     "angular": false,
-                    "$": false
+                    "$": false,
+                    //"mashupApp" : false,
                 },
                 maxerr: 19999,
                 force: true,
@@ -163,7 +164,7 @@ module.exports = function (grunt) {
                 "maxdepth": 5,
                 "maxstatements": 40,
                 "maxcomplexity": 8,
-                "maxlen": 120,
+                "maxlen": 140,
 
                 "asi": false,
                 "boss": false,
@@ -189,8 +190,8 @@ module.exports = function (grunt) {
                 "supernew": false,
                 "validthis": false,
                 "noyield": false,
-
                 "browser": true,
+                "devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
 
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*'],
