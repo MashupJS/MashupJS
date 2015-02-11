@@ -1,35 +1,62 @@
+
+---
+title: cacheService
+tags:
+- Angular Service
+- AngularJS
+- caching
+- JavaScript
+- MashupJS
+- SPA
+- WebApi
+- Angular-cache-resource
+- Angular2.0
+- IndexDB
+- YDN-DB
+- off-line
+
+---
+
+
 #cacheService
 ---
 ##Mashup's (cacheService)
+
+###http://robertdunaway.github.io
+
 ---
-I'm still learning Angular and JavaScript so by all means please comment below or go to GitHub and log bugs or just make the code better. Thanks!
-[https://github.com/MashupJS/cacheService](https://github.com/MashupJS/cacheService)
+I’m still learning Angular and JavaScript, so please feel free to comment below or go to GitHub and log bugs or just make the code better. Thanks! 
+###https://github.com/MashupJS/MashupJS
+
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/cacheImage.jpg" width="200px" height="150px" />
 
 ## Introduction
-One of the benefits of SPA applications is the decoupling of dependence on external resources. Composition of the view and controller are done locally and page processing, in AngularJS, is local where it once occurred on a web server.
 
-Taking this decoupling one step further with data independence gives you an offline capability. When offline the application would continue to function properly while gracefully handling connection drops and re-connects.
+One of the benefits of SPA applications is the decoupling of dependence on external resources. The composition of the view and controller is done locally and page processing, in AngularJS, is local where it once occurred on a web server.
+
+Taking this decoupling one step further with data independence gives you an offline capability. When offline, the application will continue to function properly while gracefully handling connection drops and re-connects.
+
 
 ###Who is this for?
-If adopting an Off-line First or building an application that must be resilient when connectivity is inconsistent, you need a variety of caching solutions to fit a variety of use case scenarios.
+If adopting an Offline-First or building an application that must be resilient when connectivity is inconsistent, you need a variety of caching solutions to fit a variety of use case scenarios.
 
 ###Use case
 This article covers the use case where the data used is long lived and stable. This data might be a very large dataset that is expensive to retrieve or it might be a list of data used to populate list controls. Any data element that does not change often or is expensive to retrieve will benefit from this particular caching approach. Also, the application must not notice when it's online or offline.
 
 ###Angular-cache-resource (ACR)
-One option, at first glance, seems the obvious choice. Angular-cache-resource is a micro-library whose functionality will be adopted in the next release of Angular version 2.0.
+This option, at first glance, seems the obvious choice. Angular-cache-resource is a micro-library whose functionality will be adopted in the next release of Angular version 2.0.
 
-In a nutshell this micro-library is a one-to-one replacement for Angular's $resource. What it adds is a valuable caching model that promotes Progressive Enhancement, the practice of managing the perceived performance by displaying information as it becomes available. Some common practices are placing JavaScript files at the end of an HTML page allowing the content to render while the application continues to process.
+In a nutshell, this micro-library is a one-to-one replacement for Angular’s $resource. What it adds is a valuable caching model that promotes Progressive Enhancement, the practice of managing the perceived performance by displaying information as it becomes available. Some common practices are placing JavaScript files at the end of an HTML page, allowing the content to render while the application continues to process.
 
-How ACR works is each request for data is cached and associated with the URL used to retrieve it. When the same data is requested ACR will return the cached data to the client immediately and then fetch the data from the data source and pass this back to the client. The user sees data immediately and that data is likely unchanged but if it has been altered the new changes will appear momentarily.
+How ACR works is that each request for data is cached and associated with the URL used to retrieve it. When the same data is requested, ACR will return the cached data to the client immediately and then fetch the data from the source and pass it back to the client. The user sees data immediately and that data is likely unchanged, but if it has been altered, the new changes will appear within moments.
+
 
 ###cacheService
-The cacheService does not address the same use case as ACR and in fact doesn't try too. When working with cacheService only one result is returned. Either the cached data is returned or, if the cache is stale, new data is fetched. The benefit here is a round trip to the server is never performed unless cache becomes stale and this leads to lower network and back-end server utilization.
+The cacheService does not address the same use case as ACR and in fact doesn’t try to. When working with cacheService, only one result is returned. Either the cached data is returned or, if the cache is stale, new data is fetched. The benefit here is a round trip to the server is never performed unless the cache becomes stale and this leads to lower network and back-end server utilization.
 
 ##Solution Overview
-This solution uses the YDN-DB micro-library to wrap up the complexity of IndexedDB and a simple service injected into your Angular module, cacheService. Using IndexedDB as the caching source avoids the 5mb limitation most browsers have on localStorage. IndexedDB is a complex library with limited built in ability to query. YDN-DB has rich capabilities built on top of IndexedDB and offers a commonly understood SQL interface for accessing data.
+This solution uses the YDN-DB micro-library to wrap up the complexity of IndexedDB and is a simple service injected into your Angular module, cacheService. Using IndexedDB as the caching source avoids the 5mb limitation most browsers have on LocalStorage. IndexedDB is a complex library with limited built in ability to query. YDN-DB has rich capabilities built on top of IndexedDB and offers a commonly understood SQL interface for accessing data.
 
 Here are a list of technologies used and links to learn more about them.
 
@@ -53,7 +80,7 @@ https://docs.angularjs.org/guide/services
 http://blog.pluralsight.com/angularjs-step-by-step-services
 
 ###Pros and Cons
-When choosing an approach I looked at the pros and cons of a couple approaches and technologies.
+When choosing an approach I looked at the pros and cons of a few approaches and technologies.
 
 | Approach      | Pros          | Cons  |
 | ------------- |:-------------|:-----|
@@ -81,21 +108,21 @@ This section walks through the cacheService solution.
 
 This code can be found in the Mashup.  It has a couple dependencies you can choose to include or re-factor out including the utilityService, detectService, and sessionService.
 
-* **utilityService** - provides various general functions such as UTC conversions and a logging herper function.
-* **detectService** - provides detection services so the cacheService doesn't make unnecessary trips to the WebApi.  If the WebApi is unavailable then it takes 3 or 4 seconds to fail.  If 3 or 4 of these calls are required for a page then a disconnected status could lead to a 10 or 12 second delay.  The detectService prevents this.
+* **utilityService** - provides various general functions such as UTC conversions and a logging helper function.
+* **detectService** - provides detection services so the cacheService doesn’t make unnecessary trips to the WebApi. If the WebApi is unavailable then it takes 3 or 4 seconds to fail. If three or four of these calls are required for a page, then a disconnected status could lead to a 10- or 12-second delay. The detectService prevents this.
 *  **sessionService** - provides common session data shared among all modules and pages.
 
 These dependencies can be removed and code modified to create a drop in cacheService module.
 
 Most of what you need to know is well documented in the comments.
 
-The public function is getData. The caller of this function doesn't know if that application is online or offline. All the client knows is it will receive data.
+The public function is getData. The caller of this function doesn’t know if that application is online or offline. All the client knows is it will receive data.
 
-The isCacheStale determines if a call to retrieve data is required or not. The client passes in "staleMinutes " then used by isCacheStale to make this determination. If you are in a position where you only want the fresh data you can pass in a staleMinutes value of "0" (zero) which will always return as stale and fetch fresh data. You can also take the opposite approach if you know the cache exists from another part of the application and you do not wish for the freshest data. In this case pass "9999" or some other unreasonable number of stale minutes.
+The isCacheStale determines whether or not a call to retrieve data is required. The client passes in “staleMinutes,” which is then used by isCacheStale to make this determination. If you only want the fresh data, you can pass in a staleMinutes value of “0” (zero) which will always return as stale and fetch fresh data. You can also take the opposite approach if you know the cache exists from another part of the application and you do not wish for the freshest data. In this case pass “9999” or some other unreasonable number of stale minutes.
 
 This is a very simple api that will likely become more complex and rich as more developers use and improve it.
 
-NOTE: on clearing out old cache on a global scale. When cacheService first runs it not only defines a set of functions but executes code to check how old the cache is in general. If the cache is too old, as defined by "staleMinutes" then everything is removed. The default is 1 week which is 10080 minutes but this can be changed to any amount of time you desire. The first call of each subject after the cache is removed is a stale response and fresh data is fetched.
+NOTE: On clearing out old cache on a global scale,when cacheService first runs, it not only defines a set of functions but executes code to check how old the cache is in general. If the cache is too old, as defined by “staleMinutes,” then everything is removed. The default is one week, which is 10,080 minutes, but this can be changed to any amount of time you desire. The first call of each subject after the cache is removed is a stale response and fresh data is fetched.
 
 3 . Now that we have the cacheService installed we can inject it directly into any component we wish.
 ```
@@ -188,11 +215,12 @@ This is just a warning message but it does indicate the heart beat monitor will 
 
 On MahsupJS benefits:
 
-MashupJS provides the pluming so that all application built using the Mashup can take advantage of. The cacheService is available to all but if another approach is better for your application or for all your applications, that approach can be used instead.
+MashupJS provides the plumbing so that all applications built using the Mashup can take advantage of it. The cacheService is available to all but if another approach is better for your application or for all your applications, that approach can be used instead.
 
-The benefit of MashupJS is not only the shared plumbing the ability for the plumbing to evolve and improve. When a new version of jQuery or YDN-DB is released it is updated in the MashupJS and all applications benefit. Before this approach it would be easy for applications to start diverging and before you know it you're supporting 3 or 4 versions of the same micro-libraries.
+The benefit of MashupJS is not only the shared plumbing, but also the ability for the plumbing to evolve and improve. When a new version of jQuery or YDN-DB is released it is updated in the MashupJS and all applications benefit. Before this approach it was easy for applications to start diverging and before you know it, you’re supporting three or four versions of the same micro-libraries.
 
-This caching model is new and with many other caching models available and coming out this will either be improved or replaced. The goal of the Mashup is to show and host best of bread practices and technology. Maybe not on day one but eventually it will mature.
+This caching model is new and with many other caching models available and coming out, this will either be improved or replaced. The goal of the Mashup is to show and host best of breed practices and technology, maybe not on day one but it will eventually mature.
+
 
 **On async alerts**
 
@@ -200,14 +228,15 @@ You'll notice commented alert code. For example:
 
 ```setTimeout(function () { alert('cache data'); }, 1);```
 
-This is an async approach to raising alerts allowing your page to finish loading while you test the cache function. Otherwise, the alert() method is synchronous and would halt all execution.
+This is an async approach to raising alerts, allowing your page to finish loading while you test the cache function. Otherwise, the alert() method is synchronous and would halt all execution.
 
 **Tip: Working with YDN-DB async**
-When testing or debugging calls to YDN-DB remember to place log statements inside the "then" function because YDN-DB is async.
+When testing or debugging calls to YDN-DB, remember to place log statements inside the “then” function because YDN-DB is async.
 
-In this example you'll notice the log message "SELECT statement start" is nowhere near the select statement. The $log function runs immediately, then you'll notice several other $log results and even the "SELECT statement end" long before you see the results of the YDN-DB results.
+In this example, you’ll notice the log message “SELECT statement start” is nowhere near the select statement. The log function runs immediately, then you’ll notice several other log results and even the “SELECT statement end” long before you see the results of the YDN-DB.
 
 Example: Here is sample code.
+
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/4.png"/>
 
@@ -215,12 +244,12 @@ Here is the console. Notice that the logs do not come in the order you might exp
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/5.png"/>
 
-**Tip: YDN-DB Database Name**
-Be careful, when creating YDN-DB objects. You will not receive an error if you use a name for your object that was already created but you will be confused to find the data you expected to be there doesn't exist.
+**Tip: YDN-DB database name **
+Be careful when creating YDN-DB objects. You will not receive an error if you use a name for your object that was already created but you will be confused to find the data that you expected to be there doesn’t exist.
 
 **Tip: The IndexedDB database must be loaded**
 
-It's very easy to pop in a bit of code to grab data from the local cache. I added a function to retrieve cache metadata. Because this was not my normal process for retrieving cached data I wrote code to go directly against IndexedDB. As a result I got inconsistent results. When refreshing the screen I noticed that everything worked about half the time.
+It’s very easy to pop in a bit of code to grab data from the local cache. I added a function to retrieve cache metadata. Because this was not my normal process for retrieving cached data, I wrote code to go directly against IndexedDB. As a result I got inconsistent results. When refreshing the screen, I noticed that everything worked about half the time.
 
 The caching code is well tested and accounts for waiting for the database to become ready.
 
@@ -247,36 +276,38 @@ dbCacheReady = true;
 
 **Tip: Looking at the cached data**
 
-You can look at the cached data through the Chrome browser.
+You can look at the cached data through the Chrome browser. 
+
 Press F12 – The Chrome developer tools will load.
 
-Select the "Resources" tab and you'll see a list of all the available storage mechanisms.
+Select the “Resources” tab and you’ll see a list of all the available storage mechanisms.
 
 YDN-DB will use IndexedDB first, if available, before it uses lesser local database options.
 
+
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/6.png"/>
 
-Expand IndexedDB and you'll see a list of database you have created for the web site you are currently in.
+Expand IndexedDB and you’ll see a list of databases you have created for the web site you are currently on.
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/7.png"/>
 
-Expand this further and you'll see a list of data sources/tables you have created via the schema or dynamic schema.
+Expand this further and you’ll see a list of data sources/tables you have created via the schema or dynamic schema.
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/8.png"/>
 
-If you select a table then the data is retrieved and displayed in the right hand panel.
+If you select a table, the data is retrieved and displayed in the right hand panel.
 
 <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupCore/services/cacheService/9.png"/>
 
 ###Manipulating Cached Data
-Once data is retrieved and cached you might still want to manipulate and filter down the results further for your specific needs. IE: We have a list of customers in cache but you need customer number 1234's data only.
+Once data is retrieved and cached, you might still want to manipulate and filter the results further for your specific needs, i.e.,  you have a list of customers in cache but you need customer number 1,234’s data only.
 
-Any number of micro-libraries or plain ole JavaScript can be used to work with JSON data stored in the cash. On the ydn-db.html page are several examples of filtering and manipulating returned data using both YDN-DB and Lodash.
+Any number of micro-libraries or plain ole JavaScript can be used to work with JSON data stored in the cache. On the ydn-db.html page are several examples of filtering and manipulating returned data using both YDN-DB and Lodash.
 
 YDN-DB is a simple API used to wrap the complexity of the IndexedDB API. YDN-DB also provides a number of methods to manipulate and filter JSON data including the familiar SQL interface.
 
 Lodash, a replacement for Underscore, is a powerful API for extending JavaScript and dealing with JSON data.
 
-Examples on the ynd-db.html page include displaying data on page load, retrieving cached data, using the YDN-DB SQL interface, filter on multiple columns, Begins with search, lodash's _.map, _.max, _.min, summaries, totals, and "Like" searches.
+Examples on the ynd-db.html page include displaying data on page load, retrieving cached data, using the YDN-DB SQL interface, filter on multiple columns, begins with search, Lodash’s .map, .max, _.min, summaries, totals, and “Like” searches.
 
-All for these examples use the cacheService injected into the module. When the application goes off-line the cacheService continues to provide data as it still on-line supporting the Off-line first model. 
+All these examples use the cacheService injected into the module. When the application goes off-line the cacheService continues to provide data as it is still online supporting the Offline-First model. 
