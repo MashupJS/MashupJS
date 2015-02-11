@@ -326,7 +326,9 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'mashupApp',
+                        /*jshint -W101*/
                         files: ['../apps/exApp1/angularExamplesMain/formExamplesMain/declareVsImper/declarative/declarative.controller.min.js']
+                        /*jshint +W101*/
                     });
                 }],
                 sessionLoad: ['$route', 'sessionLoad', function ($route, sessionLoad) { return sessionLoad.loadCompleted(); }]

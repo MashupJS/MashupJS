@@ -1,7 +1,7 @@
 
 /*jshint strict: false, bitwise: false */
 /*global mashupApp:false */
-
+/*global alert:false*/
 
 // Source for this service.
 // http://wemadeyoulook.at/en/blog/implementing-basic-http-authentication-http-requests-angular/
@@ -57,11 +57,13 @@ mashupApp.factory('Base64', function () {
 
             // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
             var base64test = /[^A-Za-z0-9\+\/\=]/g;
+            
             if (base64test.exec(input)) {
                 alert('There were invalid base64 characters in the input text.\n' +
                     'Valid base64 characters are A-Z, a-z, 0-9, \'+\', \'\/\',and \'=\'\\n' +
                     'Expect errors in decoding.');
             }
+            
             input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
 
             do {

@@ -9,7 +9,7 @@ mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cach
         // the caching of angular-cached-resource
 
         getItems1: function () {
-            return $http.get("http://localhost:50004/api/ExampleData/Items/", { withCredentials: true });
+            return $http.get('http://localhost:50004/api/ExampleData/Items/', { withCredentials: true });
         },
 
         getExample2items: function (staleMinutes) {
@@ -142,7 +142,7 @@ mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cach
             cacheService.getData(cacheName, schema, webApiUrl, staleMinutes, true).then(function (data) {
 
                 // Performed with JavaScript only.
-                // Grouping by "done"
+                // Grouping by 'done'
                 // totals on myDecimal and myDouble
                 // sort on done
 
@@ -173,7 +173,9 @@ mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cach
                         record.myDoubleMax = _.max(groupRecord, function (properties) { return properties.myDouble; }).myDouble;
                         record.myDoubleMin = _.min(groupRecord, function (properties) { return properties.myDouble; }).myDouble;
 
-                        // TODO: figure out how to use reduce against a complex array.  All the examples are of a simple single column array.
+                        // TODO: figure out how to use reduce against a complex array.  
+                        // All the examples are of a simple single column array.
+                        //
                         // sum using _.reduce from lodash
                         // could not get this to work.  It was concatenating instead of summarizing.
                         //record.myDecimalSum2 = _.reduce(groupRecord, function (sum, num) {
@@ -217,8 +219,8 @@ mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cach
                         // Therefore, when checking if a specific string exists within another string 
                         // the correct way to check would be:
 
-                        //"Blue Whale".indexOf("Blue") != -1; // true
-                        //"Blue Whale".indexOf("Bloe") != -1; // false
+                        //'Blue Whale'.indexOf('Blue') != -1; // true
+                        //'Blue Whale'.indexOf('Bloe') != -1; // false
                     });
 
                     deferred.resolve(records);
@@ -227,14 +229,6 @@ mashupApp.service('mashupExamplesItemDataService', ['$http', '$q', '$log', 'cach
             });
             return deferred.promise;
         }
-
-
-
-
-
-
-
-
 
     };
 }]);

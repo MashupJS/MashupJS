@@ -192,7 +192,7 @@ module.exports = function (grunt) {
                 "validthis": false,
                 "noyield": false,
                 "browser": true,
-                "devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
+                //"devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
                 
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],

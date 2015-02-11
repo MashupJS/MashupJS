@@ -7,7 +7,7 @@ mashupApp.controller('exApp1.DeclarativeController', function () {
 
     vm.completeShipping = function () {
 
-        alert('Your data is saved... add new order...');
+        window.alert('Your data is saved... add new order...');
 
         vm.data.shipping.name = '';
         vm.data.shipping.address = '';

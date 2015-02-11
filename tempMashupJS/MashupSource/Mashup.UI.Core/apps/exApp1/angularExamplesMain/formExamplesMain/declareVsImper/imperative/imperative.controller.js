@@ -64,7 +64,7 @@ mashupApp.controller('exApp1.ImperativeController', function () {
     
     $('#btnComplete').click(function () {
 
-        alert('Your data is saved... add new order...');
+        window.alert('Your data is saved... add new order...');
 
         $('#txtName').val('');
         $('#txtAddress').val('');
