@@ -184,7 +184,7 @@
     <Content Include="core\config\route.config.js" />
     <Content Include="core\css\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="core\css\bootstrap\yeti\bootstrap.min.css" />
-    <Content Include="core\index.controller.js" />
+    <Content Include="index.controller.js" />
     <Content Include="core\config\config.js" />
     <Content Include="core\css\bootstrap\default\bootstrap-theme.css" />
     <Content Include="core\css\bootstrap\default\bootstrap.css" />
@@ -192,10 +192,10 @@
     <Content Include="core\css\bootstrap\superhero\bootstrap.superhero.css" />
     <Content Include="core\css\main.css" />
     <Content Include="core\css\Normalize-3.0.1.css" />
-    <Content Include="core\index.controller.min.js">
+    <Content Include="index.controller.min.js">
       <DependentUpon>index.controller.js</DependentUpon>
     </Content>
-    <Content Include="core\index.html" />
+    <Content Include="index.html" />
     <Content Include="core\index.html.shells\basic_index.html\index.html" />
     <Content Include="core\index.html.shells\basic_index.html\readme.txt" />
     <Content Include="core\index.html.shells\basic_index.html\index.controller.js" />
@@ -632,9 +632,6 @@
     <Content Include="core\lib\glyphicons\glyphicons-halflings-regular.eot" />
     <Content Include="core\lib\glyphicons\glyphicons-halflings-regular.ttf" />
     <Content Include="core\lib\glyphicons\glyphicons-halflings-regular.woff" />
-    <Content Include="core\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="core\lib\ynd-db\ydn.db-isw-sql-e-cur-qry-dev.js.map" />
     <Content Include="core\common\services\utility_UtcDateService.service.js" />
     <Content Include="core\lib\font-awesome\4.2.0\fonts\fontawesome-webfont.eot" />
@@ -724,18 +721,12 @@
     <Content Include="core\app.min.js.map">
       <DependentUpon>app.min.js</DependentUpon>
     </Content>
-    <Content Include="core\index.controller.min.js.map">
+    <Content Include="index.controller.min.js.map">
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
     <Content Include="core\index.html.shells\basic_index.html\index.controller.min.js.map">
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
-    <None Include="core\Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="core\Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="core\lib\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.js" />

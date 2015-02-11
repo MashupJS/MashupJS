@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['core/*.js', '!**/*.min.js'],
+                        src: ['index*.js', 'core/*.js', '!**/*.min.js'],
                         dest: '',
                         ext: '.min.js',
                         extDot: 'last'
@@ -206,7 +206,7 @@ module.exports = function (grunt) {
                 },
             },
             rootjsmin: {
-                files: ['core/*.js', '!**/*.min.js'],
+                files: ['index*.js', 'core/*.js', '!**/*.min.js'],
                 tasks: ['newer:uglify:coreroot'],
                 options: {
                     nospawn: true,
