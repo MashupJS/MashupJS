@@ -1,18 +1,37 @@
+---
+title: My utilityService for Angular
+tags:
+- angular
+- angularjs
+- javascript
+- utility
+- service
+- log
+- utc
+- facade
+- design pattern
+---
+
+
 #utilityService
-The **Mashup** is a learning tool that also starts as a bootstrap project for line-of-business applications.
+###http://robertdunaway.github.io
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
+
+####http://mashupjs.github.io
 
 The **utilityService** provides general utility functions to modules.
 
+
 ##Purpose
-Every application needs utility functions.  In an effort to modularize the *Mashup* general functions, that can be reused, are placed into *utility* modules.
+Every application needs utility functions. In an effort to modularize the *Mashup*, general functions that can be reused are placed into utility modules.
 
-Utility modules begin with **"utility_**.
+Utility modules begin with “*utility_*".
 
-Two examples of utility modules are:
+Two examples of utility modules are: 
 - utility_LogHelper.js
 - utility_UtcDateService.js
 
-An application can easily have 20 or 30 module utilities and a controller might need 5 or 6 of them.  To reduce *dependency injection* complexity all utilities are exposed by the *utility* module hosted in the **utilityService**.
+An application can easily have 20 or 30 module utilities and a controller might need five or six of them. To reduce *dependency injection* complexity, all utilities are exposed by the utility module hosted in the **utilityService**.
 
 ##utilityService
 Here is an example of what the **utilityService** looks like when exposing only two other modules.
