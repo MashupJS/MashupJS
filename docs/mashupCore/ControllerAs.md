@@ -13,6 +13,8 @@ tags:
 
 #Use Angular's **Controller As** syntax
 
+###http://robertdunaway.github.io
+
 Sure, when we first learn to use Controllers, we start with the standard constructor with $scope.
 
 There is a better way.
