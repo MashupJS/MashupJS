@@ -1,26 +1,45 @@
+---
+title: sessionService
+tags:
+- angular
+- angularjs
+- session
+- service
+- services
+- environment
+- browser type
+- 
+
+---
+
 #sessionService
-The **Mashup** is a learning tool that also starts as a bootstrap project for line-of-business applications.
+
+###http://robertdunaway.github.io
+
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
 
 The **sessionService** shares session information between modules.
+
 
 ##Purpose
 A great way to share information between modules, in Angular, is via services.
 
-The sessionService provides, to modules, any information they need about the user, environment, and any other session specific data a module might need.
+The **sessionService** provides, to modules, any information they need about the user, environment, and any other session specific data modules might need.
 
 ##userSession
-Exposed by the **sessionService** the *userSession* holds whatever information is returned by the AuthN/AuthR system chosen.  The expected properties are not defined but rather inherited by whatever system is providing AuthN/AuthR services.
+Exposed by the **sessionService**, the *userSession* holds whatever information is returned by the AuthN/AuthR system chosen. The expected properties are not defined but rather inherited by whatever system is providing AuthN/AuthR services.
 ```
 var userSession = {};
 ```
-When this user information is retrieved by the application the *setUserSession* function is called.  
+When this user information is retrieved by the application, the *setUserSession* function is called. 
 
 The *sessionService* is not tasked with retrieving this information but only holding it for modules to consume.
+
 
 ##envSession
 Environment information is exposed by the **sessionService** via *envSession*.
 
-Retrieving environment information doesn't not require external access to databases or WebApi(s) so the separation of responsibilities is not to badly abused when the **sessionService** retrieves environmental information on it's own.
+Retrieving environment information doesn’t require external access to databases or WebApi(s) so the separation of responsibilities is not too badly abused when the **sessionService** retrieves environmental information on its own.
 
 **envSession** is a good candidate for being modularized by a *utlity_* module.
 
