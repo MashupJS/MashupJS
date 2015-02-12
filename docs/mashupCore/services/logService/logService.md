@@ -1,4 +1,24 @@
+---
+title: logService
+tags: 
+- angular
+- javascript
+- logging
+- instrumentation
+- intercept
+- console
+- $log
+- error
+- debug
+- warning
+- info
+- mobile
+- utility
+---
+
 #logService
+
+###http://robertdunaway.github.io
 
 ####Credit
 I first learned about the $log service and reasons to use it in Adam Freeman's, "Pro AngularJS".
@@ -12,7 +32,7 @@ The **Mashup** is a learning tool that also serves as a bootstrap project for li
 
 The Mashup is home to a service called **logService**.
 
-The **logService** overrides the **$log** service to extend it's functionality.
+The **logService** overrides the $log service to extend its functionality.
 
 Overriding $log gives us
 
@@ -31,9 +51,10 @@ $delegate.log(argument);
 ```
 
 ###Instrumentation
-This implementation of logService decorates a logObject with several user session and environmental variables.  Within the logObject itself are ***subject, app, mod (module), func, and status***.  Using these properties and calling $log the task of instrumenting applications is easy.
+This implementation of logService decorates a logObject with several user session and environmental variables. Within the logObject itself are ***subject, app, mod (module), func, and status***. Using these properties and calling $log, the task of instrumenting applications is easy.
 
-The routeConfig uses the *resolve* function of each route to call the *logRouteInstrumentation*.  Each route the user takes is logged to the indexedDB database and can be retrieved to see what parts of the application is used.
+The routeConfig uses the resolve function of each route to call the *logRouteInstrumentation*. Each route the user takes is logged to the indexedDB database and can be retrieved to see what parts of the application are used.
+
 
 ```
     var logRouteInstrumentation = function () {
@@ -99,7 +120,7 @@ Using the same approach as above with the *subject* set to "Debug".
 
 **Environment**
 
-The sessionService collects environmental information including the machine type (mobile/desktop), what kind of browser, version of browser, operating system, and where possible battery level.
+The sessionService collects environmental information including the machine type (mobile/desktop), the kind of browser, version of browser, operating system, and where possible, the battery level.
 
 **Battery level**
 
@@ -107,22 +128,24 @@ The battery level is not supported by all browsers but where supported it is col
 
 **Throttling**
 
-Using the information collected about the environment certain tasks are throttled.  
+Using the information collected about the environment, certain tasks are throttled. 
 
-When the environment is a **mobile device** the size the log is reduced in size.  
+When the environment is a **mobile device**, the size of the log is reduced. 
 
-When the client machine is using a battery the battery's level of charge determines some functionality.  When the battery is 30% or lower then log management significantly decreases and the tolerance for stale data is increased.  Reducing the amount of work the client must perform will help preserve battery power until the device can be recharged.
+When the client machine is using a battery, the battery’s level of charge determines some functionality. When the battery is 30% or lower, log management significantly decreases and the tolerance for stale data is increased. Reducing the amount of work the client must perform will help preserve battery power until the device can be recharged.
+
 
 
 ##How to use
 
 To get the same behavior of $log do nothing different.  $log will operate as before with the addition of the log entry being saved to the indexedDB database *logServiceDB* in the *log* table.
 
-To leverage the **logService** call the *utility.getLogObject* function passing in information you would like to see in a log.  The object you get back will have the information you passed along with environmental and session information.
+To leverage the **logService**, call the *utility.getLogObject* function passing in information you would like to see in a log. The object you get back will have the information you passed along with environmental and session information.
 
 Additionally, any property you add to the returned *logObject* will be included in logging.
 
-Example, the *logRouteInstrumentation* function uses all the standard *logObject* properties and adds two of it's own.
+Example, the *logRouteInstrumentation* function uses all the standard *logObject* properties and adds two of its own.
+
 
 ```
     var logRouteInstrumentation = function () {
@@ -170,7 +193,7 @@ logObject.url = $location.url();
 $log.log("UI-Routing to [ " + $location.url() + " ]", logObject);
 ```
 
-##Loosley coupled
-The goal of the **logService** is to be loosely coupled.  Errors that occur in the logService should not negatively impact the user.  Also, adding the logService to an application should be as simple as adding the script to the application.  The problem is dependencies so when adding logService be sure to include the dependency modules.
+##Loosely coupled
+The goal of the **logService** is to be loosely coupled. Errors that occur in the logService should not negatively impact the user. Also, adding the logService to an application should be as simple as adding the script to the application. The problem is dependencies, so when adding logService, be sure to include the dependency modules.
 
 Removing the **logService** should have zero impact on an application so in that regard it is loosely coupled.
