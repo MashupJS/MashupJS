@@ -1,16 +1,30 @@
+
+---
+title: WebApi CORS problem
+tags: 
+- CORS
+- WebApi
+- Modern Web
+- C#
+
+---
+
 #WebApi CORS problem
 ---
-The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
-https://github.com/MashupJS/MashupJS
+
+##http://robertdunaway.github.io
+
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications. 
+###http://mashupjs.github.io
 
 
-Following the basic WebApi CORS setup you will get good results.  When the clients server and WebApi server know about each other, IE the client server is configured in the WebApi server as Access-Control-Allow-Origin everything works.
+Following the basic WebApi CORS setup, you will get good results. When the client server and WebApi server know about each other, i.e., the client server is configured in the WebApi server as Access-Control-Allow-Origin, everything works.
 
 
 The problem comes into play when the client is not hosted by a server at all as is true with hybrid mobile apps.  In this case there isn't an origin.
 
 
-Chrome rejects a wild card on Access-Control-Allow-Origin making the solution nearly impossible unless you hijack the "Preflight" process and respond to the client with the client added to the Access-Control-Allow-Origin.
+Chrome rejects a wild card on Access-Control-Allow-Origin, making the solution nearly impossible unless you hijack the “Preflight” process and respond to the client with the client added to the Access-Control-Allow-Origin.
 
 ##Solution
 Here is the code to make this work.
@@ -45,7 +59,7 @@ namespace AuthApiADSP
 
 ```
 
-For completeness my WebApiConfig.cs looks like this.
+For completeness, my WebApiConfig.cs looks like this.
 
 ```
 using System.Net.Http.Headers;
@@ -84,19 +98,20 @@ namespace AuthApiADSP
 ```
 
 ##Background Info
-The challenge is all around CORS and it's requirements for 'Access-Control-Allow-Origin'.  The server must maintain a list of allowed server urls and provide that list in the origin header attribute.  Chrome looks at this header and if it doesn't see itself in the list then it self imposes a restriction.  This all happens in the pre-flight before the actual request for data occurs.
 
-> Here is a better description of what is going on: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+The challenge is all around CORS and  its requirements for ‘Access-Control-Allow-Origin’. The server must maintain a list of allowed server urls and provide that list in the origin header attribute. Chrome looks at this header and if it doesn’t see itself in the list then it self imposes a restriction. This all happens in the preflight before the actual request for data occurs.
 
-Because hybrid applications don't have a server based origin your first attempt to address this problem might be a wildcard setting Access-Control-Allow-Origin = "*".
+Here is a better description of what is going on: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 
-This works fine in IE because IE ignores Access-Control-Allow-Origin completely but Chrome and Firefox aren't having it.  Also, in Chrome and Firefox GET requests and POST without data all work.  It isn't until a POST has data that a preflight is initiated.
+Because hybrid applications don’t have a server based origin, your first attempt to address this problem might be a wildcard setting Access-Control-Allow-Origin = “*”.
 
-> NOTE: Another good reason to develop in Chrome.  Had I developed solely in IE I would never have discovered this problem until we went to production.  
+This works fine in IE because IE ignores Access-Control-Allow-Origin completely but Chrome and Firefox don’t have it. Also, in Chrome and Firefox GET requests and POST without data all work. It isn’t until a POST has data that a preflight is initiated.
 
->Another good resource for learning about CORS:
+NOTE: Another good reason to develop in Chrome. Had I developed solely in IE, I would never have discovered this problem until we went into production. 
+
+Another good resource for learning about CORS: 
 http://www.html5rocks.com/en/tutorials/cors/#toc-making-a-cors-request
 
-Ultimately the only solution that address all my requirements was hijacking the preflight, "old school", and returning the client as "origin" satisfying Chome and Firefox.
+Ultimately the only solution that addressed all my requirements was hijacking the preflight, “old school,” and returning the client as "origin," satisfying Chrome and Firefox.
 
-I plan to update this later.  Something about the solution I've come up with just doesn't feel right.  It feels to much like a hack.  I'm always welcome to suggestions and new ideas so feel free to email me.  robertdunaway@usa.net
+I plan to update this later. Something about the solution I’ve come up with just doesn’t feel right. It feels too much like a hack. I’m always open to suggestions and new ideas so feel free to email me. robertdunaway@usa.net

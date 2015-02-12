@@ -4,8 +4,11 @@ tag: Angular, Attribute Routing, C#, Continuous Improvement, CORS, JavaScript, J
 ---
 
 #Create WebApi for the Mashup & CORS
+
+###http://robertdunaway.github.io
+
 The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
-http://mashupjs.github.io
+####http://mashupjs.github.io
 
 The WebApi or any restFul service provides back-end support for SPA applications.
 
@@ -15,16 +18,17 @@ This is a step-by-step tutorial for creating a WebApi for the Mashup.
 
 The WebApi provides the back-end support for your Angular application.  A typical SPA application with Angular will consist of a WebApi and index.html page on the same web site.  This is an easy configuration to spin up and start coding against.
 
-The challenge comes when your application grows and your enterprise expects to share programming resources.  The client may no longer be coming from the same domain and you enter into cross domain sharing of resources.  CORS comes into play.
+
+The challenge arises when your application grows and your enterprise expects to share programming resources. The client may no longer be coming from the same domain and you enter into cross domain sharing of resources. This is where CORS comes into play.
 
 Here is a step-by-step tutorial for creating a WebApi for the Mashup that addresses the CORS issue.
 
 ###Creating the WebApi
-Using Visual Studio add a new project to your existing Angular solution.
+Using Visual Studio, add a new project to your existing Angular solution.
 
 Right click the solution and select **Add -> New Project**.
 
-Select **ASP.NET Web Application** and give your project a **name** then press **OK**.
+Select **ASP.NET Web Application** and give your project a **name**, then press **OK**.
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/1.PNG)
 
@@ -43,7 +47,7 @@ Press **OK**.
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/6.PNG)
 
-Using the selected template and settings Visual Studio creates the new Web API.
+Using the selected template and settings, Visual Studio creates the new Web API.
 
 ###Getting CORS to work
 CORS support is already built into the Web Api.  What we need to do is add headers to requests so Chrome and Firefox can access our resources.
@@ -52,7 +56,7 @@ CORS support is already built into the Web Api.  What we need to do is add heade
 
 ![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupApi/12.PNG)
 
-> Add the code, below, to your Global.asax in the pulic class Global.
+> Add the code, below, to your Global.asax in the public class Global.
 
 ```
 protected void Application_BeginRequest(object sender, EventArgs e)
@@ -84,27 +88,27 @@ using System.Web.Http.Cors;
 
 ###Attribute Routing
 
-To enable **Attribute Routing** add the following code to your **App_Start/WebApiConfig.cs" file.
+To enable **Attribute Routing**, add the following code to your **App_Start/WebApiConfig.cs** file.
 
->OK, nevermind.  Since the last time I did this it seems the new Web API tempate does this for you.  Here is the code that makes Attribute Routing possible.
+>Oaky, never mind. Since the last time I did this, it seems the new Web API template does this for you. Here is the code that makes Attribute Routing possible.
 
 ```
 // Web API routes
 config.MapHttpAttributeRoutes();
 ```
 
-> With the rapid changes in technology it can almost be a detrimental to be an early adopter.  As you see, above, I was expecting to write extra configuration code but since the time I created the first Mashup Web APIs the Visual Studio templates have been improved.
+> With the rapid changes in technology, it can almost be detrimental to be an early adopter. As you see above, I was expecting to write extra configuration code but since the time I created the first Mashup Web APIs, the Visual Studio templates have been improved.
 >
 >You might have noticed the old template only created **WebApiConfig.cs** and the new template creates both the **WebApiConfig.cs** and **RouteConfig.cs** templates.
 
->This leads me to believe I should make it a practice to periodically recreate my projects with whatever the latest Visual Studio templates are.  This might be a best practice for all 3rd party libraries.
+>This leads me to believe I should make it a practice to periodically recreate my projects using the latest Visual Studio templates. This might be a best practice for all third party libraries.
 
-> This would be an effort to keep **Technical Debt** to a minimum.  As the projects we create age they become liabilities.  It seems to me the effort to keep projects current is less if done more frequently with fewer changes between versions.
+> This would be an effort to keep **Technical Debt** to a minimum.  As the projects we create age, they become liabilities.  It seems to me the effort to keep projects current is less if done more frequently with fewer changes between versions.
 
 
 ###Create an endpoint to test.
 
-In the NewWebAPI's Controllers directory create two files.
+In the NewWebAPI's Controller's directory create two files.
 
  - Item.cs - as a class with the following content.
 
@@ -190,7 +194,7 @@ namespace **Leave your namespace here**
 ```
 
 ###JSON Formatter
-Before we call this new Web Api lets tell it to return all data as JSON.
+Before we call this new Web Api let's tell it to return all data as JSON.
 
 Open your **App_Start/WebApiConfig.cs** file and copy this line at the end.
 
@@ -208,9 +212,10 @@ using System.Net.Http.Headers;
 ###Help page
 You'll notice many more files, created by the template we used, than are necessary to create a WebApi.  This is because the WebApi template also creates a web UI.  You can build off this UI but our intention is only to use the UI as a helper for building WebApi(s).
 
-> I'm choosing to keep the UI pieces because I like the Help feature.  It would not be unreasonable to remove all files except those needed to create the WebApi.  In fact, if this is your intent up front then rather than select WebApi as a template select Empty as your template then MVC and WebApi below, when adding the new project.  This tutorial was originally based on this approach so we know it works.
+> I’m choosing to keep the UI pieces because I like the Help feature. It would not be unreasonable to remove all files except those needed to create the WebApi. In fact, if this is your intent upfront then rather than select WebApi as a template, select Empty as your template, then MVC and WebApi below when adding the new project. This tutorial was originally based on this approach, so we know it works.
+> 
+We are not interested in seeing the start page when we start up this project, so we’ll make a slight modification to this project’s properties.
 
-We are not interested in seeing the start page when we start up this project so we'll make a slight modification to this projects properties.
 
 Right click on the project we just created in the Solution Explorer and select **Properties**.
 
