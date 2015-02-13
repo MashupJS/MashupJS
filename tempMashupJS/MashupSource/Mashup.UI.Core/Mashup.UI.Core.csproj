@@ -733,6 +733,7 @@
     <Content Include="core\lib\jquery\jquery-2.1.1.min.map" />
     <Content Include="Gruntfile.js" />
     <Content Include="gulpfile.js" />
+    <Content Include="jshint.xml" />
     <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
