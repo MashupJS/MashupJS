@@ -1,0 +1,184 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Imperative Approach</h3>
+        <h5>Telling the UI what it must do and how it much do it...</h5>
+
+
+    </div>
+
+    <div class="well-sm">
+
+
+        <style>
+            span.error {
+                color: red;
+            }
+        </style>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Declarative form validation and behavior</h4>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+
+                    <form name="shippingForm">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input id="txtName" name="name" class="form-control vp-textbox-input" required />
+                            <span id="spanErrName" class="error">Please enter a name</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input id="txtAddress" name="address" class="form-control vp-textbox-input" required />
+                            <span id="spanErrAddress" class="error">Please enter an address</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input id="txtPhone" name="phone" class="form-control vp-textbox-input"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input id="txtEmail" name="email" class="form-control vp-textbox-input" />
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <button id="btnComplete" class="btn btn-success vp-menu-btn">Complete Order</button>
+                            </div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div id="lblName">Name: </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div id="lblAddress">Address: </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div id="lblPhone">Phone: </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div id="lblEmail">Email: </div>
+                            </div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="row" id="validationFeedback">
+                            <div class="col-sm-12">
+                                <blockquote style="background-color: lightsteelblue; color: darkred;" class="danger">Form is invalid</blockquote>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <pre>
+    Set_LableValues();
+
+    function Set_LableValues() {
+        $(&quot;#lblName&quot;).text(&quot;Name: &quot; + $(&quot;#txtName&quot;).val());
+        $(&quot;#lblAddress&quot;).text(&quot;Address: &quot; + $(&quot;#txtAddress&quot;).val());
+        $(&quot;#lblPhone&quot;).text(&quot;Phone: &quot; + $(&quot;#txtPhone&quot;).val());
+        $(&quot;#lblEmail&quot;).text(&quot;Email: &quot; + $(&quot;#txtEmail&quot;).val());
+    }
+    
+    manageScreen();
+    function Set_spanErrName() {
+        if ($(&quot;#txtName&quot;).val() == &quot;&quot;) {
+            //alert(&quot;show error&quot;);
+            $(&quot;#spanErrName&quot;).show();
+        }
+        else {
+            $(&quot;#spanErrName&quot;).hide();
+        }
+    }
+    function Set_spanErrAddress() {
+        if ($(&quot;#txtAddress&quot;).val() == &quot;&quot;) {
+            $(&quot;#spanErrAddress&quot;).show();
+        }
+        else {
+            $(&quot;#spanErrAddress&quot;).hide();
+        }
+    }
+    function Set_btnComplete() {
+        if (formIsValid()) {
+            $(&quot;#btnComplete&quot;).prop(&#39;disabled&#39;, false);
+        }
+        else {
+            $(&quot;#btnComplete&quot;).prop(&#39;disabled&#39;, true);
+        }
+    }
+    function Set_validationFeedback() {
+        if (formIsValid()) {
+            $(&quot;#validationFeedback&quot;).hide();
+        }
+        else {
+            $(&quot;#validationFeedback&quot;).show();
+        }
+    }
+    function formIsValid() {
+        var result = true;
+        if ($(&quot;#txtName&quot;).val() == &quot;&quot;) { result = false; }
+        if ($(&quot;#txtAddress&quot;).val() == &quot;&quot;) { result = false; }
+        return result;
+    }
+    function manageScreen() {
+        Set_spanErrName();
+        Set_spanErrAddress();
+        Set_btnComplete();
+        Set_validationFeedback();
+    }
+    
+    $(&quot;#btnComplete&quot;).click(function () {
+        alert(&quot;Your data is saved... add new order...&quot;);
+        $(&quot;#txtName&quot;).val(&quot;&quot;);
+        $(&quot;#txtAddress&quot;).val(&quot;&quot;);
+        $(&quot;#txtPhone&quot;).val(&quot;&quot;);
+        $(&quot;#txtEmail&quot;).val(&quot;&quot;);
+        
+        manageScreen();
+        Set_LableValues();
+    });
+    
+    $(&quot;#txtName&quot;).keyup(function () {
+        $(&quot;#lblName&quot;).text(&quot;Name: &quot; + $(&quot;#txtName&quot;).val());
+        manageScreen();
+    })
+    $(&quot;#txtAddress&quot;).keyup(function () {
+        $(&quot;#lblAddress&quot;).text(&quot;Address: &quot; + $(&quot;#txtAddress&quot;).val());
+        manageScreen();
+    })
+    $(&quot;#txtPhone&quot;).keyup(function () {
+        $(&quot;#lblPhone&quot;).text(&quot;Phone: &quot; + $(&quot;#txtPhone&quot;).val());
+        manageScreen();
+    })
+    $(&quot;#txtEmail&quot;).keyup(function () {
+        $(&quot;#lblEmail&quot;).text(&quot;Email: &quot; + $(&quot;#txtEmail&quot;).val());
+        manageScreen();
+    })
+    
+            </pre>
+
+                <blockquote>Imperative approach</blockquote>
+                <blockquote><footer>Lots JavaScript code required.</footer></blockquote>
+                <blockquote><footer>Little separation of concerns.</footer></blockquote>
+                <blockquote><footer>Lots of IDs and selectors used.</footer></blockquote>
+                <blockquote><footer>The view holds the data model.</footer></blockquote>
+
+                <blockquote>Operation</blockquote>
+                <blockquote><footer>1. On load the controls are empty.</footer></blockquote>
+                <blockquote><footer>2. Validation Feedback is displayed.</footer></blockquote>
+                <blockquote><footer>3. The Complete Order button is disabled.</footer></blockquote>
+                <blockquote><footer>4. As controls becomes valide the feedback is removed.</footer></blockquote>
+                <blockquote><footer>5. When the form is valid the button is enabled.</footer></blockquote>
+                <blockquote><footer>6. When the button is pressed a message is sent and the form reset.</footer></blockquote>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+    </div>
+</div>

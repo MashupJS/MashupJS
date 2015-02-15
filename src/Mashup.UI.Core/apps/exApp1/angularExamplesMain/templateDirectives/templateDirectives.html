@@ -1,0 +1,458 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Template Binding Directives</h3>
+        <h5>ng-repeat, ng-class, $index, $first, $middle, $last, $even, $odd, ng-if</h5>
+
+
+    </div>
+
+    <div class="well-sm">
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Basic example of ng-repeat</h4>
+                <p>We used ng-repeat to build a basic table with no style.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th&gt;Done&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+                &lt;td&gt;{{item.action}}&lt;/td&gt;
+                &lt;td&gt;{{item.done}}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+            </pre>
+                <blockquote><code>ng-repeat=&quot;item in vm.items&quot</code></blockquote>
+                <blockquote><footer>NOTE: remove the class="table" statement. You'll see how much bootstrapper does for your view with little effort.</footer></blockquote>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Done</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in vm.items">
+                            <td>{{item.action}}</td>
+                            <td>{{item.done}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table&quot;&gt;
+            </pre>
+            </div>
+        </div>
+
+        <hr />
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Adding more style to the table via boostrap css</h4>
+                <p>table table-bordered table-striped table-hover table-responsive</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th&gt;Done&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+                &lt;td&gt;{{item.action}}&lt;/td&gt;
+                &lt;td&gt;{{item.done}}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+                </pre>
+                <blockquote><code>&lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;</code></blockquote>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Enumerate Properties</h4>
+                <p>You can use ng-repeat to enumerate all the properties of an object.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td ng-repeat="prop in item">{{prop}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th&gt;Done&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+                &lt;td ng-repeat=&quot;prop in item&quot;&gt;{{prop}}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+                </pre>
+                <blockquote><footer>Notice that only Action and Done have headings.  That beause the rest weren't defined.</footer></blockquote>
+                <blockquote><footer>You can find a more complete example of this where the header is also dynamically created in the Web Api examples.</footer></blockquote>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-repeat /w key</h4>
+                <p>Method of using ng-repeat that returns a key /w each property or object.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+
+                        <tbody>
+                            <tr ng-repeat="(key, value) in vm.items">
+                                <td>
+                                    {{key}} = {{value}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;tr ng-repeat=&quot;(key, value) in vm.items&quot;&gt;
+        &lt;td&gt;
+            {{key}} = {{value}}
+        &lt;/td&gt;
+    &lt;/tr&gt;
+                </pre>
+                <blockquote><code>ng-repeat=&quot;(key, value) in items&quot;</code></blockquote>
+                <blockquote><footer>The first parameter is always the key and the second is the value.</footer></blockquote>
+                <blockquote><footer>For object collections the key is always the position.</footer></blockquote>
+                <blockquote><footer>For properties the key is always the property name.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>$index</h4>
+                <p>Returns the position of the current object or property</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td>{{$index + 1}}</td>
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th&gt;Done&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+                &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+                &lt;td&gt;{{item.action}}&lt;/td&gt;
+                &lt;td&gt;{{item.done}}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+                </pre>
+                <blockquote><code>&lt;td&gt;{{$index + 1}}&lt;/td&gt;</code></blockquote>
+                <blockquote><footer>The position is zero based but we add one so the position makes more sense to the viewer.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <style>
+            .odd {
+                background-color: green;
+            }
+
+            .even {
+                background-color: blue;
+            }
+        </style>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>$odd, $even, ng-class</h4>
+                <p>This example uses $odd and $even as variables to determine which class to apply via ng-class.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items" ng-class="$odd ? 'odd' : 'even'">
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;style&gt;
+        .odd { background-color: green}
+        .even { background-color: blue}
+    &lt;/style&gt;
+                </pre>
+                <pre ng-non-bindable>
+    &lt;tr ng-repeat=&quot;item in vm.items&quot; ng-class=&quot;$odd ? &#39;odd&#39; : &#39;even&#39;&quot;&gt;
+        &lt;td&gt;{{item.action}}&lt;/td&gt;
+        &lt;td&gt;{{item.done}}&lt;/td&gt;
+    &lt;/tr&gt;
+                </pre>
+                <blockquote><code>ng-class="$odd ? 'odd' : 'even'"</code></blockquote>
+                <blockquote><footer>Normally we would use the "table-striped" css class from Twitter Bootstrap to alternate row colors.  This was just for demonstration purposes.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-if</h4>
+                <p>ng-if removes elements when it's evaluation is false.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td>{{item.action}}</td>
+                                <td><span ng-if="$first || $last">{{item.done}}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th&gt;Done&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;item in vm.items&quot;&gt;
+                &lt;td&gt;{{item.action}}&lt;/td&gt;
+                &lt;td&gt;&lt;span ng-if=&quot;$first || $last&quot;&gt;{{item.done}}&lt;/span&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+                </pre>
+                <blockquote ng-non-bindable><code>&lt;span ng-if=&quot;$first || $last&quot;&gt;{{item.done}}&lt;/span&gt;</code></blockquote>
+                <blockquote><footer>If the item is the first or last element then the "Done" column is displayed otherwise ng-if removes it.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-repeat-start, ng-repeat-end</h4>
+                <p>Determines the start and end of a repeatign section.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <tbody>
+                            <tr ng-repeat-start="item in vm.items">
+                                <td>This is item {{$index}}</td>
+                            </tr>
+                            <tr>
+                                <td>The action is: {{item.action}}</td>
+                            </tr>
+                            <tr ng-repeat-end>
+                                <td>Item {{$index}} is {{item.done? '' : "not "}} complete</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+    &lt;table class=&quot;table table-bordered table-striped table-hover table-responsive &quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr ng-repeat-start=&quot;item in vm.items&quot;&gt;
+            &lt;td&gt;This is item {{$index}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;The action is: {{item.action}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr ng-repeat-end&gt;
+            &lt;td&gt;Item {{$index}} is {{item.done? &#39;&#39; : &quot;not &quot;}} complete&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+                </pre>
+                <blockquote><code></code></blockquote>
+                <blockquote><footer></footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Template</h4>
+                <p>Description</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.items">
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+                </pre>
+                <blockquote><code></code></blockquote>
+                <blockquote><footer></footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+    </div>
+</div>

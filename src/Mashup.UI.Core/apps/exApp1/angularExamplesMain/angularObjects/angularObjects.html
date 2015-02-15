@@ -1,0 +1,284 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Angular and Objects</h3>
+        <h5>Simple Angular examples /w objects</h5>
+
+        <blockquote>
+            <p>Some of these examples come from Pro AngularJS by Adam Freeman.</p>
+        </blockquote>
+
+    </div>
+
+    <div class="well-sm">
+
+        <h6>Results in console. Press F12 to view.</h6>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>$log</h4>
+                <p>Example of $log injection and usage</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.logTypes()">$log</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.logTypes = function () {
+    // $log does the same thing console does.
+    // The advantage of $log is it can be overridden
+    console.log(&quot;Message from console.log&quot;);
+    console.info(&quot;Message from console.info&quot;);
+    console.warn(&quot;Message from console.warn&quot;);
+    console.error(&quot;Message from console.error&quot;);
+    $log.log(&quot;Message from $log.log&quot;);
+    $log.info(&quot;Message from $log.info&quot;);
+    $log.warn(&quot;Message from $log.warn&quot;);
+    $log.error(&quot;Message from $log.error&quot;);
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Basic string manipulation</h4>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.basicStringManip()">Basic string manipulation</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+        vm.basicStringManip = function () {
+        // angular.isArray
+        $log.log(&quot;angular.isArray(vm.todo) = &quot; + angular.isArray(vm.todo));
+        
+        // angular.uppercase
+        $log.log(&quot;angular.uppercase(&#39;shouting&#39;) = &quot; + angular.uppercase(&#39;shouting&#39;));
+        // angular.lowercase
+        $log.log(&quot;angular.lowercase(&#39;WhiSpeRing&#39;) = &quot; + angular.lowercase(&#39;WhiSpeRing&#39;));
+        // angular.isNumber
+        $log.log(&quot;angular.isNumber(&#39;7&#39;) = &quot; + angular.isNumber(&#39;7&#39;));
+        $log.log(&quot;angular.isNumber(7) = &quot; + angular.isNumber(7));
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>angular.extend</h4>
+                <p>Adding properties/methods from one object to another.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.extendObj()">angular.extend</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.extendObj = function () {
+        var myData = {
+            name: &quot;Adam&quot;,
+            weather: &quot;sunny&quot;
+        };
+        // now we will create a new object and extend it with the object we just created.
+        // Using angular.extend
+        var myExtendedObject = {
+            city: &quot;London&quot;
+        };
+        angular.extend(myExtendedObject, myData);
+        $log.log(myExtendedObject.name);
+        $log.log(myExtendedObject.city);
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>angular.forEach</h4>
+                <p>Description of the example</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.angularForEach()">angular.forEach</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.angularForEach = function () {
+        var myData = {
+            name: &quot;Adam&quot;,
+            weather: &quot;sunny&quot;,
+            printMessages: function () {
+                $log.log(&quot;Hello &quot; + this.name + &quot;. &quot;);
+                $log.log(&quot;Today is &quot; + this.weather + &quot;.&quot;);
+            }
+        };
+        // iterating each property of an object /w javascript
+        for (var prop in myData) {
+            $log.log(&quot;Name: &quot; + prop + &quot; Value: &quot; + myData[prop]);
+        }
+        // iterating each property with angular.forEach
+            angular.forEach(myData, function (value, key) {
+            $log.log(&quot;Name: &quot; + key + &quot; Value: &quot; + value);
+        });
+    }
+            </pre>
+
+                <blockquote><footer>Iterating a list in JS and Angular's forEach</footer></blockquote>
+                <blockquote><footer>JS</footer><code>for (var prop in myData) {</code></blockquote>
+                <blockquote><footer>Angular.forEach</footer><code>angular.forEach(myData, function (value, key) {</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Null and Undefined</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.nullOrUndefined()">null &amp; undefined</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.nullOrUndefined = function () {
+        // if checking for null &quot;or&quot; undefined then use the ! operator
+        var myData = {
+            name: &quot;Adam&quot;,
+            city: null
+        };
+        if (!myData.name) {
+            $log.log(&quot;name IS null or undefined&quot;);
+        } else {
+            $log.log(&quot;name is NOT null or undefined&quot;);
+        }
+        if (!myData.city) {
+            $log.log(&quot;city IS null or undefined&quot;);
+        } else {
+            $log.log(&quot;city is NOT null or undefined&quot;);
+        }
+        // angular.isDefined &amp; angular.isUndefined
+        $log.log(&quot;name: &quot; + angular.isDefined(myData.name));
+        $log.log(&quot;city: &quot; + angular.isDefined(myData.city));
+        $log.log(&quot;country: &quot; + angular.isDefined(myData.country));
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Angular Copy</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.angularCopy()">angular.copy</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.angularCopy = function () {
+        var myData = {
+            name: &quot;Adam&quot;,
+            city: null,
+            country: &quot;USA&quot;
+        };
+        var myNewData = angular.copy(myData);
+        
+        $log.log(&quot;name: &quot; + myNewData.name);
+        $log.log(&quot;city: &quot; + myNewData.city);
+        $log.log(&quot;country: &quot; + myNewData.country);
+    }
+            </pre>
+
+                <blockquote><footer>JS method</footer><code>if (!myData.name) {</code></blockquote>
+                <blockquote><footer>Angular method</footer><code>angular.isDefined(myData.name)</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Checking null with ||</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Press button
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.getDay()"> {{vm.day || "unknown"}}</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.getDay = function () {
+        var dayNames = [&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;];
+        vm.day = dayNames[new Date().getDay()];
+    }
+                <strong> {(vm.day || "unknown")}</strong>
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+    </div>
+</div>

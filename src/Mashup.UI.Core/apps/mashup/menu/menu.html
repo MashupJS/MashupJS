@@ -1,0 +1,263 @@
+﻿
+<div>
+    <style media="screen" type="text/css">
+        .modal .modal-dialog {
+            /* In combination with "width" sets the width of the page        */
+            /* but in a way the allows the initial load to be set and        */
+            /* allows the screen to be responsive when the screen is smaller. */
+            /* max-width is the only thing that needs changed for new modals. */
+            max-width: 1200px;
+            width: 100%;
+            /* min-width protects the integrity of the screen in the event
+                    the screen is smaller than the smallest device supperted at 320px. */
+            min-width: 300px;
+            /* This padding makes the right side padding the same as the left. */
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+    </style>
+
+    <div class="modal-header">
+        <h3>Apps</h3>
+        <button style="position: absolute; top: 30px; right: 20px; font-size: large;" class="btn btn-warning pull-right" ng-click="close()">Close</button>
+    </div>
+
+    <!-- Icons - We are using Font Awesome icons.
+        fa - is required to make Font Awesome work.
+        fa-lg - sets the size of the icons to large.
+        fa-fw - set the icons to fixed with so they will aline better.
+        fa-[name of font]
+        list-group-itme - from bootstrap, allows a list of controls to become a clickable group. TODO: Fix this explaination. Lame.
+        menu-butn - css script for this page, gives a border to the buttons so you can see them before highlighting them.
+        row & col-sm-4 - defines the bootstrap fluid-grid.  This will allow for some responsiveness when the screen gets small.
+        TODO: Add more resonsiveness to remove the <p> seconds when below some limit, or cause the text to elipse.
+         -->
+    <!-- TODO: I only want a single listener and not one placed on each controlls click event. -->
+    <!-- (SOLVED) By placing  ng-click="close()" on the panel body of each collapsing area.  4 total watches instead of 30 or 40. -->
+    <!-- (PROBLEM) The accordian controls are registering in the URL.  We don't want this. -->
+    <!-- (SOLVED) By replacing href with data-target we are able to declare the behavior without affecting our routing sceme -->
+
+    <div style="height: 20px;"></div>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+                        Applications
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body" ng-click="close()">
+
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+                        Utilities
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body" ng-click="close()">
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn" role="button">
+                                <i class="fa fa-lg fa-fw fa-sort-amount-asc"></i><span style="height: 15px;" class="h4"> OLQ Data Load</span>
+                                <p class="list-group-item-text">OLQ nightly load of performance data.</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
+                        Administrative
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body" ng-click="close()">
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn" role="button">
+                                <i class="fa fa-lg fa-fw fa-toggle-right"></i><span class="h4"> Query UI</span>
+                                <p class="list-group-item-text">Execute queries</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4"> List item headings</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
+                        Examples
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse in">
+                <div class="panel-body" ng-click="close()">
+
+                    <div class="row">
+
+                        <!--<div class="col-sm-4">
+                            <a href="#exApp1/angularExamplesMain/formExamplesMain" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Form Examples</span>
+                                <p class="list-group-item-text">Modals, Bootstrap, Alerts, etc.</p>
+                            </a>
+                        </div>-->
+
+                        <div class="col-sm-4">
+                            <a href="#exApp1/javascriptMain" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">JavaScript Examples</span>
+                                <p class="list-group-item-text">JS functions, etc</p>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="#exApp1/angularExamplesMain" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Angular Examples</span>
+                                <p class="list-group-item-text">Routing, directives, services, bind</p>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="#exApp1/webApiExamplesMain" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Web Api Examples</span>
+                                <p class="list-group-item-text">FromURL, FromBody, Searching, linQ</p>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="#exApp1/utilityMain" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">utility Examples</span>
+                                <p class="list-group-item-text">lodash, bootstrap</p>
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button style=" font-size: large;" class="btn btn-warning" ng-click="close()">Close</button>
+</div>
+
+
