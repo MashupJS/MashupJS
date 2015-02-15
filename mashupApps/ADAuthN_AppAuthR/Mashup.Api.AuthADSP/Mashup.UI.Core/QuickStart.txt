@@ -1,0 +1,8 @@
+﻿To get started:
+
+1. open a command prompt to the root of Mashup.UI.Core.  IE: same directory as the Gruntfile.js and package.json files.
+2. type "npm install"
+3. type "grunt"
+
+
+Note: This is only needed if you're retrieving code from source control for the first time.

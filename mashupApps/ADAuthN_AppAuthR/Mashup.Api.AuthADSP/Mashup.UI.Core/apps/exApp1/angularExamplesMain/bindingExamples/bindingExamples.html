@@ -1,0 +1,197 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Binding</h3>
+        <h5>ng-bind, ng-gind-html, ng-bind-template, ng-Model, ng-non-bindable</h5>
+
+        <div style="height: 5px;"></div>
+        <h5>Data binding allows us to take data from the model and inject it into HTML.</h5>
+        <h6>How binding works under the covers...</h6>
+        <h6>http://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/</h6>
+
+    </div>
+
+    <div class="well-sm">
+
+        <!-- TODO Example begin -->
+        <div id="todoPage" class="panel">
+            <h3 class="panel-heading">To Do</h3>
+            There are <span ng-bind="vm.items.length"></span> items
+            <div ng-bind-template="First: {{vm.items[0].action}}. Second: {{vm.items[1].action}}"></div>
+            <div ng-non-bindable>
+                Angular uses {{ and }} characters for templates
+            </div>
+        </div>
+        <!-- TODO Example end -->
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-bind</h4>
+                <p>One-way binding</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        &lt;div class=&quot;col-sm-3 &quot;&gt;
+                        There are &lt;span ng-bind=&quot;vm.items.length&quot;&gt;&lt;/span&gt; vm.items
+                        &lt;/div&gt;
+                    </div>
+                </div>
+                <pre>
+    There are &lt;span ng-bind=&quot;vm.items.length&quot;&gt;&lt;/span&gt; vm.items
+                </pre>
+                <blockquote><code>ng-bind="vm.items.length"</code></blockquote>
+                <blockquote ng-non-bindable><footer>ng-bind isn't used often because {{}} does the same thing.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 ng-non-bindable>{{}}</h4>
+                <p ng-non-bindable>One-way binding with {{}}</p>
+                <p>One-way binding</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            There are {{vm.items.length}} items
+                        </div>
+                    </div>
+                </div>
+                <pre ng-non-bindable>
+    &lt;div class=&quot;col-sm-3 &quot;&gt;
+        There are {{vm.items.length}} items
+    &lt;/div&gt;
+            </pre>
+                <blockquote><code>There are {{vm.items.length}} items</code></blockquote>
+                <blockquote><footer>The above code markup could have benefited from ng-non-bindable</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>binding via class attribute</h4>
+                <p>Directives can be implemented through class attributes.</p>
+                <p>One-way binding</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3;">
+                            There are <span class="ng-bind: vm.items.length"></span> items
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div class=&quot;col-sm-3;&quot;&gt;
+        There are &lt;span class=&quot;ng-bind: vm.items.length&quot;&gt;&lt;/span&gt; vm.items
+    &lt;/div&gt;
+            </pre>
+                <blockquote><code>&lt;span class=&quot;ng-bind: vm.items.length&quot;&gt;</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-bind-template</h4>
+                <p>ng-bind-template is supposed to add flexibility.</p>
+                <p>One-way binding</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <div ng-bind-template="First: {{vm.items[0].action}}. Second: {{vm.items[1].action}}"></div>
+                        </div>
+                    </div>
+                </div>
+                <pre ng-non-bindable>
+    &lt;div class=&quot;col-sm-6 &quot;&gt;
+        &lt;div ng-bind-template=&quot;First: {{vm.items[0].action}}. Second: {{vm.items[1].action}}&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+            </pre>
+
+                <blockquote><code ng-non-bindable>&lt;div ng-bind-template=&quot;First: {{vm.items[0].action}}. Second: {{vm.items[1].action}}&quot;&gt;&lt;/div&gt;</code></blockquote>
+                <blockquote><footer>The author of ProAngular said he has neven needed this method on a real project.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-non-bindable</h4>
+                <p ng-non-bindable>If you want to display {{}} then you must include the ng-non-bindable directive.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 " ng-non-bindable>
+                            Allow {{ text }} in the middle of text.
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div class=&quot;col-sm-3 &quot; ng-non-bindable&gt;
+        Allow {{ text }} in the middle of text.
+    &lt;/div&gt;
+            </pre>
+
+                <blockquote><code>&lt;div class=&quot;col-sm-3 &quot; ng-non-bindable&gt;</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-model</h4>
+                <p>Two-way Binding</p>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div>The First item is: {{vm.items[0].action}}</div>
+                    </div>
+                    <div class="form-group well">
+                        <label for="firstItem">Set First Item:</label>
+                        <input name="firstItem" class="form-control" ng-model="vm.items[0].action" />
+                    </div>
+                </div>
+                <pre>
+    &lt;div class=&quot;col-sm-12 &quot;&gt;
+        &lt;div&gt;The First item is: {{vm.items[0].action}}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group well&quot;&gt;
+        &lt;label for=&quot;firtItem&quot;&gt;Set First Item:&lt;/label&gt;
+        &lt;input name=&quot;firstItem&quot; class=&quot;form-control&quot; ng-model=&quot;vm.items[0].action&quot; /&gt;
+    &lt;/div&gt;
+            </pre>
+
+                <blockquote><code>ng-model=&quot;vm.items[0].action&quot;</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+    </div>
+</div>

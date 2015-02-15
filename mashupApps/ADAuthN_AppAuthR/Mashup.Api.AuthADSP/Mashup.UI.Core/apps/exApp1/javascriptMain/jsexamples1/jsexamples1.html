@@ -1,0 +1,203 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>JavaScript and Objects</h3>
+        <h5>Simple JS examples /w objects</h5>
+        <h5>Add Func to Object, Array basics, </h5>
+        <h5>null checker, Check for null /w ||</h5>
+        
+        <h5>
+            Some of these examples come from <b>Pro AngularJS by Adam Freeman.</b>
+        </h5>
+
+    </div>
+
+    <div class="well-sm">
+
+        <h4>Explainations documented in JS function</h4><h6>Results in console. Press F12 to view.</h6>
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Creating objects</h4>
+                <p>Description of the example</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.createObjects()">Creating objects</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.createObjects = function () {
+        var myObject1 = new Object();
+        myObject1.fname = &quot;John&quot;;
+        myObject1.lname = &quot;Adams&quot;;
+        $log.log(&quot;object created with new = &quot; + myObject1.fname + &quot; &quot; + myObject1.lname);
+        // object literal approach
+        var myObject2 = { fname: &quot;John&quot;, lname: &quot;Adams&quot; };
+        $log.log(&quot;object created with new = &quot; + myObject2.fname + &quot; &quot; + myObject2.lname);
+    
+    }
+                </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Add Func to Object</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.addFunctionToObj()">Add Func to Object</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.addFunctionToObj = function () {
+        // JavaScript is a functional language.
+        // Here we are adding a function to an object which is called a method.
+        var myData = {
+            name: &quot;Adam&quot;,
+            weather: &quot;sunny&quot;,
+            printMessages: function () {
+                $log.log(&quot;Hello &quot; + this.name + &quot;. &quot;);
+                $log.log(&quot;Today is &quot; + this.weather + &quot;.&quot;);
+            }
+        };
+        myData.printMessages();
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Array Basics</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.arrayBasics()">array basics</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.arrayBasics = function () {
+        // Javascript will support arrays with different types.
+        // Notice in this array that I do not set the number of items in the array.
+        // It will resize itselt.
+        // Also notice the variety of datatypes that work in the same array.
+        var myArray = new Array();
+        myArray[0] = 100;
+        myArray[1] = &quot;Adam&quot;;
+        myArray[2] = true;
+        // creating an array with the Array Literal Style
+        var myArray2 = [100, &quot;Adam&quot;, true];
+        // detecting an array
+        $log.log(&quot;angular.isArray(myArray2) = &quot; + angular.isArray(myArray2));
+        $log.log(&quot;angular.isArray(&#39;Adam&#39;) = &quot; + angular.isArray(&#39;Adam&#39;));
+        $log.log(&quot;angular.isArray(23) = &quot; + angular.isArray(23));
+    }
+            </pre>
+
+                <blockquote><code>$log.log("angular.isArray(</code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Null and Undefined</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.nullOrUndefined()">null &amp; undefined</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.nullOrUndefined = function () {
+        // if checking for null &quot;or&quot; undefined then use the ! operator
+        var myData = {
+            name: &quot;Adam&quot;,
+            city: null
+        };
+        if (!myData.name) {
+            $log.log(&quot;name IS null or undefined&quot;);
+        } else {
+            $log.log(&quot;name is NOT null or undefined&quot;);
+        }
+        if (!myData.city) {
+            $log.log(&quot;city IS null or undefined&quot;);
+        } else {
+            $log.log(&quot;city is NOT null or undefined&quot;);
+        }
+    }
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Checking null with ||</h4>
+                <p></p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Press button
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.getDay()"> {{vm.day || "unknown"}}</a>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    vm.getDay = function () {
+        var dayNames = [&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;];
+        vm.day = dayNames[new Date().getDay()];
+    }
+                <strong> {(day || "unknown")}</strong>
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿
+<div>
+    <style media="screen" type="text/css">
+        .modal .modal-dialog {
+            /* In combination with "width" sets the width of the page        */
+            /* but in a way the allows the initial load to be set and        */
+            /* allows the screen to be responsive when the screen is smaller. */
+            /* max-width is the only thing that needs changed for new modals. */
+            max-width: 400px;
+            width: 100%;
+            /* min-width protects the integrity of the screen in the event
+                    the screen is smaller than the smallest device supperted at 320px. */
+            min-width: 300px;
+            /* This padding makes the right side padding the same as the left. */
+            padding-right: 20px;
+        }
+    </style>
+
+    <div class="modal-header">
+        <h3>Login</h3>
+    </div>
+    <!--<form ng-submit="submit()">-->
+
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="vp-label">User name</label>
+                    <input class="vp-textbox-input" type="text" ng-model="user.user" />
+                    <div class="vp-element-space"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="vp-label">myValue</label>
+                    <input class="vp-textbox-input" type="text" ng-model="myValue" />
+                    <div class="vp-element-space"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="vp-label">Password</label>
+                    <input class="vp-textbox-input" type="password" ng-model="user.password" />
+                    <div class="vp-element-space"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!-- I noticed the Submit function works with no errors but the cancel button has errors -->
+            <!-- Not sure why. -->
+            <!-- When I change the cancel button to use ng-submit then I don't get errors. -->
+            <!-- I'm not sure of the consiquences of this. -->
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-success" ng-click="submit()" value="Submit">Submit</button>
+        </div>
+
+    <!--</form>-->
+</div>
+

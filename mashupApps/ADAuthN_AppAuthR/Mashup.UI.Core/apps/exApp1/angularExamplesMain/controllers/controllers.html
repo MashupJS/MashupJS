@@ -1,0 +1,161 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Angular's Controller As syntax</h3>
+        <br />
+        <h5>We will take a progression from how we first learn to create controllers to how we want to create and used controllers.</h5>
+
+
+    </div>
+
+    <div class="well-sm">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ControllerAs</h4>
+                <p>Setting up ControllerAs with the route configuration</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <a ng-click="vm.add(vm.a,vm.b)" class="vp-menu-btn btn btn-default">Execute function</a>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <a class="vp-menu-btn btn btn-default">{{vm.myValue}}</a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <h4>Here we have a route paring up a controller with it's view.</h4>
+                <h5>This is a common approach and perfectly acceptable but not a best practice.</h5>
+                <h5>When dealing with $scope you'll find yourself referencing the $parent in Views with nested controllers.</h5>
+                <h5>$scope is depricated in Angular 2.0 so it would't hurt to learn to live without it.</h5>
+                Route
+<pre>
+     .when(&#39;/exApp1/angularExamplesMain/controllers&#39;, {
+            templateUrl: &quot;apps/exApp1/angularExamplesMain/controllers/controllers.html&quot;,
+            controller: &#39;exApp1.ControllersController&#39;,
+            ...
+</pre>
+
+                Controller
+                <pre>
+/*global mashupApp:false */
+mashupApp.controller(&#39;exApp1.ControllersController&#39;, function ($scope) {
+    $scope.a = 1;
+    $scope.b = 2;
+    $scope.myValue = 0;
+    $scope.add = function (a,b) {
+        $scope.myValue = a + b;
+    }
+});
+</pre>
+                
+                
+
+                <br />
+                <h4>Using Controller AS syntax</h4>
+                <h5>The Controller As approach puts the controller on the $scope so it's not necessary to pass in $scope anymore.</h5>
+                <h5>Simply referencing variables and functions with "this" is enough.</h5>
+                <h5>The challenge with "this" is "this" can mean something different in different contexts.</h5>
+                <h5>So while we no longer have to deal with $parent we now have to deal with what "this" really means at any given point.</h5>
+                Route
+<pre>
+     .when(&#39;/exApp1/angularExamplesMain/controllers&#39;, {
+            templateUrl: &quot;apps/exApp1/angularExamplesMain/controllers/controllers.html&quot;,
+            controller: &#39;exApp1.ControllersController&#39;,
+            controllerAs: &#39;vm&#39;,
+            ...
+</pre>                
+                Controller
+                <pre>
+/*global mashupApp:false */
+mashupApp.controller(&#39;exApp1.ControllersController&#39;, function () {
+    this.a = 1;
+    this.b = 2;
+    this.myValue = 0;
+    this.add = function (a,b) {
+        this.myValue = a + b;
+    }
+});                        
+</pre>
+                
+
+                <br />
+                <h2>Best Practice</h2>
+                <h4>Setting "this" equal to a local variable</h4>
+                <h5>Assigning a local value a reference to "this" solves the problem of "this" potentially meaning something different in a different context.</h5>
+                <h5>In this case "vm" will always mean what it meant at the moment it was set equal to "this".</h5>
+               
+                <h5>Additional References:</h5>
+                
+                <a href="https://github.com/johnpapa/angularjs-styleguide#controllers">https://github.com/johnpapa/angularjs-styleguide#controllers</a>
+                <br/><br/>
+
+                Route
+<pre>
+     .when(&#39;/exApp1/angularExamplesMain/controllers&#39;, {
+            templateUrl: &quot;apps/exApp1/angularExamplesMain/controllers/controllers.html&quot;,
+            controller: &#39;exApp1.ControllersController&#39;,
+            controllerAs: &#39;vm&#39;,
+            ...
+</pre>
+                Controller
+                <pre>
+/*global mashupApp:false */
+mashupApp.controller(&#39;exApp1.ControllersController&#39;, function () {
+    // vm = View Model
+    var vm = this;
+    vm.a = 1;
+    vm.b = 2;
+    vm.myValue = 0;
+    vm.add = function (a,b) {
+        vm.myValue = a + b;
+    }
+});    
+</pre>
+
+
+                <br />
+                <h4>Local variable "vm" and Controller AS "vm"</h4>
+                <h5>You might see where having "vm" used in two different contexts in the view and controller might be a bad coding practice.</h5>
+                <h5>In an effrot to have a good coding practice I could name the local value something different but now I'd refer to the add method in code as vp.add() and in the markup as vw.add().</h5>
+                <h5>The approach of naming the local variable and controller as the same doesn't seem to cause any practical conflict.</h5>
+
+                Route
+<pre>
+     .when(&#39;/exApp1/angularExamplesMain/controllers&#39;, {
+            templateUrl: &quot;apps/exApp1/angularExamplesMain/controllers/controllers.html&quot;,
+            controller: &#39;exApp1.ControllersController&#39;,
+            controllerAs: &#39;vm&#39;,
+            ...
+</pre>
+                Controller
+                <pre>
+/*global mashupApp:false */
+mashupApp.controller(&#39;exApp1.ControllersController&#39;, function () {
+    // vm = ViewModel
+    var vp = this;
+    vp.a = 1;
+    vp.b = 2;
+    vp.myValue = 0;
+    vp.add = function (a, b) {
+        vp.myValue = a + b;
+    }
+});
+</pre>
+
+
+
+                <blockquote><code></code></blockquote>
+                <blockquote><footer></footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+    </div>
+</div>

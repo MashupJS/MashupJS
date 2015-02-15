@@ -1,0 +1,114 @@
+﻿<style>
+    .vp-menu-btn {
+        width: 100%;
+        border-color: #485563;
+    }
+</style>
+
+<div>
+    <div class="jumbotron text-center">
+        <h1>Modal Examples</h1>
+
+        <p>{{ vm.message }}</p>
+
+        <br />
+
+    </div>
+
+
+    <div class="well-sm">
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>The example</h4>
+                <p>Description of the example</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="btn btn-default vp-menu-btn" role="button" ng-click="vm.modalLoginClick()">Modal Login</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a class="btn btn-default vp-menu-btn" role="button" ng-click="vm.open()">Basic Modal</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a class="btn btn-default vp-menu-btn" role="button" ng-click="vm.open('lg')">Large Modal</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a class="btn btn-default vp-menu-btn" role="button" ng-click="vm.open('sm')">Small Modal</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <blockquote><footer>Basic modal code</footer></blockquote>
+
+                <pre>
+    vm.open = function (size) {
+    var modalInstance = $modal.open({
+        templateUrl: &#39;apps/exApp1/modalDemo/modalDemo.html&#39;,
+        controller: &#39;modalDemoController&#39;,
+        size: size,
+        resolve: {
+            items: function () {
+                return vm.items;
+            }
+        }
+    });
+    modalInstance.result.then(function (selectedItem) {
+        vm.selected = selectedItem;
+    }, function () {
+        $log.info(&#39;Modal dismissed at: &#39; + new Date());
+    });
+};
+            </pre>
+
+                <blockquote><footer>Modal Login code</footer></blockquote>
+
+                <pre>
+    
+    vm.modalLoginClick = function () {
+        // To control the size of the modal modify the css style embedded in the page fragment.
+        // There is an example in modalLogin.html
+        var modalLogin = $modal.open({
+            templateUrl: &#39;apps/exApp1/modalLogin/modalLogin.html&#39;,
+            backdrop: &#39;static&#39;, // can be true 
+            windowClass: &#39;modal&#39;,
+            controller: &#39;ModalLoginController&#39;,
+            keyboard: true,
+            resolve: {
+                // The resolve property executes first to set up the values being
+                // passed into the ModalLoginController.  Values not predicated with $ must
+                // be passed in explicitly.  The $ indicates a DI or Dependency Injection so
+                // no extra effort need go into passing values.  This is a benefit of 
+                // defining services which can be passed via DI.
+                user: function () { return vm.user; },
+                // When I pass this as a value, IE: user2: &#39;5&#39;, it doesn&#39;t work.
+                // When I pass it as a function it does work.
+                myValue: function () { return &#39;5&#39;; },
+            }
+        });
+        //get result here...  This seems like almost an if/else.  The second
+        //function only runs when I press the cancel button which fires dismiss.
+        //TODO: Figure out why this is so.
+        modalLogin.result.then(function (result) {
+            $log.log(&#39;result: &#39; + result)
+        }, function () {
+            $log.info(&#39;Modal dismissed at: &#39; + new Date());
+        });
+    };
+
+                </pre>
+
+                <blockquote><footer>Many more examples at: <a href="http://nakupanda.github.io/bootstrap3-dialog/">http://nakupanda.github.io/bootstrap3-dialog/</a></footer></blockquote>
+
+                <blockquote><code></code></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+    </div>
+</div>

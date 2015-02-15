@@ -1,0 +1,226 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Angular Examples 1</h3>
+        <h5>Directives, Services, Filters, App values</h5>
+
+    </div>
+    {{vm.myIntegerValue}}
+    <div class="well-sm">
+
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Create a simple highlight directive</h4>
+                <p>This highlight directive will act against the current day.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="vp-menu-btn btn btn-default" ng-click="applyHighlight()">Apply Highlight Directive</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Day of Week</label>
+                            <input class="form-control vp-textbox-input" ng-model="vm.InputDayOfWeek" ng-change="$scope.$apply()" placeholder="Enter Day Of Week" />
+                            <div style="height: 5px;" />
+
+                            <!-- This is how directives can extend HTML.  There is no "highlight" HTML attribute but here it is and it works. -->
+                            <!-- I would like to update this example so that the directive applies after the model changes. -->
+                            <!-- Currently it only works on load. -->
+                            <h4 highlight="Tuesday">{{vm.InputDayOfWeek}}</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    In the HTML we have this
+    &lt;h4 highlight=&amp;quot;Tuesday&amp;quot;&gt;%7B%7BInputDayOfWeek%7D%7D&lt;/h4&gt;
+                        vm.InputDayOfWeek = &quot;Monday&quot;;
+   
+    });
+    // adding a directive
+    mashupApp.directive(&quot;highlight&quot;, function () {
+        return function (scope, element, attrs) {
+            if (scope.day == attrs[&quot;highlight&quot;]) {
+                element.css(&quot;color&quot;, &quot;red&quot;);
+            }
+        }
+    })
+            </pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Custom Filter</h4>
+                <p>This filter takes a number and returns the string representation of the day.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-2 ">
+                            <label class="vp-label">Numeric Day</label>
+                            <input style="width: 100px;" class="form-control" type="number" step="1" ng-model="vm.NumericDay" />
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label class="vp-label">Numeric Day</label>
+                            <h5>{{vm.NumericDay | dayName}}</h5>
+                            <h5>{{vm.NumericDay || 0 | dayName}}</h5>
+                        </div>
+
+                    </div>
+                </div>
+
+                Filter definition
+<pre>
+    mashupApp.filter(&quot;dayName&quot;, function() {
+        var dayNames = [&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;,&quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;];
+        return function (input) {
+            return angular.isNumber(input) ? dayNames[input] : input;
+        };
+    });
+</pre>
+
+                Filter usage
+<pre>
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-3 &quot;&gt;
+            &lt;label class=&quot;vp-label&quot;&gt;Numeric Day&lt;/label&gt;
+            &lt;input style=&quot;width: 100px;&quot; class=&quot;form-control&quot; type=&quot;number&quot; step=&quot;1&quot; ng-model=&quot;NumericDay&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-sm-3 &quot;&gt;
+            &lt;label class=&quot;vp-label&quot;&gt;Numeric Day&lt;/label&gt;
+            &lt;h4&gt;{ {vm.NumericDay | dayName} }&lt;/h4&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Service</h4>
+                <p>This is a simple service demonstrating properties and methods.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.runService()">Use Service</a>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <h5>myProperty = {{vm.myProperty1}}</h5>
+                            <h5>myIntegerValue = {{vm.myIntegerValue}}</h5>
+                            <h5>myfucntion = {{vm.myfunction}}</h5>
+                            <h5>connectionString = {{vm.connectionString}}</h5>
+                        </div>
+                    </div>
+                </div>
+                Service definition
+<pre>
+    mashupApp.service(&quot;MyService&quot;, function () {
+        
+        // This seems like a simple way to provide global data/functions to the application.
+        // I&#39;m not sure that is the intent but seems to be a mechanism for doing it.
+        // The object created inside this service is accessible via &quot;this.&quot; 
+        // Everythig you place into this. is accessible by modules this service is passed to.
+        
+        this.myProperty1 = &quot;This is my property&quot;;
+        this.myIntegerValue = 5;
+        this.myfunction = function () { return this.myProperty1 + &quot; &quot; + this.myIntegerValue; }
+        this.connectionString = &quot;This could be some connection string passed to the data service.&quot;;
+    
+    });
+</pre>
+
+                Adding the service to your module
+<pre>
+    mashupApp.controller(&#39;exApp1.JSExamples1Controller&#39;, function ($log, $location, $http, MyService) {
+</pre>
+                Using the service
+<pre>
+    // For the service example.
+        vm.myProperty1 = &quot;&quot;;
+        vm.myIntegerValue = 0;
+        vm.myfucntion = &quot;&quot;;
+        vm.connectionString = &quot;&quot;
+    
+        vm.runService = function () {
+            vm.myProperty1 = MyService.myProperty1;
+            vm..myIntegerValue = MyService.myIntegerValue;
+            vm..myfunction = MyService.myfunction();
+            vm..connectionString = MyService.connectionString;
+    }
+</pre>
+
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Application Values</h4>
+                <p>Setting a value on the application makes the value available everywhere.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <a class="vp-menu-btn btn btn-default" ng-click="vm.getEnvironment()">Get Environment</a>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <h5>Environment</h5>
+                            <div style="color: #00ffff;">{{vm.myEnvironment}}</div>
+                        </div>
+                    </div>
+                </div>
+                Defining the value on the application object.
+<pre>
+    mashupApp.value(&quot;environment&quot;, &quot;Development&quot;);
+</pre>
+                Passing the value to the module
+<pre>
+    mashupApp.controller(&#39;exApp1.JSExamples1Controller&#39;, function ($log, $location, $http, MyService, environment) {
+</pre>
+
+                Using the application value
+<pre>
+    vm.myEnvironment = &quot;&quot;;
+        vm.getEnvironment = function () {
+        vm.myEnvironment = environment;
+    }
+</pre>
+
+                <blockquote><code>mashupApp.value("environment", "Development");</code></blockquote>
+                <blockquote><footer>TODO: With all these options for passing state we need to determine which are the best ways for us.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+    </div>
+</div>

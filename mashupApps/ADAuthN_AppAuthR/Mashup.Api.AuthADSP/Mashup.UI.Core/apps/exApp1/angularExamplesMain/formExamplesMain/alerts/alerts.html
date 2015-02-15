@@ -1,0 +1,80 @@
+﻿<style media="screen" type="text/css">
+    .btn-width {
+        max-width: 200px;
+        width: 100%;
+    }
+</style>
+
+<!-- TODO:  Figure this out! -->
+<!--        I have a controller for this html fragment configured but it is not declared in the markup. -->
+<!--        Yet this page still works.  Granted the "addAlert" method belongs to a service but that service -->
+<!--        is dependency injected with the controller that is not defined here.  Is it possible the application -->
+<!--        controller is inheriting this html fragment and providing the addAlert function?  Maybe... -->
+<div>
+    <div class="jumbotron text-center">
+        <h2>Alerts</h2>
+
+    </div>
+
+
+    <div class="well-sm">
+
+
+        <div class="well">
+            <h4>Examples of providing user feedback.</h4>
+            <p>This is a very basic implementation.  A custom directive is added to a div on the index.html page and bound to the root $scope.  Calling alertService.add with 2 parameters defines the type of message you want to display and updates the model bound to the alert div.</p>
+
+            <div class="row">
+
+                <div class="col-sm-3 ">
+                    <button class='btn-width btn-success btn btn-default btn-sm' ng-click="vm.addAlert('alert-success')">Add success alert</button>
+                </div>
+                <div class="col-sm-3">
+                    <button class='btn-width btn-info btn btn-default btn-sm' ng-click="vm.addAlert('alert-info')">Add informational alert</button>
+                </div>
+                <div class="col-sm-3">
+                    <button class='btn-width btn-warning btn btn-default btn-sm' ng-click="vm.addAlert('alert-warning')">Add warning alert</button>
+                </div>
+                <div class="col-sm-3">
+                    <button class='btn-width btn-danger btn btn-default btn-sm' ng-click="vm.addAlert('alert-danger')">Add error alert</button>
+                </div>
+
+            </div>
+            <div style="height: 5px;"></div>
+            <pre>
+    vm.addAlert = function (messageType) {
+        alertService.add(messageType, &#39;&lt;h4&gt;Success!&lt;/h4&gt; This is a success message!&#39;);
+        // options
+        // alert-success
+        // alert-warning
+        // alert-info
+        // alert-danger
+    };
+            </pre>
+
+            <blockquote><code>{{vm.alertCode}}</code></blockquote>  
+
+            <blockquote><footer> Be sure to include the "alertService" in your controller definition.</footer></blockquote>
+            <blockquote><code>mashupApp.controller('exApp1.AlertsController', function (alertService, Base64) {</code></blockquote>
+        </div>
+        <hr />
+
+
+        <div class="well">
+            <h4>Examples of...</h4>
+            <p>Explaination</p>
+            <a class="vp-menu-btn btn btn-default">button1</a>
+
+            <div style="padding: 5px;" ng-repeat="alert in vm.alerts" class="alert alert-info">
+                <span data-ng-bind-html="exampleOnScope"></span>
+            </div>
+
+            <blockquote><code></code></blockquote>
+            <blockquote></blockquote>
+        </div>
+        <hr />
+
+
+
+    </div>
+</div>
