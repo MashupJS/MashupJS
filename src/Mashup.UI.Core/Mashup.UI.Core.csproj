@@ -166,6 +166,8 @@
     <Content Include="apps\mashup\~appServices\data.service.js" />
     <Content Include="apps\mashup\~appServices\data.service.min.js" />
     <Content Include="apps\mashup\~appTests\New Text Document.txt" />
+    <Content Include="core\about.controller.js" />
+    <Content Include="core\about.html" />
     <Content Include="core\app.min.js">
       <DependentUpon>app.js</DependentUpon>
     </Content>
@@ -184,6 +186,10 @@
     <Content Include="core\config\route.config.js" />
     <Content Include="core\css\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="core\css\bootstrap\yeti\bootstrap.min.css" />
+    <Content Include="core\menu.controller.js" />
+    <Content Include="core\menu.html" />
+    <Content Include="core\welcome.controller.js" />
+    <Content Include="core\welcome.html" />
     <Content Include="index.controller.js" />
     <Content Include="core\config\config.js" />
     <Content Include="core\css\bootstrap\default\bootstrap-theme.css" />

@@ -9,7 +9,7 @@ mashupApp.controller('indexController', ['$scope', '$modal', '$log', '$http', 'a
     $scope.open = function () {
 
         var myModal = $modal.open({
-            templateUrl: '../apps/mashup/menu/menu.html',
+            templateUrl: 'core/menu.html',
             backdrop: 'statis', // can be true 
             windowClass: 'modal',
             controller: 'menuController',
