@@ -1,0 +1,17 @@
+
+
+# ignore all '.js' files, everywhere
+# *.js
+
+# ignore all files and every folder
+ *.*
+ ./*
+
+# ...except the files and directories I want
+ !Gruntfile.js
+ !gulpfile.js
+ !index.controller.js
+ !index.html
+ !core/**/*.*
+
+
