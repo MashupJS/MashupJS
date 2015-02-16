@@ -206,8 +206,8 @@ module.exports = function (grunt) {
             //    },
             //},
             allmin: {
-                files: ['**/*..js', '!core/lib/**/*', '!**/*.min.js'],
-                tasks: ['newer:uglify:coreroot'],
+                files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
+                tasks: ['newer:uglify:coreroot', 'newer:jshint'],
                 options: {
                     nospawn: true,
                 },
