@@ -32,7 +32,7 @@
         row & col-sm-4 - defines the bootstrap fluid-grid.  This will allow for some responsiveness when the screen gets small.
         TODO: Add more resonsiveness to remove the <p> seconds when below some limit, or cause the text to elipse.
          -->
-    <!-- TODO: I only want a single listener and not one placed on each controlls click event. -->
+    <!-- TODO: I only want a single listener and not one placed on each controls click event. -->
     <!-- (SOLVED) By placing  ng-click="close()" on the panel body of each collapsing area.  4 total watches instead of 30 or 40. -->
     <!-- (PROBLEM) The accordian controls are registering in the URL.  We don't want this. -->
     <!-- (SOLVED) By replacing href with data-target we are able to declare the behavior without affecting our routing sceme -->
@@ -211,39 +211,32 @@
                 <div class="panel-body" ng-click="close()">
 
                     <div class="row">
-
-                        <!--<div class="col-sm-4">
-                            <a href="#exApp1/angularExamplesMain/formExamplesMain" class="list-group-item vp-menu-btn">
-                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Form Examples</span>
-                                <p class="list-group-item-text">Modals, Bootstrap, Alerts, etc.</p>
-                            </a>
-                        </div>-->
-
+                        
                         <div class="col-sm-4">
-                            <a href="#exApp1/javascriptMain" class="list-group-item vp-menu-btn">
-                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">JavaScript Examples</span>
-                                <p class="list-group-item-text">JS functions, etc</p>
+                            <a href="#app1/page1" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Page 1</span>
+                                <p class="list-group-item-text">Page 1</p>
                             </a>
                         </div>
 
                         <div class="col-sm-4">
-                            <a href="#exApp1/angularExamplesMain" class="list-group-item vp-menu-btn">
-                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Angular Examples</span>
-                                <p class="list-group-item-text">Routing, directives, services, bind</p>
+                            <a href="#app1/page2" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Page 2</span>
+                                <p class="list-group-item-text">Page 2</p>
                             </a>
                         </div>
 
                         <div class="col-sm-4">
-                            <a href="#exApp1/webApiExamplesMain" class="list-group-item vp-menu-btn">
-                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Web Api Examples</span>
-                                <p class="list-group-item-text">FromURL, FromBody, Searching, linQ</p>
+                            <a href="#app2/page3" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Page 3</span>
+                                <p class="list-group-item-text">Page 3</p>
                             </a>
                         </div>
 
                         <div class="col-sm-4">
-                            <a href="#exApp1/utilityMain" class="list-group-item vp-menu-btn">
-                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">utility Examples</span>
-                                <p class="list-group-item-text">lodash, bootstrap</p>
+                            <a href="#app2/page4" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-hand-o-right"></i><span class="h4">Page 4</span>
+                                <p class="list-group-item-text">Page 4</p>
                             </a>
                         </div>
 
