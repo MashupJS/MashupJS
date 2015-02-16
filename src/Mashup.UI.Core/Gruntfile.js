@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             mashupCore: {
                 files: [{
                     expand: true,
-                    src: ['apps/**/*.js', '!**/*.min.js'],
+                    src: ['apps/**/*.js', 'core/**/*.js', '!core/lib/**/*', '!**/*.min.js'],
                 }],
             }
         },
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['index*.js', 'core/*.js', '!**/*.min.js'],
+                        src: ['index*.js', 'core/*.js', '!core/lib/**/*', '!**/*.min.js'],
                         dest: '',
                         ext: '.min.js',
                         extDot: 'last'
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['core/**/*.css', 'apps/**/*.css', '!**/*.min.css'],
+                        src: ['core/**/*.css', 'apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
                         dest: '',
                         ext: '.min.css',
                         extDot: 'last'
@@ -113,8 +113,8 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,                  // Enable dynamic expansion
-                    cwd: 'core/',
-                    src: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],   // Actual patterns to match
+                   // cwd: 'core/',
+                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**/*', '!core/lib/**/*', '!**/dist/**/*.*'],   // Actual patterns to match
                     dest: '<%= distFolder %>/img/'
                 }]
             }
@@ -198,23 +198,23 @@ module.exports = function (grunt) {
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
         watch: {
-            appsjsmin: {
-                files: ['apps/**/*.js', '!**/*.min.js', '!core/apps/**/route.config.js', '!core/apps/**/menu.config.js'],
-                tasks: ['newer:uglify:apps'],
-                options: {
-                    nospawn: true,
-                },
-            },
-            rootjsmin: {
-                files: ['index*.js', 'core/*.js', '!**/*.min.js'],
+            //appsjsmin: {
+            //    files: ['apps/**/*.js', '!**/*.min.js', '!core/**/route.config.js', '!core/**/menu.config.js'],
+            //    tasks: ['newer:uglify:apps'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
+            allmin: {
+                files: ['**/*..js', '!core/lib/**/*', '!**/*.min.js'],
                 tasks: ['newer:uglify:coreroot'],
                 options: {
                     nospawn: true,
                 },
             },
             service_config: {
-                files: ['core/common/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js'
-                        , 'core/config/menu.config.js', 'core/apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
+                files: ['core/common/**/*', 'core/config/route.config.js', 'core/**/route.config.js'
+                        , 'core/config/menu.config.js', 'core/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
                 tasks: ['clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices', 'uglify:dist'],
                 options: {
                     nospawn: true,
@@ -277,7 +277,7 @@ module.exports = function (grunt) {
     // This is where I hit a wall and I've decided to move to gulp.
     // The watch command works great by itself but a subset of watch commands cannot be used.
     // Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
-    grunt.registerTask('watchjs', ['watch:appsjsmin', 'watch:rootjsmin', 'watch:service_config']);
+    grunt.registerTask('watchjs', ['watch:allmin', 'watch:service_config']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
