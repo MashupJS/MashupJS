@@ -23,15 +23,15 @@ mashupApp.service('mashupDataService', ['$http', '$q', '$log', 'cacheService', f
 
             return deferred.promise;
         },
-        getCache: function (cacheName) {
-            var deferred = $q.defer();
+        //getCache: function (cacheName) {
+        //    var deferred = $q.defer();
 
-            cacheService.getCache(cacheName).then(function (data) {
-                deferred.resolve(data);
-            });
+        //    cacheService.getCache(cacheName).then(function (data) {
+        //        deferred.resolve(data);
+        //    });
 
-            return deferred.promise;
-        }
+        //    return deferred.promise;
+        //}
         
     };
 }]);

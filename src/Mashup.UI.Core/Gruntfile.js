@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                 dest: '<%= distFolder %>/route.config.js',
             },
             coreservices: {
-                src: ['core/common/services/**/*', '!core/lib/**/*', '!core/dist/**/*'],
+                src: ['core/common/**/*', '!core/lib/**/*', '!core/dist/**/*'],
                 dest: '<%= distFolder %>/core.services.js',
             },
             menuconfig: {
@@ -213,7 +213,7 @@ module.exports = function (grunt) {
                 },
             },
             service_config: {
-                files: ['core/common/services/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js'
+                files: ['core/common/**/*', 'core/config/route.config.js', 'core/apps/**/route.config.js'
                         , 'core/config/menu.config.js', 'core/apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
                 tasks: ['clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices', 'uglify:dist'],
                 options: {
