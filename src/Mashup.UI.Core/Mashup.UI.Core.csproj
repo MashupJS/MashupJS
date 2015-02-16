@@ -171,9 +171,6 @@
       <DependentUpon>about.controller.js</DependentUpon>
     </Content>
     <Content Include="core\about.html" />
-    <Content Include="core\app.min.js">
-      <DependentUpon>app.js</DependentUpon>
-    </Content>
     <Content Include="core\common\data\data.service.js" />
     <Content Include="core\config\menu.config.js" />
     <Content Include="core\css\bootstrap\Normalize-3.0.1.css" />
@@ -728,9 +725,6 @@
     <Content Include="apps\mashup\welcome\welcome.controller.min.js.map" />
     <Content Include="apps\mashup\~appConfig\menu.config.min.js.map" />
     <Content Include="apps\mashup\~appServices\data.service.min.js.map" />
-    <Content Include="core\app.min.js.map">
-      <DependentUpon>app.min.js</DependentUpon>
-    </Content>
     <Content Include="index.controller.min.js.map">
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
