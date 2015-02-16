@@ -167,9 +167,6 @@
     <Content Include="apps\mashup\~appServices\data.service.min.js" />
     <Content Include="apps\mashup\~appTests\New Text Document.txt" />
     <Content Include="core\about.controller.js" />
-    <Content Include="core\about.controller.min.js">
-      <DependentUpon>about.controller.js</DependentUpon>
-    </Content>
     <Content Include="core\about.html" />
     <Content Include="core\common\data\data.service.js" />
     <Content Include="core\config\menu.config.js" />
@@ -732,9 +729,6 @@
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
     <Content Include=".npmignore" />
-    <Content Include="core\about.controller.min.js.map">
-      <DependentUpon>about.controller.min.js</DependentUpon>
-    </Content>
     <None Include="core\lib\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.js" />
