@@ -47,7 +47,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js'],
+                        src: ['apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js', '!apps/**/menu.config.js'],
                         dest: '',
                         ext: '.min.js',
                         extDot: 'last'
