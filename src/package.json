@@ -1,0 +1,8 @@
+{
+  "name": "mashupjsSolution",
+  "version": "0.1.0",
+  "main": "",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
