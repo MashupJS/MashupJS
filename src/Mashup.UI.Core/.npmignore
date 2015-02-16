@@ -10,8 +10,9 @@
 # ...except the files and directories I want
  !Gruntfile.js
  !gulpfile.js
+ !package.json
  !index.controller.js
  !index.html
  !core/**/*.*
-
+ 
 
