@@ -3,11 +3,11 @@
 mashupApp.controller('menuController', ['$scope', '$modalInstance', '$log', function ($scope, $modalInstance, $log) {
     'use strict';
 
-    $scope.close = function() {
+    $scope.close = function () {
         // Closes the modal and returns a value
         $modalInstance.dismiss('Menu closed');
     };
 
-    window.alert('menu loaded');
+    // window.alert('menu loaded');
 
 }]);
