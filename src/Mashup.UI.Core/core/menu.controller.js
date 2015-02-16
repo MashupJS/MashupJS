@@ -8,6 +8,6 @@ mashupApp.controller('menuController', ['$scope', '$modalInstance', '$log', func
         $modalInstance.dismiss('Menu closed');
     };
 
-    alert('menu loaded');
+    window.alert('menu loaded');
 
 }]);
