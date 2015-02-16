@@ -597,7 +597,7 @@
     <Content Include="core\index.html.shells\basic_index.html\index.controller.min.js.map">
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
-    <Content Include=".npmignore" />
+    <Content Include=".npmignore_tempremove" />
     <None Include="core\lib\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.js" />

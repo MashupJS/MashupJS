@@ -1,18 +1,21 @@
 
 
  # include packages folder and config file but not actual packages
- packages/*
- !packages/repositories.config
- !/**/*.csproj
- !/**/*.config
- !/**/Properties/*
- !Mashup.UI.Core/Web.Config
 
- # exclude stuff:  bin/obj/node_modules
- # Mashup.UI.Core/bin/*
- # Mashup.UI.Core/obj/*
- 
-Mashup.UI.Core/node_modules/*
+packages/*
+!packages/repositories.config
+
+# !/**/*.csproj
+# !/**/*.config
+# !/**/Properties/*
+# !Mashup.UI.Core/Web.Config
+
+
+# exclude stuff:  bin/obj/node_modules
+Mashup.UI.Core/bin/*
+Mashup.UI.Core/obj/*
+#Mashup.UI.Core/node_modules/*   #removed by default
+
 
 #################
 ## Visual Studio
