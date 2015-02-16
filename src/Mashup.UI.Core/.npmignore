@@ -14,5 +14,5 @@
  !index.controller.js
  !index.html
  !core/**/*.*
- 
+ !apps/**/*.*
 
