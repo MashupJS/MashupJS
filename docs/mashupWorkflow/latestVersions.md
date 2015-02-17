@@ -41,3 +41,7 @@ Same as for Grunt.
 
 ###npm_modules
 Go through each `npm_modules` and look for updated releases.
+
+##NuGet
+Keep NuGet updated.
+Check all NuGet packages for updates.
