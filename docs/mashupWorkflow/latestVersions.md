@@ -25,6 +25,7 @@ Version `1.8.10.26129-x64-svn-1.8.11`
 
 ###VisualSVN
 https://www.visualsvn.com/
+Version '4.0.11'
 
 ###NodeJS
 http://nodejs.org/
