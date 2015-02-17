@@ -1,5 +1,6 @@
 {
-  "name": "mashuptools",
-  "version": "0.0.3",
-  "description": "Tools for my personal workflow"
+  "name": "mashupjstools",
+    "version": "0.1.5",
+    "description": "Tools that are part of my personal workflow",
+  "main": ""
 }
