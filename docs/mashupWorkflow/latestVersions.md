@@ -10,17 +10,17 @@ Check for latest update - `update 4`
 
 ###Web Essentials
 http://vswebessentials.com
-Latest update for VS.NET Update 4
+`Latest update for VS.NET Update 4`
 
 ###Productivity Power Tools
 https://visualstudiogallery.msdn.microsoft.com/dbcb8670-889e-4a54-a226-a48a15e4cace
 
 ###Resharper
 https://www.jetbrains.com/resharper/
-
+Version `9.0 update 1`
 ###TortoiseSVN
 http://tortoisesvn.net/
-
+Version `1.8.10.26129-x64-svn-1.8.11`
 ###VisualSVN
 https://www.visualsvn.com/
 
