@@ -1,7 +1,10 @@
-#Tools
+Tools
+=====
+
 Development tools for the workflow used on the MashupJS.
 
-##Utilities
+Utilities
+---------
 
 ####LPE.exe  (Long Path Eraser)
 Removes long file/dir names
@@ -12,7 +15,8 @@ I cannot find the original source or author on this.  I'd like to find another u
 http://long-path-eraser-free.en.softonic.com/
 http://www.softpedia.com/get/System/System-Miscellaneous/Long-Path-Eraser-Free.shtml
 
-##Source Control
+Source Control
+--------------
 
 ####TortoiseSVN
 
@@ -26,7 +30,8 @@ https://www.visualsvn.com/
 https://www.visualsvn.com/visualsvn/download/
 
 
-##IDE(s) & Productivity Tools
+IDE(s) & Productivity Tools
+---------------------------
 
 ####Visual Studio 2013
 Free
@@ -44,7 +49,9 @@ https://www.jetbrains.com/resharper/
 Productivity tools for Visual Studio
 https://visualstudiogallery.msdn.microsoft.com/dbcb8670-889e-4a54-a226-a48a15e4cace
 
-##Databases
+Databases
+---------
+
 ####SQLExpress2014
 Enable the use of the SQL Server file within a WebApi
 http://www.microsoft.com/en-us/download/details.aspx?id=42299
@@ -57,7 +64,8 @@ http://www.microsoft.com/en-us/download/details.aspx?id=35579
 No installation required
 https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 
-##DevOps
+DevOps
+------
 
 ####Team City
 This isn't integrated yet but I'm looking for a build system to adopt.
@@ -66,7 +74,8 @@ https://www.jetbrains.com/teamcity/
 ####Chef
 https://www.chef.io/solutions/devops/
 
-##Open Source Tools
+Open Source Tools
+-----------------
 
 ###NodeJS
 http://nodejs.org/
