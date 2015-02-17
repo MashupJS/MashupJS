@@ -43,19 +43,19 @@ Same as for Grunt.
 Go through each `npm_modules` and look for updated releases.
 
 **Libraries**
-Angular 1.3.0
+Angular
 
 Angular-UI
 
-Bootstrap 3.2.0
+Bootstrap
 
-Font-Awesome 4.2.0
+Font-Awesome
 
-jQuery 2.1.1
+jQuery
 
 jQWidgest or Kendo ?
 
-lodash 2.4.1
+lodash
 
 modernizr 2.6.2 ( doesn’t change much )
 
