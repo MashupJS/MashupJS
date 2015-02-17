@@ -1,14 +1,5 @@
 {
   "name": "mashuptools",
-  "version": "0.0.2",
-  "description": "Tools part of my personal workflow",
-  "main": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "mashuptools"
-  ],
-  "author": "rdunaway",
-  "license": "ISC"
+  "version": "0.0.3",
+  "description": "Tools for my personal workflow"
 }
