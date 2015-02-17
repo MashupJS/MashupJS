@@ -6,10 +6,11 @@ Update the mashupjstools npm library with any new tools updates.
     npm install mashupjstools
 
 ###Visual Studio .NET 2013
-Check for latest update
+Check for latest update - `update 4`
 
 ###Web Essentials
 http://vswebessentials.com
+Latest update for VS.NET Update 4
 
 ###Productivity Power Tools
 https://visualstudiogallery.msdn.microsoft.com/dbcb8670-889e-4a54-a226-a48a15e4cace
