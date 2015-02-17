@@ -42,6 +42,19 @@ Same as for Grunt.
 ###npm_modules
 Go through each `npm_modules` and look for updated releases.
 
+**Libraries**
+Angular 1.3.0
+Angular-UI
+Bootstrap 3.2.0
+Font-Awesome 4.2.0
+jQuery 2.1.1
+jQWidgest or Kendo ?
+lodash 2.4.1
+modernizr 2.6.2 ( doesn’t change much )
+ocLazyLoad.js ( not sure how long this will last.  new angular router should replace )
+ydn ( this should go away at some point.  needs refactored out )
+
+
 ##NuGet
 Keep NuGet updated.
 Check all NuGet packages for updates.
