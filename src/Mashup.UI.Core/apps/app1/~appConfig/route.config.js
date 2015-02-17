@@ -25,6 +25,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         });
                     }
                 ],
+                logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
             }
         })
         .when('/app1/page2', {
@@ -40,6 +41,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         });
                     }
                 ],
+                logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
 
             }
         });
