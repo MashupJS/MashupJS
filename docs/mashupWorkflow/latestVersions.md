@@ -3,6 +3,8 @@
 ##Dev Tools
 Update the mashupjstools npm library with any new tools updates.
 
+    npm install mashupjstools
+
 ###Visual Studio .NET 2013
 Check for latest update
 
