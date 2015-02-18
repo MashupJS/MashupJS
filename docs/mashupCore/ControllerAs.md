@@ -1,8 +1,6 @@
 
 ---
-
 title: Use Angular's Controller As syntax
-
 tags:
 - Angular Controller
 - AngularJS
@@ -13,6 +11,7 @@ tags:
 - Best Practice
 - 
 ---
+
 
 #Use Angular's **Controller As** syntax
 
