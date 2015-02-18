@@ -1,3 +1,8 @@
+http://robertdunaway.github.io
+
+The Mashup is a learning tool that also serves as a bootstrap project for line-of-business applications.
+http://mashupjs.github.io 
+
 #Tools
 
 Tools used in the development workflow of the MahsupJS.
