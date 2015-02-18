@@ -62,9 +62,13 @@ http://long-path-eraser-free.en.softonic.com/ http://www.softpedia.com/get/Syste
 #Libraries 
 
 ###Grunt
-Execute this for each project or does the -g, global, setting handle this?
 
-Upgrade Grunt
+Task manager 
+
+http://gruntjs.com/getting-started 
+http://gruntjs.com/installing-grunt
+
+Upgrading Grunt
 
 Before switching to the latest version of Grunt, be sure to uninstall the old one if you installed it globally. Then reinstall grunt with the command above.
 
@@ -74,7 +78,14 @@ Before switching to the latest version of Grunt, be sure to uninstall the old on
     npm install -g grunt-cli
 
 ###Gulp
-Same as for Grunt.
+
+Task manager 
+
+https://www.npmjs.com/package/gulp
+
+Install 
+
+https://www.npmjs.com/package/gulp-install
 
     npm install --save gulp-install
 
