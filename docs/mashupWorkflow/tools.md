@@ -1,5 +1,5 @@
 ---
-title: Dev Tools
+title: MashupJS Dev Tools
 tags: 
 - Visual Studio
 - Web Essentials
@@ -113,7 +113,9 @@ Removes long file/dir names node_modules creates a lot of directories and exceed
 
 I cannot find the original source or author on this. I'd like to find another utility that works as well but with a more well known source.
 
-http://long-path-eraser-free.en.softonic.com/ http://www.softpedia.com/get/System/System-Miscellaneous/Long-Path-Eraser-Free.shtml
+http://long-path-eraser-free.en.softonic.com/ 
+
+http://www.softpedia.com/get/System/System-Miscellaneous/Long-Path-Eraser-Free.shtml
 
 **[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/LPE%20-%20Long%20Path%20Eraser/LPE.exe)**
 
