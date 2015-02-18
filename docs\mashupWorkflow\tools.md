@@ -1,9 +1,9 @@
-Tools (More test results)
+Tools
 =====
 
 Development tools for the workflow used on the MashupJS.
 
-Utilities (test)
+Utilities
 ---------
 
 ####LPE.exe  (Long Path Eraser)
