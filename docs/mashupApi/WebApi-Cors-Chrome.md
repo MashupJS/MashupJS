@@ -1,4 +1,3 @@
-
 ---
 title: WebApi CORS problem
 tags: 
@@ -6,7 +5,6 @@ tags:
 - WebApi
 - Modern Web
 - C#
-
 ---
 
 #WebApi CORS problem
