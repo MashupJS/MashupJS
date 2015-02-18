@@ -1,4 +1,3 @@
-
 ---
 title: cacheService
 tags:
@@ -14,7 +13,6 @@ tags:
 - IndexDB
 - YDN-DB
 - off-line
-
 ---
 
 
