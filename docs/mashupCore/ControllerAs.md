@@ -1,4 +1,3 @@
-
 ---
 title: Use Angular's Controller As syntax
 tags:
