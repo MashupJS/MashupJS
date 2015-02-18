@@ -1,9 +1,7 @@
 #Update Versions
+Periodically check for the latest version of dev tools and libraries.
 
-##Dev Tools
-Update the mashupjstools npm library with any new tools updates.
-
-    npm install mashupjstools
+#Dev Tools
 
 ###Visual Studio .NET 2013
 Check for latest update - `update 4`
@@ -13,17 +11,25 @@ http://vswebessentials.com
 `Latest update for VS.NET Update 4`
 
 ###Productivity Power Tools
+
+Microsoft's link
+
 https://visualstudiogallery.msdn.microsoft.com/dbcb8670-889e-4a54-a226-a48a15e4cace
+
 
 ###Resharper
 https://www.jetbrains.com/resharper/
 Version `9.0 update 1`
 
 ###TortoiseSVN
+Is the subversion client. I'm using subversion to access GitHub.
+
 http://tortoisesvn.net/
 Version `1.8.10.26129-x64-svn-1.8.11`
 
 ###VisualSVN
+Visual Studio integration with TortoiseSVN.
+
 https://www.visualsvn.com/
 Version '4.0.11'
 
@@ -31,13 +37,41 @@ Version '4.0.11'
 http://nodejs.org/
 
     npm cache clean -f 
+    
     npm install -g n 
+    
     n stable
- 
+
+Updating NodeJS
+
+- http://davidwalsh.name/upgrade-nodejs
+
+- http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+    
+
+
+#Utilities
+###LPE.exe (Long Path Eraser)
+Removes long file/dir names node_modules creates a lot of directories and exceeds windows ability to deal with them.
+
+I cannot find the original source or author on this. I'd like to find another utility that works as well but with a more well known source.
+
+http://long-path-eraser-free.en.softonic.com/ http://www.softpedia.com/get/System/System-Miscellaneous/Long-Path-Eraser-Free.shtml
+
+
+#Libraries 
+
 ###Grunt
 Execute this for each project or does the -g, global, setting handle this?
 
-     npm install -g grunt-cli
+Upgrade Grunt
+
+Before switching to the latest version of Grunt, be sure to uninstall the old one if you installed it globally. Then reinstall grunt with the command above.
+
+    npm uninstall -g grunt
+
+
+    npm install -g grunt-cli
 
 ###Gulp
 Same as for Grunt.
@@ -72,4 +106,41 @@ ydn ( this should go away at some point.  needs refactored out )
 
 ##NuGet
 Keep NuGet updated.
+
 Check all NuGet packages for updates.
+
+
+#Databases
+These might not be tools you need but if you plan to leverage SQL Server files in ASP.NET for development purposes then you'll need these.
+
+###SQLExpress2014
+
+Enable the use of the SQL Server file within a WebApi 
+
+http://www.microsoft.com/en-us/download/details.aspx?id=42299
+
+###SQLManagementStudio
+
+Visual management tools for SQL Server 
+
+http://www.microsoft.com/en-us/download/details.aspx?id=35579
+
+###IndexedDb
+
+No installation required 
+
+https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+
+
+#DevOps
+
+###Team City
+
+This isn't integrated yet but I'm looking for a build system to adopt. 
+
+https://www.jetbrains.com/teamcity/
+
+###Chef
+
+https://www.chef.io/solutions/devops/
+
