@@ -15,7 +15,9 @@ tags:
 
 #detectService
 ###http://robertdunaway.github.io
-The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications. https://github.com/MashupJS/MashupJS
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
+
+https://github.com/MashupJS/MashupJS
 
 The Mashup is home to a service called **detectService**.
 
