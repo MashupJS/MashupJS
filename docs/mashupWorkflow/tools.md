@@ -8,6 +8,7 @@ Check for latest update - `update 4`
 
 ###Web Essentials
 http://vswebessentials.com
+
 `Latest update for VS.NET Update 4`
 
 [dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/Web%20Essentials/Web%20Essentials%202013%20for%20Update%204.vsix)
@@ -31,6 +32,7 @@ Version `9.0 update 1`
 Is the subversion client. I'm using subversion to access GitHub.
 
 http://tortoisesvn.net/
+
 Version `1.8.10.26129-x64-svn-1.8.11`
 
 [dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/TortoiseSVN/TortoiseSVN-1.8.10.26129-x64-svn-1.8.11.msi)
@@ -41,6 +43,7 @@ Version `1.8.10.26129-x64-svn-1.8.11`
 Visual Studio integration with TortoiseSVN.
 
 https://www.visualsvn.com/
+
 Version '4.0.11'
 
 [dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/Visual%20SVN/VisualSVN-4.0.10.msi)
@@ -88,6 +91,7 @@ Using Dropbox to bundle development tools for the team.
 Task manager 
 
 http://gruntjs.com/getting-started 
+
 http://gruntjs.com/installing-grunt
 
 Upgrading Grunt
@@ -116,6 +120,7 @@ https://www.npmjs.com/package/gulp-install
 Go through each `npm_modules` and look for updated releases.
 
 **Libraries**
+
 Angular
 
 Angular-UI
