@@ -10,15 +10,21 @@ Check for latest update - `update 4`
 http://vswebessentials.com
 `Latest update for VS.NET Update 4`
 
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/Web%20Essentials/Web%20Essentials%202013%20for%20Update%204.vsix)
+
 ###Productivity Power Tools
 
-Microsoft's link
+[Microsoft's link](https://dl.dropboxusercontent.com/u/11934522/tools/Productivity%20Power%20Tools%202013/ProPowerTools.vsix)
 
-https://visualstudiogallery.msdn.microsoft.com/dbcb8670-889e-4a54-a226-a48a15e4cace
+
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/Productivity%20Power%20Tools%202013/ProPowerTools.vsix)
 
 
 ###Resharper
 https://www.jetbrains.com/resharper/
+
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/ReSharper/ReSharperAndToolsPacked01_version9.0_Update1.exe)
+
 Version `9.0 update 1`
 
 ###TortoiseSVN
@@ -27,11 +33,18 @@ Is the subversion client. I'm using subversion to access GitHub.
 http://tortoisesvn.net/
 Version `1.8.10.26129-x64-svn-1.8.11`
 
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/TortoiseSVN/TortoiseSVN-1.8.10.26129-x64-svn-1.8.11.msi)
+
+
+
 ###VisualSVN
 Visual Studio integration with TortoiseSVN.
 
 https://www.visualsvn.com/
 Version '4.0.11'
+
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/Visual%20SVN/VisualSVN-4.0.10.msi)
+
 
 ###NodeJS
 http://nodejs.org/
@@ -52,12 +65,21 @@ Updating NodeJS
 
 #Utilities
 ###LPE.exe (Long Path Eraser)
+
+
 Removes long file/dir names node_modules creates a lot of directories and exceeds windows ability to deal with them.
 
 I cannot find the original source or author on this. I'd like to find another utility that works as well but with a more well known source.
 
 http://long-path-eraser-free.en.softonic.com/ http://www.softpedia.com/get/System/System-Miscellaneous/Long-Path-Eraser-Free.shtml
 
+[dropbox](https://dl.dropboxusercontent.com/u/11934522/tools/LPE%20-%20Long%20Path%20Eraser/LPE.exe)
+
+###Dropbox
+
+Using Dropbox to bundle development tools for the team.
+
+[dropbox - Client Install](https://dl.dropboxusercontent.com/u/11934522/tools/DropboxClient/DropboxInstaller.exe)
 
 #Libraries 
 
