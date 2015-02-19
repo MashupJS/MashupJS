@@ -66,9 +66,12 @@ notes - don't read this
 - Using source control
 - Publish your Mashup
 - Deploy as Hybrid mobile app
-- 
 
 
+##MashupJS Architecture & Components
+*TODO: [Link to markdown]*
+
+notes - don't read this
 
 
 
