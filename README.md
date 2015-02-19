@@ -25,7 +25,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  1. Install NodeJS
  2. Create a working directory and open a CLI to it
  3.  `npm install mashupjs`
- 4. Navigate to the mashupjs under `node_modules\mashupjs`
+ 4. Navigate to `node_modules\mashupjs`
  5. `npm install`
  6. `grunt` or `gulp` *(note: not yet gulp)*
 
