@@ -1,11 +1,12 @@
 ---
 title: MashupJS
 tags:
+- Getting Started 
 - AngularJS
 - Bootstrap
 - Style Guide
-- Modern Web
 - Modern Stack
+- 
 ---
 
 MashupJS
