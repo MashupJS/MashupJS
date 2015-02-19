@@ -1,4 +1,13 @@
-MashupJS (Test)
+---
+title: MashupJS
+tags:
+- AngularJS
+- Bootstrap
+- Style Guide
+- 
+---
+
+MashupJS
 ========
 The Mashup is an attempt to leverage the latest technologies and techniques to address technical debt, establish an enterprise ready bootstrap, and to learn and teach AngularJS.
 
