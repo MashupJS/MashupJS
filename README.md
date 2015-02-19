@@ -33,7 +33,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 ###Philosophy behind the MashupJS
 *TODO: [Link to markdown]*
 
-notes - don't read this
+notes - don't read this :)
 - reduce friction to starting SPA programming
 - reduce technical debt
 - code library
@@ -54,7 +54,7 @@ Additionally this Guide links to other popular style guides.
 ##Workflow
 *TODO: [Link to markdown]*
 
-notes - don't read this
+notes - don't read this :)
 - Create a new project
 - Add new application to MashupJS
 - Add new page/route
@@ -71,7 +71,7 @@ notes - don't read this
 ##MashupJS Architecture & Components
 *TODO: [Link to markdown]*
 
-notes - don't read this
+notes - don't read this :)
 
 
 
