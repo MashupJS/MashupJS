@@ -50,6 +50,22 @@ The MashupJS Style Guide describes how to use the MashupJS and opinionated best 
 Additionally this Guide links to other popular style guides.
 
 
+##Workflow
+*[Link to markdown]*
+
+notes - don't read this
+- Create a new project
+- Add new application to MashupJS
+- Add new page/route
+- Add services/directives
+- Updating the MashupJS core
+- Integrating with API
+- Data service tier
+- Using task runners
+- Using source control
+
+
+
 ##Features available to all Mashup applications
 All applications added to the Mashup in the **apps** folder will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all.
 
