@@ -32,6 +32,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 ###Philosophy behind the MashupJS
 *[Link to markdown]*
+
 notes - don't read this
 - reduce friction to starting SPA programming
 - reduce technical debt
