@@ -30,7 +30,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  6. `grunt` or `gulp` *(note: not yet gulp)*
 
 
-###Philosophy behind the MashupJS
+###Philosophy behind the Mashup
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
@@ -45,7 +45,7 @@ notes - don't read this :)
 ##The MashupJS Style Guide
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md
 
-The MashupJS Style Guide describes how to use the MashupJS and opinionated best practices.
+The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
 Additionally this Guide links to other popular style guides.
 
@@ -56,10 +56,10 @@ Additionally this Guide links to other popular style guides.
 
 notes - don't read this :)
 - Create a new project
-- Add new application to MashupJS
+- Add new application to the Mashup
 - Add new page/route
 - Add services/directives
-- Updating the MashupJS core
+- Updating the Mashup core
 - Integrating with API
 - Data service tier
 - Using task runners
@@ -73,18 +73,18 @@ notes - don't read this :)
 
 notes - don't read this :)
 - Much of this is in the style guide. Reference that where possible.
-- Create graphs and other artifacts that make using the MashupJS easily understandable and supportable.
-- Add enough design that a company using the MashupJS can consider the system well documented.
+- Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
+- Add enough design that a company using the Mashup can consider the system well documented.
 
 
-##Using the MashupJS for the enterprise
+##Using the Mashup for the enterprise
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
 - Single app
 - Multiple apps
 - Mobile apps
-- Team structures /w MashupJS
+- Team structures /w Mashup
 - Update strategy
 
 
@@ -118,7 +118,7 @@ notes - don't read this :)
 
 
 ##Features available to all Mashup applications
-All applications added to the MashupJS will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all your applications.
+All applications added to the Mashup will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all your applications.
 
 **Here is a running list of features:**
 
