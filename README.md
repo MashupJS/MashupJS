@@ -72,6 +72,27 @@ notes - don't read this :)
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
+- Much of this is in the style guide. Reference that where possible.
+- Create graphs and other artifacts that make using the MashupJS easily understandable and supportable.
+- Add enough design that a company using the MashupJS can consider the system well documented.
+
+
+##Using the MashupJS for the enterprise
+*TODO: [Link to markdown]*
+
+notes - don't read this :)
+- Single app
+- Multiple apps
+- Mobile apps
+- Team structures /w MashupJS
+- Update strategy
+
+
+
+##Grunt/Gulp task managers
+*TODO: [Link to markdown]*
+
+notes - don't read this :)
 
 
 
