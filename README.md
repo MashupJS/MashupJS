@@ -89,7 +89,7 @@ notes - don't read this :)
 
 
 
-##Grunt/Gulp task managers
+##Grunt/Gulp/NPM managers
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
@@ -100,7 +100,8 @@ notes - don't read this :)
 - Gulp /w the Mashup
 - Build strategy for the Mashup core
 - Build strategy for apps in the Mashup
-
+- NPM Basics
+- NPM /w the Mashup
 
 ##WebApi
 *TODO: [Link to markdown]*
