@@ -49,6 +49,7 @@ The MashupJS Style Guide describes how to use the MashupJS and opinionated best 
 
 Additionally this Guide links to other popular style guides.
 
+*TODO: add style guides for WebApi, C#, Grunt/Gulp, etc.*
 
 ##Workflow
 *[Link to markdown]*
@@ -63,6 +64,12 @@ notes - don't read this
 - Data service tier
 - Using task runners
 - Using source control
+- Publish your Mashup
+- Deploy as Hybrid mobile app
+- 
+
+
+
 
 
 
