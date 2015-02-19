@@ -93,7 +93,12 @@ notes - don't read this :)
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
-
+- Grunt basics
+- Grunt /w the Mashup
+- Gulp basics
+- Gulp /w the Mashup
+- Build strategy for the Mashup core
+- Build strategy for apps in the Mashup
 
 
 
