@@ -67,6 +67,10 @@ notes - don't read this :)
 - Using source control
 - Publish your Mashup
 - Deploy as Hybrid mobile app
+- DevOps
+- My personal workflow
+	- walk through of changes, commit, test, publish
+	- change log
 
 
 ##MashupJS Architecture & Components
