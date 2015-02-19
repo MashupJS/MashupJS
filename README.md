@@ -39,6 +39,7 @@ notes - don't read this
 - code library
 - learning/teaching tool
 - team workflow flexibility
+- single code base /w hybrid option
 
 
 ##The MashupJS Style Guide
