@@ -106,18 +106,26 @@ notes - don't read this :)
 *TODO: [Link to markdown]*
 
 
+##MashupJS Implementations
+- Link to core
+- Link to WebApiAuth example app
+- Link to Multi-Session example app
+- Link to Ionic hybrid example app
+- Link to advanced routing example app
+- Link to various teaching example apps
+
+
 
 ##Features available to all Mashup applications
-All applications added to the Mashup in the **apps** folder will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all.
+All applications added to the MashupJS will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all your applications.
 
-Here is a running list of features:
+**Here is a running list of features:**
 
  - Bootstrap for Large Enterprise Applications
  - One Code Base for all Platforms
  - Authentication
 	 - Link to creating WebApi for AuthN/AuthR
 	 - WebAuthApi
- - Application Level User Management
  - Integration with Active Director (easily customized for integration such as Federated Auth)
  - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
  - Exception Management
@@ -127,15 +135,20 @@ Here is a running list of features:
  - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
  - Shared UI look and feel
  - User Session Management
- - Shared Menu System
  - Shared Build System
  - Shared Services, Filters, Directives, and any other custom JS code
  - Lazy loading of HTML templates and JavaScript modules
  - Shared User Alert System
  - Retrieval of Client Information for troubleshooting
  - Instrumentation (easily track the pages and features users use)
- - Shared at a glance monitoring of the system.  Can filter by user, group, application, etc..
+
  - 
 
 ##Roadmap
-
+ - Application Level User Management
+ - Exception Management (Dashboard, granular config)
+ - Instrumentation (Dashboard, granular config)
+ - Ionic integration for hybrid-apps
+ - Multi-Auth Session support
+ - Shared Menu System
+ - Shared at a glance monitoring of the system.  Can filter by user, group, application, etc.
