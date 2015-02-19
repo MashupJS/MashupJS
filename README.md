@@ -2,11 +2,11 @@ MashupJS
 ========
 The Mashup is an attempt to leverage the latest technologies and techniques to address technical debt, establish an enterprise ready bootstrap, and to learn and teach AngularJS.
 
-One code base for all platforms including web, tablet, and mobile applications.
+- One code base for all platforms including web, tablet, and mobile applications.
 
-Bootstrap for large enterprise applications leveraging lazy loading, built in cache options, advanced routing.
+- Bootstrap for large enterprise applications leveraging lazy loading, built in cache options, advanced routing.
 
-Build your personal and team code library. Use for learning and teaching.
+- Build your personal and team code library. Use for learning and teaching.
 
 
 
