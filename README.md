@@ -20,7 +20,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 - Build your personal and team code library. Use for learning and teaching.
 
 
-###Setup
+###Getting Started
 
  1. Install NodeJS
  2. Create a working directory and open a CLI to it
@@ -30,6 +30,14 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  6. `grunt` or `gulp` *(note: not yet gulp)*
 
 
+###Philosophy behind the MashupJS
+*[Link to markdown]*
+notes - don't read this
+- reduce friction to starting SPA programming
+- reduce technical debt
+- code library
+- learning/teaching tool
+- team workflow flexibility
 
 
 ##The MashupJS Style Guide
