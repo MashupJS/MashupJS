@@ -60,6 +60,7 @@ notes - don't read this :)
 - Add new page/route
 - Add services/directives
 - Updating the Mashup core
+- Managing your custom code
 - Integrating with API
 - Data service tier
 - Using task runners
