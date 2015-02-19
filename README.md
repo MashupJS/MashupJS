@@ -31,7 +31,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 ###Philosophy behind the MashupJS
-*[Link to markdown]*
+*TODO: [Link to markdown]*
 
 notes - don't read this
 - reduce friction to starting SPA programming
@@ -52,7 +52,7 @@ Additionally this Guide links to other popular style guides.
 *TODO: add style guides for WebApi, C#, Grunt/Gulp, etc.*
 
 ##Workflow
-*[Link to markdown]*
+*TODO: [Link to markdown]*
 
 notes - don't read this
 - Create a new project
