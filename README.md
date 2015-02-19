@@ -116,6 +116,7 @@ Here is a running list of features:
  - One Code Base for all Platforms
  - Authentication
 	 - Link to creating WebApi for AuthN/AuthR
+	 - WebAuthApi
  - Application Level User Management
  - Integration with Active Director (easily customized for integration such as Federated Auth)
  - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
