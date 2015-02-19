@@ -142,7 +142,7 @@ All applications added to the MashupJS will receive many features for free.  Thi
  - Retrieval of Client Information for troubleshooting
  - Instrumentation (easily track the pages and features users use)
 
- - 
+ 
 
 ##Roadmap
  - Application Level User Management
