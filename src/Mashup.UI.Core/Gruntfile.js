@@ -257,7 +257,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'annotate',
         'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
-        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint', 'watch'
+        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
     ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
     // 2. Cleans out the "dist" directory to prepare for new files
@@ -278,6 +278,7 @@ module.exports = function (grunt) {
     // The watch command works great by itself but a subset of watch commands cannot be used.
     // Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
     grunt.registerTask('watchjs', ['watch:allmin', 'watch:service_config']);
+    grunt.registerTask('watchall', ['watch']);
 
     //TODO:
     // add css remove to get rid of styles we aren't using.
