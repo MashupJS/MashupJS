@@ -113,7 +113,7 @@ notes - don't read this :)
 - Link to Ionic hybrid example app
 - Link to advanced routing example app
 - Link to various teaching example apps
-
+- Link to 3D UI example apps
 
 
 ##Features available to all Mashup applications
