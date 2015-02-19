@@ -107,7 +107,6 @@ notes - don't read this :)
 
 
 
-
 ##Features available to all Mashup applications
 All applications added to the Mashup in the **apps** folder will receive many features for free.  This goes a long way to reducing technical debt.  The basic/standard plumbing all applications need in your environment can be built once, maintained in one place, and a benefit to all.
 
@@ -116,6 +115,7 @@ Here is a running list of features:
  - Bootstrap for Large Enterprise Applications
  - One Code Base for all Platforms
  - Authentication
+	 - Link to creating WebApi for AuthN/AuthR
  - Application Level User Management
  - Integration with Active Director (easily customized for integration such as Federated Auth)
  - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
