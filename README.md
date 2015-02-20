@@ -28,6 +28,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  4. Navigate to `node_modules\mashupjs`
  5. `npm install`
  6. `grunt` or `gulp` *(note: not yet gulp)*
+ 7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
 ###Philosophy behind the Mashup
