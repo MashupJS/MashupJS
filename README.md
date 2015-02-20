@@ -156,3 +156,4 @@ All applications added to the Mashup will receive many features for free.  This 
  - Multi-Auth Session support
  - Shared Menu System
  - Shared at a glance monitoring of the system.  Can filter by user, group, application, etc.
+ - Background lazy-loading of js files
