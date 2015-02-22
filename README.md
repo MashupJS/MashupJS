@@ -120,8 +120,10 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-*TODO: [Link to markdown]*
+[How To Create a WebApi for the MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)
 
+[WebApi CORS Problem](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)
+ - This issue may have been addressed by now.  Verify CORS doesn't work before following these instructions.
 
 ##MashupJS Implementations
 - Link to core
