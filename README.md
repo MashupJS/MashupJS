@@ -131,6 +131,7 @@ notes - don't read this :)
 	- `npm install mashupjs`
 - Link to WebApiAuth example app
 	- [Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)
+	- *npm package coming soon...*
 - Link to Multi-Session example app
 - Link to Ionic hybrid example app
 - Link to advanced routing example app
