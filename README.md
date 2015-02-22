@@ -136,17 +136,17 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-[How To Create a WebApi for the MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)
+**[How To Create a WebApi for the MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)**
 
-[WebApi CORS Problem](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)
+**[WebApi CORS Problem](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)**
  - This issue may have been addressed by now.  Verify CORS doesn't work before following these instructions.
 
 ##MashupJS Implementations
 - Link to core
-	- [The MashupJS Core](https://github.com/MashupJS/MashupJS/tree/master/src)
+	- **[The MashupJS Core](https://github.com/MashupJS/MashupJS/tree/master/src)**
 	- `npm install mashupjs`
 - Link to WebApiAuth example app
-	- [Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)
+	- **[Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)**
 	- *npm package coming soon...*
 - Link to Multi-Session example app
 - Link to Ionic hybrid example app
@@ -167,7 +167,7 @@ All applications added to the Mashup will receive many features for free.  This 
  - **[Utility Service (Facade)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
  - **[Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
  - Exception Management
- - Caching Services
+ - **[Caching Services](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
  - Rest Service Detection and Heartbeat Monitors
  -  Micro-library Management (update libraries in one place will update the library for all apps)
  - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
