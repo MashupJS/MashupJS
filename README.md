@@ -128,6 +128,7 @@ notes - don't read this :)
 ##MashupJS Implementations
 - Link to core
 - Link to WebApiAuth example app
+	- [Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)
 - Link to Multi-Session example app
 - Link to Ionic hybrid example app
 - Link to advanced routing example app
