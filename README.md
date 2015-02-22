@@ -87,7 +87,7 @@ notes - don't read this :)
 
 **Core Angular Services**
 
-Utility Service (Facade)
+Utility Service *(Facade)*
 
 - https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
 
