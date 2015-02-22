@@ -85,11 +85,9 @@ notes - don't read this :)
 - Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
 - Add enough design that a company using the Mashup can consider the system well documented.
 
-**Core Angular Services**
+###Core Angular Services
+**[Utility Service *(Facade)*](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
 
-Utility Service *(Facade)*
-
-- https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
 
 
 ##Using the Mashup for the enterprise
@@ -159,7 +157,7 @@ All applications added to the Mashup will receive many features for free.  This 
  
 
 ##Roadmap
-[Ease Transition to Angular 2.0](https://github.com/robertdunaway/blogs/blob/master/2014-12-06%20Preparing%20for%20Angular%202.0/Preparing%20for%20Angular%202.0.md)
+**[Ease Transition to Angular 2.0](https://github.com/robertdunaway/blogs/blob/master/2014-12-06%20Preparing%20for%20Angular%202.0/Preparing%20for%20Angular%202.0.md)**
 
 
  - Application Level User Management
