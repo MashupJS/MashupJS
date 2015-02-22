@@ -85,6 +85,10 @@ notes - don't read this :)
 - Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
 - Add enough design that a company using the Mashup can consider the system well documented.
 
+**Core Angular Services**
+Utility Service
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
+
 
 ##Using the Mashup for the enterprise
 *TODO: [Link to markdown]*
