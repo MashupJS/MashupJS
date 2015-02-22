@@ -164,6 +164,7 @@ All applications added to the Mashup will receive many features for free.  This 
  - One Code Base for all Platforms
  - Authentication
  - Integration with Active Director (easily customized for integration such as Federated Auth)
+ - **[Utility Service (Facade)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
  - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
  - Exception Management
  - Caching Services
