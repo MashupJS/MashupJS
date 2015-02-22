@@ -86,7 +86,9 @@ notes - don't read this :)
 - Add enough design that a company using the Mashup can consider the system well documented.
 
 **Core Angular Services**
+
 Utility Service
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
 
 
