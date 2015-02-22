@@ -47,13 +47,16 @@ notes - don't read this :)
 
 
 ##The MashupJS Style Guide
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md
+**[The MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
 
 The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
 Additionally this Guide links to other popular style guides.
 
 *TODO: add style guides for WebApi, C#, Grunt/Gulp, etc.*
+
+###Tips in Guide
+**[Controller As Syntax](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md)**
 
 ##Workflow
 *TODO: [Link to markdown]*
