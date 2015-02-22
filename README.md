@@ -89,7 +89,12 @@ notes - don't read this :)
 - Add enough design that a company using the Mashup can consider the system well documented.
 
 ####Core Angular Services
-**[Utility Service *(Facade)*](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
+**[utilityService *(Facade)*](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
+- Facade implementation to all utilities reducing the number of modules required for injection.
+
+[**detectService**](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
+- The detectService does more than simple network detection.  This services tracks connectivity to the WebApi and back-end.
+
 
 ####Conifguration
 
