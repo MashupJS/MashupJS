@@ -127,6 +127,8 @@ notes - don't read this :)
 
 ##MashupJS Implementations
 - Link to core
+	- [The MashupJS Core](https://github.com/MashupJS/MashupJS/tree/master/src)
+	- `npm install mashupjs`
 - Link to WebApiAuth example app
 	- [Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)
 - Link to Multi-Session example app
