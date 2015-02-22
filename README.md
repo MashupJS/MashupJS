@@ -30,6 +30,9 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  6. `grunt` or `gulp` *(note: not yet gulp)*
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
+**Developer Tools Used**
+
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools.md
 
 ###Philosophy behind the Mashup
 *TODO: [Link to markdown]*
