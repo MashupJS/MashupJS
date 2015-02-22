@@ -95,6 +95,10 @@ notes - don't read this :)
 [**detectService**](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
 - The detectService does more than simple network detection.  This services tracks connectivity to the WebApi and back-end.
 
+**[cacheService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
+- a variety of caching models are available through Angular and more are coming with Angular 2.0.  The cacheService is a simple caching model using IndexedDB rather than localStorage offering many times more space for caching large amounts of data.
+
+
 
 ####Conifguration
 
