@@ -89,7 +89,7 @@ notes - don't read this :)
 
 Utility Service
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
+- https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md
 
 
 ##Using the Mashup for the enterprise
