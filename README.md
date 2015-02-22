@@ -91,6 +91,9 @@ notes - don't read this :)
 ####Core Angular Services
 **[Utility Service *(Facade)*](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
 
+####Conifguration
+
+**[routeConfig.js](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
 
 
 ##Using the Mashup for the enterprise
