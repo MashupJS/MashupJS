@@ -98,7 +98,7 @@ notes - don't read this :)
 **[cacheService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
 - a variety of caching models are available through Angular and more are coming with Angular 2.0.  The cacheService is a simple caching model using IndexedDB rather than localStorage offering many times more space for caching large amounts of data.
 
-[logService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)
+**[logService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
 - Simplifies logging for exceptions, debug information and instrumentation.  The logService overrides the $log service making the api simple and familiar.
 
 
