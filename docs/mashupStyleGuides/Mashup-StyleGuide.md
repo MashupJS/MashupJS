@@ -18,9 +18,11 @@ I would use these style guide for coding and learning.  Anything extra the Mashu
 ### NPM
 
 ### C# style guide
-Read C# style guides as a learning tool but use a tool like Resharper to review your code.  If productivity is your goal then productivities tools are worth their weight in gold.
+Read C# style guides as a learning tool but use a tool like Resharper to review your code.  If productivity is your goal then productivity tools are worth their weight in gold.
 
 [Resharper](https://www.jetbrains.com/resharper)
+
+[Microsoft's C# Programming guide](https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx)
 
 ### WebApi style guide
 
