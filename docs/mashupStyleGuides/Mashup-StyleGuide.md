@@ -26,6 +26,10 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 ### WebApi style guide
 
+### SignalR
+[ASP.NET SignalR Hubs API Guide](http://www.asp.net/signalr/overview/guide-to-the-api)
+
+[Asp.net/SignalR](http://www.asp.net/signalr)
 
 ### Source control style guide
 
