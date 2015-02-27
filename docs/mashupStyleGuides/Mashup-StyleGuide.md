@@ -1,4 +1,6 @@
-#MashupJS Style Guide
+#MashupJS style guide
+
+[test](#WebApi)
 
 ##Excellent Style Guides
 I would use these style guide for code reviews and as general learning tools.  The Mashup's style guide is to be appended to whatever style guide you subscribe to and offers guidance specific to the Mashup.
@@ -45,8 +47,6 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
 
-
-
 ### Philosophies
 [List of everything - Interesting for personal software craft](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
 
@@ -55,7 +55,7 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 ### Documentation
 Github style markdown
 
-####MashupJS style guide
+#MashupJS style guide
 *In-process*
 
 *It's true that a style guide is never complete, for now, this one will be more incomplete than most. *
