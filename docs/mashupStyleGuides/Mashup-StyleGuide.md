@@ -4,14 +4,14 @@
 I would use these style guide for coding and learning.  Anything extra the Mashup offers is solely for this particular implementation.  When all is said and done there may be less style guide and more explanation of the Mashup.
 
 ### Angular style guides
-#####[Google's Angular style guide](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
+[Google's Angular style guide](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
 
-#####[John Papa's Angular style guide](https://github.com/johnpapa/angularjs-styleguide)
+[John Papa's Angular style guide](https://github.com/johnpapa/angularjs-styleguide)
 
 ### JavaScript style guides
-#####[Google JavaScript style guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions)
+[Google JavaScript style guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions)
 
-#####[Airbnb JavaScript style guide](https://github.com/airbnb/javascript)
+[Airbnb JavaScript style guide](https://github.com/airbnb/javascript)
 
 ### Grunt/Gulp
 
@@ -19,6 +19,7 @@ I would use these style guide for coding and learning.  Anything extra the Mashu
 
 ### C# style guide
 Read C# style guides as a learning tool but use a tool like Resharper to review your code.  If productivity is your goal then productivities tools are worth their weight in gold.
+
 [Resharper](https://www.jetbrains.com/resharper)
 
 ### WebApi style guide
