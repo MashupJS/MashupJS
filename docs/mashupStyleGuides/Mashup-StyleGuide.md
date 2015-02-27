@@ -3,11 +3,13 @@
 ##Excellent Style Guides
 I would use these style guide for coding and learning.  Anything extra the Mashup offers is solely for this particular implementation.  When all is said and done there may be less style guide and more explanation of the Mashup.
 
-####Angular
+####Google's Angular Styleguide
 https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html
-####John Papa
+
+####John Papa Angular Styleguide
 https://github.com/johnpapa/angularjs-styleguide
-####Google on JavaScript
+
+####Google JavaScript Styleguide
 http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions
 
 ####Airbnb JavaScript Styleguide
