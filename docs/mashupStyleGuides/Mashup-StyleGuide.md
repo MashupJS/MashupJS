@@ -1,8 +1,6 @@
 #MashupJS style guide
 
-[test](#WebApi)
-
-<a href="#WebApi">webapi</a>
+<a href="#MashupJSStyleGuide">Skip down to Mashup's style guide</a>
 
 ##Excellent Style Guides
 I would use these style guide for code reviews and as general learning tools.  The Mashup's style guide is to be appended to whatever style guide you subscribe to and offers guidance specific to the Mashup.
@@ -32,7 +30,7 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 [Microsoft's C# Programming guide](https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx)
 
-<a name="WebApi"></a>
+
 ### WebApi
 
 [http://www.asp.net/web-api](http://www.asp.net/web-api)
@@ -58,6 +56,8 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 ### Documentation
 Github style markdown
 
+
+<a name="MashupJSStyleGuide"></a>
 #MashupJS style guide
 *In-process*
 
