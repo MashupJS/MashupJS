@@ -14,6 +14,9 @@ I would use these style guide for code reviews and as general learning tools.  T
 [Airbnb JavaScript style guide](https://github.com/airbnb/javascript)
 
 ### Grunt/Gulp
+[Grunt - getting started guide](https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt)
+
+[Gulp - getting started guide](https://scotch.io/tutorials/automate-your-tasks-easily-with-gulp-js)
 
 ### NPM
 
