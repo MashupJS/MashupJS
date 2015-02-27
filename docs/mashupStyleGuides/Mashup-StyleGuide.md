@@ -3,22 +3,37 @@
 ##Excellent Style Guides
 I would use these style guide for coding and learning.  Anything extra the Mashup offers is solely for this particular implementation.  When all is said and done there may be less style guide and more explanation of the Mashup.
 
-####Google's Angular Styleguide
-https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html
+### Angular style guides
+####[Google's Angular style guide](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
 
-####John Papa Angular Styleguide
-https://github.com/johnpapa/angularjs-styleguide
+####[John Papa's Angular style guide](https://github.com/johnpapa/angularjs-styleguide)
 
-####Google JavaScript Styleguide
-http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions
+### JavaScript style guides
+####[Google JavaScript style guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions)
 
-####Airbnb JavaScript Styleguide
-https://github.com/airbnb/javascript
+####[Airbnb JavaScript style guide](https://github.com/airbnb/javascript)
 
-####MashupJS Style Guide
+### Grunt/Gulp
+
+### NPM
+
+### C# style guide
+Read C# style guides as a learning tool but use a tool like Resharper to review your code.  If productivity is your goal then productivities tools are worth their weight in gold.
+[Resharper](https://www.jetbrains.com/resharper)
+
+### WebApi style guide
+
+
+### Source control style guide
+
+
+### Documentation
+Github style markdown
+
+####MashupJS style guide
 *In-process*
 
-*It's true that a style guide is never complete, for now, this one will be more incomplete than most.  I'm dumping notes into this as I go so I don't forget anything.  :)*
+*It's true that a style guide is never complete, for now, this one will be more incomplete than most. *
 
 This style guide will help ease the use of the Mashup and save you time when adding new applications or pages.  Specifically addressed in this style guide is the Mashup.UI.Core or the UI component of the Mashup.
 
