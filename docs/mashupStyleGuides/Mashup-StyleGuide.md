@@ -18,7 +18,8 @@ I would use these style guide for code reviews and as general learning tools.  T
 
 [Gulp - getting started guide](https://scotch.io/tutorials/automate-your-tasks-easily-with-gulp-js)
 
-### NPM
+### NodeJS NPM
+[NodeJS Best Practice](https://scotch.io/tutorials/node-and-npm-version-numbering-guide-and-best-practices)
 
 ### C# style guide
 Read C# style guides as a learning tool but use a tool like Resharper to review your code.  If productivity is your goal then productivity tools are worth their weight in gold.
