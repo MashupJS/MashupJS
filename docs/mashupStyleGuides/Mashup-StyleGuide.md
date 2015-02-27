@@ -10,6 +10,9 @@ https://github.com/johnpapa/angularjs-styleguide
 ####Google on JavaScript
 http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Method_and_property_definitions#Method_and_property_definitions
 
+####Airbnb JavaScript Styleguide
+https://github.com/airbnb/javascript
+
 ####MashupJS Style Guide
 *Incomplete*
 
