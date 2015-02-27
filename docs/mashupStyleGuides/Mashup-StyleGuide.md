@@ -39,6 +39,14 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 ### Source control style guide
 
+[A Visual Guide to Version Control](http://betterexplained.com/articles/a-visual-guide-to-version-control/)
+
+[Source control best practices (PDF)](http://www.perforce.com/sites/default/files/pdf/high-level-perforce-best-practices.pdf)
+
+[Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
+
+
+
 ### Philosophies
 [List of everything - Interesting for personal software craft](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
 
