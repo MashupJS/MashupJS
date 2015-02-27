@@ -1,7 +1,7 @@
 #MashupJS Style Guide
 
 ##Excellent Style Guides
-I would use these style guide for coding and learning.  Anything extra the Mashup offers is solely for this particular implementation.  When all is said and done there may be less style guide and more explanation of the Mashup.
+I would use these style guide for code reviews and as general learning tools.  The Mashup's style guide is to be appended to whatever style guide you subscribe to and offers guidance specific to the Mashup.
 
 ### Angular style guides
 [Google's Angular style guide](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
@@ -33,6 +33,10 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 ### Source control style guide
 
+### Philosophies
+[List of everything - Interesting for personal software craft](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
+
+*TODO: Add link to philosophies the MashupJS subscribes to.*
 
 ### Documentation
 Github style markdown
