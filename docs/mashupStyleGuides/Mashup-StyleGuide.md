@@ -135,10 +135,10 @@ Mashup.Api.[app-name]
 ##The naming of things
 Sure, it's important to name things well.  Names should describe things in such a way as to reduce the overhead of figuring out what the heck that thing is.  Good naming also aids in refactoring.  
 
-For instance, if your naming strategy is sound and should you choose to move html templates and their associated controllers around then a simple find and replace on routes and links should be easy enough.  If not then a find and replace could be devastating and you'll find yourself reverting out your code more often than you hoped.
 
 ##Application names
-Applications should have a short or abbreviated name because it will be used to uniquely name Controllers and other objects.
+Applications should have a short or abbreviated name because it will be used to uniquely name Controllers and other objects.  Application abbreviated names are used because many applications may be dropped into a single Mashup solution.
+
 ##Project names
 The Mashup has only one UI project named **Mashup.UI.Core**.  You're likely to change this to an application name that represents your company.
 
