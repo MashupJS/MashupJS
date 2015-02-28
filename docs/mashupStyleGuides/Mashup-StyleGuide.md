@@ -66,14 +66,12 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 This style guide will help ease the use of the Mashup and save you time when adding new applications or pages.  
 
 ###Props
-The Internet is a rich resource of information.  Several pieces of code are inspired by the work of others.  Every attempt has been made to give credit.  If we have missed anything or seem to be using a library or piece of code without permission please point it out.
+The Internet is a rich resource of information.  Several pieces of code are inspired by the work of others.  Every attempt is made to give credit.  If we have missed anything let us know.
 
-##Introduction
+##Why a style guide
 What I like about a style guide over a *standards document* is a style guide gives you the information you need to work in an environment and is less likely to be used against you like a hammer.  
-####Why a style guide
-Standards documents, while good in theory often serve to beat up other developers and solidify the an opinion, never to be challenged without a great deal of political capital spent.  Standards documents can quickly collect **technical debt** and stagnation.
 
-IE: Once upon a time variable types were not only declared but made a part of the variable name.  **strFirstName**.  This was in ever standards document for many years and the only way to get away from it was to fight bitterly with the dogs of old or go rogue and ignore the standards all together.  That was my approach as it was the only option left to me or find my dead bones among the dinosaurs.  *You know who you are*  :)
+Standards documents, while good in theory often serve to beat-up other developers and solidify someone's opinion, never to be challenged without a great deal of political capital expended.  Standards documents can quickly collect **technical debt** and stagnation.
 
 So this is a style guide.  You'd be wise to follow it or at least understand it before deviating... but!  If you find a better way to do things please post it and help this document and application mature.
 
