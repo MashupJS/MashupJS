@@ -234,7 +234,7 @@ function config($routeProvider) {
         });
 }
 ```
-###Route /w Cache option
+###Route /w Lazy Loading and Caching
 
 ```javascript
 mashupApp.config(['$routeProvider', function ($routeProvider) {
