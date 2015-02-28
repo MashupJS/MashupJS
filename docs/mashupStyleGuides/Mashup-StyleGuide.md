@@ -254,7 +254,6 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                         });
                     }
                 ],
-                logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
             }
         })
 ```
