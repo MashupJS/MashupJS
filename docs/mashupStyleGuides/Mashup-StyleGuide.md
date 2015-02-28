@@ -147,10 +147,15 @@ WebApi project names should be:
 [Mashup-name].["Api"].[app-name]
 ```
 
+
+
 ##Controllers
 ####Syntax
 Use the **Controller As** syntax.
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md
+
+[ControllerAs.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md)
+
+
 ####Naming
 To support drop in applications and avoid name collisions use the following naming convention.
 ```
@@ -162,26 +167,15 @@ myApp.page1Controller
 > It's also perfectly acceptable to append your controller with **Ctrl** instead of **Controller**.  In fact the Angular style-guide might recommend it.
 
 
-
-### What the Angular Style-guide says
-###What the Mashup says
-
-##Service names
-### What the Angular Style-guide says
-###What the Mashup says
-
-##Directive names
-This is a tricky one.  We are not simply naming for uniqueness and readability here.  Directives are used all throughout code and markup.  Yes, we want unique names that are easy to manage but they must also be easy to work with in everyday development.
-### What the Angular Style-guide says
-###What the Mashup says
-
-
 ##cacheService
 Learn all about the cacheService here: 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md
+
+[cacheService.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)
+
 
 Learn more about the detectService used by the cacheService.
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md
+
+[detectService.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
 
 The cacheService is one of many caching options.  Use the cacheService when you need discrete control over how often WebApi resources are called and how long until a cache is considered stale.
 
