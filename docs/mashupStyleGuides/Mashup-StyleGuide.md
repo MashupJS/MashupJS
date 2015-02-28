@@ -78,12 +78,10 @@ So this is a style guide.  You'd be wise to follow it or at least understand it 
 ####About the Mashup
 The Mashup has many goals in mind.  One is the ability to drop in application components.  Many of these types of features will be available in Angular 2.0 but until then we need something.
 
-Downloading the Mashup and following the style guides should put you in a pretty good place for migrating to Angular 2.0.  In fact you can expect this Mashup implementation to not only migrate from 1.3 to 2.0 but provide an extensive migration path.  When the new Angular 2.0 Router is back ported to 1.3 we will implement it immedialtly.  This early adoption should take some of the sting out of the massive 2.0 migration.
+Downloading the Mashup and following the style guides should put you in a pretty good place for migrating to Angular 2.0.  In fact you can expect this Mashup implementation to not only migrate from 1.3 to 1.4 to 2.0 but provide an extensive migration path.  When the new Angular 2.0 Router is back ported to 1.4 we will implement it immediately.  This early adoption should take some of the sting out of the massive 2.0 migration.
 
 ####Ongoing Tasks
-With the rapid change in technology it's easy to fall behind.  New versions of libraries are rapidly released and it's to much to keep updated on unless done so deliberately.
-
-The last thing you need is to download a bootstrap applications like the Mashup with outdated components.
+With the rapid change in technology it's easy to fall behind.  New versions of libraries are rapidly released and it's to much to keep updated on unless done so deliberately.  The last thing you need is to download a bootstrap applications like the Mashup with outdated components.
 
 The plan is to review all components monthly, looking for changes.  If a new version of a library is available we'll apply it to the Mashup along with any tips or notes of problems or steps taken.
 
