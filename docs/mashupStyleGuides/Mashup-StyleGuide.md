@@ -60,11 +60,10 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 <a name="MashupJSStyleGuide"></a>
 #MashupJS style guide
-*In-process*
 
 *It's true that a style guide is never complete, for now, this one will be more incomplete than most. *
 
-This style guide will help ease the use of the Mashup and save you time when adding new applications or pages.  Specifically addressed in this style guide is the Mashup.UI.Core or the UI component of the Mashup.
+This style guide will help ease the use of the Mashup and save you time when adding new applications or pages.  
 
 ###Props
 The Internet is a rich resource of information.  Several pieces of code are inspired by the work of others.  Every attempt has been made to give credit.  If we have missed anything or seem to be using a library or piece of code without permission please point it out.
@@ -187,7 +186,7 @@ Event if a cache is stale, if access to a WebApi is interrupted the cache is use
 
 One feature of this cache option is unnecessary calls for the most current data can be avoided.  Also, the cacheService works with the detectService to determine if the WebApi is available and if it is not then no attempt is made to call it.  This eliminates the delay associated with the timeout to an unavailable service.
 
-```
+```javascript
 getData: function (cacheName
 					, schema
 					, webApiUrl
