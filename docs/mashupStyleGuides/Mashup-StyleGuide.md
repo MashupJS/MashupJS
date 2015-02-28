@@ -94,35 +94,41 @@ The goal is to reduce **technical debt** by keeping all components up to date in
 The Mashup will introduce the smallest risk possible and with the least expensive process possible.  
 
 #MashupJS with AngularJS
-##Directory Structure
+
+##Directory Structure of Mashup.UI.Core
+ **apps**
+ - app1 (drop in application)
+	 - ~appConfig         
+		 - *(route.config.js for application routes)*
+		 - *(menu.config.js for application menus)*
+	 - ~appServices      
+		 - *(services for the applications)*
+	 - ~appTests           
+		 - *( Tests for the applications)*
+	 - [application directories and pages]
+**core**
+ - common   *(all common components shared by all MashupJS applications)*
+	 - data *(provided by the core to all apps)*
+	 - directives *(provided by the core to all apps)*
+	 - filters *(provided by the core to all apps)*
+	 - services *(provided by the core to all apps)*
+ - config
+	  - *(route.config.js for application routes)*
+	  - *(menu.config.js for application menus)*
+ - css (shared styles for all apps to inherit)
+ - index.html.shells
+	 - basic_index.html  (basic index.html used by the core)
+	 - (more index shell swill be added demonstrating other menus and looks)
+ - lib 
+	 - *(All JavaScript libraries used by the application such as angularJS, lodash, bootstrap, etc.)*
+
+
+##Directory Structure of api
 Mashup.Api.[app-name]
 
  - api
 	 - Controllers
 	 - Entities
-
-Mashup.UI.Core
-
- - apps
-	 - ~appConfig         
-		 - *(routeConfig for the applications)*
-	 - ~appServices      
-		 - *(services for the applications)*
-	 - ~appTests           
-		 - *( Tests for the applications)*
-	 - [section1]            
-		 - *( Various areas of the application.  Could be individual pages or sections of pages.)*
-	 - [section2]
-	 - [section3]
- - common   *(all common components shared by all MashupJS applications)*
-	 - directives
-	 - filters
-	 - services
- - config
-	 - *(Whatever angular configuration files the mashup needs.  IE: routeConfig.js)*
- - css
- - lib
-	 - *(All JavaScript libraries used by the application such as angularJS, lodash, bootstrap, etc.)*
 
 
 ##The naming of things
