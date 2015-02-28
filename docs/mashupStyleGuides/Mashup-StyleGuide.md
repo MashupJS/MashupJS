@@ -244,18 +244,22 @@ https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeCon
 ##Logging
 ###logService
 The logService intercepts messages sent by $log and performs custom actions against them.
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md
 
 ##Utilities
 ###utilityService
 The utilityService is a Facade of all the utilities you're Mashup application will require.  Using the utilityService in this way reduces then number of extra module you specify for injection and simplifies your code.
+
 https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilityService/utilityService.md
 
 ####utility_UtcDateService
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utility_UtcDateService.md
 
 ##Index.html
 The index.html is swappable for whatever is needed.  
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md
 
 
@@ -264,9 +268,11 @@ https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md
 
 ##Creating a WebApi for the MashupJS
 How to create a WebApi for the MashupJS that supports CORS
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md
 
 Explaining the problem with CORS
+
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md
 
 ##HeartBeatController
