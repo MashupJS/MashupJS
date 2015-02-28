@@ -194,7 +194,9 @@ getData: function (cacheName
 ```
 
 #####**cacheName**
-The name of the cache you give to the type of data you are retrieving.  If the name already exists in the cache and is not yet stale then you receive the cache data and no call to the WebApi will be made.
+cacheName is name of the cache you with to retrieve data from.  If the name already exists in the cache and is not yet stale then you receive the cache data and no call to the WebApi will be made.
+
+
 #####**webApiUrl**
 The webApiUrl includes the full URL and the URL properties.
 Example:
@@ -202,17 +204,17 @@ Example:
 http://localhost:50004/api/ExampleData/Items/1
 ```
 #####**staleMinutes**
-The number of minutes until the cache is considered stale.  The cache will remain until updated in case the WebApi is unavailable.
+The number of minutes until the cache is considered stale.  The cache will remain until updated in case the api is unavailable.
 
 #####**useHeartBeatConvention**
-WebApi(s) can offer a HeartBeat function that allows the Mashup to know if the WebApi is available.  This might also serve to track system performance.
+Api(s) can offer a HeartBeat function that allows the Mashup to know if the WebApi is available.  This might also serve to track system performance.
 
 The HeartBeatUrl is the endpoint to the HeartBeat.
 You can specify the URL explicitly or use the built in convention.
 The convention is the base URL of the webApiUrl and "**/api/HeartBeat/**".
 
 #####**heartBeatUrl**
-The heartBeatUrl that will be used if the **useHeartBeatConvention** is **false**.
+The heartBeatUrl will be used if the **useHeartBeatConvention** is **false**. This will override the default "**/api/HeartBeat/**" with whatever you provide.
 
 #####**heartBeatName**
 The name of the heart beat used in logs.
@@ -220,6 +222,8 @@ If nothing is provided then the *webApiUrl* is used.
 
 
 ##Defining Routes
+
+###Route /w ControllerAS syntax
 ```javascript
 function config($routeProvider) {
     $routeProvider
@@ -230,6 +234,32 @@ function config($routeProvider) {
         });
 }
 ```
+###Route /w Cache option
+
+```javascript
+mashupApp.config(['$routeProvider', function ($routeProvider) {
+    'use strict';
+
+    $routeProvider
+        .when('/app1/page1', {
+            templateUrl: 'apps/app1/page1/page1.html',
+            controller: 'app1.Page1Controller',
+            controllerAs: 'vm',
+            resolve: {
+                loadMyCtrl: [
+                    '$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'mashupApp',
+                            files: ['apps/app1/page1/page1.controller.min.js']
+                        });
+                    }
+                ],
+                logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
+            }
+        })
+```
+
+
 ### Route Configuration
 This document explains how to set up Route Configuration in the Mashup and how to implement Lazy Loading.  
 
