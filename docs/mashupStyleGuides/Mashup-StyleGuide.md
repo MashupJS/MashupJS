@@ -304,6 +304,16 @@ namespace Mashup.Api.AuthADSP.api
 ```
 
 ##Mashup.Api.AuthADSP
-This is a basic authentication service using Windows Integration and Stored Procedures.  Hence the name AuthADSP.  If we were to publish a Federated authentication service using Entity Framework then the name might be *Mashup.Api.AuthFedEF*.
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md
+This is a basic authentication service using Windows Integration and Stored Procedures.  
+
+Hence the name Mashup.Api.AuthADSP.  
+`Auth + [active directory] + [stored procs]`
+
+TODO: Change this link when the api is moved.
+[Mashup.Api.AuthADSP.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)
+
+If we were to publish a Federated authentication service using Entity Framework then the name might be *Mashup.Api.AuthFedEF*.
+`Auth + [federated] + [entity framework]`
+
+*This explanation is only to help you understand Mashup examples.  Feel free to follow your own naming standards.*
 
