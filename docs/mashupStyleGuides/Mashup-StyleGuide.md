@@ -140,7 +140,7 @@ Applications should have a short or abbreviated name because it will be used to 
 The Mashup has only one UI project named **Mashup.UI.Core**.  You're likely to change this to an application name that represents your company.
 
 WebApi project names should be:
-```csharp
+```
 [Mashup-name].["Api"].[app-name]
 ```
 
@@ -150,7 +150,7 @@ Use the **Controller As** syntax.
 https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md
 ####Naming
 To support drop in applications and avoid name collisions use the following naming convention.
-```csharp
+```
 [app-name].[controller-name] + ["Controller"]
 ```
 Example
