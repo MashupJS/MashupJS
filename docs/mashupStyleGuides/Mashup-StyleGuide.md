@@ -177,11 +177,11 @@ Learn more about the detectService used by the cacheService.
 
 [detectService.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
 
-The cacheService is one of many caching options.  Use the cacheService when you need discrete control over how often WebApi resources are called and how long until a cache is considered stale.
+The cacheService is one of many caching options.  Use the cacheService when you need discrete control over how often an api resources are called and how long until a cache is considered stale.
 
-Event if a cache is stale, if access to a WebApi is interrupted the cache is used.  
+Even if a cache is stale, if access to an api is interrupted the cache is used.  Unnecessary calls for the most current data can be avoided.  
 
-One feature of this cache option is unnecessary calls for the most current data can be avoided.  Also, the cacheService works with the detectService to determine if the WebApi is available and if it is not then no attempt is made to call it.  This eliminates the delay associated with the timeout to an unavailable service.
+The cacheService works with the detectService to determine if the WebApi is available and if it is not then no attempt is made to call it.  This eliminates the delay associated with the timeout to an unavailable service.
 
 ```javascript
 getData: function (cacheName
