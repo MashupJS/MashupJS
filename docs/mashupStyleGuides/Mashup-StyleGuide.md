@@ -106,6 +106,7 @@ The Mashup will introduce the smallest risk possible and with the least expensiv
 	 - ~appTests           
 		 - *( Tests for the applications)*
 	 - [application directories and pages]
+
 **core**
  - common   *(all common components shared by all MashupJS applications)*
 	 - data *(provided by the core to all apps)*
