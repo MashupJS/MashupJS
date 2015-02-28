@@ -264,30 +264,29 @@ This document explains how to set up Route Configuration in the Mashup and how t
 
 Lazy loading will become a feature of the new Angular 2.0 router which will be back ported to Angular 1.3.  It's not here yet but this approach will work nicely until it is.
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md
+[routeConfig.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)
 
 
 ##Logging
 ###logService
-The logService intercepts messages sent by $log and performs custom actions against them.
+The logService intercepts messages sent by $log and performs custom actions and can be used for instrumentation for all apps.
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md
+[logService.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)
 
 ##Utilities
 ###utilityService
-The utilityService is a Facade of all the utilities you're Mashup application will require.  Using the utilityService in this way reduces then number of extra module you specify for injection and simplifies your code.
+The utilityService is a Facade of all the utilities you're Mashup application can use.  Using the utilityService  reduces then number of modules required for injection and simplifies your code.
 
-https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilityService/utilityService.md
+[utilityService.md](https://github.com/MashupJS/MashupJS/tree/master/docs/mashupCore/services/utilityService/utilityService.md)
 
 ####utility_UtcDateService
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utility_UtcDateService.md
+[utility_UtcDateService.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utility_UtcDateService.md)
 
 ##Index.html
 The index.html is swappable for whatever is needed.  
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md
-
+[index.html.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md)
 
 #MashupJS WebApi
 
@@ -295,11 +294,11 @@ https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md
 ##Creating a WebApi for the MashupJS
 How to create a WebApi for the MashupJS that supports CORS
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md
+[WebApi-HowToCreateForMashup.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)
 
 Explaining the problem with CORS
 
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md
+[WebApi-Cors-Chrome.md](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)
 
 ##HeartBeatController
 
