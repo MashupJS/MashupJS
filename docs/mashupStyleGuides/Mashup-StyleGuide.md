@@ -53,8 +53,9 @@ Read C# style guides as a learning tool but use a tool like Resharper to review 
 
 *TODO: Add link to philosophies the MashupJS subscribes to.*
 
-### Documentation
+### Markdown for documentation
 Github style markdown
+[Github style Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 
 <a name="MashupJSStyleGuide"></a>
