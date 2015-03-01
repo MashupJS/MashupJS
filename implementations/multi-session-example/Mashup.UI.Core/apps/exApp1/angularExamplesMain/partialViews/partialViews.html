@@ -1,0 +1,347 @@
+﻿<div>
+    <div class="jumbotron text-center">
+
+        <h3>Partial Views</h3>
+        <h5>ng-include as element, ng-include as attribute, ng-switch, ng-switch-when, etc.</h5>
+
+
+    </div>
+
+    <div class="well-sm">
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Basic ng-include</h4>
+                <p>Including a table from the file "myTable.html"</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <ng-include src="'../apps/exApp1/angularExamplesMain/partialViews/myTable.html'"></ng-include>
+                </div>
+                <pre ng-non-bindable>
+    &lt;div class=&quot;well&quot;&gt;
+        &lt;ng-include src=&quot;&#39;apps/exApp1/angularExamplesMain/partialViews/myTable.html&#39;&quot;&gt;&lt;/ng-include&gt;
+    &lt;/div&gt;
+                </pre>
+                <blockquote><code>&lt;ng-include src=&quot;&#39;path and html file&#39;&quot;&gt;&lt;/ng-include&gt;</code></blockquote>
+                <blockquote><footer>The included file is passed as a string.  That is why it has double and single quotes.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-include</h4>
+                <p></p>
+                <p>Switching between the list view and the table view</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="showList" />
+                            Use the list view
+                        </label>
+                    </div>
+
+                    <ng-include src="viewFile()"></ng-include>
+                </div>
+                HTML Code with ng-include
+                <pre ng-non-bindable>
+    &lt;div class=&quot;well&quot;&gt;
+        &lt;div class=&quot;checkbox&quot;&gt;
+            &lt;label&gt;
+                &lt;input type=&quot;checkbox&quot; ng-model=&quot;showList&quot; /&gt;
+                Use the list view
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;ng-include src=&quot;viewFile()&quot;&gt;&lt;/ng-include&gt;
+    &lt;/div&gt;
+                </pre>
+
+                Controller function to switch views.
+                <pre>
+                    
+    $scope.viewFile = function () {
+        return $scope.showList ? &quot;apps/exApp1/angularExamplesMain/partialViews/myList.html&quot; : &quot;apps/exApp1/angularExamplesMain/partialViews/myTable.html&quot;;
+    }
+                </pre>
+
+                Checkbox implementation
+                <pre>
+    &lt;div class=&quot;checkbox&quot;&gt;
+        &lt;label&gt;
+            &lt;input type=&quot;checkbox&quot; ng-model=&quot;showList&quot; /&gt;
+            Use the list view
+        &lt;/label&gt;
+    &lt;/div&gt;
+                </pre>
+                <blockquote><code>&lt;ng-include src=&quot;viewFile()&quot;&gt;&lt;/ng-include&gt;</code></blockquote>
+                <blockquote>
+                    <footer>
+                        It's interesting that the viewFile() function is executed when $scope.showList changes.
+                        This is what enables the ability to switch the views but it seems like there should be a more obvious
+                        connection between viewFile() and the checkbox control bound to $scope.showList.
+                    </footer>
+                </blockquote>
+                <blockquote><footer>Notice how the checkbox set up. You can select anywhere on the lable or box to initialthe checkbox selection.  Cool...</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-include as an attribute</h4>
+                <p>Switching between the list view and the table view using a DIV with ng-include as an attribute.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="showList" />
+                            Use the list view
+                        </label>
+                    </div>
+
+                    <!--<ng-include src="viewFile()"></ng-include>-->
+                    <div ng-include="viewFile()" onload="reportChange()"></div>
+
+                </div>
+
+                <pre ng-non-bindable>
+    &lt;div class=&quot;checkbox&quot;&gt;
+            &lt;label&gt;
+                &lt;input type=&quot;checkbox&quot; ng-model=&quot;showList&quot; /&gt;
+                Use the list view
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;!--&lt;ng-include src=&quot;viewFile()&quot;&gt;&lt;/ng-include&gt;--&gt;
+        &lt;div ng-include=&quot;viewFile()&quot; onload=&quot;reportChange()&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+                </pre>
+
+
+                <blockquote><code>&lt;div ng-include=&quot;viewFile()&quot; onload=&quot;reportChange()&quot;&gt;&lt;/div&gt;</code></blockquote>
+
+                <blockquote><footer>Notice that reportChange exicutes whenever the check box is check from either example.  The same is true for viewFile.</footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-switch, ng-switch-when</h4>
+                <p>Using ng-switch to change views.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="radio" ng-repeat="button in ['None', 'Table', 'List']">
+                                <label>
+                                    <input type="radio" ng-model="data.mode" value="{{button}}" ng-checked="$first" />
+                                    {{button}}
+                                </label>
+                            </div>
+                            <div ng-switch on="data.mode">
+                                <div ng-switch-when="Table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr><th>#</th><th>Action</th><th>Date/Time</th><th>email</th><th>Done</th></tr>
+                                        </thead>
+
+                                        <tr ng-repeat="item in items" ng-class="$odd ? 'odd' : 'even'">
+                                            <td>{{$index + 1}}</td>
+                                            <td ng-repeat="prop in item">{{prop}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div ng-switch-when="List">
+                                    <ol>
+                                        <li ng-repeat="item in items">
+                                            {{item.action}}<span ng-if="item.don">(Done)</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div ng-switch-default>
+                                    Select another option to display a layout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div ng-switch on=&quot;data.mode&quot;&gt;
+        &lt;div ng-switch-when=&quot;Table&quot;&gt;
+            &lt;table class=&quot;table&quot;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;&lt;th&gt;Date/Time&lt;/th&gt;&lt;th&gt;email&lt;/th&gt;&lt;th&gt;Done&lt;/th&gt;&lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tr ng-repeat=&quot;item in items&quot; ng-class=&quot;$odd ? &#39;odd&#39; : &#39;even&#39;&quot;&gt;
+                    &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+                    &lt;td ng-repeat=&quot;prop in item&quot;&gt;{{prop}}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;div ng-switch-when=&quot;List&quot;&gt;
+            &lt;ol&gt;
+                &lt;li ng-repeat=&quot;item in items&quot;&gt;
+                    {{item.action}}&lt;span ng-if=&quot;item.don&quot;&gt;(Done)&lt;/span&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/div&gt;
+        &lt;div ng-switch-default&gt;
+            Select another option to display a layout
+        &lt;/div&gt;
+    &lt;/div&gt;
+                </pre>
+
+                Wraps up the switch block and sets the data attribute.
+                <blockquote><code>&lt;div ng-switch on=&quot;data.mode&quot;&gt;</code></blockquote>
+
+                Carries out the evaluation.  There will be multiple of these
+                <blockquote><code>&lt;div ng-switch-when=&quot;Table&quot;&gt;</code></blockquote>
+
+                <blockquote>
+                    <footer>Probably ok to use ng-switch for small situations but for larger views stick with ng-include.  This prevents the UI from becoming to heavy.</footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>ng-cloak</h4>
+                <p>Hides the implementation until Angular is done processing the view.</p>
+                <p>Useful for supporting older/slower devices.</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="radio" ng-repeat="button in ['None', 'Table', 'List']">
+                                <label ng-cloak>
+                                    <input type="radio" ng-model="data.mode" value="{{button}}" ng-checked="$first" />
+                                    {{button}}
+                                </label>
+                            </div>
+                            <div ng-switch on="data.mode" ng-cloak>
+                                <div ng-switch-when="Table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr><th>#</th><th>Action</th><th>Date/Time</th><th>email</th><th>Done</th></tr>
+                                        </thead>
+
+                                        <tr ng-repeat="item in items" ng-class="$odd ? 'odd' : 'even'">
+                                            <td>{{$index + 1}}</td>
+                                            <td ng-repeat="prop in item">{{prop}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div ng-switch-when="List">
+                                    <ol>
+                                        <li ng-repeat="item in items">
+                                            {{item.action}}<span ng-if="item.don">(Done)</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div ng-switch-default>
+                                    Select another option to display a layout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+        &lt;label ng-cloak&gt;
+            &lt;input type=&quot;radio&quot; ng-model=&quot;data.mode&quot; value=&quot;{{button}}&quot; ng-checked=&quot;$first&quot; /&gt;
+            {{button}}
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div ng-switch on=&quot;data.mode&quot; ng-cloak&gt;
+                </pre>
+
+
+                <blockquote><code>&lt;div ng-switch on=&quot;data.mode&quot; ng-cloak&gt;</code></blockquote>
+
+                <blockquote>
+                    <footer>Useful for supporting older/slower devices.</footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Template</h4>
+                <p>Description</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <table class="table table-bordered table-striped table-hover table-responsive ">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items">
+                                <td>{{item.action}}</td>
+                                <td>{{item.done}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre ng-non-bindable>
+                </pre>
+                <blockquote><code></code></blockquote>
+                <blockquote><footer></footer></blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+    </div>
+</div>

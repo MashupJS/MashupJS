@@ -1,0 +1,160 @@
+﻿<div>
+    <div class="jumbotron text-center">
+        <h3>Form Elements 1</h3>
+        <h5>Lable/Control groups</h5>
+        <h5>Basic Form Validation</h5>
+        <h5>Radio Buttons /w </h5>
+
+    </div>
+
+    <div class="well-sm">
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Label/Control example</h4>
+                <p>How to set up a basic label control group with bootstrap</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <div class="form-group">
+                                <label>Label</label>
+                                <input class="form-control vp-textbox-input" placeholder="Enter stuff" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div class="form-group"&gt;
+        &lt;label>Sample&lt;/label&gt;
+    &lt;/div&gt;
+            </pre>
+
+                <blockquote><footer>Lable/Control are grouped with, <code>&lt;div class="form-group" &gt;</code></footer></blockquote>
+
+            </div>
+        </div>
+        <hr />
+
+
+
+        <style>
+            /*.ng-invalid {background-color: lightpink;}
+                    .ng-valid {background-color: white;}
+                    span.error {color: red; font-weight: bold;}*/
+            span.error {
+                color: red;
+            }
+        </style>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Basic Validation</h4>
+                <p>This is a simple example of "required" validation</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+
+                    <div class="well">
+                        <form name="shippingForm" novalidate>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" class="form-control vp-textbox-input" ng-model="vm.data.shipping.name" required />
+                                <span class="error" ng-show="shippingForm.name.$error.required">Please enter a name</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input name="address" class="form-control vp-textbox-input" ng-model="vm.data.shipping.address" required />
+                                <span class="error" ng-show="shippingForm.address.$error.required">Please enter an address</span>
+                            </div>
+                            <div class="">
+                                <button ng-click="vm.completeShipping()" ng-disabled="shippingForm.$invalid" class="btn btn-success">Complete Order</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <pre>
+    &lt;form name=&quot;shippingForm&quot; novalidate&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Name&lt;/label&gt;
+                &lt;input name=&quot;name&quot; class=&quot;form-control vp-textbox-input&quot; ng-model=&quot;data.shipping.name&quot; required /&gt;
+                &lt;span class=&quot;error&quot; ng-show=&quot;shippingForm.name.$error.required&quot;&gt;Please enter a name&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Address&lt;/label&gt;
+                &lt;input name=&quot;address&quot; class=&quot;form-control vp-textbox-input&quot; ng-model=&quot;data.shipping.address&quot; required /&gt;
+                &lt;span class=&quot;error&quot; ng-show=&quot;shippingForm.address.$error.required&quot;&gt;Please enter an address&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;&quot;&gt;
+                &lt;button ng-click=&quot;completeShipping()&quot; ng-disabled=&quot;shippingForm.$invalid&quot; class=&quot;btn btn-success&quot;&gt;Complete Order&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+            </pre>
+
+                <blockquote>The form element supports 3 purposes</blockquote>
+                <blockquote><footer>1. Enables validation. AngularJS repurposes the form element for validation.</footer></blockquote>
+                <blockquote><footer>2. Disable validation the browser might want to perform.</footer></blockquote>
+                <blockquote><footer>3. Define a variable validation can be referenced with.  The name attribute is used.</footer></blockquote>
+                <blockquote><footer>Without the "novalidate" attribute there might be conflicts between the browser and AngularJS validation. </footer></blockquote>
+
+                <blockquote><footer>All controls inside a FORM element have 1 of 2 classes applied to them. ng-invalid or ng-valid. These can be added to the main.css so they apply consistently throughout the application.</footer></blockquote>
+                <blockquote><footer>The span tags connect to the control via the form name attribute then apply an Angular validation method.</footer></blockquote>
+                <blockquote><footer>IE: <code> &lt; class="error" ng-show="shippingForm.address.$error.required"&gt;Please enter an address&lt;/span&gt; </code></footer></blockquote>
+
+                <blockquote><footer>The button is disabled when the ng-disabled directive is added to the button and the form has an invalide control. <code> ng-disabled="shippingForm.$invalid" </code></footer></blockquote>
+
+
+                <div class="alert alert-success">
+                    <blockquote><footer>TODO: Need to add a method of NOT validating these controls on load of screen.  Only after some event occurs.</footer></blockquote>
+                    <blockquote><footer>TODO: Come up with a nicer way of providing validation feedback.</footer></blockquote>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Radio controls</h4>
+                <p>Simple radio control example</p>
+            </div>
+            <div class="panel-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-3 ">
+                            <div class="radio" ng-repeat="button in ['None', 'Table', 'List']">
+                                <label>
+                                    <input type="radio" ng-model="vm.data.mode" value="{{button}}" ng-checked="$first" />
+                                    {{button}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+    &lt;div class=&quot;radio&quot; ng-repeat=&quot;button in [&#39;None&#39;, &#39;Table&#39;, &#39;List&#39;]&quot;&gt;
+        &lt;label&gt;
+            &lt;input type=&quot;radio&quot; ng-model=&quot;data.mode&quot; value=&quot;{{button}}&quot; ng-checked=&quot;$first&quot; /&gt;
+            {{button}}
+        &lt;/label&gt;
+    &lt;/div&gt;
+                </pre>
+
+                <blockquote>
+                    <footer>
+                        Before adding vm.data = {}; to the controller the radio buttons would select but not deselect.
+                        Binding the buttons to data.mode didn't work until the data property was created.
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <hr />
+
+    </div>
+</div>
