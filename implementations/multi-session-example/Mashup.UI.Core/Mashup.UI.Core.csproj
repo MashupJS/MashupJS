@@ -143,7 +143,6 @@
     <Content Include="apps\exApp1\webApiExamplesMain\WebApi\webapi.controller.min.js" />
     <Content Include="apps\exApp1\webApiExamplesMain\WebApi\webapi.html" />
     <Content Include="apps\exApp1\~appConfig\menu.config.js" />
-    <Content Include="apps\exApp1\~appConfig\menu.config.min.js" />
     <Content Include="apps\exApp1\~appConfig\route.config.js" />
     <Content Include="apps\exApp1\~appServices\data.service.js" />
     <Content Include="apps\exApp1\~appServices\data.service.min.js" />
@@ -710,7 +709,6 @@
     <Content Include="apps\exApp1\webApiExamplesMain\WebApi2\webapi2.controller.min.js.map" />
     <Content Include="apps\exApp1\webApiExamplesMain\webApiExamplesMain.controller.min.js.map" />
     <Content Include="apps\exApp1\webApiExamplesMain\WebApi\webapi.controller.min.js.map" />
-    <Content Include="apps\exApp1\~appConfig\menu.config.min.js.map" />
     <Content Include="apps\exApp1\~appServices\data.service.min.js.map" />
     <Content Include="apps\exApp1\~appServices\itemData.service.min.js.map" />
     <Content Include="apps\mashup\about\about.controller.min.js.map" />
