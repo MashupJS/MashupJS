@@ -257,7 +257,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'annotate',
         'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
-        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint', 'watch'
+        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
     ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
     // 2. Cleans out the "dist" directory to prepare for new files
