@@ -204,6 +204,10 @@ Visual management tools for SQL Server
 
 http://www.microsoft.com/en-us/download/details.aspx?id=35579
 
+You might need this link if installing on Windows 8.1
+
+https://msdn.microsoft.com/en-us/library/hh506443%28v=vs.110%29.aspx
+
 ###IndexedDb
 
 No installation required 
