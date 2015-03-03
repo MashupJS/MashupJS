@@ -20,23 +20,34 @@ Technical Debt according to Wikipedia.org:
 http://en.wikipedia.org/wiki/Technical_debt
 
 “Technical debt (also known as design debt or code debt) is a recent metaphor referring to the eventual consequences of poor system design, software architecture or software development within a codebase. The debt can be thought of as work that needs to be done before a particular job can be considered complete or proper. If the debt is not repaid, then it will keep on accumulating interest, making it hard to implement changes later on. Unaddressed technical debt increases software entropy.”
+
     "As an evolving program is continually changed, its complexity, reflecting deteriorating structure, increases unless work is done to maintain or reduce it."
     — Meir Manny Lehman, 1980
 
-Examples of Technical Debt Reduced by the MashupJS
+##Examples of Technical Debt Reduced by the MashupJS
 
-MULTIPLE CODE BASES
+###MULTIPLE CODE BASES
+
 Maintaining multiple code bases for the same application.
-Example
-•	Mobile application where each hardware platform has its own code implementation.
-•	Multiple copies of a project because of multiple .NET Frameworks.
-Cost
-•	Resource Cost – When dealing with multiple hardware platforms, costs are increased with the number of platforms.  Each platform requires a dedicated, highly skilled resource or broader skilled resources that understand multiple programming ecosystems.
-•	Increased Risk – Multiple code bases require increased testing, bug fixing, and introduce the risk that a bug fix might not make it into all code bases.
-Solution
-•	The power in web technologies is the ability to run on all platforms that support a web viewer.  Using a hybrid mobile approach with Cordova, Ionic, and Angular with Responsive Design, it is possible to build an application capable of running from a web browser, desktop, Android, iOS, and Windows 10 devices with a single code base.
 
-LACKING DEPTH OF KNOWLEDGE
+**Example**
+
+- Mobile application where each hardware platform has its own code implementation.
+
+- Multiple copies of a project because of multiple .NET Frameworks.
+
+**Cost**
+
+- Resource Cost – When dealing with multiple hardware platforms, costs are increased with the number of platforms.  Each platform requires a dedicated, highly skilled resource or broader skilled resources that understand multiple programming ecosystems.
+
+- Increased Risk – Multiple code bases require increased testing, bug fixing, and introduce the risk that a bug fix might not make it into all code bases.
+
+**Solution**
+
+- The power in web technologies is the ability to run on all platforms that support a web viewer.  Using a hybrid mobile approach with Cordova, Ionic, and Angular with Responsive Design, it is possible to build an application capable of running from a web browser, desktop, Android, iOS, and Windows 10 devices with a single code base.
+
+###LACKING DEPTH OF KNOWLEDGE
+
 The greater the number of technologies in an ecosystem, the more shallow knowledge and experience become.
 Example
 •	Over time, applications are developed for the business, but never kept up to date.  
@@ -54,7 +65,8 @@ Solution
 •	The Mashup Core gives all applications a common set of components and services.  When a core component is enhanced, all applications are enhanced.
 •	Adopting a process of Continuous Improvement, the effort to keep applications updated is far less than with unexpected rewrites.
 
-ABANDONED WORKING CODE
+###ABANDONED WORKING CODE
+
 This is code for an application that is abandoned because it works.  Over time it’s forgotten and remains unattended.  The day comes when the business needs new features or new OS changes and breaks the application.
 Example
 •	A nightly batch process/program that has run well for many years. It copies critical application data to applications that require it. Over time, the IT organization has forgotten about this critical process.
@@ -65,7 +77,8 @@ Cost
 Solution
 •	The Mashup attempts to combine applications using a single core.  Even in cases where an application requires little attention, its core components are kept up to date.  As new techniques are adopted, linters are used to identify code that needs updating, even in unattended code.  The application remains updated, visible, and not forgotten.
 
-DEVICE DEPENDENCE
+###DEVICE DEPENDENCE
+
 Device dependence forces the business into dependency on a device platform as a result of writing hardware platform specific applications.
 Example
 •	An IT department writes a series of mobile applications for iOS because, at the time of writing code, all corporate phones were iPhones.  At some point the business is offered a significant savings on the Android platform but this becomes a lost opportunity because of the iOS hardware dependency.
@@ -74,7 +87,8 @@ Cost
 Solution
 •	Don’t lock your company into a hardware platform.  Use the Mashup, Angular, Bootstrap, Ionic, and WebApi to create platform independent applications.
 
-FEAR OF BREAKING INTERFACES
+###FEAR OF BREAKING INTERFACES
+
 Interfaces allow components to be consumed by other components and applications to talk to other applications.  Rather than change an existing interface that might be consumed by another component or application, the approach has been to bolt on additional code.
 Example
 •	A component, representing Customer, is being used by multiple applications within an organization.  After merging with another company, the definition of Customer has changed.  Rather than alter the Customer to reflect the new reality, the old reality of Customer is maintained while also supporting a new reality of Customer.
@@ -86,7 +100,8 @@ Cost
 Solution
 •	Abandon the philosophy of protecting existing interfaces.  Break every interface that does not reflect the current reality.  This can only be done softly by adoption of a DevOps build process with Continuous Delivery.  The Mashup, because of Angular, is uniquely suited for testability within a build process.
 
-NO TECHNICAL LEADERSHIP
+###NO TECHNICAL LEADERSHIP
+
 Lack of technical leadership will create the scenario where too many technologies exist to support.  As a result, team knowledge becomes shallow and developers become paralyzed.  Without leadership, a team cannot decide where to spend its most precious resource, time.
 Example
 •	Front-end development stack – So many options exist for front end development that organizations without strong technical leadership become paralyzed and learning stops.
