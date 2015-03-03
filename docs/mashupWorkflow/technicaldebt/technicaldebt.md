@@ -2,6 +2,8 @@
 title: Battling Technical Debt
 tags: 
 - Technical Debt
+- single code base
+- technical leadership
 ---
 
 http://robertdunaway.github.io
