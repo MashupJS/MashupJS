@@ -37,11 +37,11 @@ All effort must be made to reduce technical debt.  We’re building business app
 
 Below are a few items for reducing technical debt but the list could go on forever.
 
-•	Reduce the number of technologies in the ecosystem.
-•	Utilize strong technical leadership that gives direction.
-•	Develop a strong DevOps component to the development process.
-•	Adopt Continuous Integration and Continuous Deployment.
-•	Resist version divergence 
+- Reduce the number of technologies in the ecosystem.
+- Utilize strong technical leadership that gives direction.
+- Develop a strong DevOps component to the development process.
+- Adopt Continuous Integration and Continuous Deployment.
+- Resist version divergence 
 
 ##Mobile First
 Whether or not you are designing specifically for mobile, the mobile first approach offers many benefits.  When considering the real-estate available for mobile devices, you fall into the lap of success with better imagined UI design and faster running applications.  When considering mobile, every aspect of performance from render time to the bits on the network is considered.
