@@ -38,6 +38,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 **[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
 
+**[Battling Technical Debt](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)**
 
 ##The MashupJS Style Guide
 **[The MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
