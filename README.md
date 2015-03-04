@@ -34,16 +34,9 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 
-###Philosophy behind the Mashup
-*TODO: [Link to markdown]*
+###Philosophy behind the MashupJS
 
-notes - don't read this :)
-- reduce friction to starting SPA programming
-- reduce technical debt
-- code library
-- learning/teaching tool
-- team workflow flexibility
-- single code base /w hybrid option
+**[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
 
 
 ##The MashupJS Style Guide
