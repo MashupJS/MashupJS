@@ -114,7 +114,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,                  // Enable dynamic expansion
                    // cwd: 'core/',
-                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**/*', '!core/lib/**/*', '!**/dist/**/*.*'],   // Actual patterns to match
+                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**', '!**/dist/**'],   // Actual patterns to match
                     dest: '<%= distFolder %>/img/'
                 }]
             }
