@@ -4,25 +4,7 @@ mashupApp.service('coreDataService', ['$http', '$q', '$log', 'cacheService', fun
     'use strict';
 
     return {
-  
-        //getUserInfo: function (staleMinutes) {
-        //    var deferred = $q.defer();
 
-        //    var cacheName = 'Mashup_getUserInfo';
-        //    var schema = { name: cacheName, keyPath: 'UserId' };
-        //    var webApiUrl = 'http://localhost:50002/api/local/GetCurrentUser';
-
-        //    var useHeartBeatConvention = true;
-        //    //var useHeartBeatConvention = false;
-        //    //var heartBeatUrl = 'http://localhost:50002/api/HeartBeat/';
-        //    //var heartBeatName = 'Mashup.Api.AuthADSP';
-
-        //    cacheService.getData(cacheName, schema, webApiUrl, staleMinutes, useHeartBeatConvention).then(function (data) {
-        //        deferred.resolve(data);
-        //    });
-
-        //    return deferred.promise;
-        //},
         getCache: function (cacheName) {
             var deferred = $q.defer();
 
@@ -32,6 +14,6 @@ mashupApp.service('coreDataService', ['$http', '$q', '$log', 'cacheService', fun
 
             return deferred.promise;
         }
-        
+
     };
 }]);

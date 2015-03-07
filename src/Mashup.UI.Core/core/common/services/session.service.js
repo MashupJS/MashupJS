@@ -12,14 +12,6 @@
 mashupApp.service('sessionService', function () {
     'use strict';
 
-    // The sessionService module cannot be added to the logService because of circular reference.
-    // I want the logService to have access to certain information stored in session so I'm adding this
-    // data to the $rootScope.  I don't like poluting the $rootScope but until I figure out a way
-    // around the circular reference this is my solution.
-    var userSession = {
-        UserName: ''
-    };
-
     var envSession = {};
 
     // Get the OS and general environment string.
@@ -99,9 +91,9 @@ mashupApp.service('sessionService', function () {
         }
         // trim the fullVersion string at semicolon/space if present
         if ((ix = fullVersion.indexOf(';')) !== -1)
-            {fullVersion = fullVersion.substring(0, ix);}
+        { fullVersion = fullVersion.substring(0, ix); }
         if ((ix = fullVersion.indexOf(' ')) !== -1)
-            {fullVersion = fullVersion.substring(0, ix);}
+        { fullVersion = fullVersion.substring(0, ix); }
 
         majorVersion = parseInt('' + fullVersion, 10);
         if (isNaN(majorVersion)) {
@@ -176,11 +168,24 @@ mashupApp.service('sessionService', function () {
 
     })();
 
+
+    // The sessionService module cannot be added to the logService because of circular reference.
+    // I want the logService to have access to certain information stored in session so I'm adding this
+    // data to the $rootScope.  I don't like poluting the $rootScope but until I figure out a way
+    // around the circular reference this is my solution.
+    var userSession = {
+        UserName: ''
+    };
+    var userSessions = [];
+
     return {
 
-        userSession: function () { return userSession; },
+        userSession: function (name) { return userSession[name]; },
 
-        setUserSession: function (data) { userSession = data; return true; },
+        setUserSession: function (name, data) {
+            //userSession = data; return true;
+            userSessions[name] = data; return true;
+        },
 
         envSession: function () { return envSession; }
 

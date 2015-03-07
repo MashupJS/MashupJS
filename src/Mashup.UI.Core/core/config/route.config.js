@@ -61,16 +61,30 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$i
             // -------------------------------------------------------------------
             // Instrumenting the application so we can track what pages get used.
             // -------------------------------------------------------------------
-            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouteHelper', 'logRoute',
+            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouteHelper', 'resolveRoute',
                 'resolving route', sessionService);
             // Additional or custom properties for logging.
             logObject.absUrl = $location.absUrl();
             logObject.url = $location.url();
-            $log.log('UI-Routing to [ ' + $location.url() + ' ]', logObject);
+            $log.log('Routing to [ ' + $location.url() + ' ]', logObject);
             // -------------------------------------------------------------------
             // -------------------------------------------------------------------
         };
 
+        var resolveRoute = function () {
+
+            var defer = $q.defer();
+
+            (function () {
+                logRouteInstrumentation();
+                defer.resolve(true);
+            })();
+
+            return defer.promise;
+        };
+
+        // This function is available to any app that simply wants to log their route.
+        // The core does other session work and then logs it's route so it doesn't need this method.
         var logRoute = function () {
 
             var defer = $q.defer();
@@ -85,6 +99,9 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$i
 
         return {
 
+            resolveRoute: resolveRoute,
             logRoute: logRoute
         };
     }]);
+
+
