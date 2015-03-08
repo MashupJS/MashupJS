@@ -1,3 +1,4 @@
+// Ignore everythihng here.  This file is not being used yet.
 
 console.log('config.js - loaded');
 

@@ -10,7 +10,7 @@
 
 // TODO: add a universal resolve that will run for all routes.  Will need to angular.extend $routeProvider.
 // for now just copying the following resolve to every method:
-// , resolve: { coreRouteHelper: function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); } }
+// , resolve: { coreRouterAuth: function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); } }
 
 mashupApp.config(['$routeProvider', function ($routeProvider) {
 
@@ -29,7 +29,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/about.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
+            logRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); }]
         }
     })
 
@@ -44,24 +44,21 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/welcome.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute(); }]
+            logRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); }]
         }
     });
-
-
-
 }]);
 
-mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
-    'coreDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
-        coreDataService, utility) {
+mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
+    'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
+        utility) {
         'use strict';
 
         var logRouteInstrumentation = function () {
             // -------------------------------------------------------------------
             // Instrumenting the application so we can track what pages get used.
             // -------------------------------------------------------------------
-            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouteHelper', 'resolveRoute',
+            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouterAuth', 'resolveRoute',
                 'resolving route', sessionService);
             // Additional or custom properties for logging.
             logObject.absUrl = $location.absUrl();

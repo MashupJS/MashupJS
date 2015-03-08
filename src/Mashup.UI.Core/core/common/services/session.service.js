@@ -182,11 +182,12 @@ mashupApp.service('sessionService', function () {
 
         getUserSessions: function () {
 
-            if (typeof userSessions['core'] === 'undefined') {
-                userSessions['core'] = {};
-                userSessions['core'].logUserName = 'unknown-user';
-                userSessions['core'].logAppName = 'unknown-app';
+            if (!userSessions.hasOwnProperty('logUserName')) {
+                userSessions.logUserName = 'unknown-user-property';
+            }
 
+            if (!userSessions.hasOwnProperty('logAppName')) {
+                userSessions.logAppName = 'unknown-app-property';
             }
 
             return userSessions;
