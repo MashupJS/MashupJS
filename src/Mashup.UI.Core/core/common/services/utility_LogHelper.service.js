@@ -3,7 +3,7 @@
 
 mashupApp.service('utility_LogHelper', function () {
     'use strict';
-    var getLogObject = function (subject, app, mod, func, status, sessionService, sessionName) {
+    var getLogObject = function (subject, app, mod, func, status, sessionService) {
 
         var logObject = {
             subject: subject,
@@ -14,19 +14,14 @@ mashupApp.service('utility_LogHelper', function () {
         };
 
         try {
-            var userSession = sessionService[sessionName].userSession();
+            var userSessions = sessionService.getUserSessions();
 
-            // new convention to make this work
-            // sessions must have UserName and ApplicationName
-            logObject.UserName = userSession.UserName;
-            logObject.AppName = userSession.AppName; 
+            // convention to make this work
+            // each applications router will set these values.  This way
+            // the dependence on session is a little more loosely coupled.
+            logObject.logUserName = userSessions['core'].logUserName;
+            logObject.logAppName = userSessions['core'].logAppName;
 
-            // new but is probably to much information
-            // logObject.userSession = userSession;
-
-            // old
-            //logObject.userId = userSession.UserName;
-            //logObject.adDomain = userSession.ADDomain;
         }
         catch (e) { }
 

@@ -176,11 +176,21 @@ mashupApp.service('sessionService', function () {
     var userSession = {
         UserName: ''
     };
-    var userSessions = [];
+    var userSessions = [{}];
 
     return {
 
-        userSession: function (name) { return userSession[name]; },
+        getUserSessions: function () {
+
+            if (typeof userSessions['core'] === 'undefined') {
+                userSessions['core'] = {};
+                userSessions['core'].logUserName = 'unknown-user';
+                userSessions['core'].logAppName = 'unknown-app';
+
+            }
+
+            return userSessions;
+        },
 
         setUserSession: function (name, data) {
             //userSession = data; return true;
