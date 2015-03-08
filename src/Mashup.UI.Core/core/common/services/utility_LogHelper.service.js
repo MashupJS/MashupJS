@@ -19,8 +19,16 @@ mashupApp.service('utility_LogHelper', function () {
             // convention to make this work
             // each applications router will set these values.  This way
             // the dependence on session is a little more loosely coupled.
-            logObject.logUserName = userSessions['core'].logUserName;
-            logObject.logAppName = userSessions['core'].logAppName;
+
+            // It's possible these values are not initially set.
+            if (typeof userSessions['core'] === 'undefined') {
+                logObject.logUserName = 'user-not-set';
+                logObject.logAppName = 'app-not-set';
+
+            } else {
+                logObject.logUserName = userSessions['core'].logUserName;
+                logObject.logAppName = userSessions['core'].logAppName;
+            }
 
         }
         catch (e) { }
