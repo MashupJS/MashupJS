@@ -100,5 +100,3 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             logRoute: logRoute
         };
     }]);
-
-
