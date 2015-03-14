@@ -188,6 +188,13 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
 
              dbCache: dbCache,
 
+             putCache: function (cacheName, data) {
+
+                 dbCache.put({ name: cacheName, keyPath: 'id' }, { id: cacheName, data: data });
+                 updateCacheAge(cacheName);
+
+             },
+
              // Retrieve cache
              getCache: function (cacheName) {
                  var deferred = $q.defer();
@@ -248,7 +255,7 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                                      $log.error(err, logObject);
                                      indexedDB.deleteDatabase('mashCacheDB');
                                      $log.log('IndexedDB error on updating a cache. Deleted database to allow new schema.', logObject);
-                                     
+
                                  }
 
                                  // return web api data to the client

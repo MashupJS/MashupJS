@@ -29,7 +29,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/about.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); }]
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(); }],
         }
     })
 
@@ -44,13 +44,13 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/welcome.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); }]
+            authenticateUser: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.authenticateUser(); }],
         }
     });
 }]);
 
-mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
-    'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
+mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'cacheService',
+    'utility', function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
         utility) {
         'use strict';
 
@@ -68,11 +68,41 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             // -------------------------------------------------------------------
         };
 
-        var resolveRoute = function () {
 
+        var isUserAuthorized = function () {
+            // REPLACE WITH YOU AUTHENTICATION CODE.
+            return true;
+        };
+
+        var resolveRoute = function () {
+            // VERIFY USER IS AUTHENTICATED AND AUTHORIZED
             var defer = $q.defer();
 
             (function () {
+
+                var session = sessionService.getUserSessions();
+                //var sessionExists = "core" in session;      <-- what you want to use!
+                // CHECK FOR SESSION WITH THE CODE ABOVE.
+                // -------------------------------------------------
+                var sessionExists = true;                  // <-- remove this, replace with above.
+                session.isAuthenticated = true;            // <-- remove this, will be part of the session
+                // stubbed code
+                // -------------------------------------------------
+
+                var isAuthenticated = false;
+                var isAuthorized = false;
+
+                if (sessionExists) {
+                    if (session.isAuthenticated) {
+                        isAuthenticated = true;
+                        isAuthorized = isUserAuthorized();
+                    }
+                }
+
+                if (!isAuthenticated || !isAuthorized) {
+                    $location.path('/');
+                }
+
                 logRouteInstrumentation();
                 defer.resolve(true);
             })();
@@ -80,14 +110,19 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return defer.promise;
         };
 
-        // This function is available to any app that simply wants to log their route.
-        // The core does other session work and then logs it's route so it doesn't need this method.
-        var logRoute = function () {
+
+
+        // AUTHENTICATE USER: This is a stub.  Use this pattern in apps that offer authentication.
+        var authenticateUser = function () {
 
             var defer = $q.defer();
 
             (function () {
-                logRouteInstrumentation();
+
+                var sessions = sessionService.getUserSessions();
+                cacheService.putCache('mashupSessions', sessions);
+                //cacheService.putCache('mashupSessions', { session: 1, sessionName: 'session1' });
+
                 defer.resolve(true);
             })();
 
@@ -97,6 +132,6 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         return {
 
             resolveRoute: resolveRoute,
-            logRoute: logRoute
+            authenticateUser: authenticateUser
         };
     }]);
