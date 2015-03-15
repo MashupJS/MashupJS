@@ -168,19 +168,15 @@ mashupApp.service('sessionService', function () {
 
     })();
 
-
-    // The sessionService module cannot be added to the logService because of circular reference.
-    // I want the logService to have access to certain information stored in session so I'm adding this
-    // data to the $rootScope.  I don't like poluting the $rootScope but until I figure out a way
-    // around the circular reference this is my solution.
-    var userSession = {
-        UserName: ''
-    };
+    // The userSession object is used for general logging.  This prevents
+    // the log interception from having to know what user and app are invoking 
+    // the logService.  Each route will set these values.
     var userSessions = {};
 
     return {
 
         getUserSessions: function () {
+
 
             if (!userSessions.hasOwnProperty('logUserName')) {
                 userSessions.logUserName = 'unknown-user';
@@ -189,13 +185,12 @@ mashupApp.service('sessionService', function () {
             if (!userSessions.hasOwnProperty('logAppName')) {
                 userSessions.logAppName = 'unknown-app';
             }
-
             return userSessions;
         },
 
-        setUserSession: function (name, data) {
+        setUserSession: function (session) {
             //userSession = data; return true;
-            userSessions[name] = data; return true;
+            userSessions = session; return true;
         },
 
         envSession: function () { return envSession; }

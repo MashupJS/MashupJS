@@ -44,7 +44,9 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/welcome.controller.min.js']
                 });
             }],
-            authenticateUser: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.authenticateUser(); }],
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
+                return coreRouterAuth.resolveRoute();
+            }],
         }
     });
 }]);
@@ -68,6 +70,11 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             // -------------------------------------------------------------------
         };
 
+        var userSession;
+
+        var isUserAuthenticated = function () {
+            return true;
+        };
 
         var isUserAuthorized = function () {
             // REPLACE WITH YOU AUTHENTICATION CODE.
@@ -75,32 +82,20 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         };
 
         var resolveRoute = function () {
-            // VERIFY USER IS AUTHENTICATED AND AUTHORIZED
+            // VERIFY USER IS AUTHENTICATED AND AUTHORIZED AND IF NOT REROUTE TO LOGIN PAGE.
             var defer = $q.defer();
 
             (function () {
 
-                var session = sessionService.getUserSessions();
-                //var sessionExists = "core" in session;      <-- what you want to use!
-                // CHECK FOR SESSION WITH THE CODE ABOVE.
-                // -------------------------------------------------
-                var sessionExists = true;                  // <-- remove this, replace with above.
-                session.isAuthenticated = true;            // <-- remove this, will be part of the session
-                // stubbed code
-                // -------------------------------------------------
-
-                var isAuthenticated = false;
-                var isAuthorized = false;
-
-                if (sessionExists) {
-                    if (session.isAuthenticated) {
-                        isAuthenticated = true;
-                        isAuthorized = isUserAuthorized();
-                    }
-                }
-
+                var isAuthenticated = isUserAuthenticated();
+                var isAuthorized = isUserAuthorized();
+                
                 if (!isAuthenticated || !isAuthorized) {
                     $location.path('/');
+                }
+
+                if (isAuthenticated) {
+                    updateSessionsUser('Bob', 'mashupCore');
                 }
 
                 logRouteInstrumentation();
@@ -110,28 +105,17 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return defer.promise;
         };
 
-
-
-        // AUTHENTICATE USER: This is a stub.  Use this pattern in apps that offer authentication.
-        var authenticateUser = function () {
-
-            var defer = $q.defer();
-
-            (function () {
-
-                var sessions = sessionService.getUserSessions();
-                cacheService.putCache('mashupSessions', sessions);
-                //cacheService.putCache('mashupSessions', { session: 1, sessionName: 'session1' });
-
-                defer.resolve(true);
-            })();
-
-            return defer.promise;
+        var updateSessionsUser = function (logUserName, logAppName) {
+            // THIS INFORMATION IS USED BY SERVICES THAT NEED TO KNOW THE USER AND APP.
+            var session = sessionService.getUserSessions();
+            session.logUserName = logUserName;
+            session.logAppName = logAppName;
+            sessionService.setUserSession(session);
         };
+
 
         return {
 
-            resolveRoute: resolveRoute,
-            authenticateUser: authenticateUser
+            resolveRoute: resolveRoute
         };
     }]);

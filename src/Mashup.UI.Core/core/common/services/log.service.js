@@ -50,7 +50,7 @@ mashupApp.factory('logService', ['$filter', 'sessionService', 'utility',
 
             logDb.onReady(function () {
                 logDbReady = true;
-                console.log('logServiceDB is ready');
+                console.log('logServiceDB is ready. [logService]');
             });
             logDb.addEventListener('error', function (event) {
                 var e = event.getError();

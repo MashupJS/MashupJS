@@ -17,7 +17,7 @@ mashupApp.service('detectService', ['$http', '$q', '$log', '$interval', '$filter
 
             logHeartbeatLog.onReady(function () {
                 logHeartbeatReady = true;
-                console.log('logServiceDB.Heartbeat is ready');
+                console.log('logServiceDB is ready. [detectService]');
             });
 
             // TODO: Consider altering the interval based on the power of the device, batter power, network speed.

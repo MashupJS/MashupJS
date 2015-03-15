@@ -32,7 +32,7 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
          var dbCacheReady = false;
          dbCache.onReady(function () {
              dbCacheReady = true;
-             console.log('mashCacheDB is ready');
+             console.log('mashCacheDB is ready.  [cacheService]');
          });
          // -------------------------------------------------------------------------
 
@@ -188,9 +188,10 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
 
              dbCache: dbCache,
 
-             putCache: function (cacheName, data) {
+             putCache: function (cacheName, schema, data) {
 
-                 dbCache.put({ name: cacheName, keyPath: 'id' }, { id: cacheName, data: data });
+                 //dbCache.put({ name: cacheName, keyPath: 'id' }, { id: cacheName, data: data });
+                 dbCache.put(schema, data);
                  updateCacheAge(cacheName);
 
              },
