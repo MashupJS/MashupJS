@@ -174,9 +174,7 @@ All applications added to the Mashup will receive many features for free.  This 
  
 
 ##Roadmap
-**[Ease Transition to Angular 2.0](https://github.com/robertdunaway/blogs/blob/master/2014-12-06%20Preparing%20for%20Angular%202.0/Preparing%20for%20Angular%202.0.md)**
-
-
+ - **[Ease Transition to Angular 2.0](https://github.com/robertdunaway/blogs/blob/master/2014-12-06%20Preparing%20for%20Angular%202.0/Preparing%20for%20Angular%202.0.md)**
  - Application Level User Management
  - Exception Management (Dashboard, granular config)
  - Instrumentation (Dashboard, granular config)
