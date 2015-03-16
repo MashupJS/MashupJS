@@ -189,7 +189,6 @@ mashupApp.service('sessionService', function () {
         },
 
         setUserSession: function (session) {
-            //userSession = data; return true;
             userSessions = session; return true;
         },
 

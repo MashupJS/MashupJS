@@ -90,6 +90,8 @@
     <Content Include="core\css\bootstrap\yeti\bootstrap.min.css" />
     <Content Include="core\menu.controller.js" />
     <Content Include="core\menu.html" />
+    <Content Include="core\login.html" />
+    <Content Include="core\login.controller.js" />
     <Content Include="core\welcome.controller.js" />
     <Content Include="core\welcome.html" />
     <Content Include="index.controller.js" />

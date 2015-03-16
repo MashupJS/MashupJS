@@ -112,9 +112,17 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
              // waiting for dbCacheReady because accessing the cache to early causes an error.
              (function wait() {
                  if (dbCacheReady) {
-                     dbCache.executeSql('SELECT * FROM \'' + cacheName + '\'').then(function (record) {
-                         deferred.resolve(record);
-                     });
+
+                     try {
+                         dbCache.executeSql('SELECT * FROM \'' + cacheName + '\'').then(function (record) {
+                             deferred.resolve(record);
+                         });
+                     }
+                     catch (e) {
+                         // no data store for the cache was found so it is considered stale.
+                         deferred.resolve('NoCache');
+                     }
+
                  } else { setTimeout(wait, 500); }
              })();
              return deferred.promise;
@@ -199,10 +207,15 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
              // Retrieve cache
              getCache: function (cacheName) {
                  var deferred = $q.defer();
+
                  getCache(cacheName).then(function (data) {
                      deferred.resolve(data);
+                 }, function (reason) {
+                     deferred.reject();
                  });
+
                  return deferred.promise;
+
              },
              getData: function (cacheName, schema, webApiUrl, staleMinutes, useHeartBeatConvention, heartBeatUrl, heartBeatName) {
 
