@@ -58,15 +58,15 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/login.controller.js']
                 });
             }],
-            
+
         }
     });
 
 }]);
 
 mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'cacheService',
-    'utility', function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
-        utility) {
+    'utility', 'coreRouteHelper', function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
+        utility, coreRouteHelper) {
         'use strict';
 
         var resolveRoute = function () {
@@ -87,11 +87,9 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                         $location.path('/login');
                     }
 
-                    if (isAuthenticated) {
-                        updateSessionsUser('Bob', 'coreSession');
-                    }
-
-                    logRouteInstrumentation();
+                    updateSessionsUser('Bob', 'coreSession', isAuthenticated);
+                    
+                    coreRouteHelper.logRoute('mashup');
                     defer.resolve(true);
 
                 });
@@ -101,11 +99,12 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return defer.promise;
         };
 
-        var updateSessionsUser = function (logUserName, logAppName) {
+        var updateSessionsUser = function (logUserName, logAppName, isAuthenticated) {
             // THIS INFORMATION IS USED BY SERVICES THAT NEED TO KNOW THE USER AND APP.
             var session = sessionService.getUserSessions();
             session.logUserName = logUserName;
             session.logAppName = logAppName;
+            session.isAuthenticated = isAuthenticated
             sessionService.setUserSession(session);
         };
 
@@ -134,20 +133,6 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return true;
         };
 
-        var logRouteInstrumentation = function () {
-            // -------------------------------------------------------------------
-            // Instrumenting the application so we can track what pages get used.
-            // -------------------------------------------------------------------
-            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouterAuth', 'resolveRoute',
-                'resolving route', sessionService);
-            // Additional or custom properties for logging.
-            logObject.absUrl = $location.absUrl();
-            logObject.url = $location.url();
-            $log.log('Routing to [ ' + $location.url() + ' ]', logObject);
-            // -------------------------------------------------------------------
-            // -------------------------------------------------------------------
-        };
-
         return {
 
             resolveRoute: resolveRoute
@@ -160,11 +145,11 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$i
         coreDataService, utility) {
         'use strict';
 
-        var logRouteInstrumentation = function () {
+        var logRouteInstrumentation = function (application) {
             // -------------------------------------------------------------------
             // Instrumenting the application so we can track what pages get used.
             // -------------------------------------------------------------------
-            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouteHelper', 'logRoute',
+            var logObject = utility.getLogObject('Instr', application, 'coreRouteHelper', 'logRoute',
                 'resolving route', sessionService);
             // Additional or custom properties for logging.
             logObject.absUrl = $location.absUrl();
@@ -174,12 +159,12 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$i
             // -------------------------------------------------------------------
         };
 
-        var logRoute = function () {
+        var logRoute = function (application) {
 
             var defer = $q.defer();
 
             (function () {
-                logRouteInstrumentation();
+                logRouteInstrumentation(application);
                 defer.resolve(true);
             })();
 
