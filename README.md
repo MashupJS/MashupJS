@@ -25,29 +25,32 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  1. Install NodeJS
  2. Create a working directory and open a CLI to it
  3.  `npm install mashupjs`
- 4. Navigate to `node_modules\mashupjs\Mashup.UI.Core`
+ 4. Navigate to `node_modules\mashupjs`
  5. `npm install`
  6. `grunt` or `gulp` *(note: not yet gulp)*
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
-**[Developer Tools Used](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)**
 
+###Philosophy behind the Mashup
+*TODO: [Link to markdown]*
 
+notes - don't read this :)
+- reduce friction to starting SPA programming
+- reduce technical debt
+- code library
+- learning/teaching tool
+- team workflow flexibility
+- single code base /w hybrid option
 
-###Philosophy behind the MashupJS
-
-**[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
-
-**[Battling Technical Debt](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)**
 
 ##The MashupJS Style Guide
-**[The MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
+https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md
 
 The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
+Additionally this Guide links to other popular style guides.
 
-###Tips in Guide
-**[Controller As Syntax](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/ControllerAs.md)**
+*TODO: add style guides for WebApi, C#, Grunt/Gulp, etc.*
 
 ##Workflow
 *TODO: [Link to markdown]*
@@ -59,6 +62,7 @@ notes - don't read this :)
 - Add services/directives
 - Updating the Mashup core
 - Managing your custom code
+- Removing the mashupjs
 - Integrating with API
 - Data service tier
 - Using task runners
@@ -78,26 +82,6 @@ notes - don't read this :)
 - Much of this is in the style guide. Reference that where possible.
 - Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
 - Add enough design that a company using the Mashup can consider the system well documented.
-
-####Core Angular Services
-**[utilityService *(Facade)*](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
-- Facade implementation to all utilities reducing the number of modules required for injection.
-
-[**detectService**](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
-- The detectService does more than simple network detection.  This services tracks connectivity to the WebApi and back-end.
-
-**[cacheService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
-- a variety of caching models are available through Angular and more are coming with Angular 2.0.  The cacheService is a simple caching model using IndexedDB rather than localStorage offering many times more space for caching large amounts of data.
-
-**[logService](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
-- Simplifies logging for exceptions, debug information and instrumentation.  The logService overrides the $log service making the api simple and familiar.
-
-
-
-####Conifguration
-
-**[routeConfig.js](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
-- The routeConfig.js file from each application and the core are concatenated together into a single route configuration.  This model allows dev teams to work separately and combine app configs at build time.
 
 
 ##Using the Mashup for the enterprise
@@ -127,18 +111,12 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-**[How To Create a WebApi for the MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)**
+*TODO: [Link to markdown]*
 
-**[WebApi CORS Problem](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)**
- - This issue may have been addressed by now.  Verify CORS doesn't work before following these instructions.
 
 ##MashupJS Implementations
 - Link to core
-	- **[The MashupJS Core](https://github.com/MashupJS/MashupJS/tree/master/src)**
-	- `npm install mashupjs`
 - Link to WebApiAuth example app
-	- **[Mashup.Api.AuthADSP](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/Mashup.Api.AuthADSP/Mashup.Api.AuthADSP.md)**
-	- *npm package coming soon...*
 - Link to Multi-Session example app
 - Link to Ionic hybrid example app
 - Link to advanced routing example app
@@ -155,10 +133,9 @@ All applications added to the Mashup will receive many features for free.  This 
  - One Code Base for all Platforms
  - Authentication
  - Integration with Active Director (easily customized for integration such as Federated Auth)
- - **[Utility Service (Facade)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
- - **[Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
+ - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
  - Exception Management
- - **[Caching Services](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
+ - Caching Services
  - Rest Service Detection and Heartbeat Monitors
  -  Micro-library Management (update libraries in one place will update the library for all apps)
  - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
@@ -174,7 +151,6 @@ All applications added to the Mashup will receive many features for free.  This 
  
 
 ##Roadmap
- - **[Ease Transition to Angular 2.0](https://github.com/robertdunaway/blogs/blob/master/2014-12-06%20Preparing%20for%20Angular%202.0/Preparing%20for%20Angular%202.0.md)**
  - Application Level User Management
  - Exception Management (Dashboard, granular config)
  - Instrumentation (Dashboard, granular config)
