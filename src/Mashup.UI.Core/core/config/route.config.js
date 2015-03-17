@@ -153,3 +153,4 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             resolveRoute: resolveRoute
         };
     }]);
+
