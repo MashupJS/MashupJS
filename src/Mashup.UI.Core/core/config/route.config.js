@@ -154,3 +154,40 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         };
     }]);
 
+
+mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
+    'coreDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
+        coreDataService, utility) {
+        'use strict';
+
+        var logRouteInstrumentation = function () {
+            // -------------------------------------------------------------------
+            // Instrumenting the application so we can track what pages get used.
+            // -------------------------------------------------------------------
+            var logObject = utility.getLogObject('Instr', 'Mashup.UI.Core', 'coreRouteHelper', 'logRoute',
+                'resolving route', sessionService);
+            // Additional or custom properties for logging.
+            logObject.absUrl = $location.absUrl();
+            logObject.url = $location.url();
+            $log.log('UI-Routing to [ ' + $location.url() + ' ]', logObject);
+            // -------------------------------------------------------------------
+            // -------------------------------------------------------------------
+        };
+
+        var logRoute = function () {
+
+            var defer = $q.defer();
+
+            (function () {
+                logRouteInstrumentation();
+                defer.resolve(true);
+            })();
+
+            return defer.promise;
+        };
+
+        return {
+
+            logRoute: logRoute
+        };
+    }]);
