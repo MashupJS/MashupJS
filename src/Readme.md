@@ -38,4 +38,6 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 <a name="changelog"></a>
 ###Change Log
 2015-03-17: Addressed JSHint items
+
 2015-03-17: Corrected route problems
+
