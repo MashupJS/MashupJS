@@ -76,10 +76,11 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             (function () {
 
                 getAppSession().then(function (data) {
-                    var appUserSession = data;
+                    var appUserSession = data[0];
+                    var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
 
-                    var isAuthenticated = isUserAuthenticated(appUserSession);
-                    var isAuthorized = isUserAuthorized(appUserSession);
+                    var isAuthenticated = isUserAuthenticated(session);
+                    var isAuthorized = isUserAuthorized(session);
 
                     if (!isAuthenticated || !isAuthorized) {
                         // HERE YOU CAN SET $location.path('/login') to force authentication.
@@ -88,7 +89,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                     }
 
                     updateSessionsUser('Bob', 'coreSession', isAuthenticated);
-                    
+
                     coreRouteHelper.logRoute('mashup');
                     defer.resolve(true);
 
@@ -112,22 +113,26 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return cacheService.getCache('mashupSessions');
         };
 
-        var isUserAuthenticated = function (appUserSession) {
+        var isUserAuthenticated = function (session) {
             // REPLACE WITH YOU AUTHENTICATION CODE.
-            if (appUserSession === 'NoCache') {
+            if (_.isNull(session) || _.isUndefined(session)) {
                 return false;
             }
             else {
                 // If userId exists
                 // If last authorization was within acceptable range
+                                                
+                var userId = session.userName;
+                var isAuthenticated = session.isAuthenticated;
+                var authDateTime = session.authDateTime;
                 return true;
             }
             return true;
         };
 
-        var isUserAuthorized = function (appUserSession) {
+        var isUserAuthorized = function (session) {
             // REPLACE WITH YOU AUTHORIZATION CODE.
-            if (appUserSession === 'NoCache') {
+            if (_.isNull(session)) {
                 return false;
             }
             return true;

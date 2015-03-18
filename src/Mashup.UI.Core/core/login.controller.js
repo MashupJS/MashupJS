@@ -7,11 +7,17 @@ mashupApp.controller('mashup.LoginController', ['$location', 'sessionService', '
         var vm = this;
 
         var getAppSession = function () {
-            return cacheService.getCache('coreSession');
+            return cacheService.getCache('mashupSessions');
         };
 
         getAppSession().then(function (data) {
-            vm.appSession = data;
+            vm.appSession = data[0];
+
+            if (vm.appSession === 'NoCache' || vm.appSession === 'N' || _.isNull(vm.appSession) || _.isUndefined(vm.appSession)) {
+                vm.appSession = { sessions: [] };
+                vm.appSession.id = 'mashupSessions';
+            }
+
         });
 
         vm.login = function () {
@@ -32,30 +38,48 @@ mashupApp.controller('mashup.LoginController', ['$location', 'sessionService', '
         };
 
         var updateAppSession = function (userName, appSessionName) {
-
             // Add application session.  Each app will have it's own session or share a session.
 
-            // There is no cache or the coreSession hasn't been added yet.
-            if (vm.appSession === 'NoCache') { // || !vm.appSession.hasOwnProperty('mashupSessions')) {
+            //if (vm.appSession === 'NoCache' || vm.appSession === 'N') {
 
-                vm.appSession = { sessions: [] };
+            //    vm.appSession = { sessions: [] };
 
-                vm.appSession.id = 'mashupSessions';
-            }
+            //    vm.appSession.id = 'mashupSessions';
+            //}
 
             var utcMills = utility.localMilToUtcMil(new Date().getTime());
             var localMills = utility.utcMilToLocalMil(utcMills);
             var localDate = Date(localMills);
 
-            vm.appSession.sessions.push({
-                'appName': appSessionName, 'userName': userName,
-                'authTimeUTCMills': utcMills, 'authTimelocalMills': localMills, 'authTimelocalDate': localDate
-            });
 
-            // use where clause to get the session we just added.
-            // figure out how to tell if the item exists or not.
-            // if not then add with push.
-            // if yes then update
+            var sessionAlreadyExists;
+
+            //if (_.isNull(vm.appSession) || _.isUndefined(vm.appSession)) {
+            //    sessionAlreadyExists = false;
+            //}
+            //else {
+            sessionAlreadyExists = !!_.where(vm.appSession.sessions, { 'appName': 'coreSession' }).length;
+            //}
+
+            if (sessionAlreadyExists) {
+                // If YES then get the index of the session and update it.
+                // getting index of the session
+                var index = _.findIndex(vm.appSession.sessions, { 'appName': 'coreSession' });
+                // UPDATE SESSION
+                vm.appSession.sessions[index].appName = appSessionName;
+                vm.appSession.sessions[index].userName = userName;
+                vm.appSession.sessions[index].authTimeUTCMills = utcMills;
+                vm.appSession.sessions[index].authTimelocalMills = localMills;
+                vm.appSession.sessions[index].authTimelocalDate = localDate;
+            }
+            else {
+                // If NO then push object onto the session.
+                // ADD SESSION
+                vm.appSession.sessions.push({
+                    'appName': appSessionName, 'userName': userName,
+                    'authTimeUTCMills': utcMills, 'authTimelocalMills': localMills, 'authTimelocalDate': localDate
+                });
+            }
 
             cacheService.putCache('mashupSessions', { name: 'mashupSessions', keyPath: 'id' }, vm.appSession);
 
