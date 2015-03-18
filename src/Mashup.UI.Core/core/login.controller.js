@@ -1,4 +1,4 @@
-/*global mashupApp:false */
+/*global mashupApp:false, _:false */
 
 mashupApp.controller('mashup.LoginController', ['$location', 'sessionService', 'cacheService', 'utility',
     function ($location, sessionService, cacheService, utility) {

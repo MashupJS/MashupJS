@@ -1,4 +1,4 @@
-/*global mashupApp:false */
+/*global mashupApp:false, _:false */
 
 // --------------------------------------------------------------------------------------------- 
 // --------------------------------------------------------------------------------------------- 
@@ -105,7 +105,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             var session = sessionService.getUserSessions();
             session.logUserName = logUserName;
             session.logAppName = logAppName;
-            session.isAuthenticated = isAuthenticated
+            session.isAuthenticated = isAuthenticated;
             sessionService.setUserSession(session);
         };
 
