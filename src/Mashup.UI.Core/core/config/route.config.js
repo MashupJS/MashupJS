@@ -69,6 +69,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         utility, coreRouteHelper) {
         'use strict';
 
+        // METHOD CALLED BY THE ROUTER TO VERIFY AUTHENTICATION AND THEN AUTHORIZATION.
         var resolveRoute = function () {
             // VERIFY USER IS AUTHENTICATED AND AUTHORIZED AND IF NOT REROUTE TO LOGIN PAGE.
             var defer = $q.defer();
@@ -88,8 +89,6 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                         $location.path('/login');
                     }
 
-                    updateSessionsUser('Bob', 'coreSession', isAuthenticated);
-
                     coreRouteHelper.logRoute('mashup');
                     defer.resolve(true);
 
@@ -100,19 +99,11 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             return defer.promise;
         };
 
-        var updateSessionsUser = function (logUserName, logAppName, isAuthenticated) {
-            // THIS INFORMATION IS USED BY SERVICES THAT NEED TO KNOW THE USER AND APP.
-            var session = sessionService.getUserSessions();
-            session.logUserName = logUserName;
-            session.logAppName = logAppName;
-            session.isAuthenticated = isAuthenticated;
-            sessionService.setUserSession(session);
-        };
-
         var getAppSession = function () {
             return cacheService.getCache('mashupSessions');
         };
 
+        // CHECK AUTHENTICATION
         var isUserAuthenticated = function (session) {
             // REPLACE WITH YOU AUTHENTICATION CODE.
             if (_.isNull(session) || _.isUndefined(session)) {
@@ -125,11 +116,22 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                 var userId = session.userName;
                 var isAuthenticated = session.isAuthenticated;
                 var authDateTime = session.authDateTime;
+
+
+
+
+                //vm.appSession.sessions[index].authTimeUTCMills = utcMills;
+                //vm.appSession.sessions[index].authTimelocalMills = localMills;
+                //vm.appSession.sessions[index].authTimelocalDate = localDate;
+                //// Below helps prevent the system from re-authenticating a session that is actively being used.
+                //vm.appSession.sessions[index].sessionLastChecked = utcMills;
+
                 return true;
             }
             return true;
         };
 
+        // CHECK AUTHORIZATION
         var isUserAuthorized = function (session) {
             // REPLACE WITH YOU AUTHORIZATION CODE.
             if (_.isNull(session)) {
