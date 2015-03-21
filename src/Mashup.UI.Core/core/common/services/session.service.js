@@ -177,7 +177,6 @@ mashupApp.service('sessionService', function () {
 
         getUserSessions: function () {
 
-
             if (!userSessions.hasOwnProperty('logUserName')) {
                 userSessions.logUserName = 'unknown-user';
             }
