@@ -106,7 +106,7 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // Additional or custom properties for logging.
             logObject.userName = userName;
             logObject.appName = appName;
-            logObject.authenticated = authenticated
+            logObject.authenticated = authenticated;
             $log.log('Authentication [ User: ' + userName + ' ] on [App: ' + appName + ' ]', logObject);
             // -------------------------------------------------------------------
             // -------------------------------------------------------------------

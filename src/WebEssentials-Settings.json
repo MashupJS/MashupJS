@@ -80,7 +80,7 @@
     "RunOnBuild": false
   },
   "JavaScript": {
-    "AutoMinify": false,
+    "AutoMinify": true,
     "BlockCommentCompletion": true,
     "EvalTreatment": "MakeImmediateSafe",
     "GenerateSourceMaps": false,
