@@ -112,7 +112,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             else {
                 // If userId exists
                 // If last authorization was within acceptable range
-                                                
+
                 var userId = session.userName;
                 var isAuthenticated = session.isAuthenticated;
                 var authDateTime = session.authDateTime;

@@ -88,6 +88,9 @@
     <Content Include="core\config\route.config.js" />
     <Content Include="core\css\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="core\css\bootstrap\yeti\bootstrap.min.css" />
+    <Content Include="core\login.controller.min.js">
+      <DependentUpon>login.controller.js</DependentUpon>
+    </Content>
     <Content Include="core\menu.controller.js" />
     <Content Include="core\menu.html" />
     <Content Include="core\login.html" />

@@ -115,8 +115,10 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
 
                      try {
                          dbCache.executeSql('SELECT * FROM \'' + cacheName + '\'').then(function (record) {
-                             deferred.resolve(record);
+                             if (record === 'N') { deferred.resolve(''); }
+                             else { deferred.resolve(record); }
                          });
+
                      }
                      catch (e) {
                          // no data store for the cache was found so it is considered stale.
