@@ -1,7 +1,7 @@
 /*global mashupApp:false, _:false */
 
-mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout', 'sessionService', 'cacheService', 'utility',
-    function ($location, $log, $timeout, sessionService, cacheService, utility) {
+mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout', '$scope', 'sessionService', 'cacheService', 'utility',
+    function ($location, $log, $timeout, $scope, sessionService, cacheService, utility) {
         'use strict';
 
         var vm = this;
@@ -28,18 +28,14 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
 
             updateAppSession(vm.name, vm.appName);
 
-
             if (authenticated) {
                 // If authentication succeeded then the session needs updated before logging
                 // so the potential new user can be correctly accessed by the logService.
                 updateSessionsUser(vm.name, vm.appName);
                 logAuthentication(vm.name, vm.appName, authenticated);
-                
-                // BUG? The $location.path() command never worked the first time. I found this link.
-                // http://stackoverflow.com/questions/24143945/location-path-updates-after-the-second-click
-                $timeout(function () {
-                    $location.path('/');
-                }, 0);
+
+                $location.path('/')
+
             }
             else {
                 logAuthentication(vm.name, vm.appName, authenticated);
@@ -82,13 +78,13 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
                 vm.appSession.sessions[index].authTimelocalMills = localMills;
                 vm.appSession.sessions[index].authTimelocalDate = localDate;
                 // Below helps prevent the system from re-authenticating a session that is actively being used.
-                vm.appSession.sessions[index].sessionLastChecked = utcMills;   
+                vm.appSession.sessions[index].sessionLastChecked = utcMills;
             }
             else {
                 // If NO then push object onto the session.
                 // ADD SESSION
                 vm.appSession.sessions.push({
-                    'appName': appName, 'userName': userName, 'roles': roles ,
+                    'appName': appName, 'userName': userName, 'roles': roles,
                     'authTimeUTCMills': utcMills, 'authTimelocalMills': localMills, 'authTimelocalDate': localDate
                 });
             }
@@ -106,7 +102,7 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // Additional or custom properties for logging.
             logObject.userName = userName;
             logObject.appName = appName;
-            logObject.authenticated = authenticated;
+            logObject.authenticated = authenticated
             $log.log('Authentication [ User: ' + userName + ' ] on [App: ' + appName + ' ]', logObject);
             // -------------------------------------------------------------------
             // -------------------------------------------------------------------
