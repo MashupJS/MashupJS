@@ -18,9 +18,14 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
                 vm.appSession = { sessions: [] };
                 vm.appSession.id = 'mashupSessions';
             }
-
+           
+            var index = _.findIndex(vm.appSession.sessions, { 'appName': vm.appName });
+            if (index > -1) {
+                vm.labelUserName = vm.appSession.sessions[index].userName;
+            }
+            
         });
-
+        
         vm.login = function () {
 
             // SIMULARED AUTHENTICATION: REPLACE WITH ACTUAL AUTH CODE HERE.

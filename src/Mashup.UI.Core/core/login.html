@@ -17,7 +17,7 @@
 
                 <form name="loginForm" novalidate>
                     <div class="form-group">
-                        <label>user name</label>
+                        <label>User name </label> {{vm.labelUserName}}
                         <input name="name" class="form-control vp-textbox-input" ng-model="vm.name" required />
                         <span class="error" ng-show="loginForm.name.$error.required">Please enter a user name</span>
                     </div>
