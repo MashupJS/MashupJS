@@ -25,7 +25,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/about.controller.min.js']
                 });
             }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(); }],
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(['Administrator']); }],
         }
     })
 
@@ -40,7 +40,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/welcome.controller.min.js']
                 });
             }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(); }],
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(['MashupUser']); }],
         }
     })
     .when('/login', {
@@ -66,7 +66,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         'use strict';
 
         // METHOD CALLED BY THE ROUTER TO VERIFY AUTHENTICATION AND THEN AUTHORIZATION.
-        var resolveRoute = function () {
+        var resolveRoute = function (authGroupArray) {
             // VERIFY USER IS AUTHENTICATED AND AUTHORIZED AND IF NOT REROUTE TO LOGIN PAGE.
             var defer = $q.defer();
 
@@ -77,9 +77,14 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                     var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
 
                     var isAuthenticated = isUserAuthenticated(session);
-                    var isAuthorized = isUserAuthorized(session);
+                    var isAuthorized = isUserAuthorized(session, authGroupArray);
 
-                    if (!isAuthenticated || !isAuthorized) {
+                    if (!isAuthorized) {
+                        // Just kill the page change completely.
+                        defer.reject();
+                    }
+
+                    if (!isAuthenticated) {
                         // HERE YOU CAN SET $location.path('/login') to force authentication.
                         $location.path('/login');
                     }
@@ -132,12 +137,30 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
         };
 
         // CHECK AUTHORIZATION
-        var isUserAuthorized = function (session) {
+        var isUserAuthorized = function (session, authGroupArray) {
             // REPLACE WITH YOU AUTHORIZATION CODE.
+            var result = false;
+
+            // if no group is passed then assume isAuthorized = true;
+            if (authGroupArray.length === 0) { result = true;}
+
             if (_.isNull(session)) {
-                return false;
+                result = false;
             }
-            return true;
+            else {
+                // verify authGroupArray is an array.
+                // verify session.roles has a match with a group in authGroupArray
+                if (angular.isArray(authGroupArray)) {
+                    // JavaScript FOR loop is faster.  This is more readable so for small lists I'll used angular.isArray.
+                    // http://stackoverflow.com/questions/13843972/angular-js-break-foreach
+                    angular.forEach(authGroupArray, function (value, key) {
+                        if (_.contains(session.roles, value)) {
+                            result = true;
+                        }
+                    });
+                }
+            }
+            return result;
         };
         return {
 
