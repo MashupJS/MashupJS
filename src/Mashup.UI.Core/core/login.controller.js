@@ -34,7 +34,7 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
                 updateSessionsUser(vm.name, vm.appName);
                 logAuthentication(vm.name, vm.appName, authenticated);
 
-                $location.path('/')
+                $location.path('/');
 
             }
             else {
@@ -102,7 +102,7 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // Additional or custom properties for logging.
             logObject.userName = userName;
             logObject.appName = appName;
-            logObject.authenticated = authenticated
+            logObject.authenticated = authenticated;
             $log.log('Authentication [ User: ' + userName + ' ] on [App: ' + appName + ' ]', logObject);
             // -------------------------------------------------------------------
             // -------------------------------------------------------------------

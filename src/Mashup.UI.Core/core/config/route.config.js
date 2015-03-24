@@ -147,39 +147,39 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
     }]);
 
 
-mashupApp.factory('coreRouteHelper', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService',
-    'coreDataService', 'utility', function ($log, $q, $timeout, $location, $interval, sessionService,
-        coreDataService, utility) {
-        'use strict';
+mashupApp.factory('coreRouteHelper', ['$log', '$q', '$location', 'sessionService',
+     'utility', function ($log, $q, $location, sessionService,
+         utility) {
+         'use strict';
 
-        var logRouteInstrumentation = function (application) {
-            // -------------------------------------------------------------------
-            // Instrumenting the application so we can track what pages get used.
-            // -------------------------------------------------------------------
-            var logObject = utility.getLogObject('Instr', application, 'coreRouteHelper', 'logRoute',
-                'resolving route', sessionService);
-            // Additional or custom properties for logging.
-            logObject.absUrl = $location.absUrl();
-            logObject.url = $location.url();
-            $log.log('UI-Routing to [ ' + $location.url() + ' ]', logObject);
-            // -------------------------------------------------------------------
-            // -------------------------------------------------------------------
-        };
+         var logRouteInstrumentation = function (application) {
+             // -------------------------------------------------------------------
+             // Instrumenting the application so we can track what pages get used.
+             // -------------------------------------------------------------------
+             var logObject = utility.getLogObject('Instr', application, 'coreRouteHelper', 'logRoute',
+                 'resolving route', sessionService);
+             // Additional or custom properties for logging.
+             logObject.absUrl = $location.absUrl();
+             logObject.url = $location.url();
+             $log.log('UI-Routing to [ ' + $location.url() + ' ]', logObject);
+             // -------------------------------------------------------------------
+             // -------------------------------------------------------------------
+         };
 
-        var logRoute = function (application) {
+         var logRoute = function (application) {
 
-            var defer = $q.defer();
+             var defer = $q.defer();
 
-            (function () {
-                logRouteInstrumentation(application);
-                defer.resolve(true);
-            })();
+             (function () {
+                 logRouteInstrumentation(application);
+                 defer.resolve(true);
+             })();
 
-            return defer.promise;
-        };
+             return defer.promise;
+         };
 
-        return {
+         return {
 
-            logRoute: logRoute
-        };
-    }]);
+             logRoute: logRoute
+         };
+     }]);
