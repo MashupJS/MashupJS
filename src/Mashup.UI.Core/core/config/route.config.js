@@ -6,11 +6,7 @@
 // --------------------------------------------------------------------------------------------- 
 // --------------------------------------------------------------------------------------------- 
 
-// configure our routes
-
-// TODO: add a universal resolve that will run for all routes.  Will need to angular.extend $routeProvider.
-// for now just copying the following resolve to every method:
-// , resolve: { coreRouterAuth: function ($route, coreRouterAuth) { return coreRouterAuth.logRoute(); } }
+// configure routes
 
 mashupApp.config(['$routeProvider', function ($routeProvider) {
 
@@ -85,8 +81,10 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
 
                     if (!isAuthenticated || !isAuthorized) {
                         // HERE YOU CAN SET $location.path('/login') to force authentication.
-                        // $location/path('/login');
                         $location.path('/login');
+                    }
+                    else {
+                        session.sessionLastUsed = utility.localMilToUtcMil(new Date().getTime());
                     }
 
                     coreRouteHelper.logRoute('mashup');
@@ -110,23 +108,25 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
                 return false;
             }
             else {
-                // If userId exists
-                // If last authorization was within acceptable range
-
                 var userId = session.userName;
                 var isAuthenticated = session.isAuthenticated;
                 var authDateTime = session.authDateTime;
+                var utcMills = session.authTimeUTCMills;
 
+                var result = true;
 
+                // Check if user is authenticated.
+                if (!isAuthenticated) { result = false; }
 
+                // Check if the session is stale
+                var currentUtcMills = utility.localMilToUtcMil(new Date().getTime());
 
-                //vm.appSession.sessions[index].authTimeUTCMills = utcMills;
-                //vm.appSession.sessions[index].authTimelocalMills = localMills;
-                //vm.appSession.sessions[index].authTimelocalDate = localDate;
-                //// Below helps prevent the system from re-authenticating a session that is actively being used.
-                //vm.appSession.sessions[index].sessionLastChecked = utcMills;
+                var minutes = 60;  // HARD CODED SESSION EXPIRATION FOR DEMO PURPOSES.
+                var expireUtcMills = utcMills + (60000 * minutes);
 
-                return true;
+                if (expireUtcMills < currentUtcMills) { result = false; }
+
+                return result;
             }
             return true;
         };
@@ -139,13 +139,11 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             }
             return true;
         };
-
         return {
 
             resolveRoute: resolveRoute
         };
     }]);
-
 
 mashupApp.factory('coreRouteHelper', ['$log', '$q', '$location', 'sessionService',
      'utility', function ($log, $q, $location, sessionService,

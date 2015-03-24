@@ -26,12 +26,12 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // SIMULARED AUTHENTICATION: REPLACE WITH ACTUAL AUTH CODE HERE.
             var authenticated = true;
 
-            updateAppSession(vm.name, vm.appName);
-
             if (authenticated) {
-                // If authentication succeeded then the session needs updated before logging
-                // so the potential new user can be correctly accessed by the logService.
+                // update the appSession in indexedDB
+                updateAppSession(vm.name, vm.appName);
+                // update the sessionService used by logging
                 updateSessionsUser(vm.name, vm.appName);
+                // log authentication results
                 logAuthentication(vm.name, vm.appName, authenticated);
 
                 $location.path('/');
@@ -55,6 +55,27 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
 
         var updateAppSession = function (userName, appName) {
             // ASSUMING YOU'LL HAVE YOUR OWN SESSION OBJECT, REPLACE THESE PARAMETERS WITH YOUR AUTH OBJECT.
+            var sessionAlreadyExists;
+            sessionAlreadyExists = !!_.where(vm.appSession.sessions, { 'appName': appName }).length;
+
+            var session = buildSessionJSON(userName, appName);
+
+            if (sessionAlreadyExists) {
+                // If YES then get the index of the session and update it.
+                // getting index of the session
+                var index = _.findIndex(vm.appSession.sessions, { 'appName': appName });
+                vm.appSession.sessions[index] = session;
+            }
+            else {
+                // If NO then push object onto the session.
+                // ADD SESSION
+                vm.appSession.sessions.push(session);
+            }
+            cacheService.putCache('mashupSessions', { name: 'mashupSessions', keyPath: 'id' }, vm.appSession);
+        };
+
+        var buildSessionJSON = function (userName, appName) {
+            var sessionJSON = {};
 
             var utcMills = utility.localMilToUtcMil(new Date().getTime());
             var localMills = utility.utcMilToLocalMil(utcMills);
@@ -63,34 +84,17 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // TODO: REPLACE stub roles array
             var roles = ['DomainUser', 'MashupUser', 'Administrator'];
 
-            var sessionAlreadyExists;
-            sessionAlreadyExists = !!_.where(vm.appSession.sessions, { 'appName': appName }).length;
+            sessionJSON.appName = appName;
+            sessionJSON.userName = userName;
+            sessionJSON.roles = roles;
+            sessionJSON.authTimeUTCMills = utcMills;
+            sessionJSON.authTimelocalMills = localMills;
+            sessionJSON.authTimelocalDate = localDate;
+            // Below helps prevent the system from re-authenticating a session that is actively being used.
+            sessionJSON.sessionLastUsed = utcMills;
+            sessionJSON.isAuthenticated = true;
 
-            if (sessionAlreadyExists) {
-                // If YES then get the index of the session and update it.
-                // getting index of the session
-                var index = _.findIndex(vm.appSession.sessions, { 'appName': appName });
-                // UPDATE SESSION
-                vm.appSession.sessions[index].appName = appName;
-                vm.appSession.sessions[index].userName = userName;
-                vm.appSession.sessions[index].roles = roles;
-                vm.appSession.sessions[index].authTimeUTCMills = utcMills;
-                vm.appSession.sessions[index].authTimelocalMills = localMills;
-                vm.appSession.sessions[index].authTimelocalDate = localDate;
-                // Below helps prevent the system from re-authenticating a session that is actively being used.
-                vm.appSession.sessions[index].sessionLastChecked = utcMills;
-            }
-            else {
-                // If NO then push object onto the session.
-                // ADD SESSION
-                vm.appSession.sessions.push({
-                    'appName': appName, 'userName': userName, 'roles': roles,
-                    'authTimeUTCMills': utcMills, 'authTimelocalMills': localMills, 'authTimelocalDate': localDate
-                });
-            }
-
-            cacheService.putCache('mashupSessions', { name: 'mashupSessions', keyPath: 'id' }, vm.appSession);
-
+            return sessionJSON;
         };
 
         var logAuthentication = function (userName, appName, authenticated) {
@@ -107,6 +111,5 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
             // -------------------------------------------------------------------
             // -------------------------------------------------------------------
         };
-
 
     }]);
