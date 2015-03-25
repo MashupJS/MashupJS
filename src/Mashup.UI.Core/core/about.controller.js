@@ -13,32 +13,32 @@ mashupApp.controller('mashup.AboutController', ['$filter', 'coreDataService', 'c
 
         vm.sessions = [
   {
-      "appName": "coreSession",
-      "userName": "Joe",
-      "roles": [
-        "DomainUser",
-        "MashupUser",
-        "Administrator"
+      'appName': 'coreSession',
+      'userName': 'Joe',
+      'roles': [
+        'DomainUser',
+        'MashupUser',
+        'Administrator'
       ],
-      "authTimeUTCMills": 1427325419503,
-      "authTimelocalMills": 1427311019503,
-      "authTimelocalDate": "Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)",
-      "sessionLastUsed": 1427325419503,
-      "isAuthenticated": true
+      'authTimeUTCMills': 1427325419503,
+      'authTimelocalMills': 1427311019503,
+      'authTimelocalDate': 'Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)',
+      'sessionLastUsed': 1427325419503,
+      'isAuthenticated': true
   },
     {
-        "appName": "coreSession2",
-        "userName": "Joe",
-        "roles": [
-          "DomainUser",
-          "MashupUser",
-          "Administrator"
+        'appName': 'coreSession2',
+        'userName': 'Joe',
+        'roles': [
+          'DomainUser',
+          'MashupUser',
+          'Administrator'
         ],
-        "authTimeUTCMills": 1427325419503,
-        "authTimelocalMills": 1427311019503,
-        "authTimelocalDate": "Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)",
-        "sessionLastUsed": 1427325419503,
-        "isAuthenticated": true
+        'authTimeUTCMills': 1427325419503,
+        'authTimelocalMills': 1427311019503,
+        'authTimelocalDate': 'Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)',
+        'sessionLastUsed': 1427325419503,
+        'isAuthenticated': true
     }
         ];
 

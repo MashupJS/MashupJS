@@ -22,10 +22,12 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                 // you can lazy load files for an existing module
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/about.controller.js']
+                    files: ['core/about.controller.min.js']
                 });
             }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(['Administrator']); }],
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
+                return coreRouterAuth.resolveRoute(['Administrator']);
+            }],
         }
     })
 
@@ -40,7 +42,9 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['core/welcome.controller.min.js']
                 });
             }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(['MashupUser']); }],
+            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
+                return coreRouterAuth.resolveRoute(['MashupUser']);
+            }],
         }
     })
     .when('/login', {
@@ -142,7 +146,7 @@ mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$in
             var result = false;
 
             // if no group is passed then assume isAuthorized = true;
-            if (authGroupArray.length === 0) { result = true;}
+            if (authGroupArray.length === 0) { result = true; }
 
             if (_.isNull(session)) {
                 result = false;
