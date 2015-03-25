@@ -1,15 +1,50 @@
 /*global mashupApp:false */
 
-mashupApp.controller('mashup.AboutController', ['$filter', 'coreDataService',
-    function ($filter, coreDataService) {
+mashupApp.controller('mashup.AboutController', ['$filter', 'coreDataService', 'cacheService',
+    function ($filter, coreDataService, cacheService) {
 
-//mashupApp.controller('mashup.AboutController', ['$log', '$http', '$filter', 'sessionService', 'mashupDataService',
-//    function ($log, $http, $filter, sessionService, mashupDataService) {
         'use strict';
 
         var vm = this;
 
-        // vm.user = sessionService.userSession();
+        var getAppSession = function () {
+            return cacheService.getCache('mashupSessions');
+        };
+
+        vm.sessions = [
+  {
+      "appName": "coreSession",
+      "userName": "Joe",
+      "roles": [
+        "DomainUser",
+        "MashupUser",
+        "Administrator"
+      ],
+      "authTimeUTCMills": 1427325419503,
+      "authTimelocalMills": 1427311019503,
+      "authTimelocalDate": "Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)",
+      "sessionLastUsed": 1427325419503,
+      "isAuthenticated": true
+  },
+    {
+        "appName": "coreSession2",
+        "userName": "Joe",
+        "roles": [
+          "DomainUser",
+          "MashupUser",
+          "Administrator"
+        ],
+        "authTimeUTCMills": 1427325419503,
+        "authTimelocalMills": 1427311019503,
+        "authTimelocalDate": "Wed Mar 25 2015 15:16:59 GMT-0400 (Eastern Daylight Time)",
+        "sessionLastUsed": 1427325419503,
+        "isAuthenticated": true
+    }
+        ];
+
+        //getAppSession().then(function (data) {
+        //    vm.sessions = data[0].sessions;
+        //});
 
         coreDataService.getCache('mashCacheAge').then(function (data) {
 
@@ -20,5 +55,7 @@ mashupApp.controller('mashup.AboutController', ['$filter', 'coreDataService',
             vm.sessionCache = data;
 
         });
+
+        //$('#mytab').tab('show');
 
     }]);

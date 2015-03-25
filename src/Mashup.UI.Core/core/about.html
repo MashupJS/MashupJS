@@ -67,10 +67,14 @@
             <h4>About</h4>
         </div>
         <div class="panel-body">
-            
-            
-            
-            
+
+            <h4 class="" style="text-align:left">User Sessions</h4>
+            <tabset >
+                <tab ng-repeat="session in vm.sessions" heading="{{session.appName}}"><pre>{{session}}</pre></tab>
+            </tabset>
+
+            <hr />
+
 
             <h4 class="" style="text-align:left">Session Cache</h4>
 

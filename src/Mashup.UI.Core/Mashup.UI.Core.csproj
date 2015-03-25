@@ -71,6 +71,9 @@
     <Content Include="apps\app2\~appConfig\menu.config.js" />
     <Content Include="apps\app2\~appConfig\route.config.js" />
     <Content Include="core\about.controller.js" />
+    <Content Include="core\about.controller.min.js">
+      <DependentUpon>about.controller.js</DependentUpon>
+    </Content>
     <Content Include="core\about.html" />
     <Content Include="core\common\data\data.service.js" />
     <Content Include="core\config\menu.config.js" />

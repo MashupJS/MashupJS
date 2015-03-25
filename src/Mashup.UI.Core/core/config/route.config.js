@@ -22,7 +22,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                 // you can lazy load files for an existing module
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/about.controller.min.js']
+                    files: ['core/about.controller.js']
                 });
             }],
             resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) { return coreRouterAuth.resolveRoute(['Administrator']); }],
@@ -51,7 +51,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
             loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/login.controller.js']
+                    files: ['core/login.controller.min.js']
                 });
             }],
 
