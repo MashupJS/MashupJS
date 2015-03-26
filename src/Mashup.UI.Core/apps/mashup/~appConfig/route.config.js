@@ -51,7 +51,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['apps/mashup/login.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute('mashup') }],
+            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute('mashup'); }],
 
         }
     });
