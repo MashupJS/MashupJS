@@ -6,64 +6,6 @@
 // --------------------------------------------------------------------------------------------- 
 // --------------------------------------------------------------------------------------------- 
 
-// configure routes
-
-mashupApp.config(['$routeProvider', function ($routeProvider) {
-
-    $routeProvider.otherwise({ redirectTo: '/' });
-
-    $routeProvider
-    .when('/about', {
-        templateUrl: 'core/about.html',
-        controller: 'mashup.AboutController',
-        controllerAs: 'vm',
-        resolve: {
-            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                // you can lazy load files for an existing module
-                return $ocLazyLoad.load({
-                    name: 'mashupApp',
-                    files: ['core/about.controller.min.js']
-                });
-            }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
-                return coreRouterAuth.resolveRoute(['Administrator']);
-            }],
-        }
-    })
-
-    .when('/', {
-        templateUrl: 'core/welcome.html',
-        controller: 'mashup.WelcomeController',
-        controllerAs: 'vm',
-        resolve: {
-            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                    name: 'mashupApp',
-                    files: ['core/welcome.controller.min.js']
-                });
-            }],
-            resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
-                return coreRouterAuth.resolveRoute(['MashupUser']);
-            }],
-        }
-    })
-    .when('/login', {
-        templateUrl: 'core/login.html',
-        controller: 'mashup.LoginController',
-        controllerAs: 'vm',
-        resolve: {
-            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                    name: 'mashupApp',
-                    files: ['core/login.controller.min.js']
-                });
-            }],
-
-        }
-    });
-
-}]);
-
 mashupApp.factory('coreRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'cacheService',
     'utility', 'coreRouteHelper', function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
         utility, coreRouteHelper) {
@@ -177,11 +119,11 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$location', 'sessionService
          utility) {
          'use strict';
 
-         var logRouteInstrumentation = function (application) {
+         var logRouteInstrumentation = function (appName) {
              // -------------------------------------------------------------------
              // Instrumenting the application so we can track what pages get used.
              // -------------------------------------------------------------------
-             var logObject = utility.getLogObject('Instr', application, 'coreRouteHelper', 'logRoute',
+             var logObject = utility.getLogObject('Instr', appName, 'coreRouteHelper', 'logRoute',
                  'resolving route', sessionService);
              // Additional or custom properties for logging.
              logObject.absUrl = $location.absUrl();
@@ -191,12 +133,12 @@ mashupApp.factory('coreRouteHelper', ['$log', '$q', '$location', 'sessionService
              // -------------------------------------------------------------------
          };
 
-         var logRoute = function (application) {
+         var logRoute = function (appName) {
 
              var defer = $q.defer();
 
              (function () {
-                 logRouteInstrumentation(application);
+                 logRouteInstrumentation(appName);
                  defer.resolve(true);
              })();
 

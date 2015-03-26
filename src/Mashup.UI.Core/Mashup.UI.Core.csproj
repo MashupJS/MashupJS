@@ -70,11 +70,12 @@
     <Content Include="apps\app2\page4\page4.html" />
     <Content Include="apps\app2\~appConfig\menu.config.js" />
     <Content Include="apps\app2\~appConfig\route.config.js" />
-    <Content Include="core\about.controller.js" />
-    <Content Include="core\about.controller.min.js">
+    <Content Include="apps\mashup\~appConfig\route.config.js" />
+    <Content Include="apps\mashup\about.controller.js" />
+    <Content Include="apps\mashup\about.controller.min.js">
       <DependentUpon>about.controller.js</DependentUpon>
     </Content>
-    <Content Include="core\about.html" />
+    <Content Include="apps\mashup\about.html" />
     <Content Include="core\common\data\data.service.js" />
     <Content Include="core\config\menu.config.js" />
     <Content Include="core\css\bootstrap\Normalize-3.0.1.css" />
@@ -91,15 +92,15 @@
     <Content Include="core\config\route.config.js" />
     <Content Include="core\css\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="core\css\bootstrap\yeti\bootstrap.min.css" />
-    <Content Include="core\login.controller.min.js">
+    <Content Include="apps\mashup\login.controller.min.js">
       <DependentUpon>login.controller.js</DependentUpon>
     </Content>
-    <Content Include="core\menu.controller.js" />
-    <Content Include="core\menu.html" />
-    <Content Include="core\login.html" />
-    <Content Include="core\login.controller.js" />
-    <Content Include="core\welcome.controller.js" />
-    <Content Include="core\welcome.html" />
+    <Content Include="apps\mashup\menu.controller.js" />
+    <Content Include="apps\mashup\menu.html" />
+    <Content Include="apps\mashup\login.html" />
+    <Content Include="apps\mashup\login.controller.js" />
+    <Content Include="apps\mashup\welcome.controller.js" />
+    <Content Include="apps\mashup\welcome.html" />
     <Content Include="index.controller.js" />
     <Content Include="core\config\config.js" />
     <Content Include="core\css\bootstrap\default\bootstrap-theme.css" />
