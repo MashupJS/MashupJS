@@ -1,4 +1,4 @@
-﻿/*global mashupApp:false, _:false */
+/*global mashupApp:false, _:false */
 
 // configure routes
 mashupApp.config(['$routeProvider', function ($routeProvider) {
@@ -7,7 +7,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
     .when('/about', {
-        templateUrl: 'core/about.html',
+        templateUrl: 'apps/mashup/about.html',
         controller: 'mashup.AboutController',
         controllerAs: 'vm',
         resolve: {
@@ -15,7 +15,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                 // you can lazy load files for an existing module
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/about.controller.min.js']
+                    files: ['apps/mashup/about.controller.min.js']
                 });
             }],
             resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
@@ -25,14 +25,14 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
     })
 
     .when('/', {
-        templateUrl: 'core/welcome.html',
+        templateUrl: 'apps/mashup/welcome.html',
         controller: 'mashup.WelcomeController',
         controllerAs: 'vm',
         resolve: {
             loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/welcome.controller.min.js']
+                    files: ['apps/mashup/welcome.controller.min.js']
                 });
             }],
             resolveRoute: ['$route', 'coreRouterAuth', function ($route, coreRouterAuth) {
@@ -41,14 +41,14 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         }
     })
     .when('/login', {
-        templateUrl: 'core/login.html',
+        templateUrl: 'apps/mashup/login.html',
         controller: 'mashup.LoginController',
         controllerAs: 'vm',
         resolve: {
             loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                     name: 'mashupApp',
-                    files: ['core/login.controller.min.js']
+                    files: ['apps/mashup/login.controller.min.js']
                 });
             }],
 
