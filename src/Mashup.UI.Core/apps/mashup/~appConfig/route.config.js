@@ -77,14 +77,15 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
                     var isAuthenticated = isUserAuthenticated(session);
                     var isAuthorized = isUserAuthorized(session, authGroupArray);
 
-                    if (!isAuthorized) {
-                        // Just kill the page change completely.
-                        defer.reject();
-                    }
 
                     if (!isAuthenticated) {
                         // HERE YOU CAN SET $location.path('/login') to force authentication.
                         $location.path('/mashup/login');
+
+                        if (!isAuthorized) {
+                            // Just kill the page change completely.
+                            defer.reject();
+                        }
                     }
                     else {
                         session.sessionLastUsed = utility.localMilToUtcMil(new Date().getTime());
