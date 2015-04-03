@@ -130,3 +130,18 @@ var getAppSession = function () {
 ```
 
 ![enter image description here](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/router%20auth.png?raw=true)
+
+
+##JavaScript Loading Options
+Depending on your development and delivery workflow there are multiple approaches to optimizing and building your solution.
+
+ - List item
+
+
+
+ - Use Grunt/Gulp to create one file for each page Lazy load each JS as needed.
+ - Use Grunt/Gulp to create one file per application.
+ - Use Grunt/Gulp to create one file for entire mashup and apps.
+ - Initial load time versus deep linking. 
+   - You can optimize the initial load of the first page but when users can deep link into any place in the application the quick initial load is lost.  The option I’ve chose is lazy loading components needed for any page via the router.  This gives us a fairly quick deep linking load time.
+   - These are line-of-business applications that are used repeatedly.  Once the application has loaded once the follow up loads should pull scripts from cache.
