@@ -145,3 +145,16 @@ Depending on your development and delivery workflow there are multiple approache
  - Initial load time versus deep linking. 
    - You can optimize the initial load of the first page but when users can deep link into any place in the application the quick initial load is lost.  The option I’ve chose is lazy loading components needed for any page via the router.  This gives us a fairly quick deep linking load time.
    - These are line-of-business applications that are used repeatedly.  Once the application has loaded once the follow up loads should pull scripts from cache.
+
+
+##apps/mashup
+Welcome Page – just a landing page.
+
+##About Page
+Displays all sessions with one tab per session and the session in the form of JSON.  You’re about page will have a more custom display of user session information.
+
+The About page also displays what is currently cached for fast data retrieval.
+
+##Login Page
+The login page demonstrates a basic way to get and store authentication information as a user session.
+
