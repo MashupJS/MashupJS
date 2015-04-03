@@ -129,3 +129,4 @@ var getAppSession = function () {
 
 ```
 
+![enter image description here](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/router%20auth.png?raw=true)
