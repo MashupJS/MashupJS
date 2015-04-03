@@ -1,6 +1,7 @@
 
 ---
 title: Mashup/Apps
+
 tags: 
 - AngularJS
 - Bootstrap
@@ -15,7 +16,6 @@ tags:
 - Resolve
 - sessionService
 - cacheService
-- 
 ---
 
 #Mashup/Apps
