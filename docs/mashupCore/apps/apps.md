@@ -62,3 +62,4 @@ return mashupRouterAuth.resolveRoute(['Administrator']);
         }
     })
 ```
+
