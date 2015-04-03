@@ -47,7 +47,7 @@ Each application is responsible for its own security but each application can su
 
 Authentication and authorization are performed in the route configuration using “resolve”.
 
-Example:
+**Example:**
 ``` JavaScript
 mashupApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: '/mashup' });
@@ -76,4 +76,56 @@ The “resolveRoute:” function is executed before the route can be resolved.  
 The resolveRoute function is injected with the mashupRouterAuth which gives access to the “resolveRoute” function.  The **mashup** in “mashupRouteAuth” is referring to the name of the app plush “RouterAuth”.  You application, if named “accounting”, could be “accountingRouteAuth”.
 
 You can deviate and improve upon this basic design.  
+
+
+##Sessions
+
+Each application can have its own session or share.  It’s possible that all your applications use one session except for a customer facing application that uses Identity Server 3.  The mashup can easily accommodate multiple sessions.
+
+There are two different types of session.  There is the “sessionService” and an application’s user session.
+
+The sessionService is for general use by utilities such as the logService.  Only a little user information is maintained in the sessionService to let utilities know the user and application that was being used at that moment.  When switching to another application within the mashup the user id from that session and its application name are updated within the sessionService.
+
+The application’s user session is stored in IndexedDB and retrieved by the session name.
+
+**Basic AuthN/AuthR Example:**
+
+``` JavaScript
+(function () {
+
+ getAppSession().then(function (data) {
+    var appUserSession = data[0];
+    var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
+
+    var isAuthenticated = isUserAuthenticated(session);
+    var isAuthorized = isUserAuthorized(session, authGroupArray);
+
+    if (!isAuthorized) {
+        // Just kill the page change completely.
+        defer.reject();
+    }
+
+    if (!isAuthenticated) {
+        // HERE YOU CAN SET $location.path('/login') to force authentication.
+        $location.path('/mashup/login');
+    }
+    else {
+        session.sessionLastUsed = utility.localMilToUtcMil(new Date().getTime());
+    }
+
+    coreRouteHelper.logRoute('mashup');
+    defer.resolve(true);
+
+  });
+
+})();
+
+  return defer.promise;
+};
+
+var getAppSession = function () {
+  return cacheService.getCache('mashupSessions');
+};
+
+```
 
