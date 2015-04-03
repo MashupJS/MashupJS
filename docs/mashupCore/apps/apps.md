@@ -15,7 +15,9 @@ tags:
 - Resolve
 - sessionService
 - cacheService
+- 
 ---
+
 #Mashup/Apps
 The apps directory is for your apps.  After installing the Mashup you’ll have a couple starter apps as a map for how to create your own.
 
