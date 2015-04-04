@@ -36,6 +36,41 @@
     <!-- (SOLVED) By placing  ng-click="close()" on the panel body of each collapsing area.  4 total watches instead of 30 or 40. -->
     <!-- (PROBLEM) The accordian controls are registering in the URL.  We don't want this. -->
     <!-- (SOLVED) By replacing href with data-target we are able to declare the behavior without affecting our routing sceme -->
+    <!--Dynamic loading menu-->
+    <div class="panel-group" id="dynamicMenu">
+        <div class="panel panel-default" ng-repeat="category in menuJson">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion{{category.name}}" data-target="#collapse{{category.name}}">
+                        <i class="fa fa-lg fa-fw {{category.icon}}"></i> {{category.name}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{category.name}}" class="panel-collapse collapse">
+                <div class="panel-body" ng-click="close()">
+
+                    <div class="row">
+
+                        <div class="col-sm-4" ng-repeat="menuitem in category.groups">
+                            <a href="#" class="list-group-item vp-menu-btn">
+                                <i class="fa fa-lg fa-fw fa-home"></i><span class="h4">{{menuitem.name}}</span>
+                                <p class="list-group-item-text">...</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
 
     <div style="height: 20px;"></div>
     <div class="panel-group" id="accordion">
@@ -263,6 +298,13 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
 </div>
 <div class="modal-footer">
     <button style=" font-size: large;" class="btn btn-warning" ng-click="close()">Close</button>
