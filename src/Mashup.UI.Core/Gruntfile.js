@@ -93,10 +93,6 @@ module.exports = function (grunt) {
                 src: ['core/common/**/*', '!core/lib/**/*', '!core/dist/**/*'],
                 dest: '<%= distFolder %>/core.services.js',
             },
-            //menuconfig: {
-            //    src: ['core/config/menu.config.js', 'apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*'],
-            //    dest: '<%= distFolder %>/menu.config.js',
-            //},
 
         },
         clean: {
@@ -223,8 +219,8 @@ module.exports = function (grunt) {
             },
             service_config: {
                 files: ['core/common/**/*', 'core/config/route.config.js', 'core/**/route.config.js'
-                        , 'core/config/menu.config.js', 'core/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
-                tasks: ['clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices', 'uglify:dist'],
+                        , 'core/config/menu.config.js', 'apps/**/menu.json.txt', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
+                tasks: ['clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices', 'uglify:dist'],
                 options: {
                     nospawn: true,
                 },
@@ -266,7 +262,7 @@ module.exports = function (grunt) {
     // grunt default
     grunt.registerTask('default', [
         'annotate',
-        'clean:dist', 'concat:routeconfig', 'concat:menuconfig', 'concat:coreservices',
+        'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
         'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
     ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
@@ -282,7 +278,7 @@ module.exports = function (grunt) {
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
     grunt.registerTask('myjshint', ['jshint']);
-    grunt.registerTask('menu', ["merge-json:menu"]);
+    grunt.registerTask('menu', ['merge-json:menu']);
 
 
     // This is where I hit a wall and I've decided to move to gulp.

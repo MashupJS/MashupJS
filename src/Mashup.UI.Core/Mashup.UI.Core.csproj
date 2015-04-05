@@ -70,9 +70,6 @@
     <Content Include="apps\app2\page4\page4.html" />
     <Content Include="apps\app2\~appConfig\menu.json.txt" />
     <Content Include="apps\app2\~appConfig\route.config.js" />
-    <Content Include="apps\mashup\menu.controller.min.js">
-      <DependentUpon>menu.controller.js</DependentUpon>
-    </Content>
     <Content Include="apps\mashup\~appConfig\route.config.js" />
     <Content Include="apps\mashup\about.controller.js" />
     <Content Include="apps\mashup\about.controller.min.js">
