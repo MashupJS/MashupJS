@@ -93,10 +93,10 @@ module.exports = function (grunt) {
                 src: ['core/common/**/*', '!core/lib/**/*', '!core/dist/**/*'],
                 dest: '<%= distFolder %>/core.services.js',
             },
-            menuconfig: {
-                src: ['core/config/menu.config.js', 'apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*'],
-                dest: '<%= distFolder %>/menu.config.js',
-            },
+            //menuconfig: {
+            //    src: ['core/config/menu.config.js', 'apps/**/menu.config.js', '!core/lib/**/*', '!core/dist/**/*'],
+            //    dest: '<%= distFolder %>/menu.config.js',
+            //},
 
         },
         clean: {
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,                  // Enable dynamic expansion
-                   // cwd: 'core/',
+                    // cwd: 'core/',
                     src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**', '!**/dist/**'],   // Actual patterns to match
                     dest: '<%= distFolder %>/img/'
                 }]
@@ -193,10 +193,19 @@ module.exports = function (grunt) {
                 "noyield": false,
                 "browser": true,
                 //"devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
-                
+
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
+
+        "merge-json": {
+
+            menu: {
+                src: ['apps/**/menu.json.txt'],
+                dest: '<%= distFolder %>/menu.json.txt',
+            },
+        },
+
         watch: {
             //appsjsmin: {
             //    files: ['apps/**/*.js', '!**/*.min.js', '!core/**/route.config.js', '!core/**/menu.config.js'],
@@ -235,7 +244,7 @@ module.exports = function (grunt) {
                 },
             }
         },
- 
+
 
     });
 
@@ -250,6 +259,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-merge-json');
 
 
     // ------------------------------------------------------------------------------------------
@@ -272,6 +282,7 @@ module.exports = function (grunt) {
     grunt.registerTask('images', ['imagemin:dynamic']);
     grunt.registerTask('watchall', ['watch']);
     grunt.registerTask('myjshint', ['jshint']);
+    grunt.registerTask('menu', ["merge-json:menu"]);
 
 
     // This is where I hit a wall and I've decided to move to gulp.

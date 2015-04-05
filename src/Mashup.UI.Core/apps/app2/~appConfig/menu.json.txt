@@ -7,12 +7,13 @@
         "session": "coreSession",
         "role": "MashupUser",
         "groups": [
+            
             {
-                "name": "mashup",
-                "id": "menuItemMashup",
-                "desc": "Starter pages.",
-                "url": "/",
-                "icon": " fa-home ",
+                "name": "app2",
+                "id": "menuItemApp2",
+                "desc": "Application 2, page 3.",
+                "url": "/app2/page3",
+                "icon": " fa-laptop ",
                 "session": "coreSession",
                 "role": "MashupUser"
             }

@@ -8,11 +8,11 @@
         "role": "MashupUser",
         "groups": [
             {
-                "name": "mashup",
-                "id": "menuItemMashup",
-                "desc": "Starter pages.",
-                "url": "/",
-                "icon": " fa-home ",
+                "name": "app1",
+                "id": "menuItemApp1",
+                "desc": "Application 1, page 1.",
+                "url": "/app1/page1",
+                "icon": " fa-bar-chart ",
                 "session": "coreSession",
                 "role": "MashupUser"
             }
