@@ -62,13 +62,11 @@
     <Content Include="apps\app1\page1\page1.html" />
     <Content Include="apps\app1\page2\page2.controller.js" />
     <Content Include="apps\app1\page2\page2.html" />
-    <Content Include="apps\app1\~appConfig\menu.config.js" />
     <Content Include="apps\app1\~appConfig\route.config.js" />
     <Content Include="apps\app2\page3\page3.controller.js" />
     <Content Include="apps\app2\page3\page3.html" />
     <Content Include="apps\app2\page4\page4.controller.js" />
     <Content Include="apps\app2\page4\page4.html" />
-    <Content Include="apps\app2\~appConfig\menu.config.js" />
     <Content Include="apps\app2\~appConfig\route.config.js" />
     <Content Include="apps\mashup\~appConfig\route.config.js" />
     <Content Include="apps\mashup\about.controller.js" />
