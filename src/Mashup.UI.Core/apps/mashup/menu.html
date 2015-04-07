@@ -33,9 +33,6 @@
         TODO: Add more resonsiveness to remove the <p> seconds when below some limit, or cause the text to elipse.
          -->
     <!-- TODO: I only want a single listener and not one placed on each controls click event. -->
-    <!-- (SOLVED) By placing  ng-click="close()" on the panel body of each collapsing area.  4 total watches instead of 30 or 40. -->
-    <!-- (PROBLEM) The accordian controls are registering in the URL.  We don't want this. -->
-    <!-- (SOLVED) By replacing href with data-target we are able to declare the behavior without affecting our routing sceme -->
     <!--Dynamic loading menu-->
     <div class="panel-group" id="dynamicMenu">
         <div class="panel panel-default" ng-repeat="category in menuJson">
@@ -63,7 +60,7 @@
         </div>
     </div>
 
-    
+
 </div>
 <div class="modal-footer">
     <button style=" font-size: large;" class="btn btn-warning" ng-click="close()">Close</button>
