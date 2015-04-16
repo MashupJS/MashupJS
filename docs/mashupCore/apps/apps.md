@@ -83,7 +83,7 @@ return mashupRouterAuth.resolveRoute(['Administrator']);
 
 The “resolveRoute:” function is executed before the route can be resolved.  If the user is not authenticated then they can be re-routed to a login page.  If the user is not authorized then they can be routed to a page that says they are not authorized.  
 
-The resolveRoute function is injected with the mashupRouterAuth which gives access to the “resolveRoute” function.  The **mashup** in “mashupRouteAuth” is referring to the name of the app plush “RouterAuth”.  You application, if named “accounting”, could be “accountingRouteAuth”.
+The resolveRoute function is injected with the “mashupRouterAuth” which gives access to the “resolveRoute” function.  The “**mashup**” in “mashupRouteAuth” is referring to the name of the app plush “RouterAuth”.  You application, if named “accounting”, could be “accountingRouteAuth”.
 
 You can deviate and improve upon this basic design.  
 
@@ -97,6 +97,7 @@ There are two different types of session.  There is the “sessionService” and
 The sessionService is for general use by utilities such as the logService.  Only a little user information is maintained in the sessionService to let utilities know the user and application that was being used at that moment.  When switching to another application within the mashup the user id from that session and its application name are updated within the sessionService.
 
 The application’s user session is stored in IndexedDB and retrieved by the session name.
+
 
 **Basic AuthN/AuthR Example:**
 
@@ -144,10 +145,6 @@ var getAppSession = function () {
 
 ##JavaScript Loading Options
 Depending on your development and delivery workflow there are multiple approaches to optimizing and building your solution.
-
- - List item
-
-
 
  - Use Grunt/Gulp to create one file for each page Lazy load each JS as needed.
  - Use Grunt/Gulp to create one file per application.
