@@ -19,8 +19,16 @@ tags:
 
 ---
 
+###http://robertdunaway.github.io
+###http://mashupjs.github.io
+
+The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
+
 #Mashup/Apps
-The apps directory is for your apps.  After installing the Mashup you’ll have a couple starter apps as a map for how to create your own.
+
+One of the functions of the Mashup is allowing you to build new applications without having to build the plumbing again.  Core features and libraries are available to all Mashup applications.
+
+The apps directory is for your applications.  After installing the Mashup you’ll have a couple starter apps as a map for how to create your own.
 
 Placing your application in the Apps folder and using a few conventions makes integrating apps into the Mashup seamless.
 
@@ -32,6 +40,7 @@ Placing your application in the Apps folder and using a few conventions makes in
 Route configurations placed in this file are combined by Grunt/Gulp and loaded at run-time.
 
 This approach makes it possible to drop in or remove applications without having to fiddle with routing.  Each app is 100% self-contained and can be moved easily between MashupJS implementations.
+
 
 ##Menu
 > menu.config.js
@@ -46,6 +55,7 @@ An example of a basic authentication method is implemented in the [root]/apps/ma
 Each application is responsible for its own security but each application can subscribe to the user session of another application.  It’s likely, in companies using AD, only one session is created from which app applications derive authentication and authorization properties.
 
 Authentication and authorization are performed in the route configuration using “resolve”.
+
 
 **Example:**
 ``` JavaScript
