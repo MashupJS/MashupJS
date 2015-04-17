@@ -35,7 +35,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 [Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)
 
 
-###Philosophy behind the Mashup
+##Philosophy behind the Mashup
 
 ####[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)
 
