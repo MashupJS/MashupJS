@@ -117,13 +117,18 @@ notes - don't read this :)
 
 
 ##MashupJS Implementations
-- Link to core
-- Link to WebApiAuth example app
-- Link to Multi-Session example app
-- Link to Ionic hybrid example app
-- Link to advanced routing example app
-- Link to various teaching example apps
-- Link to 3D UI example apps
+
+ [Basic MashupJS](https://github.com/MashupJS/MashupJS/tree/master/src)
+ This is a good place to begin.  This is the implementation referred in the **Getting Started** section of this document.
+ **`npm install mashupjs`**
+<br/>
+
+ - Link to WebApiAuth example app
+ - Link to Multi-Session example app
+ - Link to Ionic hybrid example app
+ - Link to advanced routing example app
+ - Link to various teaching example apps
+ - Link to 3D UI example apps
 
 
 ##Features available to all Mashup applications
