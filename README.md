@@ -111,7 +111,9 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-*TODO: [Link to markdown]*
+[How to Create a WebApi for MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)
+
+[WebApi-Cors-Chrome](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)
 
 
 ##MashupJS Implementations
