@@ -158,7 +158,7 @@ All applications added to the Mashup will receive many features for free.  This 
 	 - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
  - One Code Base for all Platforms
  - **[Swappable index.html /w (SoC)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md)**
- - Authentication
+ - **[Sessions and Authentication](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md#sessions)**
  - Integration with Active Director (easily customized for integration such as Federated Auth)
  - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
  - Exception Management
