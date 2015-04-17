@@ -87,7 +87,7 @@ The resolveRoute function is injected with the “mashupRouterAuth” which give
 
 You can deviate and improve upon this basic design.  
 
-<a name="sessionAuth"></a> 
+
 ##Sessions
 
 Each application can have its own session or share.  It’s possible that all your applications use one session except for a customer facing application that uses Identity Server 3.  The mashup can easily accommodate multiple sessions.
