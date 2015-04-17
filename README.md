@@ -87,8 +87,8 @@ notes - don't read this :)
 
  - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
    - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
-   - **[Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
-   - **[Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+   - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
 
 
 TODO: add to Arch/Comp
@@ -152,8 +152,8 @@ All applications added to the Mashup will receive many features for free.  This 
 **Here is a running list of features:**
 
  - Drop-in Application Support
-   - **[Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
-   - **[Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+   - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
  - Bootstrap for Large Enterprise Applications
 	 - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
  - One Code Base for all Platforms
@@ -193,7 +193,5 @@ All applications added to the Mashup will receive many features for free.  This 
  - Exception Management (Dashboard, granular config)
  - Instrumentation (Dashboard, granular config)
  - Ionic integration for hybrid-apps
- - Multi-Auth Session support
- - Shared Menu System
  - Shared at a glance monitoring of the system.  Can filter by user, group, application, etc.
  - Background lazy-loading of js files
