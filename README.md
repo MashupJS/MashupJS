@@ -175,7 +175,18 @@ All applications added to the Mashup will receive many features for free.  This 
  - Retrieval of Client Information for troubleshooting
  - Instrumentation (easily track the pages and features users use)
 
+
+##Core Services
+
+ - Alert Service
+	 - Not documented. It's a simple alert that will be replaced by John Papa's toaster.
+
+ - [Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)
+ - [Detect Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
+ - Log Service
+ - Utility Service Facade
  
+
 
 ##Roadmap
  - Application Level User Management
