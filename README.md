@@ -77,6 +77,13 @@ notes - don't read this :)
 
 
 ##MashupJS Architecture & Components
+
+ - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
+   - [Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)
+   - [Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)
+   - [Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)
+
+
 *TODO: [Link to markdown]*
 
 notes - don't read this :)
@@ -139,6 +146,9 @@ All applications added to the Mashup will receive many features for free.  This 
 
 **Here is a running list of features:**
 
+ - Drop-in Application Support
+   - [Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)
+   - [Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)
  - Bootstrap for Large Enterprise Applications
  - One Code Base for all Platforms
  - Swappable index.html /w (SoC)
