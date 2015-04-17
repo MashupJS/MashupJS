@@ -118,9 +118,11 @@ notes - don't read this :)
 
 ##MashupJS Implementations
 
- [Basic MashupJS](https://github.com/MashupJS/MashupJS/tree/master/src)
- This is a good place to begin.  This is the implementation referred in the **Getting Started** section of this document.
- **`npm install mashupjs`**
+### [Basic MashupJS](https://github.com/MashupJS/MashupJS/tree/master/src)
+
+This is a good place to begin.  This is the implementation referred in the **Getting Started** section of this document.
+ 
+**`npm install mashupjs`**
 <br/>
 
  - Link to WebApiAuth example app
