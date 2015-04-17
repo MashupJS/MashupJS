@@ -37,9 +37,9 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 ##Philosophy behind the Mashup
 
-####[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)
+**[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
 
-####[Technical Debt](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)
+**[Technical Debt](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)**
 
  - Reduce Technical Debt
  - Mobile First
