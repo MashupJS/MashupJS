@@ -45,7 +45,8 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 ##The MashupJS Style Guide
-https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md
+
+[MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)
 
 The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
