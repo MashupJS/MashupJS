@@ -172,7 +172,7 @@ All applications added to the Mashup will receive many features for free.  This 
  - Shared Services, Filters, Directives, and any other custom JS code
  - **[Lazy loading of HTML templates and JavaScript modules](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md#lazy-loading)**
  - Shared User Alert System
- - Retrieval of Client Information for troubleshooting
+ - **[Retrieval of Client Information for troubleshooting](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/sessionService/sessionService.md#envsession)**
  - Instrumentation (easily track the pages and features users use)
 
 
