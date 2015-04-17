@@ -160,9 +160,9 @@ All applications added to the Mashup will receive many features for free.  This 
  - **[Swappable index.html /w (SoC)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md)**
  - **[Sessions and Authentication](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md#sessions)**
  - Integration with Active Director (easily customized for integration such as Federated Auth)
- - Logging:  (Intercepts and logs $log statements for remote troubleshooting of production systems)
+ - [**Logging:**  (Intercepts and logs $log statements for remote troubleshooting of production systems)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)
  - Exception Management
- - Caching Services
+ - **[Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
  - Rest Service Detection and Heartbeat Monitors
  -  Micro-library Management (update libraries in one place will update the library for all apps)
  - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
@@ -170,7 +170,7 @@ All applications added to the Mashup will receive many features for free.  This 
  - User Session Management
  - Shared Build System
  - Shared Services, Filters, Directives, and any other custom JS code
- - Lazy loading of HTML templates and JavaScript modules
+ - **[Lazy loading of HTML templates and JavaScript modules](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md#lazy-loading)**
  - Shared User Alert System
  - Retrieval of Client Information for troubleshooting
  - Instrumentation (easily track the pages and features users use)
