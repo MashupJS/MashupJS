@@ -32,15 +32,16 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 ###Philosophy behind the Mashup
-*TODO: [Link to markdown]*
 
-notes - don't read this :)
-- reduce friction to starting SPA programming
-- reduce technical debt
-- code library
-- learning/teaching tool
-- team workflow flexibility
-- single code base /w hybrid option
+[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)
+
+ - Reduce Technical Debt
+ - Mobile First
+ - Offline First
+ - (RWD) Responsive Web Design
+ - Continuous Integration
+ - Continuous Delivery
+ - Single Code Base /w hybrid option
 
 
 ##The MashupJS Style Guide
