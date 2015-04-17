@@ -20,7 +20,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 - Build your personal and team code library. Use for learning and teaching.
 
 
-###Getting Started
+##Getting Started
 
  1. Install NodeJS
  2. Create a working directory and open a CLI to it
@@ -31,7 +31,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
-###Tools
+##Tools
 [Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)
 
 
