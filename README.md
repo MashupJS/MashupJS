@@ -122,7 +122,7 @@ notes - don't read this :)
 
 This is a good place to begin.  This is the implementation referred in the **Getting Started** section of this document.
  
-**`npm install mashupjs`**
+####`npm install mashupjs`
 <br/>
 
  - Link to WebApiAuth example app
