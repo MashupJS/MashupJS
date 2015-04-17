@@ -180,10 +180,10 @@ All applications added to the Mashup will receive many features for free.  This 
 
  - Alert Service
 	 - Not documented. It's a simple alert that will be replaced by John Papa's toaster.
- - [Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)
- - [Detect Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)
- - [Log Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)
- - [Utility Service Facade](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)
+ - **[Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
+ - **[Detect Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)**
+ - **[Log Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
+ - **[Utility Service Facade](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
  - Session - Now supports multiple sessions so the documentation needs updated to reflect how the new session works.
  
 
