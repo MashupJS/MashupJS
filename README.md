@@ -32,7 +32,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 ##Tools
-[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)
+**[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)**
 
 
 ##Philosophy behind the Mashup
@@ -52,7 +52,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 ##The MashupJS Style Guide
 
-[MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)
+**[MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
 
 The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
@@ -86,9 +86,9 @@ notes - don't read this :)
 ##MashupJS Architecture & Components
 
  - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
-   - [Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)
-   - [Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)
-   - [Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)
+   - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
+   - **[Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
 
 
 *TODO: [Link to markdown]*
@@ -126,9 +126,9 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-[How to Create a WebApi for MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)
+**[How to Create a WebApi for MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)**
 
-[WebApi-Cors-Chrome](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)
+**[WebApi-Cors-Chrome](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)**
 
 
 ##MashupJS Implementations
