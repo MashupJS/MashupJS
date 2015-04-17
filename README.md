@@ -32,7 +32,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 
 ###Tools
-[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/tools/readme.md)
+[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)
 
 
 ###Philosophy behind the Mashup
