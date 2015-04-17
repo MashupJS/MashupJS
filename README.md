@@ -31,6 +31,9 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
+###Tools
+[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/tools/readme.md)
+
 
 ###Philosophy behind the Mashup
 
