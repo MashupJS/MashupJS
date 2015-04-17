@@ -184,7 +184,7 @@ All applications added to the Mashup will receive many features for free.  This 
  - **[Detect Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)**
  - **[Log Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
  - **[Utility Service Facade](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
- - [**Multi-Auth Session support** -Documentation needs updated to reflect how the new session works.](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/sessionService/sessionService.md)
+ - [**Multi-Auth Session support** - Documentation needs updated to reflect how the new session works.](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/sessionService/sessionService.md)
  
 
 
