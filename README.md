@@ -154,8 +154,8 @@ All applications added to the Mashup will receive many features for free.  This 
 **Here is a running list of features:**
 
  - Drop-in Application Support
-   - [Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)
-   - [Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)
+   - **[Application Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Application Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
  - Bootstrap for Large Enterprise Applications
  - One Code Base for all Platforms
  - Swappable index.html /w (SoC)
