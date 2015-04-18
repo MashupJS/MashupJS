@@ -1,7 +1,6 @@
 
 ---
 title: Mashup/Apps
-
 tags: 
 - AngularJS
 - Bootstrap
@@ -16,7 +15,7 @@ tags:
 - Resolve
 - sessionService
 - cacheService
-- 
+
 ---
 
 ###http://robertdunaway.github.io
