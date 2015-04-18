@@ -1,6 +1,6 @@
 
 ---
-title: Mashup/Apps
+title: Mashup Applications
 tags: 
 - AngularJS
 - Bootstrap
