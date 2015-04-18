@@ -16,7 +16,6 @@ tags:
 - Resolve
 - sessionService
 - cacheService
-
 ---
 
 ###http://robertdunaway.github.io
