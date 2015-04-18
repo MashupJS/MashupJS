@@ -1,16 +1,19 @@
-
-
-
 ---
-title: Use Angular's Controller As syntax
-tags:
-- Angular Controller
+title: Mashup Applications
+tags: 
 - AngularJS
-- JavaScript
-- MashupJS
-- SPA
-- Angular2.0
-- Best Practice
+- Bootstrap
+- Router
+- Menu
+- AuthN
+- Auth
+- Authentication
+- AuthR
+- Authorization
+- HTML Template
+- Resolve
+- sessionService
+- cacheService
 - 
 ---
 
