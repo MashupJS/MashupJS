@@ -23,7 +23,7 @@ tags:
 
 The **Mashup** is a learning tool that also serves as a bootstrap project for line-of-business applications.
 
-#Mashup/Apps
+#Mashup Applications
 
 One of the functions of the Mashup is allowing you to build new applications without having to build the plumbing again.  Core features and libraries are available to all Mashup applications.
 
