@@ -15,8 +15,25 @@ tags:
 - Resolve
 - sessionService
 - cacheService
+- 
+---
 
 ---
+title: Use Angular's Controller As syntax
+tags:
+- Angular Controller
+- AngularJS
+- JavaScript
+- MashupJS
+- SPA
+- Angular2.0
+- Best Practice
+- 
+---
+
+
+
+
 
 ###http://robertdunaway.github.io
 ###http://mashupjs.github.io
