@@ -31,6 +31,21 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
+##MashupJS Architecture & Components
+
+ - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
+   - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
+   - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+
+
+TODO: add to Arch/Comp
+- Much of this is in the style guide. Reference that where possible.
+- Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
+- Add enough design that a company using the Mashup can consider the system well documented.
+
+
+
 ##Tools
 **[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)**
 
@@ -81,20 +96,6 @@ notes - don't read this :)
 - My personal workflow
 	- walk through of changes, commit, test, publish
 	- change log
-
-
-##MashupJS Architecture & Components
-
- - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
-   - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
-   - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
-   - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
-
-
-TODO: add to Arch/Comp
-- Much of this is in the style guide. Reference that where possible.
-- Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
-- Add enough design that a company using the Mashup can consider the system well documented.
 
 
 ##Using the Mashup for the enterprise
