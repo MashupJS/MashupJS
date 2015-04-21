@@ -34,10 +34,11 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 ##Design
 
  - **[Directory Structure](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#directory-structure-of-mashupuicore)**
- - Drop-in Application Support allowing teams to divide up their applications and combine them for deployment.
- - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
- - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
- - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+ - **[Defining Routes](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#defining-routes)**
+ - Drop-in Application Support allowing teams to divide up their applications and combine them during deployment.
+  - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
+  - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
+  - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
 
 
 TODO: add to Arch/Comp
