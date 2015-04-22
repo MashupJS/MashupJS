@@ -1,4 +1,4 @@
-﻿
+
 // I'm disappointed in Grunts performance on watch.  So many files need watched that it takes Grunt
 // a while to recognize a change.  Depending on machine power it could be 10 to 20 seconds and by then
 // I could have launched and tested the change.
@@ -260,11 +260,11 @@ module.exports = function (grunt) {
 
     // ------------------------------------------------------------------------------------------
     // grunt default
-    //grunt.registerTask('default', [
-    //    'annotate',
-    //    'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-    //    'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
-    //]);
+    grunt.registerTask('default', [
+        'annotate',
+        'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
+        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
+    ]);
     // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
     // 2. Cleans out the "dist" directory to prepare for new files
     // 3. Concatinates together all files named route.config.js into a single file route.config.min.js.  Same for menu.config.js
@@ -272,9 +272,6 @@ module.exports = function (grunt) {
     // 5. Minifies CSS files but allows them to remain separate.  Some may be combined later.
     // ------------------------------------------------------------------------------------------
 
-    grunt.registerTask('default', ['annotate','clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
-    ]);
 
     grunt.registerTask('annotate', ['ngAnnotate']);
     grunt.registerTask('clean_dist', ['clean:dist']);

@@ -101,6 +101,7 @@
     <Content Include="apps\mashup\login.controller.js" />
     <Content Include="apps\mashup\welcome.controller.js" />
     <Content Include="apps\mashup\welcome.html" />
+    <Content Include="Gruntfile.js" />
     <Content Include="index.controller.js" />
     <Content Include="core\config\config.js" />
     <Content Include="core\css\bootstrap\default\bootstrap-theme.css" />
@@ -611,7 +612,7 @@
     <Content Include="core\lib\jquery\jquery-2.1.1.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.map" />
-    <Content Include="Gruntfile.js" />
+    <None Include="Gruntfile.js.old" />
     <Content Include="gulpfile.js" />
     <Content Include="jshint.xml">
       <SubType>Designer</SubType>
