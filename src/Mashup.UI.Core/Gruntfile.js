@@ -89,7 +89,6 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        //src: ['<%= distFolder %>/core/**/*.css', '<%= distFolder %>/apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
                         src: ['<%= distFolder %>/core/**/*.css', '!<%= distFolder %>/**/*.min.css', '!<%= distFolder %>/core/lib/**'],
                         dest: '',
                         ext: '.min.css',
@@ -108,7 +107,6 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,                  // Enable dynamic expansion
-                    // cwd: 'core/',
                     src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**'],
                     dest: '<%= distFolder %>/img/'
                 }]
@@ -189,21 +187,14 @@ module.exports = function (grunt) {
                 "validthis": false,
                 "noyield": false,
                 "browser": true,
-                //"devel": true,      // in combination with "browser: true" allows things like "alert('hi');" to not be flagged as undefined.
-
+                
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
 
 
         watch: {
-            //appsjsmin: {
-            //    files: ['apps/**/*.js', '!**/*.min.js', '!core/**/route.config.js', '!core/**/menu.config.js'],
-            //    tasks: ['newer:uglify:apps'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
+            
             allmin: {
                 files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
                 tasks: ['newer:uglify:coreroot', 'newer:jshint'],
@@ -253,19 +244,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
 
-    // ------------------------------------------------------------------------------------------
-    // grunt default
-    //grunt.registerTask('default', [
-    //    'annotate',
-    //    'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-    //    'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
-    //]);
-    // 1. Annotates all but 'lib' directory.  This allows Angular dependency injection to work after minification.
-    // 2. Cleans out the "dist" directory to prepare for new files
-    // 3. Concatinates together all files named route.config.js into a single file route.config.min.js.  Same for menu.config.js
-    // 4. Uglify/minify application js files and creates maps
-    // 5. Minifies CSS files but allows them to remain separate.  Some may be combined later.
-    // ------------------------------------------------------------------------------------------
 
     grunt.registerTask('default', ['annotate', 'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
         'copy:all', 'uglify:dist', 'imagemin:dynamic', 'cssmin:all', 'jshint'
@@ -286,6 +264,11 @@ module.exports = function (grunt) {
     grunt.registerTask('watchall', ['watch']);
 
     //TODO:
+
+    // create a publishToZip task
+    // create a publishDev or publishTest task
+    
+
     // add css remove to get rid of styles we aren't using.
     // add less/sass with source maps when we start using them.
     // add typescript if we start using it

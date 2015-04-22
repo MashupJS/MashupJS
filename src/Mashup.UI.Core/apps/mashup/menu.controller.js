@@ -9,7 +9,7 @@ mashupApp.controller('menuController', ['$scope', '$modalInstance', '$log', '$ht
     };
 
     //http://localhost:50001/~appConfig/menu.json
-    $http.get('core/dist/menu.json.txt').success(function (data) {
+    $http.get('menu.json.txt').success(function (data) {
         $scope.menuJson = data;
     });
     
