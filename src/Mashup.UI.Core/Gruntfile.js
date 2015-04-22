@@ -13,7 +13,7 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        distFolder: 'core/dist',
+        distFolder: 'dist',
 
         pkg: grunt.file.readJSON('package.json'),
         // Task configuration.
@@ -43,17 +43,17 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            apps: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js', '!apps/**/menu.config.js'],
-                        dest: '',
-                        ext: '.min.js',
-                        extDot: 'last'
-                    }
-                ]
-            },
+            //apps: {
+            //    files: [
+            //        {
+            //            expand: true,
+            //            src: ['<%= distFolder %>/apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js', '!apps/**/menu.config.js'],
+            //            dest: '',
+            //            ext: '.min.js',
+            //            extDot: 'last'
+            //        }
+            //    ]
+            //},
             coreroot: {
                 files: [
                     {
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['core/**/*.css', 'apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
+                        src: ['<%= distFolder %>/core/**/*.css', '<%= distFolder %>/apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
                         dest: '',
                         ext: '.min.css',
                         extDot: 'last'
@@ -86,20 +86,29 @@ module.exports = function (grunt) {
                 separator: ';',
             },
             routeconfig: {
-                src: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!core/dist/**/*'],
+                src: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
                 dest: '<%= distFolder %>/route.config.js',
             },
             coreservices: {
-                src: ['core/common/**/*', '!core/lib/**/*', '!core/dist/**/*'],
+                src: ['core/common/**/*', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
                 dest: '<%= distFolder %>/core.services.js',
             },
 
         },
         clean: {
             dist: {
-                src: ['<%= distFolder %>/**/*.*/', '<%= distFolder %>/**/*.*']
+                src: ['<%= distFolder %>/**', '<%= distFolder %>/']
             }
         },
+
+        copy: {
+            all: {
+                expand: true,
+                src: ['apps/**/*', 'core/**/*', 'index.*'],
+                dest: '<%= distFolder %>/',
+            },
+        },
+
 
         // https://github.com/gruntjs/grunt-contrib-imagemin
         imagemin: {
@@ -256,6 +265,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-merge-json');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
     // ------------------------------------------------------------------------------------------
@@ -272,8 +282,9 @@ module.exports = function (grunt) {
     // 5. Minifies CSS files but allows them to remain separate.  Some may be combined later.
     // ------------------------------------------------------------------------------------------
 
-    grunt.registerTask('default', ['annotate','clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-        'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
+    grunt.registerTask('default', ['annotate', 'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
+        'copy:all',
+        //'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
     ]);
 
     grunt.registerTask('annotate', ['ngAnnotate']);
