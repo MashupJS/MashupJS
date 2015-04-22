@@ -28,58 +28,12 @@ module.exports = function (grunt) {
                 }],
             }
         },
-        uglify: {
-            options: {
-                sourceMap: true,
-            },
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>**/*.min.js'],
-                        dest: '',
-                        ext: '.min.js',
-                        extDot: 'last'
-                    }
-                ]
-            },
-            //apps: {
-            //    files: [
-            //        {
-            //            expand: true,
-            //            src: ['<%= distFolder %>/apps/**/*.js', '!**/*.min.js', '!apps/**/route.config.js', '!apps/**/menu.config.js'],
-            //            dest: '',
-            //            ext: '.min.js',
-            //            extDot: 'last'
-            //        }
-            //    ]
-            //},
-            coreroot: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['index*.js', 'core/*.js', '!core/lib/**/*', '!**/*.min.js'],
-                        dest: '',
-                        ext: '.min.js',
-                        extDot: 'last'
-                    }
-                ]
-            }
-        },
-        cssmin: {
-            all: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= distFolder %>/core/**/*.css', '<%= distFolder %>/apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
-                        dest: '',
-                        ext: '.min.css',
-                        extDot: 'last'
-                    }
-                ]
-            }
-        },
 
+        clean: {
+            dist: {
+                src: ['<%= distFolder %>/**', '<%= distFolder %>/']
+            }
+        },
 
         concat: {
             options: {
@@ -95,10 +49,13 @@ module.exports = function (grunt) {
             },
 
         },
-        clean: {
-            dist: {
-                src: ['<%= distFolder %>/**', '<%= distFolder %>/']
-            }
+
+        "merge-json": {
+
+            menu: {
+                src: ['apps/**/menu.json.txt'],
+                dest: '<%= distFolder %>/menu.json.txt',
+            },
         },
 
         copy: {
@@ -109,7 +66,40 @@ module.exports = function (grunt) {
             },
         },
 
+        uglify: {
+            options: {
+                sourceMap: true,
+            },
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>**/*.min.js', '!<%= distFolder %>/core/lib/**'],
+                        dest: '',
+                        ext: '.min.js',
+                        extDot: 'last'
+                    }
+                ]
+            },
 
+        },
+
+        cssmin: {
+            all: {
+                files: [
+                    {
+                        expand: true,
+                        //src: ['<%= distFolder %>/core/**/*.css', '<%= distFolder %>/apps/**/*.css', '!core/lib/**/*', '!**/*.min.css'],
+                        src: ['<%= distFolder %>/core/**/*.css', '!<%= distFolder %>/**/*.min.css', '!<%= distFolder %>/core/lib/**'],
+                        dest: '',
+                        ext: '.min.css',
+                        extDot: 'last'
+                    }
+                ]
+            }
+        },
+        
+        // Executing jshint against the source and deposits in dist/img.
         // https://github.com/gruntjs/grunt-contrib-imagemin
         imagemin: {
             dynamic: {
@@ -119,11 +109,13 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,                  // Enable dynamic expansion
                     // cwd: 'core/',
-                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**', '!**/dist/**'],   // Actual patterns to match
+                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**'],
                     dest: '<%= distFolder %>/img/'
                 }]
             }
         },
+
+        // Executing jshint against the source, not dist
         jshint: {
 
             options: {
@@ -203,13 +195,6 @@ module.exports = function (grunt) {
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
 
-        "merge-json": {
-
-            menu: {
-                src: ['apps/**/menu.json.txt'],
-                dest: '<%= distFolder %>/menu.json.txt',
-            },
-        },
 
         watch: {
             //appsjsmin: {
@@ -283,8 +268,7 @@ module.exports = function (grunt) {
     // ------------------------------------------------------------------------------------------
 
     grunt.registerTask('default', ['annotate', 'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-        'copy:all',
-        //'uglify:dist', 'imagemin:dynamic', 'uglify:apps', 'uglify:coreroot', 'cssmin:all', 'jshint'
+        'copy:all', 'uglify:dist', 'imagemin:dynamic', 'cssmin:all', 'jshint'
     ]);
 
     grunt.registerTask('annotate', ['ngAnnotate']);
