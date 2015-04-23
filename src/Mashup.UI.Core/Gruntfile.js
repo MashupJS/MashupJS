@@ -195,35 +195,35 @@ module.exports = function (grunt) {
 
         watch: {
             
-            allmin: {
-                files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
-                tasks: ['newer:uglify:coreroot', 'newer:jshint'],
-                options: {
-                    nospawn: true,
-                },
-            },
-            service_config: {
-                files: ['core/common/**/*', 'core/config/route.config.js', 'core/**/route.config.js'
-                        , 'core/config/menu.config.js', 'apps/**/menu.json.txt', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
-                tasks: ['clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices', 'uglify:dist'],
-                options: {
-                    nospawn: true,
-                },
-            },
-            cssmin: {
-                files: ['core/css/**/*.css', '!**/*.min.css'],
-                tasks: ['newer:cssmin:all'],
-                options: {
-                    nospawn: true,
-                },
-            },
-            imagemin: {
-                files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
-                tasks: ['newer:imagemin:dynamic'],
-                options: {
-                    nospawn: true,
-                },
-            }
+            //allmin: {
+            //    files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
+            //    tasks: ['newer:uglify:coreroot', 'newer:jshint'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
+            //service_config: {
+            //    files: ['core/common/**/*', 'core/config/route.config.js', 'core/**/route.config.js'
+            //            , 'core/config/menu.config.js', 'apps/**/menu.json.txt', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
+            //    tasks: ['clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices', 'uglify:dist'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
+            //cssmin: {
+            //    files: ['core/css/**/*.css', '!**/*.min.css'],
+            //    tasks: ['newer:cssmin:all'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
+            //imagemin: {
+            //    files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
+            //    tasks: ['newer:imagemin:dynamic'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //}
         },
 
 
