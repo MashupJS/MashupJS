@@ -204,7 +204,7 @@ module.exports = function (grunt) {
                 files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
                 tasks: ['newer:copy:all'], //, 'newer:jshint'],
                 options: {
-                    nospawn: true,
+                    nospawn: false,
                 },
             },
 
@@ -251,6 +251,10 @@ module.exports = function (grunt) {
 
     });
 
+    // on watch events configure jshint:all to only run on changed file
+    grunt.event.on('watch', function (action, filepath) {
+        grunt.config('copy.all.src', filepath);
+    });
 
 
     // Load modules, register tasks
