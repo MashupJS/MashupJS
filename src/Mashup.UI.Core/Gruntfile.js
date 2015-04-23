@@ -195,6 +195,23 @@ module.exports = function (grunt) {
 
         watch: {
             
+            copyall: {
+                files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
+                tasks: ['newer:copy:all'], //, 'newer:jshint'],
+                options: {
+                    nospawn: true,
+                },
+            },
+
+            minifyJS: {
+                files: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>/**/*.min.js', '!<%= distFolder %>/core/lib/**/*'],
+                tasks: ['newer:uglify:dist'],
+                options: {
+                    nospawn: true,
+                },
+            },
+
+
             //allmin: {
             //    files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
             //    tasks: ['newer:uglify:coreroot', 'newer:jshint'],
@@ -226,8 +243,10 @@ module.exports = function (grunt) {
             //}
         },
 
-
+       
     });
+
+
 
     // Load modules, register tasks
     grunt.loadNpmTasks('grunt-ng-annotate');
@@ -239,6 +258,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
+    //grunt.loadNpmTasks("grunt-newer-explicit");
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-merge-json');
     grunt.loadNpmTasks('grunt-contrib-copy');
