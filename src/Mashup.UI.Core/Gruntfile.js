@@ -66,6 +66,9 @@ module.exports = function (grunt) {
             },
         },
 
+
+
+
         uglify: {
             options: {
                 sourceMap: true,
@@ -97,7 +100,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        
+
         // Executing jshint against the source and deposits in dist/img.
         // https://github.com/gruntjs/grunt-contrib-imagemin
         imagemin: {
@@ -187,14 +190,16 @@ module.exports = function (grunt) {
                 "validthis": false,
                 "noyield": false,
                 "browser": true,
-                
+
             },
             files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
         },
 
 
+        // Addresses the issue where I could not get newer to work.
+        // https://github.com/tschaub/grunt-newer/issues/39#issuecomment-48251668
         watch: {
-            
+
             copyall: {
                 files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
                 tasks: ['newer:copy:all'], //, 'newer:jshint'],
@@ -243,7 +248,7 @@ module.exports = function (grunt) {
             //}
         },
 
-       
+
     });
 
 
@@ -287,7 +292,7 @@ module.exports = function (grunt) {
 
     // create a publishToZip task
     // create a publishDev or publishTest task
-    
+
 
     // add css remove to get rid of styles we aren't using.
     // add less/sass with source maps when we start using them.
