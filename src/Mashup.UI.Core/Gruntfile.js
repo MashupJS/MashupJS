@@ -200,21 +200,37 @@ module.exports = function (grunt) {
         // https://github.com/tschaub/grunt-newer/issues/39#issuecomment-48251668
         watch: {
 
-            copyall: {
-                files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
-                tasks: ['newer:copy:all'], //, 'newer:jshint'],
+            watchJS: {
+                files: ['**/*.js', '!<%= distFolder %>/**/*', '!node_modules/**/*', '!core/lib/**/*'],
+                tasks: ['newer:copy:all', 'newer:jshint'],
                 options: {
                     nospawn: false,
                 },
             },
 
-            minifyJS: {
-                files: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>/**/*.min.js', '!<%= distFolder %>/core/lib/**/*'],
+            watchUglifyJS: {
+                files: ['<%= distFolder %>/**/*.js', '!**/*.min.js'],
                 tasks: ['newer:uglify:dist'],
                 options: {
-                    nospawn: true,
+                    nospawn: false,
                 },
             },
+
+            //copyall: {
+            //    files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
+            //    tasks: ['newer:copy:all'], //, 'newer:jshint'],
+            //    options: {
+            //        nospawn: false,
+            //    },
+            //},
+
+            //minifyJS: {
+            //    files: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>/**/*.min.js', '!<%= distFolder %>/core/lib/**/*'],
+            //    tasks: ['newer:uglify:dist'],
+            //    options: {
+            //        nospawn: true,
+            //    },
+            //},
 
 
             //allmin: {
@@ -267,7 +283,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
-    //grunt.loadNpmTasks("grunt-newer-explicit");
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-merge-json');
     grunt.loadNpmTasks('grunt-contrib-copy');
