@@ -200,21 +200,28 @@ module.exports = function (grunt) {
         // https://github.com/tschaub/grunt-newer/issues/39#issuecomment-48251668
         watch: {
 
-            watchJS: {
-                files: ['**/*.js', '!<%= distFolder %>/**/*', '!node_modules/**/*', '!core/lib/**/*'],
-                tasks: ['newer:copy:all', 'newer:jshint'],
-                options: {
-                    nospawn: false,
-                },
-            },
+            // Here I could not get the watch to recognize files updated fast encough.
+            // Also I could not net the "Newer" plugin to work.  I created an issue on the
+            // github repo of newer and the issue was not address.  Rather than spend
+            // more time on this when there is so much to do I'll move on to Gulp.
+            // This Gruntfile's default task is still useful.
 
-            watchUglifyJS: {
-                files: ['<%= distFolder %>/**/*.js', '!**/*.min.js'],
-                tasks: ['newer:uglify:dist'],
-                options: {
-                    nospawn: false,
-                },
-            },
+
+            //watchJS: {
+            //    files: ['**/*.js', '!<%= distFolder %>/**/*', '!node_modules/**/*', '!core/lib/**/*'],
+            //    tasks: ['newer:copy:all', 'newer:jshint'],
+            //    options: {
+            //        nospawn: false,
+            //    },
+            //},
+
+            //watchUglifyJS: {
+            //    files: ['<%= distFolder %>/**/*.js', '!**/*.min.js'],
+            //    tasks: ['newer:uglify:dist'],
+            //    options: {
+            //        nospawn: false,
+            //    },
+            //},
 
             //copyall: {
             //    files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
@@ -306,20 +313,6 @@ module.exports = function (grunt) {
     // Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
     grunt.registerTask('watchjs', ['watch:allmin', 'watch:service_config']);
     grunt.registerTask('watchall', ['watch']);
-
-    //TODO:
-
-    // create a publishToZip task
-    // create a publishDev or publishTest task
-
-
-    // add css remove to get rid of styles we aren't using.
-    // add less/sass with source maps when we start using them.
-    // add typescript if we start using it
-    // combine CSS files that are always used and only minify css files that can be switched.
-    // combine all JS for each app and make an app.min.js file.
-    // create a task for deploying to dev/test/stage/prod (dist directories)
-    // create a task to zip dist directories for deployment and restoration.
 
 
 };
