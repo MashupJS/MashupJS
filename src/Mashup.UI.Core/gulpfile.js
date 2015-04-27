@@ -4,11 +4,19 @@
     , uglify = require('gulp-uglifyjs')
     , rename = require('gulp-rename')
     , sourcemaps = require('gulp-sourcemaps')
+    , ngAnnotate = require('gulp-ng-annotate')
 ;
 
 
 var distFolder = 'dist';
 var srcFolder = 'src';
+
+
+gulp.task('annotate', function () {
+    return gulp.src([srcFolder + '/index.controller.js', srcFolder + '/core/**/*.js', srcFolder + '/apps/**/*.js'])
+        .pipe(ngAnnotate())
+        .pipe(gulp.dest(srcFolder));
+});
 
 gulp.task('clean', function () {
     return gulp.src(distFolder, { read: false })
@@ -78,6 +86,6 @@ gulp.task('uglify:apps', function () {
 
 });
 
-gulp.task('default', ['clean', 'copy', 'coreservices', 'routeconfig', 'libs']);
-//gulp.task('default', ['uglify:apps']);
+gulp.task('default', ['annotate','clean', 'copy', 'coreservices', 'routeconfig', 'libs']);
+gulp.task('annimate', ['annotate']);
 
