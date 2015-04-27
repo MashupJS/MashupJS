@@ -1224,6 +1224,10 @@
     <Content Include="dist\core\lib\ynd-db\ydn.db-isw-sql-e-cur-qry-dev.js.map" />
     <Content Include="dist\index.controller.min.js.map" />
     <Content Include="dist\route.config.min.js.map" />
+    <Content Include="src\apps\app1\page1\page1.controller.min.js.map" />
+    <Content Include="src\apps\app1\page2\page2.controller.min.js.map" />
+    <Content Include="src\apps\app2\page3\page3.controller.min.js.map" />
+    <Content Include="src\apps\app2\page4\page4.controller.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1234,6 +1238,36 @@
   <ItemGroup>
     <Content Include="QuickStart.txt" />
     <None Include="Scripts\_references.js" />
+    <Content Include="src\apps\app1\page1\page1.controller.js" />
+    <Content Include="src\apps\app1\page1\page1.controller.min.js" />
+    <Content Include="src\apps\app1\page1\page1.html" />
+    <Content Include="src\apps\app1\page2\page2.controller.js" />
+    <Content Include="src\apps\app1\page2\page2.controller.min.js" />
+    <Content Include="src\apps\app1\page2\page2.html" />
+    <Content Include="src\apps\app1\~appConfig\menu.json.txt" />
+    <Content Include="src\apps\app1\~appConfig\route.config.js" />
+    <Content Include="src\apps\app1\~appServices\New Text Document.txt" />
+    <Content Include="src\apps\app1\~appTests\New Text Document.txt" />
+    <Content Include="src\apps\app2\page3\page3.controller.js" />
+    <Content Include="src\apps\app2\page3\page3.controller.min.js" />
+    <Content Include="src\apps\app2\page3\page3.html" />
+    <Content Include="src\apps\app2\page4\page4.controller.js" />
+    <Content Include="src\apps\app2\page4\page4.controller.min.js" />
+    <Content Include="src\apps\app2\page4\page4.html" />
+    <Content Include="src\apps\app2\~appConfig\menu.json.txt" />
+    <Content Include="src\apps\app2\~appConfig\route.config.js" />
+    <Content Include="src\apps\app2\~appServices\New Text Document.txt" />
+    <Content Include="src\apps\app2\~appTests\New Text Document.txt" />
+    <Content Include="src\apps\mashup\about.controller.js" />
+    <Content Include="src\apps\mashup\about.html" />
+    <Content Include="src\apps\mashup\login.controller.js" />
+    <Content Include="src\apps\mashup\login.html" />
+    <Content Include="src\apps\mashup\menu.controller.js" />
+    <Content Include="src\apps\mashup\menu.html" />
+    <Content Include="src\apps\mashup\welcome.controller.js" />
+    <Content Include="src\apps\mashup\welcome.html" />
+    <Content Include="src\apps\mashup\~appConfig\menu.json.txt" />
+    <Content Include="src\apps\mashup\~appConfig\route.config.js" />
     <Content Include="src\index.controller.js" />
     <Content Include="src\index.html" />
     <Content Include="Web.config" />
