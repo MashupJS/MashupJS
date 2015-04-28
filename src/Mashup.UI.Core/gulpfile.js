@@ -34,40 +34,19 @@ gulp.task('copy', ['clean'], function () {
     .pipe(gulp.dest('dist'))
 });
 
-// The benefit of gulp-uglifyjs over gulp-uglify is the ability to concat and gen maps.
-// This task will concat all files in GLOB and render minified with maps.
+
 gulp.task('coreservices', ['copy'], function () {
     return gulp.src('src/core/common/**/*')
-      .pipe(uglify('core.services.js', {
-          mangle: false,
-          output: {
-              beautify: true
-          }
-      }))
-      .pipe(gulp.dest('dist'))
-      .pipe(uglify('core.services.min.js', {
-          outSourceMap: true
-      }))
-      .pipe(gulp.dest('dist'))
+      .pipe(concat('core.services.js'))
+      .pipe(gulp.dest('./dist/'));
 });
 
 
 gulp.task('routeconfig', ['copy'], function () {
     return gulp.src(['src/core/config/route.config.js', 'src/apps/**/route.config.js'])
-      .pipe(uglify('route.config.js', {
-          mangle: false,
-          output: {
-              beautify: true
-          }
-      }))
-      .pipe(gulp.dest('dist'))
-      .pipe(uglify('route.config.min.js', {
-          outSourceMap: true
-      }))
-      .pipe(gulp.dest('dist'))
+      .pipe(concat('route.config.js'))
+      .pipe(gulp.dest('./dist/'));
 });
-
-
 
 
 gulp.task('libs', function () {
@@ -81,7 +60,7 @@ gulp.task('libs', function () {
       .pipe(gulp.dest('dist/core/libs/'))
 });
 
-gulp.task('uglifyalljs', ['copy'], function () {
+gulp.task('uglifyalljs', ['copy', 'coreservices','routeconfig'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
      //.pipe(plumber())
      .pipe(sourcemaps.init())
@@ -95,10 +74,11 @@ gulp.task('uglifyalljs', ['copy'], function () {
 
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs', 'uglifyalljs']);
-gulp.task('annotatetask', ['annotate']);
-gulp.task('uglifyjstask', ['uglifyalljs']);
+//gulp.task('annotatetask', ['annotate']);
+//gulp.task('uglifyjstask', ['uglifyalljs']);
 
 
+//.pipe(plumber())
 function onError(err) {
     beeper();
     console.log(err);
