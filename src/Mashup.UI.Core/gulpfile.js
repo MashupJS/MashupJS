@@ -18,7 +18,7 @@ gulp.task('annotate', function () {
         .pipe(gulp.dest(srcFolder));
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', ['annotate'], function () {
     return gulp.src(distFolder, { read: false })
         .pipe(clean());
 });
@@ -62,7 +62,7 @@ gulp.task('routeconfig', ['copy'], function () {
 });
 
 gulp.task('libs', function () {
-    gulp.src(['bower_components/**/*.js'])
+    return gulp.src(['bower_components/**/*.js'])
       .pipe(uglify('libs.js', {
           mangle: false,
           output: {
@@ -73,7 +73,15 @@ gulp.task('libs', function () {
 });
 
 
-gulp.task('uglify:apps', function () {
+gulp.task('uglifyalljs', ['copy'], function () {
+
+    return gulp.src([distFolder + '/app.js', distFolder + '/core/**/*.js', distFolder + '/apps//**/*.js', '!/**/*.min.js'])
+
+        .pipe(uglify('/**/*', {
+            outSourceMap: true
+        }))
+        .pipe(rename({ extname: ".min.js" }))
+        .pipe(gulp.dest(distFolder));
 
     //gulp.src(['core/apps/**/*.js', '!/**/*.min.js'])
     //    .pipe(rename({ extname: ".min.js" }))
@@ -86,6 +94,7 @@ gulp.task('uglify:apps', function () {
 
 });
 
-gulp.task('default', ['annotate','clean', 'copy', 'coreservices', 'routeconfig', 'libs']);
+gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs', 'uglifyalljs']);
 gulp.task('annimate', ['annotate']);
+gulp.task('uglifyalljs', ['uglifyalljs']);
 
