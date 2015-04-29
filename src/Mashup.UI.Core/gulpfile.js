@@ -2,27 +2,20 @@
     , debug = require('gulp-debug')
     , clean = require('gulp-clean')
     , concat = require('gulp-concat')
-    , uglify = require('gulp-uglifyjs')
-    , uglify2 = require('gulp-uglify')
+    , uglify = require('gulp-uglify')
     , rename = require('gulp-rename')
     , sourcemaps = require('gulp-sourcemaps')
     , ngAnnotate = require('gulp-ng-annotate')
     , plumber = require('gulp-plumber')
+    , minifycss = require('gulp-minify-css')
+    , minifyhtml = require('gulp-minify-html')
 ;
 
-
-var distFolder = 'dist'; // removing this because I noticed while building GLOG strings it caused me to miss a lot so became more harmful than helpful.
-var srcFolder = 'src';   // removing this because I noticed while building GLOG strings it caused me to miss a lot so became more harmful than helpful.
-
-
 gulp.task('annotate', function () {
-    // Do an in-place replace on file.txt
     return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
-   // return gulp.src('file.txt', { base: './' })
       .pipe(ngAnnotate())
       .pipe(gulp.dest('src/./'));
 });
-
 
 gulp.task('clean', ['annotate'], function () {
     return gulp.src('dist', { read: false })
@@ -34,13 +27,11 @@ gulp.task('copy', ['clean'], function () {
     .pipe(gulp.dest('dist'))
 });
 
-
 gulp.task('coreservices', ['copy'], function () {
     return gulp.src('src/core/common/**/*')
       .pipe(concat('core.services.js'))
       .pipe(gulp.dest('./dist/'));
 });
-
 
 gulp.task('routeconfig', ['copy'], function () {
     return gulp.src(['src/core/config/route.config.js', 'src/apps/**/route.config.js'])
@@ -48,23 +39,17 @@ gulp.task('routeconfig', ['copy'], function () {
       .pipe(gulp.dest('./dist/'));
 });
 
-
-gulp.task('libs', function () {
+// Note minified by this build process so it can be copied as soon as the dist is cleaned.
+gulp.task('libs', ['clean'], function () {
     return gulp.src(['bower_components/**/*.js'])
-      .pipe(uglify('libs.js', {
-          mangle: false,
-          output: {
-              beautify: true
-          }
-      }))
-      .pipe(gulp.dest('dist/core/libs/'))
+      .pipe(concat('libs.js'))
+      .pipe(gulp.dest('dist/core/lib/'));
 });
 
 gulp.task('uglifyalljs', ['copy', 'coreservices','routeconfig'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
-     //.pipe(plumber())
      .pipe(sourcemaps.init())
-     .pipe(uglify2())
+     .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
      }))
@@ -72,10 +57,34 @@ gulp.task('uglifyalljs', ['copy', 'coreservices','routeconfig'], function () {
      .pipe(gulp.dest('dist/./'));
 });
 
+gulp.task('minifycss', ['copy'], function () {
+    return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
+     .pipe(sourcemaps.init())
+     .pipe(minifycss())
+     .pipe(rename({
+         extname: '.min.css'
+     }))
+     .pipe(sourcemaps.write('./'))
+     .pipe(gulp.dest('dist/./'));
+});
 
-gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs', 'uglifyalljs']);
-//gulp.task('annotatetask', ['annotate']);
-//gulp.task('uglifyjstask', ['uglifyalljs']);
+gulp.task('minifyhtml', ['copy'], function () {
+    return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
+     .pipe(sourcemaps.init())
+     .pipe(minifyhtml())
+     .pipe(rename({
+         extname: '.min.html'
+     }))
+     .pipe(sourcemaps.write('./'))
+     .pipe(gulp.dest('dist/./'));
+});
+
+
+
+
+
+gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
+                   , 'uglifyalljs', 'minifycss', 'minifyhtml']);
 
 
 //.pipe(plumber())
