@@ -9,6 +9,8 @@
     , plumber = require('gulp-plumber')
     , minifycss = require('gulp-minify-css')
     , minifyhtml = require('gulp-minify-html')
+    , extendJSON = require('gulp-extend')
+    , jsoncombine = require('gulp-jsoncombine')
 ;
 
 gulp.task('annotate', function () {
@@ -46,7 +48,7 @@ gulp.task('libs', ['clean'], function () {
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
-gulp.task('uglifyalljs', ['copy', 'coreservices','routeconfig'], function () {
+gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
      .pipe(sourcemaps.init())
      .pipe(uglify())
@@ -79,12 +81,23 @@ gulp.task('minifyhtml', ['copy'], function () {
      .pipe(gulp.dest('dist/./'));
 });
 
+gulp.task('extendJSON', ['copy'], function () {
+    gulp.src('./dist/apps/**/menu.json.txt')
+        .pipe(extendJSON('text.en.json.txt'))
+        .pipe(gulp.dest('./dist/'));
+});
+
+//gulp.task('extendJSON2', ['copy'], function () {
+//    gulp.src('./dist/apps/**/menu.json.txt')
+//        .pipe(jsoncombine("text.en.json2.txt"))
+//        .pipe(gulp.dest('./dist/'));
+//});
 
 
 
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-                   , 'uglifyalljs', 'minifycss', 'minifyhtml']);
+                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'extendJSON', ]);
 
 
 //.pipe(plumber())
