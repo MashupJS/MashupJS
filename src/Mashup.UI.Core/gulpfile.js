@@ -9,9 +9,19 @@
     , plumber = require('gulp-plumber')
     , minifycss = require('gulp-minify-css')
     , minifyhtml = require('gulp-minify-html')
-    , extendJSON = require('gulp-extend')
-    , jsoncombine = require('gulp-jsoncombine')
+    , imagemin = require('gulp-imagemin')
+    , pngquant = require('imagemin-pngquant')
 ;
+
+// -------------------------------------------------
+// Grunt configuration
+require('gulp-grunt')(gulp, {
+    // These are the default options but included here for readability.
+    base: null,
+    prefix: 'grunt-',
+    verbose: false
+});
+// -------------------------------------------------
 
 gulp.task('annotate', function () {
     return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
@@ -81,23 +91,17 @@ gulp.task('minifyhtml', ['copy'], function () {
      .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('extendJSON', ['copy'], function () {
-    gulp.src('./dist/apps/**/menu.json.txt')
-        .pipe(extendJSON('text.en.json.txt'))
-        .pipe(gulp.dest('./dist/'));
+gulp.task('minifyimage', ['copy'], function () {
+    return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+    .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
+    .pipe(gulp.dest('dist/./'));
 });
-
-//gulp.task('extendJSON2', ['copy'], function () {
-//    gulp.src('./dist/apps/**/menu.json.txt')
-//        .pipe(jsoncombine("text.en.json2.txt"))
-//        .pipe(gulp.dest('./dist/'));
-//});
 
 
 
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'extendJSON', ]);
+                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage']);
 
 
 //.pipe(plumber())

@@ -17,38 +17,38 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
         // Task configuration.
-        ngAnnotate: {
-            options: {
-                singleQuotes: true,
-            },
-            mashupCore: {
-                files: [{
-                    expand: true,
-                    src: ['apps/**/*.js', 'core/**/*.js', '!core/lib/**/*', '!**/*.min.js'],
-                }],
-            }
-        },
+        //    ngAnnotate: {
+        //        options: {
+        //            singleQuotes: true,
+        //        },
+        //        mashupCore: {
+        //            files: [{
+        //                expand: true,
+        //                src: ['apps/**/*.js', 'core/**/*.js', '!core/lib/**/*', '!**/*.min.js'],
+        //            }],
+        //        }
+        //    },
 
-        clean: {
-            dist: {
-                src: ['<%= distFolder %>/**', '<%= distFolder %>/']
-            }
-        },
+        //    clean: {
+        //        dist: {
+        //            src: ['<%= distFolder %>/**', '<%= distFolder %>/']
+        //        }
+        //    },
 
-        concat: {
-            options: {
-                separator: ';',
-            },
-            routeconfig: {
-                src: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
-                dest: '<%= distFolder %>/route.config.js',
-            },
-            coreservices: {
-                src: ['core/common/**/*', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
-                dest: '<%= distFolder %>/core.services.js',
-            },
+        //    concat: {
+        //        options: {
+        //            separator: ';',
+        //        },
+        //        routeconfig: {
+        //            src: ['core/config/route.config.js', 'apps/**/route.config.js', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
+        //            dest: '<%= distFolder %>/route.config.js',
+        //        },
+        //        coreservices: {
+        //            src: ['core/common/**/*', '!core/lib/**/*', '!<%= distFolder %>/**/*'],
+        //            dest: '<%= distFolder %>/core.services.js',
+        //        },
 
-        },
+        //    },
 
         "merge-json": {
 
@@ -58,261 +58,176 @@ module.exports = function (grunt) {
             },
         },
 
-        copy: {
-            all: {
-                expand: true,
-                src: ['apps/**/*', 'core/**/*', 'index.*'],
-                dest: '<%= distFolder %>/',
-            },
-        },
+        //    copy: {
+        //        all: {
+        //            expand: true,
+        //            src: ['apps/**/*', 'core/**/*', 'index.*'],
+        //            dest: '<%= distFolder %>/',
+        //        },
+        //    },
 
 
 
 
-        uglify: {
-            options: {
-                sourceMap: true,
-            },
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>**/*.min.js', '!<%= distFolder %>/core/lib/**'],
-                        dest: '',
-                        ext: '.min.js',
-                        extDot: 'last'
-                    }
-                ]
-            },
+        //    uglify: {
+        //        options: {
+        //            sourceMap: true,
+        //        },
+        //        dist: {
+        //            files: [
+        //                {
+        //                    expand: true,
+        //                    src: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>**/*.min.js', '!<%= distFolder %>/core/lib/**'],
+        //                    dest: '',
+        //                    ext: '.min.js',
+        //                    extDot: 'last'
+        //                }
+        //            ]
+        //        },
 
-        },
+        //    },
 
-        cssmin: {
-            all: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= distFolder %>/core/**/*.css', '!<%= distFolder %>/**/*.min.css', '!<%= distFolder %>/core/lib/**'],
-                        dest: '',
-                        ext: '.min.css',
-                        extDot: 'last'
-                    }
-                ]
-            }
-        },
+        //    cssmin: {
+        //        all: {
+        //            files: [
+        //                {
+        //                    expand: true,
+        //                    src: ['<%= distFolder %>/core/**/*.css', '!<%= distFolder %>/**/*.min.css', '!<%= distFolder %>/core/lib/**'],
+        //                    dest: '',
+        //                    ext: '.min.css',
+        //                    extDot: 'last'
+        //                }
+        //            ]
+        //        }
+        //    },
 
-        // Executing jshint against the source and deposits in dist/img.
-        // https://github.com/gruntjs/grunt-contrib-imagemin
-        imagemin: {
-            dynamic: {
-                options: {                       // Target options
-                    optimizationLevel: 7
-                },
-                files: [{
-                    expand: true,                  // Enable dynamic expansion
-                    src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**'],
-                    dest: '<%= distFolder %>/img/'
-                }]
-            }
-        },
+        //    // Executing jshint against the source and deposits in dist/img.
+        //    // https://github.com/gruntjs/grunt-contrib-imagemin
+        //    imagemin: {
+        //        dynamic: {
+        //            options: {                       // Target options
+        //                optimizationLevel: 7
+        //            },
+        //            files: [{
+        //                expand: true,                  // Enable dynamic expansion
+        //                src: ['core/**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!core/css/**', '!core/lib/**'],
+        //                dest: '<%= distFolder %>/img/'
+        //            }]
+        //        }
+        //    },
 
-        // Executing jshint against the source, not dist
-        jshint: {
+        //    // Executing jshint against the source, not dist
+        //    jshint: {
 
-            options: {
-                // options here to override JSHint defaults
-                reporterOutput: 'jshint.xml',
-                //reporter: require('jshint-stylish'),
-                reporter: 'checkstyle',
-                node: true,
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true,
-                    document: true,
-                    jshintrc: true,
-                    "angular": false,
-                    "$": false,
-                    //"mashupApp" : false,
-                },
-                maxerr: 19999,
-                force: true,
+        //        options: {
+        //            // options here to override JSHint defaults
+        //            reporterOutput: 'jshint.xml',
+        //            //reporter: require('jshint-stylish'),
+        //            reporter: 'checkstyle',
+        //            node: true,
+        //            globals: {
+        //                jQuery: true,
+        //                console: true,
+        //                module: true,
+        //                document: true,
+        //                jshintrc: true,
+        //                "angular": false,
+        //                "$": false,
+        //                //"mashupApp" : false,
+        //            },
+        //            maxerr: 19999,
+        //            force: true,
 
-                // options from Joha Papa's Angular Design-Guide
-                "bitwise": true,
-                "camelcase": true,
-                "curly": true,
-                "eqeqeq": true,
-                "es3": false,
-                "forin": true,
-                "freeze": true,
-                "immed": true,
-                "indent": 4,
-                "latedef": "nofunc",
-                "newcap": true,
-                "noarg": true,
-                "noempty": true,
-                "nonbsp": true,
-                "nonew": true,
-                "plusplus": false,
-                "quotmark": "single",
-                "undef": true,
-                "unused": false,
-                "strict": false,
-                "maxparams": 10,
-                "maxdepth": 5,
-                "maxstatements": 40,
-                "maxcomplexity": 8,
-                "maxlen": 140,
+        //            // options from Joha Papa's Angular Design-Guide
+        //            "bitwise": true,
+        //            "camelcase": true,
+        //            "curly": true,
+        //            "eqeqeq": true,
+        //            "es3": false,
+        //            "forin": true,
+        //            "freeze": true,
+        //            "immed": true,
+        //            "indent": 4,
+        //            "latedef": "nofunc",
+        //            "newcap": true,
+        //            "noarg": true,
+        //            "noempty": true,
+        //            "nonbsp": true,
+        //            "nonew": true,
+        //            "plusplus": false,
+        //            "quotmark": "single",
+        //            "undef": true,
+        //            "unused": false,
+        //            "strict": false,
+        //            "maxparams": 10,
+        //            "maxdepth": 5,
+        //            "maxstatements": 40,
+        //            "maxcomplexity": 8,
+        //            "maxlen": 140,
 
-                "asi": false,
-                "boss": false,
-                "debug": false,
-                "eqnull": true,
-                "esnext": false,
-                "evil": false,
-                "expr": false,
-                "funcscope": false,
-                "globalstrict": false,
-                "iterator": false,
-                "lastsemic": false,
-                "laxbreak": false,
-                "laxcomma": false,
-                "loopfunc": true,
-                "moz": false,
-                "multistr": false,
-                "notypeof": false,
-                "proto": false,
-                "scripturl": false,
-                "shadow": false,
-                "sub": true,
-                "supernew": false,
-                "validthis": false,
-                "noyield": false,
-                "browser": true,
+        //            "asi": false,
+        //            "boss": false,
+        //            "debug": false,
+        //            "eqnull": true,
+        //            "esnext": false,
+        //            "evil": false,
+        //            "expr": false,
+        //            "funcscope": false,
+        //            "globalstrict": false,
+        //            "iterator": false,
+        //            "lastsemic": false,
+        //            "laxbreak": false,
+        //            "laxcomma": false,
+        //            "loopfunc": true,
+        //            "moz": false,
+        //            "multistr": false,
+        //            "notypeof": false,
+        //            "proto": false,
+        //            "scripturl": false,
+        //            "shadow": false,
+        //            "sub": true,
+        //            "supernew": false,
+        //            "validthis": false,
+        //            "noyield": false,
+        //            "browser": true,
 
-            },
-            files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
-        },
-
-
-        // Addresses the issue where I could not get newer to work.
-        // https://github.com/tschaub/grunt-newer/issues/39#issuecomment-48251668
-        watch: {
-
-            // Here I could not get the watch to recognize files updated fast encough.
-            // Also I could not net the "Newer" plugin to work.  I created an issue on the
-            // github repo of newer and the issue was not address.  Rather than spend
-            // more time on this when there is so much to do I'll move on to Gulp.
-            // This Gruntfile's default task is still useful.
+        //        },
+        //        files: ['core/**/*.js', 'apps/**/*.js', '!Gruntfile.js', '!**/*.min.js', '!core/lib/**/*', '!**/dist/**/*.*'],
+        //    },
 
 
-            //watchJS: {
-            //    files: ['**/*.js', '!<%= distFolder %>/**/*', '!node_modules/**/*', '!core/lib/**/*'],
-            //    tasks: ['newer:copy:all', 'newer:jshint'],
-            //    options: {
-            //        nospawn: false,
-            //    },
-            //},
-
-            //watchUglifyJS: {
-            //    files: ['<%= distFolder %>/**/*.js', '!**/*.min.js'],
-            //    tasks: ['newer:uglify:dist'],
-            //    options: {
-            //        nospawn: false,
-            //    },
-            //},
-
-            //copyall: {
-            //    files: ['**/*.js', '**/*.html', 'core/**/*.{png,jpg,gif,ico}', '!dist/**/*', '!node_modules/**/*'],  // shouldn't be min.js so can remove?
-            //    tasks: ['newer:copy:all'], //, 'newer:jshint'],
-            //    options: {
-            //        nospawn: false,
-            //    },
-            //},
-
-            //minifyJS: {
-            //    files: ['<%= distFolder %>/**/*.js', '!<%= distFolder %>/**/*.min.js', '!<%= distFolder %>/core/lib/**/*'],
-            //    tasks: ['newer:uglify:dist'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
 
 
-            //allmin: {
-            //    files: ['**/*.js', '!core/lib/**/*', '!**/*.min.js'],
-            //    tasks: ['newer:uglify:coreroot', 'newer:jshint'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
-            //service_config: {
-            //    files: ['core/common/**/*', 'core/config/route.config.js', 'core/**/route.config.js'
-            //            , 'core/config/menu.config.js', 'apps/**/menu.json.txt', '!core/lib/**/*', '!core/dist/**/*', '!**/*.min.*'],
-            //    tasks: ['clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices', 'uglify:dist'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
-            //cssmin: {
-            //    files: ['core/css/**/*.css', '!**/*.min.css'],
-            //    tasks: ['newer:cssmin:all'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //},
-            //imagemin: {
-            //    files: ['**/*.{png,jpg,gif,ico}', '!**/*.min.*', '!**/lib/**/*.*', '!**/dist/**/*.*'],
-            //    tasks: ['newer:imagemin:dynamic'],
-            //    options: {
-            //        nospawn: true,
-            //    },
-            //}
-        },
+        //});
 
-
-    });
-
-    // on watch events configure jshint:all to only run on changed file
-    grunt.event.on('watch', function (action, filepath) {
-        grunt.config('copy.all.src', filepath);
+        // // on watch events configure jshint:all to only run on changed file
+        //grunt.event.on('watch', function (action, filepath) {
+        //    grunt.config('copy.all.src', filepath);
     });
 
 
     // Load modules, register tasks
-    grunt.loadNpmTasks('grunt-ng-annotate');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-newer');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-merge-json');
-    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
 
-    grunt.registerTask('default', ['annotate', 'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
-        'copy:all', 'uglify:dist', 'imagemin:dynamic', 'cssmin:all', 'jshint'
-    ]);
+    //grunt.registerTask('default', ['annotate', 'clean:dist', 'concat:routeconfig', 'merge-json:menu', 'concat:coreservices',
+    //    'copy:all', 'uglify:dist', 'imagemin:dynamic', 'cssmin:all', 'jshint'
+    //]);
 
-    grunt.registerTask('annotate', ['ngAnnotate']);
-    grunt.registerTask('clean_dist', ['clean:dist']);
-    grunt.registerTask('images', ['imagemin:dynamic']);
-    grunt.registerTask('watchall', ['watch']);
-    grunt.registerTask('myjshint', ['jshint']);
-    grunt.registerTask('menu', ['merge-json:menu']);
+    //grunt.registerTask('annotate', ['ngAnnotate']);
+    //grunt.registerTask('clean_dist', ['clean:dist']);
+    //grunt.registerTask('images', ['imagemin:dynamic']);
+    //grunt.registerTask('watchall', ['watch']);
+    //grunt.registerTask('myjshint', ['jshint']);
+    //grunt.registerTask('buildmenujson', ['merge-json:menu']);
 
 
-    // This is where I hit a wall and I've decided to move to gulp.
-    // The watch command works great by itself but a subset of watch commands cannot be used.
-    // Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
-    grunt.registerTask('watchjs', ['watch:allmin', 'watch:service_config']);
-    grunt.registerTask('watchall', ['watch']);
+    //// This is where I hit a wall and I've decided to move to gulp.
+    //// The watch command works great by itself but a subset of watch commands cannot be used.
+    //// Grunt is to slow not to allow smaller subsets.  I find it disapointing this cannot work.
+    //grunt.registerTask('watchjs', ['watch:allmin', 'watch:service_config']);
+    //grunt.registerTask('watchall', ['watch']);
 
 
 };
