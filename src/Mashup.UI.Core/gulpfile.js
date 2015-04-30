@@ -11,6 +11,10 @@
     , minifyhtml = require('gulp-minify-html')
     , imagemin = require('gulp-imagemin')
     , pngquant = require('imagemin-pngquant')
+    , jshint = require('gulp-jshint')
+    , stylish = require('jshint-stylish')
+    , jshintfileoutput = require('gulp-jshint-file-reporter')
+    , jshinthtmlreporter = require('gulp-jshint-html-reporter')
 ;
 
 // -------------------------------------------------
@@ -97,11 +101,21 @@ gulp.task('minifyimage', ['copy'], function () {
     .pipe(gulp.dest('dist/./'));
 });
 
+gulp.task('jshint', function () {
+    return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
+      .pipe(jshint('.jshintrc'))
+      .pipe(jshint.reporter(stylish))
+      .pipe(jshint.reporter('gulp-jshint-file-reporter', { filename: 'jshint-output.log' }))
+      .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
+    ;
+});
+
 
 
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage']);
+                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
+                   , 'jshint']);
 
 
 //.pipe(plumber())

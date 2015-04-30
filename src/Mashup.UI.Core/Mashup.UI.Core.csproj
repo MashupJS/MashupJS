@@ -608,6 +608,7 @@
       <DependentUpon>index.controller.min.js</DependentUpon>
     </Content>
     <Content Include="apps\mashup\~appConfig\menu.json.txt" />
+    <Content Include=".jshintrc" />
     <None Include="core\lib\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.js" />
     <Content Include="core\lib\jquery\jquery-2.1.1.min.js" />

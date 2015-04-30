@@ -26,6 +26,9 @@
     "gulp-extend": "^0.2.0",
     "gulp-grunt": "^0.5.2",
     "gulp-imagemin": "^2.2.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-jshint-file-reporter": "0.0.1",
+    "gulp-jshint-html-reporter": "^0.1.2",
     "gulp-jsoncombine": "^1.0.2",
     "gulp-ng-annotate": "^0.5.2",
     "gulp-plumber": "^1.0.0",
@@ -34,6 +37,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-uglifyjs": "^0.6.1",
     "imagemin-pngquant": "^4.1.0",
+    "jshint-html-reporter": "^0.2.3",
     "jshint-stylish": "^1.0.1"
   }
 }
