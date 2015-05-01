@@ -59,14 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Gruntfile.js" />
-    <Content Include="index.controller.js" />
-    <Content Include="index.controller.min.js">
-      <DependentUpon>index.controller.js</DependentUpon>
-    </Content>
-    <Content Include="index.html" />
-    <Content Include="index.controller.min.js.map">
-      <DependentUpon>index.controller.min.js</DependentUpon>
-    </Content>
     <Content Include=".jshintrc" />
     <None Include="Gruntfile.js.old" />
     <Content Include="gulpfile.js" />
