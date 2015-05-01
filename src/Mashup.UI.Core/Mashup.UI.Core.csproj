@@ -116,6 +116,7 @@
     <Content Include="src\core\lib\ocLazyLoad\0.5.2.20150120\ocLazyLoad.min.js.map" />
     <Content Include="src\core\lib\ynd-db\1.1.1\ydn.db-is-sql-e-cur-qry-text-dev.js.map" />
     <Content Include="src\core\lib\ynd-db\ydn.db-isw-sql-e-cur-qry-dev.js.map" />
+    <Content Include="SVN.gitignore" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
