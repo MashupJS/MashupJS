@@ -615,9 +615,7 @@
     <Content Include="core\lib\jquery\jquery-2.1.1.min.map" />
     <None Include="Gruntfile.js.old" />
     <Content Include="gulpfile.js" />
-    <Content Include="jshint.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="jshint-output.html" />
     <Content Include="package.json" />
     <Content Include="src\core\lib\angularJS\1.3.8\angular-animate.min.js.map" />
     <Content Include="src\core\lib\angularJS\1.3.8\angular-aria.min.js.map" />

@@ -13,7 +13,6 @@
     , pngquant = require('imagemin-pngquant')
     , jshint = require('gulp-jshint')
     , stylish = require('jshint-stylish')
-    , jshintfileoutput = require('gulp-jshint-file-reporter')
     , jshinthtmlreporter = require('gulp-jshint-html-reporter')
 ;
 
@@ -105,7 +104,6 @@ gulp.task('jshint', function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
-      .pipe(jshint.reporter('gulp-jshint-file-reporter', { filename: 'jshint-output.log' }))
       .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
     ;
 });
