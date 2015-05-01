@@ -13,7 +13,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/app2/page3', {
-            templateUrl: 'apps/app2/page3/page3.html',
+            templateUrl: 'apps/app2/page3/page3.min.html',
             controller: 'app2.Page3Controller',
             controllerAs: 'vm',
             resolve: {
@@ -29,7 +29,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
             }
         })
         .when('/app2/page4', {
-            templateUrl: 'apps/app2/page4/page4.html',
+            templateUrl: 'apps/app2/page4/page4.min.html',
             controller: 'app2.Page4Controller',
             controllerAs: 'vm',
             resolve: {

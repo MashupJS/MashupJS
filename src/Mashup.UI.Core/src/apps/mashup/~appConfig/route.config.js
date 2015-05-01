@@ -7,7 +7,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
     .when('/mashup/about', {
-        templateUrl: 'apps/mashup/about.html',
+        templateUrl: 'apps/mashup/about.min.html',
         controller: 'mashup.AboutController',
         controllerAs: 'vm',
         resolve: {
@@ -25,7 +25,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
     })
 
     .when('/mashup', {
-        templateUrl: 'apps/mashup/welcome.html',
+        templateUrl: 'apps/mashup/welcome.min.html',
         controller: 'mashup.WelcomeController',
         controllerAs: 'vm',
         resolve: {
@@ -41,7 +41,7 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
         }
     })
     .when('/mashup/login', {
-        templateUrl: 'apps/mashup/login.html',
+        templateUrl: 'apps/mashup/login.min.html',
         controller: 'mashup.LoginController',
         controllerAs: 'vm',
         resolve: {

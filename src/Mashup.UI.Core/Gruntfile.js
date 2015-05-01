@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         "merge-json": {
 
             menu: {
-                src: ['apps/**/menu.json.txt'],
+                src: ['src/apps/**/menu.json.txt'],
                 dest: '<%= distFolder %>/menu.json.txt',
             },
         },
