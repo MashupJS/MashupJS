@@ -100,7 +100,11 @@ gulp.task('minifyimage', ['copy'], function () {
     .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('jshint', function () {
+// Make sure this doesn't run until all JavaScript is ready.  IE: If TypeScript is added then
+// either execute as part of the transpilation from TypeScript to JavaScript or create a dependency
+// ,here, for the Transpilation task to complete before starting jshint.
+// Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
+gulp.task('jshint', ['copy'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
