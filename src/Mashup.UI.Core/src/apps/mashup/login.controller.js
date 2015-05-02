@@ -1,6 +1,7 @@
 /*global mashupApp:false, _:false */
 
-mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout', '$scope', 'sessionService', 'cacheService', 'utility',
+mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout', '$scope',
+    'sessionService', 'cacheService', 'utility',
     function ($location, $log, $timeout, $scope, sessionService, cacheService, utility) {
         'use strict';
 
@@ -14,18 +15,19 @@ mashupApp.controller('mashup.LoginController', ['$location', '$log', '$timeout',
         getAppSession().then(function (data) {
             vm.appSession = data[0];
             // TODO: Improve checking for no session in cache. Maybe move this to the getCache() function.
-            if (vm.appSession === 'NoCache' || vm.appSession === 'N' || _.isNull(vm.appSession) || _.isUndefined(vm.appSession)) {
+            if (vm.appSession === 'NoCache' || vm.appSession === 'N' ||
+                _.isNull(vm.appSession) || _.isUndefined(vm.appSession)) {
                 vm.appSession = { sessions: [] };
                 vm.appSession.id = 'mashupSessions';
             }
-           
+
             var index = _.findIndex(vm.appSession.sessions, { 'appName': vm.appName });
             if (index > -1) {
                 vm.labelUserName = vm.appSession.sessions[index].userName;
             }
-            
+
         });
-        
+
         vm.login = function () {
 
             // SIMULARED AUTHENTICATION: REPLACE WITH ACTUAL AUTH CODE HERE.

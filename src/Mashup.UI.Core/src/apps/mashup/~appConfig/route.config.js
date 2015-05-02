@@ -51,15 +51,18 @@ mashupApp.config(['$routeProvider', function ($routeProvider) {
                     files: ['apps/mashup/login.controller.min.js']
                 });
             }],
-            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) { return coreRouteHelper.logRoute('mashup'); }],
+            logRoute: ['$route', 'coreRouteHelper', function ($route, coreRouteHelper) {
+                return coreRouteHelper.logRoute('mashup');
+            }],
 
         }
     });
 
 }]);
 
-mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval', 'sessionService', 'cacheService',
-    'utility', 'coreRouteHelper', function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
+mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$interval',
+    'sessionService', 'cacheService', 'utility', 'coreRouteHelper',
+    function ($log, $q, $timeout, $location, $interval, sessionService, cacheService,
         utility, coreRouteHelper) {
         'use strict';
 
@@ -75,6 +78,7 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
 
                     var isAuthenticated;
                     var isAuthorized;
+                    var session;
 
                     if (_.isUndefined(appUserSession) || _.isNull(appUserSession)) {
                         isAuthenticated = false;
@@ -82,7 +86,7 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
                     }
                     else {
 
-                        var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
+                        session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
 
                         isAuthenticated = isUserAuthenticated(session);
                         isAuthorized = isUserAuthorized(session, authGroupArray);
@@ -160,7 +164,8 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
                 // verify authGroupArray is an array.
                 // verify session.roles has a match with a group in authGroupArray
                 if (angular.isArray(authGroupArray)) {
-                    // JavaScript FOR loop is faster.  This is more readable so for small lists I'll used angular.isArray.
+                    // JavaScript FOR loop is faster.  
+                    // This is more readable so for small lists I'll used angular.isArray.
                     // http://stackoverflow.com/questions/13843972/angular-js-break-foreach
                     angular.forEach(authGroupArray, function (value, key) {
                         if (_.contains(session.roles, value)) {

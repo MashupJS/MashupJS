@@ -187,7 +187,10 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
              // http://www.sitename.com/article/2009/09/14/this-is-an-article/
              // http://stackoverflow.com/questions/1420881/javascript-jquery-method-to-find-base-url-from-a-string
 
+             /*jshint ignore:start */
              var parseUrl = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+             /*jshint ignore:end */
+
              var parts = parseUrl.exec(webApiUrl);
              result = parts[1] + ':' + parts[2] + parts[3] + ':' + parts[4] + '/api/HeartBeat/';
 
@@ -219,7 +222,8 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                  return deferred.promise;
 
              },
-             getData: function (cacheName, schema, webApiUrl, staleMinutes, useHeartBeatConvention, heartBeatUrl, heartBeatName) {
+             getData: function (cacheName, schema, webApiUrl, staleMinutes,
+                 useHeartBeatConvention, heartBeatUrl, heartBeatName) {
 
                  var deferred = $q.defer();
 
@@ -266,11 +270,12 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                                  }
                                  catch (err) {
 
-                                     var logObject = utility.getLogObject('mashCasheDelete', 'Mashup.UI.Core', 'cacheService',
-                                         'getData', 'Error', sessionService);
+                                     var logObject = utility.getLogObject('mashCasheDelete', 'Mashup.UI.Core',
+                                         'cacheService', 'getData', 'Error', sessionService);
                                      $log.error(err, logObject);
                                      indexedDB.deleteDatabase('mashCacheDB');
-                                     $log.log('IndexedDB error on updating a cache. Deleted database to allow new schema.', logObject);
+                                     $log.log('IndexedDB error on updating a cache. Deleted database',
+                                         logObject);
 
                                  }
 

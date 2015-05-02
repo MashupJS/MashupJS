@@ -2,7 +2,8 @@
 /*global ydn: false*/
 /*global _:false */
 
-mashupApp.service('detectService', ['$http', '$q', '$log', '$interval', '$filter', '$rootScope', 'utility', 'sessionService',
+mashupApp.service('detectService', ['$http', '$q', '$log', '$interval', '$filter',
+    '$rootScope', 'utility', 'sessionService',
     function ($http, $q, $log, $interval, $filter, $rootScope, utility, sessionService) {
         'use strict';
 
@@ -221,7 +222,8 @@ mashupApp.service('detectService', ['$http', '$q', '$log', '$interval', '$filter
         // No connectivity attempt is made here.
         var canDetectHeartBeat = function (heartBeatUrl, webApiName) {
 
-            // if no heartBeatUrl provided then short curcuit this method and return true allowing the webapi call to continue.
+            // if no heartBeatUrl provided then short curcuit this method 
+            // and return true allowing the webapi call to continue.
             if (!heartBeatUrl) {
                 return true;
             }

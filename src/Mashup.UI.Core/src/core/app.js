@@ -1,3 +1,5 @@
+// ALL GOOD IF NO ERRORS BELOW THIS LINE - I'm leaving this in the code to force the gulp-jshint-html-reporter pligin to update the html file.  If there are no errors then no report is written so you never know if your last JSHint error is fixed or not.
+
 // -------------------------------------------------------------------------
 // Kicks off the angularJS application
 // create the module and name it "mashupApp"
