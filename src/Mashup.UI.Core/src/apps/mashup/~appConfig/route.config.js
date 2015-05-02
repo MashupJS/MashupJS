@@ -72,11 +72,21 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
 
                 getAppSession().then(function (data) {
                     var appUserSession = data[0];
-                    var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
 
-                    var isAuthenticated = isUserAuthenticated(session);
-                    var isAuthorized = isUserAuthorized(session, authGroupArray);
+                    var isAuthenticated;
+                    var isAuthorized;
 
+                    if (_.isUndefined(appUserSession) || _.isNull(appUserSession)) {
+                        isAuthenticated = false;
+                        isAuthorized = false;
+                    }
+                    else {
+
+                        var session = _.first(_.where(appUserSession.sessions, { 'appName': 'coreSession' }));
+
+                        isAuthenticated = isUserAuthenticated(session);
+                        isAuthorized = isUserAuthorized(session, authGroupArray);
+                    }
 
                     if (!isAuthenticated) {
                         // HERE YOU CAN SET $location.path('/login') to force authentication.
@@ -143,8 +153,8 @@ mashupApp.factory('mashupRouterAuth', ['$log', '$q', '$timeout', '$location', '$
             // if no group is passed then assume isAuthorized = true;
             if (authGroupArray.length === 0) { result = true; }
 
-            if (_.isNull(session)) {
-                result = false;
+            if (_.isNull(session) || _.isUndefined(session)) {
+                return false;
             }
             else {
                 // verify authGroupArray is an array.
