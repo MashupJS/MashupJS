@@ -14,6 +14,9 @@
     , jshint = require('gulp-jshint')
     , stylish = require('jshint-stylish')
     , jshinthtmlreporter = require('gulp-jshint-html-reporter')
+    , ts = require('gulp-typescript')
+    , tslint = require('gulp-tslint')
+    , tsstylish = require('gulp-tslint-stylish')
 ;
 
 // -------------------------------------------------
@@ -61,7 +64,7 @@ gulp.task('libs', ['clean'], function () {
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
-gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig'], function () {
+gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
      .pipe(sourcemaps.init())
      .pipe(uglify())
@@ -100,11 +103,44 @@ gulp.task('minifyimage', ['copy'], function () {
     .pipe(gulp.dest('dist/./'));
 });
 
+
+gulp.task('tscompile', ['copy'], function () {
+    return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+    .pipe(sourcemaps.init())
+    .pipe(ts({
+        target: 'ES5',
+        declarationFiles: false,
+        noExternalResolve: true
+    }))
+
+    // Exporting the ES5 .js file.  This is never used so you can remove the following two lines.
+    // You might want to keep them so you can evaluate how TypeScript is transpiling your JavaScript.
+    // This also gives JSHint a shot at linting the JavaScript version of your TypeScript code.
+    .pipe(rename({ extname: '.js' }))
+    .pipe(gulp.dest('dist/./'))
+
+    // Creating the optimized JavaScript file.
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('dist/./'));
+});
+
+gulp.task('tslint', ['copy'], function () {
+    return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+        .pipe(tslint())
+        .pipe(tslint.report('verbose', {
+            emitError: false,
+            sort: true,
+            bell: true
+        }))
+});
+
 // Make sure this doesn't run until all JavaScript is ready.  IE: If TypeScript is added then
 // either execute as part of the transpilation from TypeScript to JavaScript or create a dependency
 // ,here, for the Transpilation task to complete before starting jshint.
 // Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
-gulp.task('jshint', ['copy'], function () {
+gulp.task('jshint', ['copy', 'tscompile'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
@@ -117,7 +153,7 @@ gulp.task('jshint', ['copy'], function () {
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
                    , 'uglifyalljs', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
-                   , 'jshint']);
+                   , 'tscompile', 'tslint', 'jshint']);
 
 
 //.pipe(plumber())
