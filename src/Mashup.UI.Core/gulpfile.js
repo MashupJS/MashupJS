@@ -126,6 +126,11 @@ gulp.task('tscompile', ['copy'], function () {
     .pipe(gulp.dest('dist/./'));
 });
 
+
+
+
+
+
 gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
         .pipe(tslint())
