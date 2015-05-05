@@ -128,14 +128,24 @@ gulp.task('tscompile', ['copy'], function () {
 });
 
 
-gulp.task('sassDefault', function () {
-    gulp.src('./dist/core/css/bootstrap/default/*.scss')
-        .pipe(sourcemaps.init())
+// Precompiling and optimizing our Bootswatch
+// https://github.com/thomaspark/bootswatch
+// Customize settings with _variables.scss
+// http://getbootstrap.com/customize/#less-variables
+
+gulp.task('sassPaper', function () {
+    gulp.src('dist/core/css/bootstrap/paper/_bootswatch.scss')
+        //.pipe(sourcemaps.init())
         .pipe(sass({
-            errLogToConsole: true
+            //sourcemap: true
         }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/core/css/bootstrap/default/bootstrap.default.css'));
+        // Catch any SCSS errors and prevent them from crashing gulp
+        .on('error', function (error) {
+            console.error(error);
+            this.emit('end');
+        })
+        //.pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/core/css/bootstrap/paper/bootswatch.css'));
 });
 
 
