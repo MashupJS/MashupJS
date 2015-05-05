@@ -17,6 +17,7 @@
     , ts = require('gulp-typescript')
     , tslint = require('gulp-tslint')
     , tsstylish = require('gulp-tslint-stylish')
+    , sass = require('gulp-sass')
 ;
 
 // -------------------------------------------------
@@ -126,6 +127,16 @@ gulp.task('tscompile', ['copy'], function () {
     .pipe(gulp.dest('dist/./'));
 });
 
+
+gulp.task('sassDefault', function () {
+    gulp.src('./dist/core/css/bootstrap/default/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            errLogToConsole: true
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/core/css/bootstrap/default/bootstrap.default.css'));
+});
 
 
 
