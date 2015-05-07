@@ -76,7 +76,7 @@ gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], f
      .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('minifycss', ['copy'], function () {
+gulp.task('minifycss', ['copy', 'jshint'], function () {
     return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
      .pipe(sourcemaps.init())
      .pipe(minifycss())
@@ -128,24 +128,17 @@ gulp.task('tscompile', ['copy'], function () {
 });
 
 
-// Precompiling and optimizing our Bootswatch
-// https://github.com/thomaspark/bootswatch
-// Customize settings with _variables.scss
-// http://getbootstrap.com/customize/#less-variables
 
-gulp.task('sassPaper', function () {
-    gulp.src('dist/core/css/bootstrap/paper/_bootswatch.scss')
-        //.pipe(sourcemaps.init())
-        .pipe(sass({
-            //sourcemap: true
-        }))
+gulp.task('sass', ['copy'], function () {
+    gulp.src('./dist/**/*.scss', { base: 'dist/./' })
+        .pipe(sass())
         // Catch any SCSS errors and prevent them from crashing gulp
         .on('error', function (error) {
             console.error(error);
             this.emit('end');
         })
-        //.pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/core/css/bootstrap/paper/bootswatch.css'));
+        .pipe(gulp.dest('dist/./'));
+
 });
 
 
@@ -178,7 +171,7 @@ gulp.task('jshint', ['copy', 'tscompile'], function () {
 
 
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-                   , 'uglifyalljs', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
+                   , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
                    , 'tscompile', 'tslint', 'jshint']);
 
 
@@ -187,3 +180,4 @@ function onError(err) {
     beeper();
     console.log(err);
 }
+

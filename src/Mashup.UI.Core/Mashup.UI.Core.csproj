@@ -179,7 +179,7 @@
     <Content Include="src\core\css\bootstrap\spacelab\bootstrap.min.css" />
     <Content Include="src\core\css\bootstrap\superhero\bootstrap.superhero.css" />
     <Content Include="src\core\css\bootstrap\yeti\bootstrap.min.css" />
-    <Content Include="src\core\css\main.css" />
+    <None Include="src\core\css\main.scss" />
     <Content Include="src\core\css\Normalize-3.0.1.css" />
     <Content Include="src\core\favicon.ico" />
     <Content Include="src\core\index.html.shells\basic_index.html\index.controller.js" />
