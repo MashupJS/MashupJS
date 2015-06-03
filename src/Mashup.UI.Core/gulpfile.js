@@ -18,6 +18,8 @@
     , tslint = require('gulp-tslint')
     , tsstylish = require('gulp-tslint-stylish')
     , sass = require('gulp-sass')
+    , newer = require('gulp-newer')
+    , watch = require('gulp-watch')
 ;
 
 // -------------------------------------------------
@@ -32,6 +34,7 @@ require('gulp-grunt')(gulp, {
 
 gulp.task('annotate', function () {
     return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
+      .pipe(newer('src/./'))
       .pipe(ngAnnotate())
       .pipe(gulp.dest('src/./'));
 });
@@ -43,7 +46,8 @@ gulp.task('clean', ['annotate'], function () {
 
 gulp.task('copy', ['clean'], function () {
     return gulp.src('src/**/*')
-    .pipe(gulp.dest('dist'))
+    .pipe(newer('dist'))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('coreservices', ['copy'], function () {
@@ -61,12 +65,14 @@ gulp.task('routeconfig', ['copy'], function () {
 // Note minified by this build process so it can be copied as soon as the dist is cleaned.
 gulp.task('libs', ['clean'], function () {
     return gulp.src(['bower_components/**/*.js'])
+      .pipe(newer('dist/core/lib/'))
       .pipe(concat('libs.js'))
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
 gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
+     .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(uglify())
      .pipe(rename({
@@ -78,6 +84,7 @@ gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], f
 
 gulp.task('minifycss', ['copy', 'jshint'], function () {
     return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
+     .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifycss())
      .pipe(rename({
@@ -89,6 +96,7 @@ gulp.task('minifycss', ['copy', 'jshint'], function () {
 
 gulp.task('minifyhtml', ['copy'], function () {
     return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
+     .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifyhtml())
      .pipe(rename({
@@ -100,6 +108,7 @@ gulp.task('minifyhtml', ['copy'], function () {
 
 gulp.task('minifyimage', ['copy'], function () {
     return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+    .pipe(newer('dist/./'))
     .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
     .pipe(gulp.dest('dist/./'));
 });
@@ -107,6 +116,7 @@ gulp.task('minifyimage', ['copy'], function () {
 
 gulp.task('tscompile', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+    .pipe(newer('dist/./'))
     .pipe(sourcemaps.init())
     .pipe(ts({
         target: 'ES5',
@@ -130,6 +140,7 @@ gulp.task('tscompile', ['copy'], function () {
 
 gulp.task('sass', ['copy'], function () {
     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
+        .pipe(newer('dist/./'))
         .pipe(sass())
         // Catch any SCSS errors and prevent them from crashing gulp
         .on('error', function (error) {
@@ -143,6 +154,7 @@ gulp.task('sass', ['copy'], function () {
 
 gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+        .pipe(newer('dist/./'))
         .pipe(tslint())
         .pipe(tslint.report('verbose', {
             emitError: false,
@@ -157,6 +169,7 @@ gulp.task('tslint', ['copy'], function () {
 // Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
 gulp.task('jshint', ['copy', 'tscompile'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
+      .pipe(newer('dist/./'))
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
       .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
@@ -170,6 +183,13 @@ gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig'
                    , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
                    , 'tscompile', 'tslint', 'jshint']);
 
+
+// Watch Files For Changes
+gulp.task('watch2', function() {
+    gulp.watch(['!src/core/lib/**/*', '!/**/*.min.js', 'src/index.controller.js'], ['annotate']);
+});
+
+// ['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' }
 
 //.pipe(plumber())
 function onError(err) {
