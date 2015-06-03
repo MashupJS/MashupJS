@@ -128,7 +128,6 @@ gulp.task('tscompile', ['copy'], function () {
 });
 
 
-
 gulp.task('sass', ['copy'], function () {
     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
         .pipe(sass())
@@ -142,9 +141,6 @@ gulp.task('sass', ['copy'], function () {
 });
 
 
-
-
-
 gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
         .pipe(tslint())
@@ -152,7 +148,7 @@ gulp.task('tslint', ['copy'], function () {
             emitError: false,
             sort: true,
             bell: true
-        }))
+        }));
 });
 
 // Make sure this doesn't run until all JavaScript is ready.  IE: If TypeScript is added then
