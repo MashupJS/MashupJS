@@ -46,7 +46,6 @@ gulp.task('clean', ['annotate'], function () {
 
 gulp.task('copy', ['clean'], function () {
     return gulp.src('src/**/*')
-    .pipe(newer('dist'))
     .pipe(gulp.dest('dist'));
 });
 
@@ -65,15 +64,15 @@ gulp.task('routeconfig', ['copy'], function () {
 // Note minified by this build process so it can be copied as soon as the dist is cleaned.
 gulp.task('libs', ['clean'], function () {
     return gulp.src(['bower_components/**/*.js'])
-      .pipe(newer('dist/core/lib/'))
+      //.pipe(newer('dist/core/lib/'))
       .pipe(concat('libs.js'))
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
 gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
-     .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
+     .pipe(newer('dist/./'))
      .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
@@ -84,7 +83,7 @@ gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], f
 
 gulp.task('minifycss', ['copy', 'jshint'], function () {
     return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
-     .pipe(newer('dist/./'))
+     //.pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifycss())
      .pipe(rename({
@@ -96,7 +95,7 @@ gulp.task('minifycss', ['copy', 'jshint'], function () {
 
 gulp.task('minifyhtml', ['copy'], function () {
     return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
-     .pipe(newer('dist/./'))
+     //.pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifyhtml())
      .pipe(rename({
@@ -108,7 +107,7 @@ gulp.task('minifyhtml', ['copy'], function () {
 
 gulp.task('minifyimage', ['copy'], function () {
     return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-    .pipe(newer('dist/./'))
+    //.pipe(newer('dist/./'))
     .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
     .pipe(gulp.dest('dist/./'));
 });
@@ -116,7 +115,7 @@ gulp.task('minifyimage', ['copy'], function () {
 
 gulp.task('tscompile', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-    .pipe(newer('dist/./'))
+    //.pipe(newer('dist/./'))
     .pipe(sourcemaps.init())
     .pipe(ts({
         target: 'ES5',
@@ -140,7 +139,7 @@ gulp.task('tscompile', ['copy'], function () {
 
 gulp.task('sass', ['copy'], function () {
     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
-        .pipe(newer('dist/./'))
+        //.pipe(newer('dist/./'))
         .pipe(sass())
         // Catch any SCSS errors and prevent them from crashing gulp
         .on('error', function (error) {
@@ -154,7 +153,7 @@ gulp.task('sass', ['copy'], function () {
 
 gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-        .pipe(newer('dist/./'))
+        //.pipe(newer('dist/./'))
         .pipe(tslint())
         .pipe(tslint.report('verbose', {
             emitError: false,
@@ -169,7 +168,7 @@ gulp.task('tslint', ['copy'], function () {
 // Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
 gulp.task('jshint', ['copy', 'tscompile'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
-      .pipe(newer('dist/./'))
+      //.pipe(newer('dist/./'))
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
       .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
@@ -178,18 +177,42 @@ gulp.task('jshint', ['copy', 'tscompile'], function () {
 
 
 
-
+// gulp default task
 gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
                    , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
                    , 'tscompile', 'tslint', 'jshint']);
 
 
-// Watch Files For Changes
+
+
+
+
+// gulp -watch- task
+
+// gulp.task('stream', function () {
+//     return gulp.src('css/**/*.css')
+//         .pipe(watch('css/**/*.css'))
+//         .pipe(gulp.dest('build'));
+// });
+
+// gulp.task('watch3', function () {
+//     gulp.watch({}, 'stream');
+//     
+// })
+
+
 gulp.task('watch2', function() {
-    gulp.watch(['!src/core/lib/**/*', '!/**/*.min.js', 'src/index.controller.js'], ['annotate']);
+    gulp.watch(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!src/**/*.min.js'], ['annotate','watch:copy']);
 });
 
-// ['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' }
+// I've added copy without the 'clean' task dependency for the watch.
+// If I can manage dependencies in the default task then I an remove them from tasks.
+gulp.task('watch:copy', function () {
+    return gulp.src('src/**/*')
+    .pipe(newer('dist'))
+    .pipe(gulp.dest('dist'));
+});
+
 
 //.pipe(plumber())
 function onError(err) {
