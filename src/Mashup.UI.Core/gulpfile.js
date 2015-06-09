@@ -178,32 +178,30 @@ gulp.task('jshint', ['copy', 'tscompile'], function () {
 
 
 // gulp default task
-gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
+// gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
+//                    , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
+//                    , 'tscompile', 'tslint', 'jshint']);
+
+
+// This will be run first by the default task.  The benefit is I can run default
+// which will set up the dist directory and then all changes after that are
+// individually handled by the watch tasks.  Before using this approach there was
+// no way to guarentee that the "clean" task would not run when watch tasks executed
+// because of how dependencies were set up.  This way Gulp knows the 'clean' task has
+// already run and the watch tasks will not also run it and wipe out the 'dist' directory.
+gulp.task('build', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
                    , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
                    , 'tscompile', 'tslint', 'jshint']);
 
+// Now creating my default task which will first incude the build tasks and dependencies to run.
+// Then the watch tasks are set up.
 
-
-
-
-
-// gulp -watch- task
-
-// gulp.task('stream', function () {
-//     return gulp.src('css/**/*.css')
-//         .pipe(watch('css/**/*.css'))
-//         .pipe(gulp.dest('build'));
-// });
-
-// gulp.task('watch3', function () {
-//     gulp.watch({}, 'stream');
-//     
-// })
-
-
-gulp.task('watch2', function() {
+gulp.task('default', ['build'], function () {
     gulp.watch(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!src/**/*.min.js'], ['annotate','watch:copy']);
+    //gulp.watch('styl/**/*.styl', styles);
+    //gulp.watch('js/**/*.js', scripts);
 });
+
 
 // I've added copy without the 'clean' task dependency for the watch.
 // If I can manage dependencies in the default task then I an remove them from tasks.
@@ -213,10 +211,4 @@ gulp.task('watch:copy', function () {
     .pipe(gulp.dest('dist'));
 });
 
-
-//.pipe(plumber())
-function onError(err) {
-    beeper();
-    console.log(err);
-}
 
