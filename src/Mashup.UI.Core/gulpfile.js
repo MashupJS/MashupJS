@@ -1,4 +1,9 @@
-﻿var gulp = require('gulp')
+﻿
+var onError = function(err) {
+    console.log(err);
+};
+
+var gulp = require('gulp')
     , debug = require('gulp-debug')
     , clean = require('gulp-clean')
     , concat = require('gulp-concat')
@@ -20,6 +25,7 @@
     , sass = require('gulp-sass')
     , newer = require('gulp-newer')
     , watch = require('gulp-watch')
+    , runSequence = require('run-sequence')
 ;
 
 // -------------------------------------------------
@@ -34,45 +40,69 @@ require('gulp-grunt')(gulp, {
 
 gulp.task('annotate', function () {
     return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
-      .pipe(newer('src/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      })) 
       .pipe(ngAnnotate())
       .pipe(gulp.dest('src/./'));
 });
 
-gulp.task('clean', ['annotate'], function () {
+gulp.task('clean-dist', function () {
     return gulp.src('dist', { read: false })
-        .pipe(clean());
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(clean());
 });
 
-gulp.task('copy', ['clean'], function () {
+gulp.task('copy', function () {
     return gulp.src('src/**/*')
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
+    .pipe(newer('dist'))  // This is the only thing that seems to take advantage of newer. The rest failt to initially build if we use newer.
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('coreservices', ['copy'], function () {
+gulp.task('coreservices', function () {
+    // gulp.task('coreservices', ['copy'], function () {
     return gulp.src('src/core/common/**/*')
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
       .pipe(concat('core.services.js'))
       .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('routeconfig', ['copy'], function () {
+gulp.task('routeconfig', function () {
+    // gulp.task('routeconfig', ['copy'], function () {
     return gulp.src(['src/core/config/route.config.js', 'src/apps/**/route.config.js'])
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
       .pipe(concat('route.config.js'))
       .pipe(gulp.dest('./dist/'));
 });
 
 // Note minified by this build process so it can be copied as soon as the dist is cleaned.
-gulp.task('libs', ['clean'], function () {
+gulp.task('libs', function () {
     return gulp.src(['bower_components/**/*.js'])
-      //.pipe(newer('dist/core/lib/'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
+      // .pipe(newer('dist/core/lib/'))
       .pipe(concat('libs.js'))
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
-gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
+gulp.task('uglifyalljs', function () {
+    //gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
      .pipe(sourcemaps.init())
-     .pipe(newer('dist/./'))
+    //  .pipe(newer('dist/./'))
      .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
@@ -81,9 +111,13 @@ gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], f
      .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('minifycss', ['copy', 'jshint'], function () {
+gulp.task('minifycss', function () {
+    //gulp.task('minifycss', ['copy', 'jshint'], function () {
     return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
-     //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
+    //  .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifycss())
      .pipe(rename({
@@ -93,9 +127,13 @@ gulp.task('minifycss', ['copy', 'jshint'], function () {
      .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('minifyhtml', ['copy'], function () {
+gulp.task('minifyhtml', function () {
+    //gulp.task('minifyhtml', ['copy'], function () {
     return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
-     //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))    
+    //  .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifyhtml())
      .pipe(rename({
@@ -105,17 +143,25 @@ gulp.task('minifyhtml', ['copy'], function () {
      .pipe(gulp.dest('dist/./'));
 });
 
-gulp.task('minifyimage', ['copy'], function () {
+gulp.task('minifyimage', function () {
+    //gulp.task('minifyimage', ['copy'], function () {
     return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-    //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))     
+    // .pipe(newer('dist/./'))
     .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
     .pipe(gulp.dest('dist/./'));
 });
 
 
-gulp.task('tscompile', ['copy'], function () {
+gulp.task('tscompile', function () {
+    //gulp.task('tscompile', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-    //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+    // .pipe(newer('dist/./'))  
     .pipe(sourcemaps.init())
     .pipe(ts({
         target: 'ES5',
@@ -137,9 +183,14 @@ gulp.task('tscompile', ['copy'], function () {
 });
 
 
-gulp.task('sass', ['copy'], function () {
+gulp.task('sass', function () {
+    //gulp.task('sass', ['copy'], function () {
     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
-        //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+       
+    //  .pipe(newer('dist/./'))
         .pipe(sass())
         // Catch any SCSS errors and prevent them from crashing gulp
         .on('error', function (error) {
@@ -151,9 +202,14 @@ gulp.task('sass', ['copy'], function () {
 });
 
 
-gulp.task('tslint', ['copy'], function () {
+gulp.task('tslint', function () {
+    //gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-        //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+       
+    //  .pipe(newer('dist/./'))
         .pipe(tslint())
         .pipe(tslint.report('verbose', {
             emitError: false,
@@ -166,9 +222,12 @@ gulp.task('tslint', ['copy'], function () {
 // either execute as part of the transpilation from TypeScript to JavaScript or create a dependency
 // ,here, for the Transpilation task to complete before starting jshint.
 // Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
-gulp.task('jshint', ['copy', 'tscompile'], function () {
+gulp.task('jshint', function () {
+    //gulp.task('jshint', ['copy', 'tscompile'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
-      //.pipe(newer('dist/./'))
+      .pipe(plumber({
+        errorHandler: onError
+      })) 
       .pipe(jshint('.jshintrc'))
       .pipe(jshint.reporter(stylish))
       .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
@@ -177,38 +236,208 @@ gulp.task('jshint', ['copy', 'tscompile'], function () {
 
 
 
-// gulp default task
-// gulp.task('default', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-//                    , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
-//                    , 'tscompile', 'tslint', 'jshint']);
-
-
-// This will be run first by the default task.  The benefit is I can run default
-// which will set up the dist directory and then all changes after that are
-// individually handled by the watch tasks.  Before using this approach there was
-// no way to guarentee that the "clean" task would not run when watch tasks executed
-// because of how dependencies were set up.  This way Gulp knows the 'clean' task has
-// already run and the watch tasks will not also run it and wipe out the 'dist' directory.
-gulp.task('build', ['annotate', 'clean', 'copy', 'coreservices', 'routeconfig', 'libs'
-                   , 'uglifyalljs', 'sass', 'minifycss', 'minifyhtml', 'grunt-merge-json:menu', 'minifyimage'
-                   , 'tscompile', 'tslint', 'jshint']);
-
-// Now creating my default task which will first incude the build tasks and dependencies to run.
-// Then the watch tasks are set up.
+// TODO: Explain what is happening.
+// Why we have Build, Watch, and Default
+// I was able to shave a second off by combining many tasks to run in parallel.
 
 gulp.task('default', ['build'], function () {
-    gulp.watch(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!src/**/*.min.js'], ['annotate','watch:copy']);
-    //gulp.watch('styl/**/*.styl', styles);
-    //gulp.watch('js/**/*.js', scripts);
+
+});
+
+gulp.task('build', function() {
+      runSequence('clean-dist',
+                'annotate',
+                'copy',
+                ['coreservices', 'routeconfig', 'sass', 'tscompile', 'libs', 'grunt-merge-json:menu', 
+                    'tslint', 'jshint', 'minifyhtml', 'minifyimage'],
+                ['uglifyalljs', 'minifycss'],
+                'watch'
+              );
+});
+
+gulp.task('watch', function() {
+    
+    gulp.watch(['src/**/*'], function() { 
+        // console.log('watch is executing...');
+        runSequence('copy',
+                ['coreservices', 'routeconfig', 'sass', 'tscompile', 'libs', 'grunt-merge-json:menu', 
+                    'tslint', 'jshint', 'minifyhtml', 'minifyimage'],
+                ['uglifyalljs', 'minifycss']
+              );
+    });
+    
+    // // Any change in the 'src' folder is copies over to 'dist'.
+    // gulp.watch(['src/**/*', 
+    //     '!src/core/common/**/*', '!src/core/config/route.config.js', '!src/apps/**/route.config.js'], 
+    //     function() { runSequence('annotate', 'copy' );  });
+    // 
+    // // concatinate all mashup core common js.
+    // gulp.watch(['src/core/common/**/*'], function() { runSequence('coreservices');  });
+    // 
+    // // concatinate all routeconfig.js files.
+    // gulp.watch(['src/core/config/route.config.js', 'src/apps/**/route.config.js'], function() { runSequence('routeconfig');  });
+    // 
+    
 });
 
 
-// I've added copy without the 'clean' task dependency for the watch.
-// If I can manage dependencies in the default task then I an remove them from tasks.
-gulp.task('watch:copy', function () {
-    return gulp.src('src/**/*')
-    .pipe(newer('dist'))
-    .pipe(gulp.dest('dist'));
-});
-
-
+// gulp.task('routeconfig', function () {
+//     // gulp.task('routeconfig', ['copy'], function () {
+//     return gulp.src(['src/core/config/route.config.js', 'src/apps/**/route.config.js'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))    
+//       .pipe(concat('route.config.js'))
+//       .pipe(gulp.dest('./dist/'));
+// });
+// 
+// // Note minified by this build process so it can be copied as soon as the dist is cleaned.
+// gulp.task('libs', function () {
+//     return gulp.src(['bower_components/**/*.js'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))    
+//       // .pipe(newer('dist/core/lib/'))
+//       .pipe(concat('libs.js'))
+//       .pipe(gulp.dest('dist/core/lib/'));
+// });
+// 
+// gulp.task('uglifyalljs', function () {
+//     //gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
+//     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))    
+//      .pipe(sourcemaps.init())
+//     //  .pipe(newer('dist/./'))
+//      .pipe(uglify())
+//      .pipe(rename({
+//          extname: '.min.js'
+//      }))
+//      .pipe(sourcemaps.write('./'))
+//      .pipe(gulp.dest('dist/./'));
+// });
+// 
+// gulp.task('minifycss', function () {
+//     //gulp.task('minifycss', ['copy', 'jshint'], function () {
+//     return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))    
+//     //  .pipe(newer('dist/./'))
+//      .pipe(sourcemaps.init())
+//      .pipe(minifycss())
+//      .pipe(rename({
+//          extname: '.min.css'
+//      }))
+//      .pipe(sourcemaps.write('./'))
+//      .pipe(gulp.dest('dist/./'));
+// });
+// 
+// gulp.task('minifyhtml', function () {
+//     //gulp.task('minifyhtml', ['copy'], function () {
+//     return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))    
+//     //  .pipe(newer('dist/./'))
+//      .pipe(sourcemaps.init())
+//      .pipe(minifyhtml())
+//      .pipe(rename({
+//          extname: '.min.html'
+//      }))
+//      .pipe(sourcemaps.write('./'))
+//      .pipe(gulp.dest('dist/./'));
+// });
+// 
+// gulp.task('minifyimage', function () {
+//     //gulp.task('minifyimage', ['copy'], function () {
+//     return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))     
+//     // .pipe(newer('dist/./'))
+//     .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
+//     .pipe(gulp.dest('dist/./'));
+// });
+// 
+// 
+// gulp.task('tscompile', function () {
+//     //gulp.task('tscompile', ['copy'], function () {
+//     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))
+//     // .pipe(newer('dist/./'))  
+//     .pipe(sourcemaps.init())
+//     .pipe(ts({
+//         target: 'ES5',
+//         declarationFiles: false,
+//         noExternalResolve: true
+//     }))
+// 
+//     // Exporting the ES5 .js file.  This is never used so you can remove the following two lines.
+//     // You might want to keep them so you can evaluate how TypeScript is transpiling your JavaScript.
+//     // This also gives JSHint a shot at linting the JavaScript version of your TypeScript code.
+//     .pipe(rename({ extname: '.js' }))
+//     .pipe(gulp.dest('dist/./'))
+// 
+//     // Creating the optimized JavaScript file.
+//     .pipe(uglify())
+//     .pipe(rename({ extname: '.min.js' }))
+//     .pipe(sourcemaps.write('./'))
+//     .pipe(gulp.dest('dist/./'));
+// });
+// 
+// 
+// gulp.task('sass', function () {
+//     //gulp.task('sass', ['copy'], function () {
+//     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))
+//        
+//     //  .pipe(newer('dist/./'))
+//         .pipe(sass())
+//         // Catch any SCSS errors and prevent them from crashing gulp
+//         .on('error', function (error) {
+//             console.error(error);
+//             this.emit('end');
+//         })
+//         .pipe(gulp.dest('dist/./'));
+// 
+// });
+// 
+// 
+// gulp.task('tslint', function () {
+//     //gulp.task('tslint', ['copy'], function () {
+//     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       }))
+//        
+//     //  .pipe(newer('dist/./'))
+//         .pipe(tslint())
+//         .pipe(tslint.report('verbose', {
+//             emitError: false,
+//             sort: true,
+//             bell: true
+//         }));
+// });
+// 
+// // Make sure this doesn't run until all JavaScript is ready.  IE: If TypeScript is added then
+// // either execute as part of the transpilation from TypeScript to JavaScript or create a dependency
+// // ,here, for the Transpilation task to complete before starting jshint.
+// // Long term all JavaScript will come from TypeScript and will simplify and speed up this task overall.
+// gulp.task('jshint', function () {
+//     //gulp.task('jshint', ['copy', 'tscompile'], function () {
+//     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
+//       .pipe(plumber({
+//         errorHandler: onError
+//       })) 
+//       .pipe(jshint('.jshintrc'))
+//       .pipe(jshint.reporter(stylish))
+//       .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
+//     ;
+// });
+// 
