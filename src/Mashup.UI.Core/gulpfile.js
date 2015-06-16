@@ -4,28 +4,27 @@ var onError = function (err) {
 };
 
 var gulp = require('gulp')
-    , debug = require('gulp-debug')
-    , clean = require('gulp-clean')
-    , concat = require('gulp-concat')
-    , uglify = require('gulp-uglify')
-    , rename = require('gulp-rename')
-    , sourcemaps = require('gulp-sourcemaps')
-    , ngAnnotate = require('gulp-ng-annotate')
-    , plumber = require('gulp-plumber')
-    , minifycss = require('gulp-minify-css')
-    , minifyhtml = require('gulp-minify-html')
-    , imagemin = require('gulp-imagemin')
-    , pngquant = require('imagemin-pngquant')
-    , jshint = require('gulp-jshint')
-    , stylish = require('jshint-stylish')
-    , jshinthtmlreporter = require('gulp-jshint-html-reporter')
-    , ts = require('gulp-typescript')
-    , tslint = require('gulp-tslint')
-    , tsstylish = require('gulp-tslint-stylish')
-    , sass = require('gulp-sass')
-    , uncss = require('gulp-uncss')
-    , newer = require('gulp-newer')
-    , runSequence = require('run-sequence')
+    , debug                 = require('gulp-debug')
+    , clean                 = require('gulp-clean')
+    , concat                = require('gulp-concat')
+    , uglify                = require('gulp-uglify')
+    , rename                = require('gulp-rename')
+    , sourcemaps            = require('gulp-sourcemaps')
+    , ngAnnotate            = require('gulp-ng-annotate')
+    , plumber               = require('gulp-plumber')
+    , minifycss             = require('gulp-minify-css')
+    , minifyhtml            = require('gulp-minify-html')
+    , imagemin              = require('gulp-imagemin')
+    , pngquant              = require('imagemin-pngquant')
+    , jshint                = require('gulp-jshint')
+    , stylish               = require('jshint-stylish')
+    , jshinthtmlreporter    = require('gulp-jshint-html-reporter')
+    , ts                    = require('gulp-typescript')
+    , tslint                = require('gulp-tslint')
+    , tsstylish             = require('gulp-tslint-stylish')
+    , sass                  = require('gulp-sass')
+    , newer                 = require('gulp-newer')
+    , runSequence           = require('run-sequence')
 ;
 
 // -------------------------------------------------
@@ -113,14 +112,12 @@ gulp.task('uglifyalljs', function () {
 
 gulp.task('minifycss', function () {
     //gulp.task('minifycss', ['copy', 'jshint'], function () {
-    return gulp.src(['dist/**/*.css', '!/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
+    return gulp.src(['dist/**/*.css', '!dist/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
     //  .pipe(newer('dist/./'))
-      .pipe(uncss({
-          html: ['dist/**/*.html', '!dist/**/*.min.html', '!dist/core/lib/**/*']
-      }))
+      
      .pipe(sourcemaps.init())
      .pipe(minifycss())
      .pipe(rename({
