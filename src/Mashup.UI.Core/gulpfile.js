@@ -73,7 +73,6 @@ gulp.task('coreservices', function () {
 });
 
 gulp.task('routeconfig', function () {
-    // gulp.task('routeconfig', ['copy'], function () {
     return gulp.src(['src/core/config/route.config.js', 'src/apps/**/route.config.js'])
       .pipe(plumber({
           errorHandler: onError
@@ -87,19 +86,16 @@ gulp.task('libs', function () {
       .pipe(plumber({
           errorHandler: onError
       }))
-      // .pipe(newer('dist/core/lib/'))
       .pipe(concat('libs.js'))
       .pipe(gulp.dest('dist/core/lib/'));
 });
 
 gulp.task('uglifyalljs', function () {
-    //gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
      .pipe(sourcemaps.init())
-    //  .pipe(newer('dist/./'))
      .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
@@ -109,13 +105,10 @@ gulp.task('uglifyalljs', function () {
 });
 
 gulp.task('minifycss', function () {
-    //gulp.task('minifycss', ['copy', 'jshint'], function () {
     return gulp.src(['dist/**/*.css', '!dist/**/*.min.css', '!dist/core/lib/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
-    //  .pipe(newer('dist/./'))
-      
      .pipe(sourcemaps.init())
      .pipe(minifycss())
      .pipe(rename({
@@ -126,12 +119,10 @@ gulp.task('minifycss', function () {
 });
 
 gulp.task('minifyhtml', function () {
-    //gulp.task('minifyhtml', ['copy'], function () {
     return gulp.src(['dist/**/*.html', '!/**/*.min.html', '!dist/core/lib/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
-    //  .pipe(newer('dist/./'))
      .pipe(sourcemaps.init())
      .pipe(minifyhtml())
      .pipe(rename({
@@ -142,59 +133,45 @@ gulp.task('minifyhtml', function () {
 });
 
 gulp.task('minifyimage', function () {
-    //gulp.task('minifyimage', ['copy'], function () {
     return gulp.src(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
       .pipe(plumber({
           errorHandler: onError
       }))
-    // .pipe(newer('dist/./'))
     .pipe(imagemin({ progressive: true, optimizationLevel: 7, use: [pngquant()] }))
     .pipe(gulp.dest('dist/./'));
 });
 
 
 gulp.task('tscompile', function () {
-    //gulp.task('tscompile', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
       .pipe(plumber({
           errorHandler: onError
       }))
-    // .pipe(newer('dist/./'))  
     .pipe(sourcemaps.init())
     .pipe(ts({
         target: 'ES5',
         declarationFiles: false,
         noExternalResolve: true
     }))
-
-    // Exporting the ES5 .js file.  This is never used so you can remove the following two lines.
-    // You might want to keep them so you can evaluate how TypeScript is transpiling your JavaScript.
-    // This also gives JSHint a shot at linting the JavaScript version of your TypeScript code.
     .pipe(rename({ extname: '.js' }))
     .pipe(gulp.dest('dist/./'));
 });
 
 
 gulp.task('sass', function () {
-    //gulp.task('sass', ['copy'], function () {
     gulp.src('./dist/**/*.scss', { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
-
-    //  .pipe(newer('dist/./'))
         .pipe(sass())
         .pipe(gulp.dest('dist/./'));
 });
 
 gulp.task('tslint', function () {
-    //gulp.task('tslint', ['copy'], function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
-      .pipe(plumber({
+        .pipe(plumber({
           errorHandler: onError
-      }))
-
-    //  .pipe(newer('dist/./'))
+        }))
         .pipe(tslint())
         .pipe(tslint.report('verbose', {
             emitError: false,
@@ -246,18 +223,8 @@ gulp.task('default', function () {
               'watch'
             );
 });
+
 gulp.task('watch', function () {
-
-    // // Performs every operation except the clean-dist.
-    // gulp.watch(['src/**/*'], function() { 
-    //     // console.log('watch is executing...');
-    //     runSequence('annotate', 'copy',
-    //             ['coreservices', 'routeconfig', 'sass', 'tscompile', 'libs', 'grunt-merge-json:menu', 
-    //                 'tslint', 'jshint', 'minifyhtml', 'minifyimage'],
-    //             ['uglifyalljs', 'minifycss']
-    //           );
-    // });
-
 
     // ---------------------------------------------------------------
     // Watching JS files
