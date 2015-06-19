@@ -4,7 +4,6 @@ var onError = function (err) {
 };
 
 var gulp = require('gulp')
-    , debug                 = require('gulp-debug')
     , clean                 = require('gulp-clean')
     , concat                = require('gulp-concat')
     , uglify                = require('gulp-uglify')
@@ -38,7 +37,7 @@ require('gulp-grunt')(gulp, {
 // -------------------------------------------------
 
 gulp.task('annotate', function () {
-    return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
+    return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!src/**/*.min.js'], { base: 'src/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
@@ -59,7 +58,7 @@ gulp.task('copy', function () {
       .pipe(plumber({
           errorHandler: onError
       }))
-    .pipe(newer('dist'))  // This is the only thing that seems to take advantage of newer. The rest failt to initially build if we use newer.
+    .pipe(newer('dist')) 
     .pipe(gulp.dest('dist'));
 });
 
@@ -83,7 +82,6 @@ gulp.task('routeconfig', function () {
       .pipe(gulp.dest('./dist/'));
 });
 
-// Note minified by this build process so it can be copied as soon as the dist is cleaned.
 gulp.task('libs', function () {
     return gulp.src(['bower_components/**/*.js'])
       .pipe(plumber({
