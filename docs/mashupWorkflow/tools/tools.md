@@ -103,6 +103,19 @@ Updating NodeJS
 
 - http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
     
+Updating NPM Package
+
+    Identify what NPM modules are out of date.
+    
+    Display colored rows
+    npm outdated -–depth=0
+
+    Display in json which includes current, wanted, latest version numbers
+    npm outdated –-json -–depth=0
+
+    To update packages one at a time
+    npm install [package-name]@* [save?]
+    npm install grunt-contrib-uglify@* --save-dev
 
 
 #Utilities
