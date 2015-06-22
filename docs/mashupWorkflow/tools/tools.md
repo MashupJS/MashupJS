@@ -121,8 +121,6 @@ To update packages one at a time
 ###Git
 I only use Git because of Bower.  I don't use it for source control.
 
-https://dl.dropboxusercontent.com/u/11934522/tools/Git/Git-1.9.5-preview20150319.exe
-
 **[Git 1.9.5](https://dl.dropboxusercontent.com/u/11934522/tools/Git/Git-1.9.5-preview20150319.exe)**
 
 #Utilities
