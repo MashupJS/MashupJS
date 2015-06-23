@@ -24,15 +24,15 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
  1. Install NodeJS
  2. Install gulp
-	 -`npm install gulp -g`
-	 -`npm install gulp --save-dev`
+	 - `npm install gulp -g`
+	 - `npm install gulp --save-dev`
  3. Install bower
  4. Download and unzip this repository
  5. Create a place to work with the "src" folder
  5. Install npm packages
-	 -`npm install`
+	 - `npm install`
  6. Install bower packages
-	 -`bower install`
+	 - `bower install`
  6. `gulp`
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
