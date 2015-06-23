@@ -33,7 +33,8 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 	 - `npm install`
  6. Install bower packages
 	 - `bower install`
- 6. `gulp`
+ 6. Build the project
+	 - `gulp`
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
