@@ -23,11 +23,13 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 ##Getting Started
 
  1. Install NodeJS
- 2. Create a working directory and open a CLI to it
- 3.  `npm install mashupjs`
- 4. Navigate to `node_modules\mashupjs`
+ 2. Install gulp
+ 3. Install bower
+ 4. Download and unzip this repository
+ 5. Create a place to work with the "src" folder
  5. `npm install`
- 6. `grunt` or `gulp` *(note: not yet gulp)*
+ 6. `bower install`
+ 6. `gulp`
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
 
