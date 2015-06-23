@@ -4,19 +4,18 @@
         "curly": true,
         "eofline": false,
         "forin": true,
-        "indent": [ true, 4 ],
+        "indent": [true, 4],
         "label-position": true,
         "label-undefined": true,
-        "max-line-length": [ true, 140 ],
+        "max-line-length": [true, 140],
         "no-arg": true,
         "no-bitwise": true,
-        "no-console": [
-            true,
-            "debug",
-            "info",
-            "time",
-            "timeEnd",
-            "trace"
+        "no-console": [true,
+          "debug",
+          "info",
+          "time",
+          "timeEnd",
+          "trace"
         ],
         "no-construct": true,
         "no-debugger": true,
@@ -31,25 +30,22 @@
         "no-unused-variable": false,
         "no-unreachable": true,
         "no-use-before-declare": true,
-        "one-line": [
-            true,
-            "check-open-brace",
-            "check-catch",
-            "check-else",
-            "check-whitespace"
+        "one-line": [true,
+          "check-open-brace",
+          "check-catch",
+          "check-else",
+          "check-whitespace"
         ],
-        "quotemark": [ true, "single" ],
+        "quotemark": [true, "single"],
         "radix": true,
         "semicolon": true,
-        "triple-equals": [ true, "allow-null-check" ],
+        "triple-equals": [true, "allow-null-check"],
         "variable-name": false,
-        "whitespace": [
-            true,
-            "check-branch",
-            "check-decl",
-            "check-operator",
-            "check-separator"
+        "whitespace": [true,
+          "check-branch",
+          "check-decl",
+          "check-operator",
+          "check-separator"
         ]
     }
 }
-

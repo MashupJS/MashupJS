@@ -1,16 +1,20 @@
-﻿
 var onError = function (err) {
     console.log(err);
 };
 
 var gulp = require('gulp')
-    , clean                 = require('gulp-clean')
-    , concat                = require('gulp-concat')
     , uglify                = require('gulp-uglify')
     , rename                = require('gulp-rename')
     , sourcemaps            = require('gulp-sourcemaps')
-    , ngAnnotate            = require('gulp-ng-annotate')
+    , runSequence           = require('run-sequence')
     , plumber               = require('gulp-plumber')
+    , ngAnnotate            = require('gulp-ng-annotate')
+    , clean                 = require('gulp-clean')
+    , newer                 = require('gulp-newer')
+    , concat                = require('gulp-concat')
+    , rename                = require('gulp-rename')
+    , uglify                = require('gulp-uglify')
+    , sourcemaps            = require('gulp-sourcemaps')
     , minifycss             = require('gulp-minify-css')
     , minifyhtml            = require('gulp-minify-html')
     , imagemin              = require('gulp-imagemin')
@@ -22,19 +26,9 @@ var gulp = require('gulp')
     , tslint                = require('gulp-tslint')
     , tsstylish             = require('gulp-tslint-stylish')
     , sass                  = require('gulp-sass')
-    , newer                 = require('gulp-newer')
-    , runSequence           = require('run-sequence')
-;
+    , watch                 = require('gulp-watch')
 
-// -------------------------------------------------
-// Grunt configuration
-require('gulp-grunt')(gulp, {
-    // These are the default options but included here for readability.
-    base: null,
-    prefix: 'grunt-',
-    verbose: false
-});
-// -------------------------------------------------
+;
 
 gulp.task('annotate', function () {
     return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!src/**/*.min.js'], { base: 'src/./' })
@@ -63,7 +57,6 @@ gulp.task('copy', function () {
 });
 
 gulp.task('coreservices', function () {
-    // gulp.task('coreservices', ['copy'], function () {
     return gulp.src('src/core/common/**/*')
       .pipe(plumber({
           errorHandler: onError
@@ -82,20 +75,31 @@ gulp.task('routeconfig', function () {
 });
 
 gulp.task('libs', function () {
-    return gulp.src(['bower_components/**/*.js'])
+    return gulp.src(['bower_components/**//bootstrap/dist/js/bootstrap.min.js'
+                    , 'bower_components/**//normalize.css/normalize.css'
+                    , 'bower_components/**//fontawesome/css/font-awesome.min.css'
+                    , 'bower_components/**/fontawesome/fonts/*.*'
+                    , 'bower_components/**//jquery/dist/jquery.min.js'
+                    , 'bower_components/**//angular/*.min.js'
+                    , 'bower_components/**//angular-route/angular-route.min.js'
+                    , 'bower_components/**//angular-sanitize/angular-sanitize.min.js'
+                    , 'bower_components/**//angular-bootstrap/ui-bootstrap-tpls.min.js'
+                    , 'bower_components/**//lodash/lodash.min.js'])
       .pipe(plumber({
           errorHandler: onError
       }))
-      .pipe(concat('libs.js'))
-      .pipe(gulp.dest('dist/core/lib/'));
+      //.pipe(concat('libs.js'))
+      .pipe(gulp.dest('dist/core/lib/bower/./'));
 });
 
 gulp.task('uglifyalljs', function () {
+    //gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
      .pipe(sourcemaps.init())
+    //  .pipe(newer('dist/./'))
      .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
@@ -141,6 +145,28 @@ gulp.task('minifyimage', function () {
     .pipe(gulp.dest('dist/./'));
 });
 
+// -------------------------------------------------
+// Grunt configuration
+require('gulp-grunt')(gulp, {
+    // These are the default options but included here for readability.
+    base: null,
+    prefix: 'grunt-',
+    verbose: false
+});
+// -------------------------------------------------
+
+gulp.task('jshint', function () {
+    //gulp.task('jshint', ['copy', 'tscompile'], function () {
+    return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
+      .pipe(plumber({
+          errorHandler: onError
+      }))
+      .pipe(jshint('.jshintrc'))
+      .pipe(jshint.reporter(stylish))
+      .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
+    ;
+});
+
 
 gulp.task('tscompile', function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
@@ -158,19 +184,10 @@ gulp.task('tscompile', function () {
 });
 
 
-gulp.task('sass', function () {
-    gulp.src('./dist/**/*.scss', { base: 'dist/./' })
-      .pipe(plumber({
-          errorHandler: onError
-      }))
-        .pipe(sass())
-        .pipe(gulp.dest('dist/./'));
-});
-
 gulp.task('tslint', function () {
     return gulp.src(['./dist/**/*.ts', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'])
         .pipe(plumber({
-          errorHandler: onError
+            errorHandler: onError
         }))
         .pipe(tslint())
         .pipe(tslint.report('verbose', {
@@ -180,16 +197,13 @@ gulp.task('tslint', function () {
         }));
 });
 
-gulp.task('jshint', function () {
-    //gulp.task('jshint', ['copy', 'tscompile'], function () {
-    return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
+gulp.task('sass', function () {
+    gulp.src('./dist/**/*.scss', { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
-      .pipe(jshint('.jshintrc'))
-      .pipe(jshint.reporter(stylish))
-      .pipe(jshint.reporter('gulp-jshint-html-reporter', { filename: 'jshint-output.html' }))
-    ;
+        .pipe(sass())
+        .pipe(gulp.dest('dist/./'));
 });
 
 // ---------------------------------------------------------------
@@ -207,22 +221,18 @@ gulp.task('watch:annotate', function () {
 
 
 
-
-// TODO: Explain what is happening.
-// Why we have Build, Watch, and Default
-// I was able to shave a second off by combining many tasks to run in parallel.
-
-//gulp.task('default', ['build'], function () { });
+// ----------------------------------------------------------------
+// Default Task
+// ----------------------------------------------------------------
 gulp.task('default', function () {
-    runSequence('clean-dist',
-              'annotate',
-              'copy',
-              ['coreservices', 'routeconfig', 'sass', 'tscompile', 'libs', 'grunt-merge-json:menu',
-                  'tslint', 'jshint', 'minifyhtml', 'minifyimage'],
-              ['uglifyalljs', 'minifycss'],
-              'watch'
-            );
+    runSequence('annotate', 'clean-dist', 'copy',
+                ['coreservices', 'routeconfig', 'libs', 'minifyhtml', 'minifyimage'
+                    , 'grunt-merge-json:menu', 'jshint', 'tscompile', 'tslint', 'sass']
+                , ['uglifyalljs', 'minifycss']
+                ,'watch');
 });
+
+
 
 gulp.task('watch', function () {
 
