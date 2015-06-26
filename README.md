@@ -37,9 +37,10 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 	 - `gulp`
  7. Fire up Visual Studio and load the .sln file or use your favorite IDE.
 
-If using Visual Studio change the Project (menu) --> Mashup.UI.Core properties (menu item) --> Web (tab)
-- change "Start Action" to "Specific Page" with a value of "dist/index.html".
-- The dist folder won't exist until after you've executed the gulp task.
+> If using Visual Studio change the Project (menu) --> Mashup.UI.Core properties (menu item) --> Web (tab)
+
+> - change "`Start Action`" to "`Specific Page`" with a value of "`dist/index.html`".
+> - The dist folder won't exist until after you've executed the gulp task.
 
 ##Design
 
