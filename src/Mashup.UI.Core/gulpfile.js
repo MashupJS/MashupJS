@@ -13,8 +13,6 @@ var gulp = require('gulp')
     , newer                 = require('gulp-newer')
     , concat                = require('gulp-concat')
     , rename                = require('gulp-rename')
-    , uglify                = require('gulp-uglify')
-    , sourcemaps            = require('gulp-sourcemaps')
     , minifycss             = require('gulp-minify-css')
     , minifyhtml            = require('gulp-minify-html')
     , imagemin              = require('gulp-imagemin')
@@ -93,13 +91,11 @@ gulp.task('libs', function () {
 });
 
 gulp.task('uglifyalljs', function () {
-    //gulp.task('uglifyalljs', ['copy', 'coreservices', 'routeconfig', 'tscompile'], function () {
     return gulp.src(['dist/**/*.js', '!/**/*.min.js', '!dist/core/lib/**/*', '!dist/core/common/**/*'], { base: 'dist/./' })
       .pipe(plumber({
           errorHandler: onError
       }))
      .pipe(sourcemaps.init())
-    //  .pipe(newer('dist/./'))
      .pipe(uglify())
      .pipe(rename({
          extname: '.min.js'
@@ -156,7 +152,6 @@ require('gulp-grunt')(gulp, {
 // -------------------------------------------------
 
 gulp.task('jshint', function () {
-    //gulp.task('jshint', ['copy', 'tscompile'], function () {
     return gulp.src(['./dist/**/*.js', '!dist/core/lib/**/*.*', '!**/*.min.js', '!dist/core/css/**/*.*'])
       .pipe(plumber({
           errorHandler: onError
@@ -280,11 +275,5 @@ gulp.task('watch', function () {
 
 
     gulp.watch(['dist/**/*.js', '!dist/core/lib/**/*.*', '!dist/**/*.min.js', '!dist/core/css/**/*.*'], ['jshint']);
-
-    // ---------------------------------------------------------------
-    // Watching image files
-    // ---------------------------------------------------------------
-    // unable to get this watch to ever notice a file changed.  This will be handled on the initial build.
-    //gulp.watch(['dist/**/*.{png,jpg,gif,ico}', '!dist/core/lib/**/*.*', '!dist/core/css/**/*.*'], function() { runSequence('minifyimage'); });
 
 });
