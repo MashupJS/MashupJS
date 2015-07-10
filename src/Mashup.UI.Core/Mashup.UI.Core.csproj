@@ -61,6 +61,7 @@
     <Content Include="gulpfile.js" />
     <Content Include="jshint-output.html" />
     <Content Include="package.json" />
+    <Content Include="src\app.js" />
     <Content Include="src\core\css\bootstrap\paper\bootstrap.min.css" />
     <Content Include="src\core\lib\glyphicons\glyphicons-halflings-regular.eot" />
     <Content Include="src\core\lib\glyphicons\glyphicons-halflings-regular.ttf" />
@@ -310,7 +311,6 @@
     <Content Include="src\apps\mashup\welcome.html" />
     <Content Include="src\apps\mashup\~appConfig\menu.json.txt" />
     <Content Include="src\apps\mashup\~appConfig\route.config.js" />
-    <Content Include="src\core\app.js" />
     <Content Include="src\core\common\data\data.service.js" />
     <Content Include="src\core\common\directives\New Text Document.txt" />
     <Content Include="src\core\common\filters\New Text Document.txt" />
