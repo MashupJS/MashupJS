@@ -32,7 +32,7 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
          var dbCacheReady = false;
          dbCache.onReady(function () {
              dbCacheReady = true;
-             console.log('mashCacheDB is ready');
+             console.log('mashCacheDB is ready.  [cacheService]');
          });
          // -------------------------------------------------------------------------
 
@@ -112,9 +112,19 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
              // waiting for dbCacheReady because accessing the cache to early causes an error.
              (function wait() {
                  if (dbCacheReady) {
-                     dbCache.executeSql('SELECT * FROM \'' + cacheName + '\'').then(function (record) {
-                         deferred.resolve(record);
-                     });
+
+                     try {
+                         dbCache.executeSql('SELECT * FROM \'' + cacheName + '\'').then(function (record) {
+                             if (record === 'N') { deferred.resolve(''); }
+                             else { deferred.resolve(record); }
+                         });
+
+                     }
+                     catch (e) {
+                         // no data store for the cache was found so it is considered stale.
+                         deferred.resolve('NoCache');
+                     }
+
                  } else { setTimeout(wait, 500); }
              })();
              return deferred.promise;
@@ -143,79 +153,82 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                  updateCacheAge('mashCacheStart');
              }
          });
-         // --------------------------------------------------------------------------------
-         // --------------------------------------------------------------------------------
-         // --------------------------------------------------------------------------------
 
-         var getHeartBeatUrl = function (webApiUrl, useHeartBeatConvention, heartBeatUrl) {
-             var result = '';
-
-             if (useHeartBeatConvention === true) {
-                 result = getHeartBeatUrlByConvention(webApiUrl);
-                 return result;
-             } else {
-                 if (!heartBeatUrl) {
-                     var logObject = utility.getLogObject('No heartBeatUrl provided', 'Mashup.UI.Core',
-                         'cacheService', 'getHeartBeatUrl', 'return blank', sessionService);
-                     $log.warn('useHeartBeatConvention was falsy but no heartBeatUrl provided.', logObject);
-                 }
-
-                 // regcheck for valid URL
-                 // if url is not a valid URL then return '' and log warning.
-                 // else return the heartBeatUrl as is.
-                 return heartBeatUrl;
-             }
-
-             return result;
-         };
-
-         var getHeartBeatUrlByConvention = function (webApiUrl) {
-             var result = '';
-
-             // This is not a configurable convention.  This convintion simply adds "api/HearBeat/" to the end of a URL.
-
-             // http://www.sitename.com/article/2009/09/14/this-is-an-article/
-             // http://stackoverflow.com/questions/1420881/javascript-jquery-method-to-find-base-url-from-a-string
-
-             var parseUrl = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
-             var parts = parseUrl.exec(webApiUrl);
-             result = parts[1] + ':' + parts[2] + parts[3] + ':' + parts[4] + '/api/HeartBeat/';
-
-             return result;
-         };
 
          return {
 
              dbCache: dbCache,
 
+             putCache: function (cacheName, schema, data) {
+
+                 //dbCache.put({ name: cacheName, keyPath: 'id' }, { id: cacheName, data: data });
+                 dbCache.put(schema, data);
+                 updateCacheAge(cacheName);
+
+             },
+
              // Retrieve cache
              getCache: function (cacheName) {
                  var deferred = $q.defer();
+
                  getCache(cacheName).then(function (data) {
                      deferred.resolve(data);
+                 }, function (reason) {
+                     deferred.reject();
                  });
+
                  return deferred.promise;
+
              },
-             getData: function (cacheName, schema, webApiUrl, staleMinutes, useHeartBeatConvention, heartBeatUrl, heartBeatName) {
+             getData: function (cacheName, schema, options, staleMinutes,
+                 heartBeatOptions) {
 
                  var deferred = $q.defer();
 
-                 heartBeatUrl = getHeartBeatUrl(webApiUrl, useHeartBeatConvention, heartBeatUrl);
-
+                 var webApiUrl = options.url;
+                 
                  // Check if the cache is stale.
                  isCacheStale(cacheName, staleMinutes).then(function (cacheIsStale) {
                      // If cache stale then get new data.
 
                      // if no application name is provided for the detect service to use then the url is used.
                      // this is mostly used for logging purposes.
-                     heartBeatName = heartBeatName || heartBeatUrl;
-                     heartBeatName = heartBeatName || webApiUrl;
+                     if (!heartBeatOptions.heartBeatName) {
+                         heartBeatOptions.heartBeatName = heartBeatOptions.heartBeatName || webApiUrl;
+                     }
+                     else {
+                         heartBeatOptions.heartBeatName = heartBeatOptions.heartBeatName || heartBeatOptions.heartBeatUrl;
+                     }
 
-                     var webApiAvailable = detectService.detect(heartBeatUrl, heartBeatName);
+
+                     var webApiAvailable = detectService.detect(heartBeatOptions.heartBeatUrl, heartBeatOptions.heartBeatName);
 
                      if (cacheIsStale && webApiAvailable) {
                          // cache has become stale so retrieving fresh data.
-                         $http.get(webApiUrl, { withCredentials: true })
+                         // -------------------
+                         // Example of options
+                         // -------------------
+                         //var options = {
+                         //    url: 'http://localhost:50004/api/ExampleData/Items/Search2/',
+                         //    method: 'POST',
+                         //    data: JSON.stringify(myData),
+                         //    withCredentials: true,
+                         //    contentType: 'application/json'
+                         //}
+                         // -------------------
+                         // Example of options.params
+                         // -------------------
+                         //var params = {
+                         //    id: vm.id,
+                         //    action: vm.action,
+                         //    completed: vm.completed,
+                         //    myDecimal: vm.myDecimal,
+                         //    myDouble: vm.myDouble,
+                         //    myLong: vm.myLong,
+                         //    contact: vm.contact,
+                         //    doneWithIndeterminate: vm.doneCheckedState
+                         //};
+                         $http(options)
                              .success(function (data) {
 
                                  //#region
@@ -243,12 +256,13 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                                  }
                                  catch (err) {
 
-                                     var logObject = utility.getLogObject('mashCasheDelete', 'Mashup.UI.Core', 'cacheService',
-                                         'getData', 'Error', sessionService);
+                                     var logObject = utility.getLogObject('mashCasheDelete', 'Mashup.UI.Core',
+                                         'cacheService', 'getData', 'Error', sessionService);
                                      $log.error(err, logObject);
                                      indexedDB.deleteDatabase('mashCacheDB');
-                                     $log.log('IndexedDB error on updating a cache. Deleted database to allow new schema.', logObject);
-                                     
+                                     $log.log('IndexedDB error on updating a cache. Deleted database',
+                                         logObject);
+
                                  }
 
                                  // return web api data to the client
@@ -260,7 +274,7 @@ mashupApp.service('cacheService', ['$http', '$q', '$log', 'utility', 'detectServ
                              // if the call fails then return the current cache.
                              // TODO: make an async call to let someone know a service failed?
                              // alert('Web Api Error');
-                             detectService.failed(heartBeatUrl, heartBeatName);
+                             detectService.failed(heartBeatOptions.heartBeatUrl, heartBeatOptions.heartBeatName);
                              getCache(cacheName).then(function (data) {
                                  // async alert()
                                  // setTimeout(function () { alert('cache data'); }, 1);
