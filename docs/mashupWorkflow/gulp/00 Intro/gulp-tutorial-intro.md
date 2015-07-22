@@ -49,7 +49,11 @@ Another common task is concatenating multiple JavaScript files together as this 
 
 The MashupJS is a bootstrap for creating large enterprise applications.  Its folder structure and Gulp implementation make it easy for development teams to build modules in isolation then combine their code with the MashupJS at build.  The MashupJS is used as a code base for these tutorials to work against.
 
+
 <br>
+
+##Source code for this tutorial
+
 
 Start the tutorial using this code base:  
 ####https://github.com/MashupJS/gulp-tutorial
@@ -59,3 +63,9 @@ Start the tutorial using this code base:
 A completed tutorial can be found here:  
 ####https://github.com/MashupJS/gulp-tutorial-end-result
 
+<br>
+
+ <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/bookcoverimage.PNG" alt="Smiley face" height="100" width="100"> 
+
+This tutorial and more can be found in
+####[Gulp - Quick guide to getting up and running today](http://www.amazon.com/Gulp-Quick-guide-getting-running-ebook/dp/B010NXMFF6/)

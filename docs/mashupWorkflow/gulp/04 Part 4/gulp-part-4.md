@@ -21,7 +21,7 @@ tags:
 
 
 The **Mashup** is a learning tool that serves as a seed project for line-of-business applications.  It's goal is a shortened *learning curve* for building modern business applications and the reduction of *technical debt*.
-
+<br>
 
  <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/bookcoverimage.PNG" alt="Smiley face" height="100" width="100"> 
 
@@ -52,7 +52,7 @@ npm install run-sequence --save-dev
 ```
 , runSequence = require('run-sequence')
 ```
-
+<br>
 All tasks created in this tutorial will have no other dependencies except the tasks we execute via the Gulp default task.  The runSequence function will manage our dependencies.  Creating dependencies is a simple option provided by Gulp but this causes tight coupling between tasks.  
 
 <br>
@@ -91,17 +91,17 @@ gulp.task('default', function() { runSequence('clean-dist',
 
 ####Here is the sequence of execution
 1 clean-dist
-
+<br>
 2 annotate
-
+<br>
 3 copy
-
+<br>
 4 (run in parallel) coreservices, routeconfig, sass, tscompile, libs, grunt-merge-json:menu, tslint, jshint, minifyhtml, minifyimage
-
+<br>
 5 uglifyalljs, minifycss
-
+<br>
 6 watch
-
+<br>
 These are all tasks you will have created by the end of this multi-part tutorial.
 
 ####Optimizing task performance
@@ -114,3 +114,24 @@ Gulp 4.0 will have new methods series() and parallel(). This will be the preferr
 <br>
 
 Orchestrator – is an NPM module that supports series and parallel processing.
+
+
+<br>
+
+##Source code for this tutorial
+
+
+Start the tutorial using this code base:  
+####https://github.com/MashupJS/gulp-tutorial
+
+<br>
+
+A completed tutorial can be found here:  
+####https://github.com/MashupJS/gulp-tutorial-end-result
+
+<br>
+
+ <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/bookcoverimage.PNG" alt="Smiley face" height="100" width="100"> 
+
+This tutorial and more can be found in
+####[Gulp - Quick guide to getting up and running today](http://www.amazon.com/Gulp-Quick-guide-getting-running-ebook/dp/B010NXMFF6/)

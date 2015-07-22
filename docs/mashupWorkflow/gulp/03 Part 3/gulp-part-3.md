@@ -106,3 +106,23 @@ Gulp.task([task-name], function() {
 
 > Notice the “function” keyword.  One of the more significant differences between Gulp and Grunt is configuration versus code.  Gulp subscribes to a “code” approach while Grunt subscribes to “configuration”. 
 
+
+<br>
+
+##Source code for this tutorial
+
+
+Start the tutorial using this code base:  
+####https://github.com/MashupJS/gulp-tutorial
+
+<br>
+
+A completed tutorial can be found here:  
+####https://github.com/MashupJS/gulp-tutorial-end-result
+
+<br>
+
+ <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/bookcoverimage.PNG" alt="Smiley face" height="100" width="100"> 
+
+This tutorial and more can be found in
+####[Gulp - Quick guide to getting up and running today](http://www.amazon.com/Gulp-Quick-guide-getting-running-ebook/dp/B010NXMFF6/)

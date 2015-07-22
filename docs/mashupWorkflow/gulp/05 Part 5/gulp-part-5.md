@@ -32,4 +32,82 @@ This tutorial and more can be found in
 #Gulp Tutorial - Part 5
 ##Handling Errors with Plumber
 
-The ability to execute Gulp tasks in sequence and parallel is still a moving target.  By default, Gulp leans toward executing all tasks in parallel because that is the more performant approach. 
+<br>
+
+####From the command-line install
+npm install gulp-plumber `--save-dev`
+
+<br>
+
+####Add the module to the Gulp file
+
+    , plumber = require('gulp-plumber');
+
+<br>
+
+Add this to the top of your script file.  Our **plumber** will use this function for logging errors to the console.
+
+<br>
+
+```javascript
+var onError = function(err) {
+    console.log(err);
+};
+```
+
+<br>
+
+Here is what a task might look like with the **plumber()** function. 
+*(Don’t add this code)*
+
+<br>
+
+```javascript
+// ---------------------------------------------------------------
+// Watch specific tasks.  This is to support the use of newer.
+// ---------------------------------------------------------------
+gulp.task('watch:annotate', function () {
+    return gulp.src(['src/index.controller.js', 'src/core/**/*.js', 'src/apps/**/*.js', '!src/core/lib/**/*', '!/**/*.min.js'], { base: 'src/./' })
+      .pipe(plumber({
+        errorHandler: onError
+      })) 
+      .pipe(newer('src/./'))
+      .pipe(ngAnnotate())
+      .pipe(gulp.dest('src/./'));
+});
+```
+
+<br>
+
+The following tutorials will implement this plumber function with each task we create.
+
+<br>
+
+Currently, your `gulpfile.js` should look like this:
+
+<br>
+
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/05%20Part%205/1.png)
+
+<br>
+
+
+<br>
+
+##Source code for this tutorial
+
+
+Start the tutorial using this code base:  
+####https://github.com/MashupJS/gulp-tutorial
+
+<br>
+
+A completed tutorial can be found here:  
+####https://github.com/MashupJS/gulp-tutorial-end-result
+
+<br>
+
+ <img src="https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/bookcoverimage.PNG" alt="Smiley face" height="100" width="100"> 
+
+This tutorial and more can be found in
+####[Gulp - Quick guide to getting up and running today](http://www.amazon.com/Gulp-Quick-guide-getting-running-ebook/dp/B010NXMFF6/)
