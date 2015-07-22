@@ -1,5 +1,5 @@
 ---
-title: Gulp Tutorial - Part 2 Setup
+title: Gulp Tutorial - Part 3 Adding Plugins
 tags: 
 - AngularJS
 - Bootstrap
