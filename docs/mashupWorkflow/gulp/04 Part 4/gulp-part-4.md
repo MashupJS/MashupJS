@@ -89,18 +89,28 @@ gulp.task('default', function() { runSequence('clean-dist',
 });
 ```
 
-Here is the sequence of execution
+####Here is the sequence of execution
 1 clean-dist
+
 2 annotate
+
 3 copy
+
 4 (run in parallel) coreservices, routeconfig, sass, tscompile, libs, grunt-merge-json:menu, tslint, jshint, minifyhtml, minifyimage
+
 5 uglifyalljs, minifycss
+
 6 watch
 
 These are all tasks you will have created by the end of this multi-part tutorial.
-Optimizing task performance
+
+####Optimizing task performance
+
 Notice the number of tasks executed in step 4.  The more tasks you can run in parallel, the faster your process will be.  It’s important to optimize your process as much as possible so you can change a piece of code and immediately execute the optimized version without delay.
 
-Other options
+####Other options
 Gulp 4.0 will have new methods series() and parallel(). This will be the preferred approach once released.
+
+<br>
+
 Orchestrator – is an NPM module that supports series and parallel processing.
