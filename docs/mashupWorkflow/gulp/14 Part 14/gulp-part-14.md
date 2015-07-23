@@ -119,7 +119,7 @@ gulp.task('watch:annotate', function () {
 });
 ```
 <br>
-Add the new task to the default task
+####Add the new task to the default task
 Add the new “watch” task to the default task.  The default task will execute all the tasks in the sequence specified by the runSequence function.  The last task run is the Watch task which contains 10 individual Watch tasks.  This time, when you run the Gulp default task, the command line will not return control to you.  To break out of this, press CTRL + C and then answer the prompt with “y”.
 <br>
 ```javascript
