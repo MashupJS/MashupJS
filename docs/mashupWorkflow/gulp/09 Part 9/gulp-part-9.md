@@ -72,16 +72,15 @@ gulp.task('default', function () {
 ####Run the default task
 ```gulp```
 
+<br>
 
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/09%20Part%209/1.png)
 
+<br>
 
-
-
-
-
-
-
-
+####For more information
+https://www.npmjs.com/package/gulp-imagemin
+https://www.npmjs.com/package/imagemin-pngquant
 
 
 
