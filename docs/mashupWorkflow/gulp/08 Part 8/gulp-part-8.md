@@ -67,30 +67,16 @@ gulp.task('default', function () {
 ```
 <br>
 ####Run the default task
-<br>
 ```gulp```
 
+<br>
 
+![enter image description here](https://raw.githubusercontent.com/MashupJS/MashupJS/master/docs/mashupWorkflow/gulp/08%20Part%208/1.png)
 
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+####For more information on gulp-minify-html.
+https://www.npmjs.com/package/gulp-minify-html
 
 <br>
 
