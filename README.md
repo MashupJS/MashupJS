@@ -44,12 +44,12 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 
 ##Design
 
- - **[Directory Structure](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#directory-structure-of-mashupuicore)**
- - **[Defining Routes](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#defining-routes)**
+ - **[Directory Structure](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#directory-structure-of-mashupuicore)**
+ - **[Defining Routes](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md#defining-routes)**
  - Drop-in Application Support allowing teams to divide up their applications and combine them during deployment.
-  - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
-  - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
-  - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+  - **[Applications Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/apps/apps.md)**
+  - **[Dynamic Menu Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/config/mashupMenu.md)**
+  - **[Dynamic Routing Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/config/routeConfig.md)**
 
 
 TODO: add to Arch/Comp
@@ -60,14 +60,14 @@ TODO: add to Arch/Comp
 
 
 ##Tools
-**[Tools I use for my workflow](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/tools/tools.md)**
+**[Tools I use for my workflow](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupWorkflow/tools/tools.md)**
 
 
 ##Philosophy behind the Mashup
 
-**[Philosophies](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
+**[Philosophies](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupWorkflow/philosophy/philosophy.md)**
 
-**[Technical Debt](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)**
+**[Technical Debt](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupWorkflow/technicaldebt/technicaldebt.md)**
 
  - Reduce Technical Debt
  - Mobile First
@@ -80,7 +80,7 @@ TODO: add to Arch/Comp
 
 ##The MashupJS Style Guide
 
-**[MashupJS Style Guide](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
+**[MashupJS Style Guide](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupStyleGuides/Mashup-StyleGuide.md)**
 
 The MashupJS Style Guide describes how to use the Mashup and opinionated best practices.
 
@@ -138,14 +138,14 @@ notes - don't read this :)
 - NPM /w the Mashup
 
 ##WebApi
-**[How to Create a WebApi for MashupJS](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)**
+**[How to Create a WebApi for MashupJS](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupApi/WebApi-HowToCreateForMashup.md)**
 
-**[WebApi-Cors-Chrome](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)**
+**[WebApi-Cors-Chrome](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupApi/WebApi-Cors-Chrome.md)**
 
 
 ##MashupJS Implementations
 
-#### [Basic MashupJS](https://github.com/MashupJS/MashupJS/tree/master/src)
+#### [Basic MashupJS](https://github.com/MashupJS/mashupjs.doc/tree/master/src)
 
 This is a good place to begin.  This is the implementation referred in the **Getting Started** section of this document.
  
@@ -166,17 +166,17 @@ All applications added to the Mashup will receive many features for free.  This 
 **Here is a running list of features:**
 
  - Drop-in Application Support
-   - **[Dynamic Menu Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/mashupMenu.md)**
-   - **[Dynamic Routing Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md)**
+   - **[Dynamic Menu Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/config/mashupMenu.md)**
+   - **[Dynamic Routing Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/config/routeConfig.md)**
  - Bootstrap for Large Enterprise Applications
-	 - **[Applications Support](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md)**
+	 - **[Applications Support](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/apps/apps.md)**
  - One Code Base for all Platforms
- - **[Swappable index.html /w (SoC)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/index.html.md)**
- - **[Sessions and Authentication](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/apps/apps.md#sessions)**
+ - **[Swappable index.html /w (SoC)](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/index.html.md)**
+ - **[Sessions and Authentication](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/apps/apps.md#sessions)**
  - Integration with Active Director (easily customized for integration such as Federated Auth)
- - [**Logging:**  (Intercepts and logs $log statements for remote troubleshooting of production systems)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)
+ - [**Logging:**  (Intercepts and logs $log statements for remote troubleshooting of production systems)](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/logService/logService.md)
  - Exception Management
- - **[Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
+ - **[Cache Service](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
  - Rest Service Detection and Heartbeat Monitors
  -  Micro-library Management (update libraries in one place will update the library for all apps)
  - Hybrid-App: All applications can be converted into hybrid-mobile apps and deployed via app stores
@@ -184,21 +184,21 @@ All applications added to the Mashup will receive many features for free.  This 
  - User Session Management
  - Shared Build System
  - Shared Services, Filters, Directives, and any other custom JS code
- - **[Lazy loading of HTML templates and JavaScript modules](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/config/routeConfig.md#lazy-loading)**
+ - **[Lazy loading of HTML templates and JavaScript modules](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/config/routeConfig.md#lazy-loading)**
  - Shared User Alert System
- - **[Retrieval of Client Information for troubleshooting](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/sessionService/sessionService.md#envsession)**
- - [**Instrumentation** (easily track the pages and features users use)](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md#instrumentation)
+ - **[Retrieval of Client Information for troubleshooting](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/sessionService/sessionService.md#envsession)**
+ - [**Instrumentation** (easily track the pages and features users use)](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/logService/logService.md#instrumentation)
 
 
 ##Core Services
 
  - Alert Service
 	 - Not documented. It's a simple alert that will be replaced by John Papa's toaster.
- - **[Cache Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
- - **[Detect Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/detectService/detectService.md)**
- - **[Log Service](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/logService/logService.md)**
- - **[Utility Service Facade](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
- - [**Multi-Auth Session support** - Documentation needs updated to reflect how the new session works.](https://github.com/MashupJS/MashupJS/blob/master/docs/mashupCore/services/sessionService/sessionService.md)
+ - **[Cache Service](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/cacheService/cacheService.md)**
+ - **[Detect Service](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/detectService/detectService.md)**
+ - **[Log Service](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/logService/logService.md)**
+ - **[Utility Service Facade](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/utilityService/utilityService.md)**
+ - [**Multi-Auth Session support** - Documentation needs updated to reflect how the new session works.](https://github.com/MashupJS/mashupjs.doc/blob/master/docs/mashupCore/services/sessionService/sessionService.md)
  
 
 
