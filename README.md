@@ -29,6 +29,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 	 - `npm install bower -g`
  4. Download and unzip this repository
  5. Create a place to work with the "src" folder
+ 6. Navigate to `src/Mashup.UI.Core/`
  5. Install npm packages
 	 - `npm install`
  6. Install bower packages
