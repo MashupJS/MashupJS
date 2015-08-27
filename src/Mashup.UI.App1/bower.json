@@ -1,0 +1,25 @@
+{
+  "name": "mashupjs",
+  "version": "0.0.0",
+  "main": "dist/index.html",
+  "license": "MIT",
+  "homepage": "dist/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "normalize.css": "~3.0.3",
+    "fontawesome": "~4.3.0",
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.1",
+    "angular-bootstrap": "~0.13.0",
+    "angular": "~1.4.1",
+    "angular-sanitize": "~1.4.1",
+    "lodash": "~3.9.3"
+  }
+}
