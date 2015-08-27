@@ -23,6 +23,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 ##Getting Started
 
  1. Install NodeJS
+ 2. Open a command line
  2. Install gulp
 	 - `npm install gulp -g`
  3. Install bower
