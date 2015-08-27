@@ -57,7 +57,7 @@ The Mashup is an attempt to leverage modern web stack technologies and technique
 TODO: add to Arch/Comp
 - Much of this is in the style guide. Reference that where possible.
 - Create graphs and other artifacts that make using the Mashup easily understandable and supportable.
-- Add enough design that a company using the Mashup can consider the system well documented.
+- Add enough design that a company using the Mashup can consider the Mashup Core well documented and only document their individual applications.
 
 
 
