@@ -9,7 +9,7 @@ tags:
 - 
 ---
 
-MashupJS
+MashupJS1
 ========
 The Mashup is an attempt to leverage modern web stack technologies and techniques to address technical debt, establish an enterprise ready bootstrap, and to learn and teach AngularJS.
 
